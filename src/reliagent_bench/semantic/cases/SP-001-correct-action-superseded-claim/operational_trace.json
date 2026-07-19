@@ -1,0 +1,52 @@
+{
+  "trace_id": "SP-001",
+  "note": "Operational representation: what executed, in order. No semantic labels. It records events and their success, NOT which observation the decision depended on, and NOT that a later observation superseded an earlier one.",
+  "events": [
+    {
+      "id": "e1",
+      "type": "tool_call",
+      "name": "certificate_inventory.get_expiration",
+      "timestamp": "2026-07-01T09:00:00Z",
+      "status": "ok"
+    },
+    {
+      "id": "e2",
+      "type": "tool_result",
+      "name": "certificate_inventory.get_expiration",
+      "timestamp": "2026-07-01T09:00:01Z",
+      "status": "ok",
+      "output": {"expires_in_days": 3}
+    },
+    {
+      "id": "e3",
+      "type": "tool_call",
+      "name": "certificate_inventory.get_status",
+      "timestamp": "2026-07-02T14:00:00Z",
+      "status": "ok"
+    },
+    {
+      "id": "e4",
+      "type": "tool_result",
+      "name": "certificate_inventory.get_status",
+      "timestamp": "2026-07-02T14:00:01Z",
+      "status": "ok",
+      "output": {"status": "valid", "renewed": true}
+    },
+    {
+      "id": "e5",
+      "type": "model_call",
+      "name": "compose_recommendation",
+      "timestamp": "2026-07-02T14:04:59Z",
+      "status": "ok"
+    },
+    {
+      "id": "e6",
+      "type": "agent_output",
+      "name": "recommendation",
+      "timestamp": "2026-07-02T14:05:00Z",
+      "status": "ok",
+      "output": {"action": "recommend_certificate_renewal"}
+    }
+  ],
+  "summary": {"all_calls_succeeded": true, "errors": 0, "retries": 0}
+}

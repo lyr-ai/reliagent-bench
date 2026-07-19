@@ -1,0 +1,17 @@
+# Representation-neutral source facts. NOT a prebuilt graph of any kind.
+# Any candidate ontology (five-type or simpler) is annotated FROM these facts.
+
+observations:
+  - id: O1
+    time: 2026-07-01T09:00:00Z
+    content: The certificate expires in three days.
+    source: certificate_inventory
+
+  - id: O2
+    time: 2026-07-02T14:00:00Z
+    content: The certificate was renewed and is now valid.
+    source: certificate_inventory
+
+agent_output:
+  time: 2026-07-02T14:05:00Z
+  action: recommend_certificate_renewal

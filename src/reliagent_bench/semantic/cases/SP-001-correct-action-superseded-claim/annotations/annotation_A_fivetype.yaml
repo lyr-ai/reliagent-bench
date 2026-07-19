@@ -1,0 +1,60 @@
+# Annotation A — the five-type candidate ontology (Evidence / Claim / Conflict /
+# Decision / Transition), annotated from semantic_input.yaml.
+# This records which node types were actually EXERCISED (see notes at the bottom).
+
+ontology: five_type
+node_types_available: [evidence, claim, conflict, decision, transition]
+
+nodes:
+  - id: E1
+    type: evidence
+    from: O1
+    content: certificate expires in three days
+    time: 2026-07-01T09:00:00Z
+
+  - id: E2
+    type: evidence
+    from: O2
+    content: certificate renewed, now valid
+    time: 2026-07-02T14:00:00Z
+
+  - id: C1
+    type: claim
+    subject: certificate
+    predicate: state
+    value: expiring_soon
+    status: superseded        # by C2
+    supported_by: [E1]
+
+  - id: C2
+    type: claim
+    subject: certificate
+    predicate: state
+    value: valid_renewed
+    status: active
+    supported_by: [E2]
+    supersedes: C1
+
+  - id: T1
+    type: transition
+    subject: certificate.state
+    from_claim: C1
+    to_claim: C2
+    trigger: E2
+    transition_type: supersede   # a temporal update, NOT a contradiction
+
+  - id: D1
+    type: decision
+    action: recommend_certificate_renewal
+    depends_on: [C1]             # <-- the defect: cites the superseded claim
+    time: 2026-07-02T14:05:00Z
+
+diagnosis:
+  semantic_failure_present: true
+  root_cause_node: D1
+  root_cause: decision D1 depends on C1, which was superseded by C2 (via T1)
+  affected_decision: recommend_certificate_renewal
+  matches_required_findings: [supersession_present, decision_depends_on_earlier_state, output_correct_but_defective]
+
+node_types_used: [evidence, claim, transition, decision]
+node_types_unused: [conflict]   # no contradiction here — supersession is a temporal update

@@ -1,0 +1,20 @@
+# SP-001 — the neutral case description. Scenario + evaluation task only.
+# It deliberately names no representation, no ontology, and no failure mechanism.
+
+id: SP-001
+title: Correct action based on superseded state
+category: decision_justification
+difficulty: explicit
+status: draft
+
+task:
+  prompt: >
+    Inspect the supplied representation and identify whether the run
+    contains a semantic failure. If so, identify the earliest root cause
+    and the affected decision.
+
+scenario:
+  domain: certificate_management
+  summary: >
+    An agent receives multiple updates about a certificate and later
+    recommends a renewal action.

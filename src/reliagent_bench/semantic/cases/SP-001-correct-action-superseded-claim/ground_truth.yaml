@@ -1,0 +1,31 @@
+# What must be diagnosed — stated WITHOUT requiring any particular ontology.
+# Evaluation scores the diagnosis, not the graph structure. A smaller ontology
+# that recovers these findings passes exactly as well as a larger one.
+
+run_outcome:
+  final_action_acceptable: true
+  semantic_failure_present: true
+
+root_cause:
+  type: invalid_decision_justification
+  description: >
+    The renewal recommendation was justified using information that had
+    been superseded by a newer certificate-status observation.
+
+affected_decisions:
+  - recommend_certificate_renewal
+
+required_findings:
+  - newer evidence supersedes the earlier expiration state
+  - the decision depends on the earlier state
+  - output correctness does not remove the provenance defect
+
+acceptable_alternative_labels:
+  - stale justification
+  - superseded belief dependency
+  - outdated state used for decision
+
+not_required:
+  - a Conflict node
+  - a Transition node
+  - StateGraph-specific terminology

@@ -1,0 +1,34 @@
+# Annotation B — an independent pass from the raw facts, using the SMALLEST ontology
+# that still expresses the failure. Three concepts: Observation, a State timeline,
+# and a Decision with an `as_of` justification pointer. No Claim/Conflict/Transition
+# nodes; the state change is just an ordering in the timeline.
+
+ontology: minimal_three
+node_types_available: [observation, state_timeline, decision]
+
+observations:
+  - {id: O1, time: 2026-07-01T09:00:00Z, asserts: {certificate_state: expiring_soon}}
+  - {id: O2, time: 2026-07-02T14:00:00Z, asserts: {certificate_state: valid_renewed}}
+
+state_timeline:
+  certificate_state:
+    - {value: expiring_soon, as_of: 2026-07-01T09:00:00Z, from: O1}
+    - {value: valid_renewed, as_of: 2026-07-02T14:00:00Z, from: O2}   # current
+  current:
+    certificate_state: valid_renewed
+
+decision:
+  action: recommend_certificate_renewal
+  time: 2026-07-02T14:05:00Z
+  justified_by_state_as_of: 2026-07-01T09:00:00Z   # <-- points at the OLD timeline entry
+
+diagnosis:
+  semantic_failure_present: true
+  root_cause: >
+    the decision's justification points at the certificate_state value as_of O1
+    (expiring_soon), but the current value as_of O2 (valid_renewed) is later — the
+    decision used a non-current state value.
+  affected_decision: recommend_certificate_renewal
+  matches_required_findings: [supersession_present, decision_depends_on_earlier_state, output_correct_but_defective]
+
+concepts_used: [observation, state_timeline, decision]   # 3, vs A's 4
