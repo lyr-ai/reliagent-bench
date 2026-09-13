@@ -1,0 +1,24 @@
+{
+  "note": "Written before the first run (plan §15, §16.1). Per query: which variants are predicted to return the gold state. A mismatch between this file and an actual run is a finding to investigate, not a number to adjust.",
+  "frozen": "2026-09-13",
+  "predictions": {
+    "A-01/q1":        {"v0": false, "v4_typedmem": true},
+    "A-02/q1":        {"v0": false, "v4_typedmem": true},
+    "A-03/q1":        {"v0": true,  "v4_typedmem": true},
+    "B-01/q_jul":     {"v0": true,  "v4_typedmem": true},
+    "B-01/q_aug":     {"v0": false, "v4_typedmem": true},
+    "B-01/q_now":     {"v0": true,  "v4_typedmem": true},
+    "B-02/q_before":  {"v0": true,  "v4_typedmem": true},
+    "B-02/q_at":      {"v0": false, "v4_typedmem": true},
+    "B-03/q_now":     {"v0": false, "v4_typedmem": true},
+    "B-03/q_oct":     {"v0": true,  "v4_typedmem": true},
+    "C-01/q1":        {"v0": true,  "v4_typedmem": true},
+    "C-02/q1":        {"v0": false, "v4_typedmem": true},
+    "C-03/q_deadline":{"v0": true,  "v4_typedmem": true},
+    "C-03/q_fact":    {"v0": false, "v4_typedmem": true},
+    "N-01/q1":        {"v0": true,  "v4_typedmem": true},
+    "N-02/q1":        {"v0": true,  "v4_typedmem": true},
+    "M-01/q1":        {"v0": false, "v4_typedmem": true}
+  },
+  "corruption_rate": {"v0": 1.0, "v4_typedmem": 0.0}
+}

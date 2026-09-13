@@ -13,9 +13,14 @@ Initiative = "https://github.com/canis-minor"
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0", "ruff>=0.5"]
+# Mode A state-level diagnostic needs the authority / validity / resolve_by
+# semantics, which are on TypedMem main after v0.8.0 but not yet released.
+# Pinned to the commit so the experiment environment is reproducible.
+state-eval = ["typedmem @ git+https://github.com/lyr-ai/typedmem.git@ba010a1"]
 
 [project.scripts]
 reliagent-bench-memory = "reliagent_bench.memory.cli:main"
+reliagent-bench-state-eval = "reliagent_bench.memory.state_eval.runner:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -26,6 +31,7 @@ packages = ["src/reliagent_bench"]
 
 [tool.hatch.build.targets.wheel.force-include]
 "src/reliagent_bench/memory/datasets" = "reliagent_bench/memory/datasets"
+"src/reliagent_bench/memory/state_eval/scenarios" = "reliagent_bench/memory/state_eval/scenarios"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
