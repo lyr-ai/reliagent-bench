@@ -1,6 +1,6 @@
 # Mode B Phase 2 — Global Policy Stress Test
 
-**Status:** Design (draft for review; no scenarios written, nothing run)
+**Status:** Design (draft for review; semantics table frozen; no scenarios written, nothing run)
 **Depends on:** [`analysis/mode-b-pilot.md`](../analysis/mode-b-pilot.md) — BRQ2 SUPPORTED on 4 typed scenarios; BRQ1 matched by a source ranking; BRQ3 inconclusive
 **System under test:** TypedMem, frozen at `main @ 33d989e`. No TypedMem change in this phase.
 
@@ -14,11 +14,23 @@ agent acts on whichever governing state it is handed. The obvious objection:
 > *You chose one unfavourable global ordering. Another ordering would have
 > passed.*
 
-Phase 2 answers it by measurement rather than argument:
+Phase 2 answers it by measurement rather than argument. The per-type
+semantics table
+([`mode_b/semantics/phase2-types.md`](../src/reliagent_bench/memory/mode_b/semantics/phase2-types.md),
+frozen before this section was rewritten) narrowed the question: every core
+type shares the source guard, and the types differ only on whether
+*confidence* also guards. So the question is not "which of many orderings
+over three dimensions", but one axis:
 
-> **Does any single fixed global merge policy dominate across heterogeneous
-> state types — and does the variant × state-type interaction hold under
-> systematic perturbation, across domains, and through agent behaviour?**
+> **For equally authoritative observations, should lower-confidence newer
+> evidence replace existing state — and does the answer depend on the kind
+> of state being represented?**
+
+The table's answer, pre-registered: yes for *epistemic* state (a fact about
+the world — confidence ranks, evidence is compared) and no for *declared*
+state (a deadline, a commitment, an explicit preference — a valid revision
+supersedes; confidence is an admission floor, not a rank). No fixed ordering
+can satisfy both. Phase 2 exists to falsify that sentence.
 
 Nothing else is added. BRQ1 is closed for this phase (a source ranking
 suffices; that is the paper's statement). BRQ3 is deferred (Family C needs
@@ -39,15 +51,20 @@ orderings       all 6 permutations of (S, C, R), each preceded by validity
 ```
 
 Run each ordering as a resolution variant over the full Phase 2 scenario set
-and report governing-state accuracy **per state type**. The claim is
-supported if:
+and report governing-state accuracy **per state type and per state class**
+(epistemic / declared). The informative contrast is `S→C→R` against
+`S→R→C`; the other four permutations and the three single-dimension policies
+are run anyway, so that "maybe another ordering works" is answered by
+enumeration at zero cost. Single-dimension policies go to a secondary
+table. The claim is supported if:
 
-> no ordering is correct on every state type, while the per-type policy is.
+> no fixed ordering is correct on both state classes, while the per-type
+> policy is; and the orderings that come closest split exactly on
+> epistemic vs. declared state.
 
-If some ordering *is* correct everywhere, the claim is refuted and the paper
-says so: heterogeneous semantics on these types are expressible as one
-global order. This is cheap (deterministic, seconds) and is run **before**
-any agent call.
+If some ordering *is* correct on both classes, the claim is refuted and the
+paper says so. This is deterministic, takes seconds, and runs **before** any
+agent call.
 
 ### E2 — Agent-stage confirmation on the reversal pairs
 
@@ -62,36 +79,48 @@ interaction pattern in task success as in governing-state accuracy, with
 Not a full factorial. Each scenario is one cell of
 
 ```text
-state type      fact · preference · deadline · commitment · operational_constraint · verification_status
-                (six; the four from Phase 1 plus the two that appeared in the provenance family)
-source relation incoming source higher / equal / lower priority than existing
-confidence      incoming higher / equal / lower
+state type      factual state · deadline · commitment · explicit preference / constraint   (core, from the table)
+                verified operational result (consistency cases only) · inferred trait (exploratory only)
+source relation equal (main experiment) · higher / lower (consistency cases)
+confidence      incoming lower, ≥ 0.5 (main) · equal / higher (controls)
 recency         incoming newer (always — a write that describes an older state is the
                 effective_from case and is held out as its own small block)
 domain          scheduling · deployment/CI · personal data · procurement · communications
 perturbation    entity names, dates, wording, order of memories in the payload
 ```
 
-**Reversal pairs are the unit.** A pair is two scenarios with the *same*
-(source, confidence, recency) pattern and different state types whose
-declared semantics disagree about who wins:
+**Reversal pairs are the unit.** The main experiment holds the pattern
+constant and varies only the state semantics:
 
 ```text
-pair 1   equal source, lower confidence, newer     fact → existing wins · commitment → incoming wins
-pair 2   lower source, higher confidence, newer    fact → existing wins · deadline → incoming wins
-pair 3   equal source, equal confidence, newer     preference → incoming · verification_status → ? (declared per case)
+held fixed      source(incoming) = source(existing)
+                incoming newer
+                incoming confidence lower, but ≥ 0.5 (the admission floor, table §3.1)
+varied          state class: epistemic (fact · verified result) vs declared (deadline · commitment · explicit preference)
 ```
 
-Every fixed global ordering must lose one side of every pair it faces. The
-per-type policy must not. Target: **12 reversal pairs × 2 surface
-perturbations = 48 scenarios**, plus 12 controls where the two types agree,
-so a variant that "just picks per-type" cannot win by construction.
+```text
+FACT        earlier, .9  "The service currently uses PostgreSQL."
+            later,   .6  "Looks like it might be MySQL now."              → PostgreSQL stands
+DEADLINE    earlier, .9  "Review deadline is Friday the 18th."
+            later,   .6  "Monday, actually."  (in the same thread)         → Monday
+```
 
-Declared semantics per type are written down **before** any scenario, in one
-table, with the argument for each (a deadline is time-bound state; a fact is
-provenance-bound; a commitment is the user's latest explicit position; …).
-They are the contract under test and must be defensible without reference to
-TypedMem.
+The lower confidence on the revision must be *earned by the text* — terse,
+elliptical, context-dependent phrasing — never stipulated by a number alone.
+That is the reviewer's first attack and it is closed at scenario-writing
+time, per pair.
+
+Source-only conflicts (incoming lower or higher priority) are kept as
+consistency cases: every type resolves them the same way, so they cannot
+form reversal pairs, and they re-confirm BRQ1/F3 that a source ranking
+suffices. The `effective_from` case is a small held-out block for the same
+reason.
+
+Declared semantics per type are frozen in the table, with the argument for
+each, before any scenario. They are the contract under test and are argued
+without reference to TypedMem. Reversal pairs are derived from the table's
+rows, not the other way round.
 
 ## 4. What stays fixed from Phase 1
 

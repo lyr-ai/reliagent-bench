@@ -161,7 +161,7 @@ scenario that forces a *replace* decision on it can be argued either way.
 It is therefore not used in any core reversal pair (§3), and any result on
 it is reported as exploratory.
 
-## 3. What the table implies for the experiment — stated before running it
+## 3. What the table implies — stated before running anything
 
 Reading the "governs when" column:
 
@@ -173,27 +173,96 @@ explicit preference      S-guard
 verified result          S-guard (verified top)
 ```
 
-**Every core type shares the source guard.** The types differ on whether
-*confidence* also guards, and that is the only axis on which the four
-low-controversy types disagree. Two consequences follow, and both are
-predictions:
+**Every core type shares the source guard.** The types differ on exactly one
+thing: whether confidence *also* guards. This narrows Phase 2, and the
+narrowing is accepted rather than patched — no type was found for which
+confidence guards but source does not, and none is invented to make the
+result look broader.
 
-1. **A fixed source ranking is expected to be sufficient for every conflict
-   whose only difference is source.** That is Phase 1's BRQ1/F3 result and
-   it is expected to hold in Phase 2. The paper claims nothing else for
-   provenance.
-2. **Every reversal pair among the core types lives on the confidence-vs-
-   recency axis.** The pattern *equal source, lower confidence, newer*
-   resolves to the *existing* memory for a factual state and to the
-   *incoming* memory for a deadline, a commitment, or an explicit
-   preference. Any fixed ordering that places C before R fails the latter
-   three; any that places R before C fails the fact. Orderings that place C
-   or R before S fail every type on source conflicts. So the E1 prediction
-   is specific: **no fixed ordering is correct on all four core types, and
-   the ones that come closest split exactly on fact vs. the other three.**
+### 3.1 Confidence semantics
 
-If E1 finds an ordering that is correct on all four, this table is wrong
-somewhere and the claim is withdrawn.
+Because the whole Phase 2 contrast rests on confidence versus recency, the
+word has to mean one thing.
+
+*Definition.* `confidence` is the **recorder's certainty that the memory
+record faithfully captures what its source conveyed** — the right slot, the
+right value, with the source's own hedging carried through. It is produced
+by whatever turns an utterance, document or tool output into a record: an
+extraction step, a rule, or a person. It is *not* the system's belief that
+the state is correct, and it is *not* an aggregate over prior evidence;
+both of those are things a resolver might compute, and neither is stored on
+a write.
+
+*Why an explicit revision can carry lower confidence than the state it
+revises.* A first statement is usually made in full: "the review deadline
+is Friday the 18th." The revision is usually made in passing: "Monday,
+actually", in a thread, with the referent resolved by context. Recording
+certainty is genuinely lower on the second even though, once resolved, the
+act is unambiguous. Every Phase 2 scenario whose incoming memory carries
+lower confidence must show that *in the text* — a terse, elliptical or
+context-dependent utterance — so the number is not a stipulation.
+
+*How the resolver should read it, by state class.* This is where the two
+classes separate:
+
+- **Epistemic state** (a fact about the world): records are *evidence*
+  about the same standing question, so they are comparable. A record that
+  is less certain is weaker evidence; it does not displace stronger
+  evidence merely by being later. Confidence is a **ranking key**.
+- **Declared / decided state** (a deadline, a commitment, an explicit
+  preference): records report *acts*. Once an act of revision has occurred,
+  the earlier act has been superseded by it, whatever the earlier record's
+  certainty was — that certainty was about a state that no longer exists.
+  Confidence cannot rank the two, because they are not evidence for the
+  same question; it can only say whether the record is trustworthy enough
+  to be admitted at all. Confidence is an **admission floor**.
+
+The admission floor is fixed for Phase 2 at **0.5**: no scenario carries an
+incoming memory below it, so that "the revision should govern" is never
+argued for a record the recorder half-believes. A reviewer who holds that a
+0.6-confidence revision is not yet a revision is disputing the floor, not
+the principle; §5 records this.
+
+### 3.2 The taxonomy the table exposes
+
+The six rows collapse into two classes on the axis that matters:
+
+```text
+epistemic state      "what is true?"              factual state · verified result
+                     evidence quality governs replacement — confidence guards recency
+
+declared state       "what has been decided,       deadline · commitment · explicit preference
+                      committed to, requested?"    a valid explicit revision governs — confidence is a floor, not a rank
+```
+
+Inferred trait is neither: it is a hypothesis under aggregation, not a
+replacement decision at all.
+
+This taxonomy is **not** adopted into any system's schema in this phase. It
+is recorded so that the analysis can test whether the observed
+variant × type interaction follows the class boundary — which is a stronger
+and more general claim than "six types need six policies".
+
+### 3.3 The prediction
+
+Both parts are pre-registered:
+
+1. **A fixed source ranking is sufficient for every conflict whose only
+   difference is source.** Phase 1's BRQ1/F3, expected to hold. The paper
+   claims nothing further for provenance.
+2. **Every core reversal pair lives on the confidence-versus-recency axis.**
+   With source held equal and the incoming record newer and lower in
+   confidence (≥ 0.5), the correct resolution is the *existing* record for
+   epistemic state and the *incoming* record for declared state. Any fixed
+   ordering with C before R fails every declared-state scenario; any with R
+   before C fails every epistemic one; any with S not first fails on source
+   conflicts. **No fixed ordering is correct on both classes.**
+
+The six permutations are all run, not because each is informative, but so
+that the answer to "maybe another ordering works" is an enumeration rather
+than an argument. The three single-dimension policies are run and reported
+in a secondary table. If any fixed ordering is correct on both classes,
+this table is wrong somewhere and the claim is withdrawn.
 
 ## 4. The held-out block: newer observation of an older state
 
@@ -219,11 +288,15 @@ not mistaken for the author's taste:
   as a verified result when it is used at all.
 - **Inferred trait**, as above — excluded from core pairs.
 - **Confidence on decided state.** A reader might hold that a deadline
-  announced at confidence 0.5 is not yet a deadline. The table's position
-  is that a decision is a decision; the tentativeness belongs to the
-  announcer, not the state. Scenarios keep the incoming confidence at or
-  above 0.5 so that the objection is about principle, not about a
-  throwaway remark.
+  recorded at confidence 0.6 is not yet a deadline. The table's position is
+  that the record either reports a revision or it does not; the certainty
+  belongs to the recorder, not the state, and above the admission floor
+  (§3.1) the act governs. Scenarios keep incoming confidence ≥ 0.5 and show
+  the reason for the lower confidence in the text, so that the objection is
+  about the floor and not about an arbitrary number.
+- **Whether declared state can be revised by a hedged source at all.** Some
+  would set the floor higher. The floor is a parameter of the benchmark, not
+  of the claim; it is fixed at 0.5 before scenarios and reported.
 
 ## 6. Core and secondary types for Phase 2
 
