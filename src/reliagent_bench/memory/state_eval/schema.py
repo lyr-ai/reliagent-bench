@@ -26,6 +26,7 @@ MECHANISMS = frozenset({
     "none",            # negative control: no mechanism should be needed
     "history_under_replace",   # known gap: replace keeps no queryable history
     "authority_under_keep_both",  # known gap: the provenance guard fires only under replace
+    "guards_under_keep_both",     # known gap: resolve_by guards fire only under replace
 })
 
 TransitionKind = Literal["add", "replace", "ignore", "keep"]

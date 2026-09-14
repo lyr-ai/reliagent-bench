@@ -1,7 +1,7 @@
 {
-  "version": "pilot-1",
+  "version": "pilot-2",
   "frozen": "2026-09-13",
-  "note": "Gold labels frozen before the first comparative run. Type semantics are declared per scenario, independently of any implementation (plan §10). 'now' for current-state queries is 2026-09-13. pilot-1 adds the known_gap category: scenarios where the declared semantics and the current TypedMem contract are expected to disagree, pre-registered as V4 failures.",
+  "note": "Gold labels frozen before the first comparative run. Type semantics are declared per scenario, independently of any implementation (plan §10). 'now' for current-state queries is 2026-09-13. pilot-1 adds the known_gap category: scenarios where the declared semantics and the current TypedMem contract are expected to disagree, pre-registered as V4 failures. pilot-2 expands authority and typed resolution toward the plan's ~15 each, with perturbed entities, chains, distractor slots and in-category controls (plan §16.2–3), and one more known gap.",
   "scenarios": [
     {
       "id": "A-01",
@@ -152,6 +152,445 @@
           "mechanism": "none"
         }
       ]
+    },
+    {
+      "id": "A-04",
+      "category": "authority",
+      "description": "Perturbed A-01: different entities, the low-authority side is a document extraction rather than an inference, and it is both newer and far more confident.",
+      "types": [
+        {
+          "name": "location",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "location",
+          "subject": "user",
+          "content": "Berlin",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2025-03-02T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "location",
+          "subject": "user",
+          "content": "Munich",
+          "source_type": "document",
+          "authority": 0.6,
+          "confidence": 0.99,
+          "observed_at": "2026-09-11T00:00:00Z",
+          "expected_transition": "ignore"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q1",
+          "type": "location",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Berlin",
+          "mechanism": "authority_veto"
+        }
+      ]
+    },
+    {
+      "id": "A-05",
+      "category": "authority",
+      "description": "Ascending authority chain: inference → document → user, each newer and no weaker. Every step replaces; no veto should fire.",
+      "types": [
+        {
+          "name": "location",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "location",
+          "subject": "user",
+          "content": "Lisbon",
+          "source_type": "model_inference",
+          "authority": 0.3,
+          "confidence": 0.7,
+          "observed_at": "2026-01-10T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "location",
+          "subject": "user",
+          "content": "Porto",
+          "source_type": "document",
+          "authority": 0.6,
+          "confidence": 0.8,
+          "observed_at": "2026-04-10T00:00:00Z",
+          "expected_transition": "replace"
+        },
+        {
+          "id": "w3",
+          "type": "location",
+          "subject": "user",
+          "content": "Lisbon",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-10T00:00:00Z",
+          "expected_transition": "replace"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q1",
+          "type": "location",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Lisbon",
+          "mechanism": "none"
+        }
+      ],
+      "negative_control": true
+    },
+    {
+      "id": "A-06",
+      "category": "authority",
+      "description": "Descending authority chain: user → document → inference, each newer and more confident. Both later writes must be vetoed.",
+      "types": [
+        {
+          "name": "location",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "location",
+          "subject": "user",
+          "content": "Lisbon",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-01-10T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "location",
+          "subject": "user",
+          "content": "Porto",
+          "source_type": "document",
+          "authority": 0.6,
+          "confidence": 0.95,
+          "observed_at": "2026-04-10T00:00:00Z",
+          "expected_transition": "ignore"
+        },
+        {
+          "id": "w3",
+          "type": "location",
+          "subject": "user",
+          "content": "Madrid",
+          "source_type": "model_inference",
+          "authority": 0.3,
+          "confidence": 0.99,
+          "observed_at": "2026-09-10T00:00:00Z",
+          "expected_transition": "ignore"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q1",
+          "type": "location",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Lisbon",
+          "mechanism": "authority_veto"
+        }
+      ]
+    },
+    {
+      "id": "A-07",
+      "category": "authority",
+      "description": "The existing memory makes no authority claim. A write without provenance cannot be defended by authority; the newer, stronger write replaces under the fallback rule.",
+      "types": [
+        {
+          "name": "location",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "location",
+          "subject": "user",
+          "content": "Oslo",
+          "source_type": "unknown",
+          "authority": null,
+          "confidence": 0.8,
+          "observed_at": "2026-01-10T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "location",
+          "subject": "user",
+          "content": "Bergen",
+          "source_type": "model_inference",
+          "authority": 0.3,
+          "confidence": 0.9,
+          "observed_at": "2026-09-10T00:00:00Z",
+          "expected_transition": "replace"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q1",
+          "type": "location",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Bergen",
+          "mechanism": "none"
+        }
+      ],
+      "negative_control": true
+    },
+    {
+      "id": "A-08",
+      "category": "authority",
+      "description": "Everything says ignore: the incoming inference is lower-authority, less confident, and describes an older state. Authority is the first guard; the outcome does not depend on which fires.",
+      "types": [
+        {
+          "name": "location",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "location",
+          "subject": "user",
+          "content": "Zurich",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-01T00:00:00Z",
+          "valid_from": "2026-08-01T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "location",
+          "subject": "user",
+          "content": "Basel",
+          "source_type": "model_inference",
+          "authority": 0.3,
+          "confidence": 0.5,
+          "observed_at": "2026-09-10T00:00:00Z",
+          "valid_from": "2025-01-01T00:00:00Z",
+          "expected_transition": "ignore"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q1",
+          "type": "location",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Zurich",
+          "mechanism": "authority_veto"
+        }
+      ]
+    },
+    {
+      "id": "A-09",
+      "category": "authority",
+      "description": "Equal authority from different source kinds (user statement vs. admin record). Source kind is not authority; the fallback rule applies and the newer, no-weaker write replaces.",
+      "types": [
+        {
+          "name": "location",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "location",
+          "subject": "user",
+          "content": "Dublin",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-01-10T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "location",
+          "subject": "user",
+          "content": "Cork",
+          "source_type": "admin_record",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-10T00:00:00Z",
+          "expected_transition": "replace"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q1",
+          "type": "location",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Cork",
+          "mechanism": "none"
+        }
+      ],
+      "negative_control": true
+    },
+    {
+      "id": "A-10",
+      "category": "authority",
+      "description": "Authority veto with a distractor in a neighbouring slot: a low-authority write to a different subject must land normally while the low-authority write to the protected subject is vetoed.",
+      "types": [
+        {
+          "name": "location",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "location",
+          "subject": "user",
+          "content": "Rome",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.8,
+          "observed_at": "2026-01-10T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "location",
+          "subject": "office",
+          "content": "Milan",
+          "source_type": "model_inference",
+          "authority": 0.3,
+          "confidence": 0.9,
+          "observed_at": "2026-09-05T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w3",
+          "type": "location",
+          "subject": "user",
+          "content": "Naples",
+          "source_type": "model_inference",
+          "authority": 0.3,
+          "confidence": 0.95,
+          "observed_at": "2026-09-10T00:00:00Z",
+          "expected_transition": "ignore"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q_user",
+          "type": "location",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Rome",
+          "mechanism": "authority_veto"
+        },
+        {
+          "id": "q_office",
+          "type": "location",
+          "subject": "office",
+          "as_of": null,
+          "expected": "Milan",
+          "mechanism": "none"
+        }
+      ]
+    },
+    {
+      "id": "A-11",
+      "category": "authority",
+      "description": "Higher-authority incoming that is also newer and no weaker replaces the inferred state. The veto is one-directional.",
+      "types": [
+        {
+          "name": "location",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "location",
+          "subject": "user",
+          "content": "Vienna",
+          "source_type": "model_inference",
+          "authority": 0.3,
+          "confidence": 0.9,
+          "observed_at": "2026-01-10T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "location",
+          "subject": "user",
+          "content": "Graz",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-10T00:00:00Z",
+          "expected_transition": "replace"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q1",
+          "type": "location",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Graz",
+          "mechanism": "none"
+        }
+      ],
+      "negative_control": true
     },
     {
       "id": "B-01",
@@ -495,6 +934,483 @@
           "mechanism": "type_specific_resolution"
         }
       ]
+    },
+    {
+      "id": "C-04",
+      "category": "typed",
+      "description": "Deadline, three updates, confidence falling each time. Declared semantics: newest effective state wins; every update replaces.",
+      "types": [
+        {
+          "name": "deadline",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "deadline",
+          "subject": "launch",
+          "content": "Sep 10",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-01T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "deadline",
+          "subject": "launch",
+          "content": "Sep 17",
+          "authority": 1.0,
+          "confidence": 0.3,
+          "observed_at": "2026-09-05T00:00:00Z",
+          "expected_transition": "replace"
+        },
+        {
+          "id": "w3",
+          "type": "deadline",
+          "subject": "launch",
+          "content": "Sep 24",
+          "authority": 1.0,
+          "confidence": 0.2,
+          "observed_at": "2026-09-08T00:00:00Z",
+          "expected_transition": "replace"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q1",
+          "type": "deadline",
+          "subject": "launch",
+          "as_of": null,
+          "expected": "Sep 24",
+          "mechanism": "type_specific_resolution"
+        }
+      ]
+    },
+    {
+      "id": "C-05",
+      "category": "typed",
+      "description": "Deadline still guards on effective state: a later-observed write describing an earlier deadline state must not replace the current one.",
+      "types": [
+        {
+          "name": "deadline",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "deadline",
+          "subject": "launch",
+          "content": "Sep 21",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-08T00:00:00Z",
+          "valid_from": "2026-09-08T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "deadline",
+          "subject": "launch",
+          "content": "Sep 18",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-10T00:00:00Z",
+          "valid_from": "2026-09-01T00:00:00Z",
+          "expected_transition": "ignore"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q1",
+          "type": "deadline",
+          "subject": "launch",
+          "as_of": null,
+          "expected": "Sep 21",
+          "mechanism": "effective_from"
+        }
+      ]
+    },
+    {
+      "id": "C-06",
+      "category": "typed",
+      "description": "Biographical fact, newer and stronger: the guard passes and the write replaces. Control for the fact type.",
+      "types": [
+        {
+          "name": "birthplace",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "birthplace",
+          "subject": "user",
+          "content": "Austin",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2024-03-01T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "birthplace",
+          "subject": "user",
+          "content": "Round Rock",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-08T00:00:00Z",
+          "expected_transition": "replace"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q1",
+          "type": "birthplace",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Round Rock",
+          "mechanism": "none"
+        }
+      ],
+      "negative_control": true
+    },
+    {
+      "id": "C-07",
+      "category": "typed",
+      "description": "A type whose declared guard is confidence alone: a newer but less confident write is ignored regardless of recency.",
+      "types": [
+        {
+          "name": "favourite_editor",
+          "conflict": "replace",
+          "resolve_by": [
+            "confidence"
+          ]
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "favourite_editor",
+          "subject": "user",
+          "content": "vim",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-01-10T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "favourite_editor",
+          "subject": "user",
+          "content": "emacs",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2026-09-10T00:00:00Z",
+          "expected_transition": "ignore"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q1",
+          "type": "favourite_editor",
+          "subject": "user",
+          "as_of": null,
+          "expected": "vim",
+          "mechanism": "type_specific_resolution"
+        }
+      ]
+    },
+    {
+      "id": "C-08",
+      "category": "typed",
+      "description": "Same type as C-07, the write that clears the confidence guard replaces. Control.",
+      "types": [
+        {
+          "name": "favourite_editor",
+          "conflict": "replace",
+          "resolve_by": [
+            "confidence"
+          ]
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "favourite_editor",
+          "subject": "user",
+          "content": "vim",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-01-10T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "favourite_editor",
+          "subject": "user",
+          "content": "helix",
+          "authority": 1.0,
+          "confidence": 0.95,
+          "observed_at": "2026-09-12T00:00:00Z",
+          "expected_transition": "replace"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q1",
+          "type": "favourite_editor",
+          "subject": "user",
+          "as_of": null,
+          "expected": "helix",
+          "mechanism": "none"
+        }
+      ],
+      "negative_control": true
+    },
+    {
+      "id": "C-09",
+      "category": "typed",
+      "description": "A type with no guard at all (always replace): a write that is less confident AND describes an older effective state still replaces. A temporal baseline files it as history and keeps the old state current.",
+      "types": [
+        {
+          "name": "scratch_note",
+          "conflict": "replace",
+          "resolve_by": []
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "scratch_note",
+          "subject": "task",
+          "content": "draft A",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-01T00:00:00Z",
+          "valid_from": "2026-09-01T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "scratch_note",
+          "subject": "task",
+          "content": "draft B",
+          "authority": 1.0,
+          "confidence": 0.2,
+          "observed_at": "2026-09-03T00:00:00Z",
+          "valid_from": "2020-01-01T00:00:00Z",
+          "expected_transition": "replace"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q1",
+          "type": "scratch_note",
+          "subject": "task",
+          "as_of": null,
+          "expected": "draft B",
+          "mechanism": "type_specific_resolution"
+        }
+      ]
+    },
+    {
+      "id": "C-10",
+      "category": "typed",
+      "description": "One numeric pattern, three declared semantics: a write that is newer-observed, less confident, and describes an older effective state. Deadline (effective_from) ignores it; fact (effective_from + confidence) ignores it; scratch note (no guard) takes it. No single rule gets all three.",
+      "types": [
+        {
+          "name": "deadline",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        },
+        {
+          "name": "birthplace",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        },
+        {
+          "name": "scratch_note",
+          "conflict": "replace",
+          "resolve_by": []
+        }
+      ],
+      "writes": [
+        {
+          "id": "d1",
+          "type": "deadline",
+          "subject": "launch",
+          "content": "Sep 21",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-01T00:00:00Z",
+          "valid_from": "2026-09-01T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "d2",
+          "type": "deadline",
+          "subject": "launch",
+          "content": "Sep 14",
+          "authority": 1.0,
+          "confidence": 0.5,
+          "observed_at": "2026-09-08T00:00:00Z",
+          "valid_from": "2026-08-01T00:00:00Z",
+          "expected_transition": "ignore"
+        },
+        {
+          "id": "b1",
+          "type": "birthplace",
+          "subject": "user",
+          "content": "Austin",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-01T00:00:00Z",
+          "valid_from": "2026-09-01T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "b2",
+          "type": "birthplace",
+          "subject": "user",
+          "content": "Dallas",
+          "authority": 1.0,
+          "confidence": 0.5,
+          "observed_at": "2026-09-08T00:00:00Z",
+          "valid_from": "2026-08-01T00:00:00Z",
+          "expected_transition": "ignore"
+        },
+        {
+          "id": "s1",
+          "type": "scratch_note",
+          "subject": "task",
+          "content": "draft A",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-01T00:00:00Z",
+          "valid_from": "2026-09-01T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "s2",
+          "type": "scratch_note",
+          "subject": "task",
+          "content": "draft B",
+          "authority": 1.0,
+          "confidence": 0.5,
+          "observed_at": "2026-09-08T00:00:00Z",
+          "valid_from": "2026-08-01T00:00:00Z",
+          "expected_transition": "replace"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q_deadline",
+          "type": "deadline",
+          "subject": "launch",
+          "as_of": null,
+          "expected": "Sep 21",
+          "mechanism": "type_specific_resolution"
+        },
+        {
+          "id": "q_fact",
+          "type": "birthplace",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Austin",
+          "mechanism": "type_specific_resolution"
+        },
+        {
+          "id": "q_scratch",
+          "type": "scratch_note",
+          "subject": "task",
+          "as_of": null,
+          "expected": "draft B",
+          "mechanism": "type_specific_resolution"
+        }
+      ]
+    },
+    {
+      "id": "C-11",
+      "category": "typed",
+      "description": "Typed resolution is per slot: two deadlines for different subjects; an update to one must not touch the other. Control.",
+      "types": [
+        {
+          "name": "deadline",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "deadline",
+          "subject": "launch",
+          "content": "Sep 18",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-01T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "deadline",
+          "subject": "review",
+          "content": "Sep 25",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-02T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w3",
+          "type": "deadline",
+          "subject": "launch",
+          "content": "Sep 21",
+          "authority": 1.0,
+          "confidence": 0.4,
+          "observed_at": "2026-09-08T00:00:00Z",
+          "expected_transition": "replace"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q_launch",
+          "type": "deadline",
+          "subject": "launch",
+          "as_of": null,
+          "expected": "Sep 21",
+          "mechanism": "none"
+        },
+        {
+          "id": "q_review",
+          "type": "deadline",
+          "subject": "review",
+          "as_of": null,
+          "expected": "Sep 25",
+          "mechanism": "none"
+        }
+      ],
+      "negative_control": true
     },
     {
       "id": "N-01",
@@ -854,6 +1770,54 @@
           "as_of": "2026-03-01T00:00:00Z",
           "expected": "San Jose",
           "mechanism": "none"
+        }
+      ]
+    },
+    {
+      "id": "G-05",
+      "category": "known_gap",
+      "description": "Generalises G-04: every resolve_by guard, not only authority, exists only under replace. A type that keeps history AND declares a confidence guard cannot be expressed: under keep_both the weaker write is inserted and becomes current by recency.",
+      "types": [
+        {
+          "name": "birthplace",
+          "conflict": "keep_both",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "birthplace",
+          "subject": "user",
+          "content": "Austin",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2024-03-01T00:00:00Z",
+          "valid_from": "2024-03-01T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "birthplace",
+          "subject": "user",
+          "content": "Dallas",
+          "authority": 1.0,
+          "confidence": 0.4,
+          "observed_at": "2026-09-08T00:00:00Z",
+          "expected_transition": "ignore"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q_now",
+          "type": "birthplace",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Austin",
+          "mechanism": "guards_under_keep_both"
         }
       ]
     }

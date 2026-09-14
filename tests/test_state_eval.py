@@ -55,7 +55,7 @@ print(bad); sys.exit(1 if bad else 0)
 
 def test_scenarios_load_and_are_well_formed():
     scenarios = load_scenarios()
-    assert len(scenarios) == 16
+    assert len(scenarios) == 33
     for s in scenarios:
         assert s.writes and s.queries
         for w in s.writes:
