@@ -181,6 +181,10 @@ mechanism that should have fired and did not.
 
 ### Where this leaves Mode A
 
+The full write-up is [`analysis/mode-a-pilot.md`](../../../../analysis/mode-a-pilot.md).
+
+#### Summary
+
 The five conditions for moving from harness validation to research
 evaluation (README, pilot-2; plan §18) are all met on forty-two cases: the
 bitemporal baselines tie TypedMem on pure temporal; a global confidence guard
