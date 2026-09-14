@@ -24,11 +24,12 @@ from reliagent_bench.memory.state_eval.schema import DEFAULT_SCENARIOS
 from reliagent_bench.memory.state_eval.typedmem_v4 import TypedMemV4
 from reliagent_bench.memory.state_eval.v0 import V0Baseline
 from reliagent_bench.memory.state_eval.v0_scd import V0SCDBaseline
+from reliagent_bench.memory.state_eval.v0_scd_g import V0SCDGuardedBaseline
 
 PREDICTIONS = DEFAULT_SCENARIOS.parent / "pilot_predictions.json"
 
 
-@pytest.mark.parametrize("module_name", ["v0", "v0_scd"])
+@pytest.mark.parametrize("module_name", ["v0", "v0_scd", "v0_scd_g"])
 def test_baselines_do_not_import_typedmem(module_name):
     """Baselines must be independent of TypedMem at the source level and at
     import time. The parent ``reliagent_bench.memory`` package imports TypedMem
@@ -55,7 +56,7 @@ print(bad); sys.exit(1 if bad else 0)
 
 def test_scenarios_load_and_are_well_formed():
     scenarios = load_scenarios()
-    assert len(scenarios) == 33
+    assert len(scenarios) == 42
     for s in scenarios:
         assert s.writes and s.queries
         for w in s.writes:
@@ -67,14 +68,14 @@ def test_scenarios_load_and_are_well_formed():
 
 def test_runner_is_deterministic():
     scenarios = load_scenarios()
-    a = run([V0Baseline(), V0SCDBaseline(), TypedMemV4()], scenarios).to_json()
-    b = run([V0Baseline(), V0SCDBaseline(), TypedMemV4()], scenarios).to_json()
+    a = run([V0Baseline(), V0SCDBaseline(), V0SCDGuardedBaseline(), TypedMemV4()], scenarios).to_json()
+    b = run([V0Baseline(), V0SCDBaseline(), V0SCDGuardedBaseline(), TypedMemV4()], scenarios).to_json()
     assert a == b
 
 
 @pytest.fixture(scope="module")
 def report():
-    return run([V0Baseline(), V0SCDBaseline(), TypedMemV4()], load_scenarios())
+    return run([V0Baseline(), V0SCDBaseline(), V0SCDGuardedBaseline(), TypedMemV4()], load_scenarios())
 
 
 def test_predictions_match_observed(report):

@@ -1,7 +1,7 @@
 {
-  "version": "pilot-2",
+  "version": "pilot-3",
   "frozen": "2026-09-13",
-  "note": "Gold labels frozen before the first comparative run. Type semantics are declared per scenario, independently of any implementation (plan §10). 'now' for current-state queries is 2026-09-13. pilot-1 adds the known_gap category: scenarios where the declared semantics and the current TypedMem contract are expected to disagree, pre-registered as V4 failures. pilot-2 expands authority and typed resolution toward the plan's ~15 each, with perturbed entities, chains, distractor slots and in-category controls (plan §16.2–3), and one more known gap.",
+  "note": "Gold labels frozen before the first comparative run. Type semantics are declared per scenario, independently of any implementation (plan §10). 'now' for current-state queries is 2026-09-13. pilot-1 adds the known_gap category: scenarios where the declared semantics and the current TypedMem contract are expected to disagree, pre-registered as V4 failures. pilot-2 expands authority and typed resolution toward the plan's ~15 each, with perturbed entities, chains, distractor slots and in-category controls (plan §16.2–3), and one more known gap. pilot-3 expands temporal with supersession chains (length 3–4, observed order ≠ valid order, expiry, a future state mid-chain, two explicit boundaries) and adds two known-gap perturbations; introduces the v0_scd_g baseline.",
   "scenarios": [
     {
       "id": "A-01",
@@ -761,6 +761,527 @@
       ]
     },
     {
+      "id": "B-04",
+      "category": "temporal",
+      "description": "Three-step chain observed in valid-time order. Every interval and the current state must resolve; the easy case that the harder ones perturb.",
+      "types": [
+        {
+          "name": "residence",
+          "conflict": "keep_both"
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "residence",
+          "subject": "user",
+          "content": "San Jose",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-01-05T00:00:00Z",
+          "expected_transition": "add",
+          "valid_from": "2026-01-01T00:00:00Z"
+        },
+        {
+          "id": "w2",
+          "type": "residence",
+          "subject": "user",
+          "content": "Portland",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-04-05T00:00:00Z",
+          "expected_transition": "keep",
+          "valid_from": "2026-04-01T00:00:00Z"
+        },
+        {
+          "id": "w3",
+          "type": "residence",
+          "subject": "user",
+          "content": "Seattle",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-10T00:00:00Z",
+          "expected_transition": "keep",
+          "valid_from": "2026-08-01T00:00:00Z"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q_feb",
+          "type": "residence",
+          "subject": "user",
+          "as_of": "2026-02-15T00:00:00Z",
+          "expected": "San Jose",
+          "mechanism": "effective_from"
+        },
+        {
+          "id": "q_may",
+          "type": "residence",
+          "subject": "user",
+          "as_of": "2026-05-15T00:00:00Z",
+          "expected": "Portland",
+          "mechanism": "effective_from"
+        },
+        {
+          "id": "q_now",
+          "type": "residence",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Seattle",
+          "mechanism": "effective_from"
+        }
+      ]
+    },
+    {
+      "id": "B-05",
+      "category": "temporal",
+      "description": "Observed order ≠ valid order: A known in January, C known in March, then in April we learn B held during February — with an explicit end. Every interval must resolve, and the late-learned B must not become current.",
+      "types": [
+        {
+          "name": "residence",
+          "conflict": "keep_both"
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "residence",
+          "subject": "user",
+          "content": "San Jose",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-01-05T00:00:00Z",
+          "expected_transition": "add",
+          "valid_from": "2026-01-01T00:00:00Z"
+        },
+        {
+          "id": "w2",
+          "type": "residence",
+          "subject": "user",
+          "content": "Seattle",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-03-05T00:00:00Z",
+          "expected_transition": "keep",
+          "valid_from": "2026-03-01T00:00:00Z"
+        },
+        {
+          "id": "w3",
+          "type": "residence",
+          "subject": "user",
+          "content": "Portland",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-04-05T00:00:00Z",
+          "expected_transition": "keep",
+          "valid_from": "2026-02-01T00:00:00Z",
+          "valid_to": "2026-03-01T00:00:00Z"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q_jan",
+          "type": "residence",
+          "subject": "user",
+          "as_of": "2026-01-15T00:00:00Z",
+          "expected": "San Jose",
+          "mechanism": "effective_from"
+        },
+        {
+          "id": "q_feb",
+          "type": "residence",
+          "subject": "user",
+          "as_of": "2026-02-15T00:00:00Z",
+          "expected": "Portland",
+          "mechanism": "effective_from"
+        },
+        {
+          "id": "q_mar",
+          "type": "residence",
+          "subject": "user",
+          "as_of": "2026-03-15T00:00:00Z",
+          "expected": "Seattle",
+          "mechanism": "effective_from"
+        },
+        {
+          "id": "q_now",
+          "type": "residence",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Seattle",
+          "mechanism": "effective_from"
+        }
+      ]
+    },
+    {
+      "id": "B-06",
+      "category": "temporal",
+      "description": "B-05 without the writer closing B's window. The successor's start must bound it; a late-learned interval with no explicit end must still not become current.",
+      "types": [
+        {
+          "name": "residence",
+          "conflict": "keep_both"
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "residence",
+          "subject": "user",
+          "content": "San Jose",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-01-05T00:00:00Z",
+          "expected_transition": "add",
+          "valid_from": "2026-01-01T00:00:00Z"
+        },
+        {
+          "id": "w2",
+          "type": "residence",
+          "subject": "user",
+          "content": "Seattle",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-03-05T00:00:00Z",
+          "expected_transition": "keep",
+          "valid_from": "2026-03-01T00:00:00Z"
+        },
+        {
+          "id": "w3",
+          "type": "residence",
+          "subject": "user",
+          "content": "Portland",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-04-05T00:00:00Z",
+          "expected_transition": "keep",
+          "valid_from": "2026-02-01T00:00:00Z"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q_feb",
+          "type": "residence",
+          "subject": "user",
+          "as_of": "2026-02-15T00:00:00Z",
+          "expected": "Portland",
+          "mechanism": "effective_from"
+        },
+        {
+          "id": "q_mar",
+          "type": "residence",
+          "subject": "user",
+          "as_of": "2026-03-15T00:00:00Z",
+          "expected": "Seattle",
+          "mechanism": "effective_from"
+        },
+        {
+          "id": "q_now",
+          "type": "residence",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Seattle",
+          "mechanism": "effective_from"
+        }
+      ]
+    },
+    {
+      "id": "B-07",
+      "category": "temporal",
+      "description": "Four-step chain observed in reverse: the most recent state is learned first, the oldest last, all in September. Observation time carries no information about validity here.",
+      "types": [
+        {
+          "name": "team",
+          "conflict": "keep_both"
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "team",
+          "subject": "user",
+          "content": "Agents",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-01T00:00:00Z",
+          "expected_transition": "add",
+          "valid_from": "2026-07-01T00:00:00Z"
+        },
+        {
+          "id": "w2",
+          "type": "team",
+          "subject": "user",
+          "content": "Inference",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-02T00:00:00Z",
+          "expected_transition": "keep",
+          "valid_from": "2026-05-01T00:00:00Z"
+        },
+        {
+          "id": "w3",
+          "type": "team",
+          "subject": "user",
+          "content": "Platform",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-03T00:00:00Z",
+          "expected_transition": "keep",
+          "valid_from": "2026-03-01T00:00:00Z"
+        },
+        {
+          "id": "w4",
+          "type": "team",
+          "subject": "user",
+          "content": "Research",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-04T00:00:00Z",
+          "expected_transition": "keep",
+          "valid_from": "2026-01-01T00:00:00Z"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q_feb",
+          "type": "team",
+          "subject": "user",
+          "as_of": "2026-02-15T00:00:00Z",
+          "expected": "Research",
+          "mechanism": "effective_from"
+        },
+        {
+          "id": "q_apr",
+          "type": "team",
+          "subject": "user",
+          "as_of": "2026-04-15T00:00:00Z",
+          "expected": "Platform",
+          "mechanism": "effective_from"
+        },
+        {
+          "id": "q_jun",
+          "type": "team",
+          "subject": "user",
+          "as_of": "2026-06-15T00:00:00Z",
+          "expected": "Inference",
+          "mechanism": "effective_from"
+        },
+        {
+          "id": "q_now",
+          "type": "team",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Agents",
+          "mechanism": "effective_from"
+        }
+      ]
+    },
+    {
+      "id": "B-08",
+      "category": "temporal",
+      "description": "A state that expired with no successor. Before expiry it resolves; after, and now, there is no valid state.",
+      "types": [
+        {
+          "name": "subscription",
+          "conflict": "keep_both"
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "subscription",
+          "subject": "user",
+          "content": "Pro plan",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-01-05T00:00:00Z",
+          "expected_transition": "add",
+          "valid_from": "2026-01-01T00:00:00Z",
+          "valid_to": "2026-06-30T00:00:00Z"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q_may",
+          "type": "subscription",
+          "subject": "user",
+          "as_of": "2026-05-01T00:00:00Z",
+          "expected": "Pro plan",
+          "mechanism": "validity_expired"
+        },
+        {
+          "id": "q_aug",
+          "type": "subscription",
+          "subject": "user",
+          "as_of": "2026-08-01T00:00:00Z",
+          "expected": null,
+          "mechanism": "validity_expired"
+        },
+        {
+          "id": "q_now",
+          "type": "subscription",
+          "subject": "user",
+          "as_of": null,
+          "expected": null,
+          "mechanism": "validity_expired"
+        }
+      ]
+    },
+    {
+      "id": "B-09",
+      "category": "temporal",
+      "description": "A declared future state in the middle of a chain: C is announced for December before B (effective August) is learned. B is current now and in October; C only from December.",
+      "types": [
+        {
+          "name": "database",
+          "conflict": "keep_both"
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "database",
+          "subject": "project",
+          "content": "MySQL",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-01-05T00:00:00Z",
+          "expected_transition": "add",
+          "valid_from": "2026-01-01T00:00:00Z"
+        },
+        {
+          "id": "w2",
+          "type": "database",
+          "subject": "project",
+          "content": "Postgres",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-01T00:00:00Z",
+          "expected_transition": "keep",
+          "valid_from": "2026-12-01T00:00:00Z"
+        },
+        {
+          "id": "w3",
+          "type": "database",
+          "subject": "project",
+          "content": "SQLite",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-10T00:00:00Z",
+          "expected_transition": "keep",
+          "valid_from": "2026-08-01T00:00:00Z"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q_now",
+          "type": "database",
+          "subject": "project",
+          "as_of": "2026-09-13T00:00:00Z",
+          "expected": "SQLite",
+          "mechanism": "validity_future"
+        },
+        {
+          "id": "q_oct",
+          "type": "database",
+          "subject": "project",
+          "as_of": "2026-10-15T00:00:00Z",
+          "expected": "SQLite",
+          "mechanism": "validity_future"
+        },
+        {
+          "id": "q_dec",
+          "type": "database",
+          "subject": "project",
+          "as_of": "2026-12-15T00:00:00Z",
+          "expected": "Postgres",
+          "mechanism": "validity_future"
+        }
+      ]
+    },
+    {
+      "id": "B-10",
+      "category": "temporal",
+      "description": "Two boundaries inside a chain, both explicit. The instant before each boundary belongs to the earlier state; the boundary itself to the later.",
+      "types": [
+        {
+          "name": "residence",
+          "conflict": "keep_both"
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "residence",
+          "subject": "user",
+          "content": "San Jose",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-01-05T00:00:00Z",
+          "expected_transition": "add",
+          "valid_from": "2026-01-01T00:00:00Z",
+          "valid_to": "2026-04-01T00:00:00Z"
+        },
+        {
+          "id": "w2",
+          "type": "residence",
+          "subject": "user",
+          "content": "Portland",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-04-05T00:00:00Z",
+          "expected_transition": "keep",
+          "valid_from": "2026-04-01T00:00:00Z",
+          "valid_to": "2026-08-01T00:00:00Z"
+        },
+        {
+          "id": "w3",
+          "type": "residence",
+          "subject": "user",
+          "content": "Seattle",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-10T00:00:00Z",
+          "expected_transition": "keep",
+          "valid_from": "2026-08-01T00:00:00Z"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q_b1_before",
+          "type": "residence",
+          "subject": "user",
+          "as_of": "2026-03-31T23:59:59Z",
+          "expected": "San Jose",
+          "mechanism": "validity_boundary"
+        },
+        {
+          "id": "q_b1_at",
+          "type": "residence",
+          "subject": "user",
+          "as_of": "2026-04-01T00:00:00Z",
+          "expected": "Portland",
+          "mechanism": "validity_boundary"
+        },
+        {
+          "id": "q_b2_before",
+          "type": "residence",
+          "subject": "user",
+          "as_of": "2026-07-31T23:59:59Z",
+          "expected": "Portland",
+          "mechanism": "validity_boundary"
+        },
+        {
+          "id": "q_b2_at",
+          "type": "residence",
+          "subject": "user",
+          "as_of": "2026-08-01T00:00:00Z",
+          "expected": "Seattle",
+          "mechanism": "validity_boundary"
+        }
+      ]
+    },
+    {
       "id": "C-01",
       "category": "typed",
       "description": "Deadline: declared semantics are 'newest effective state wins, confidence irrelevant'. A newer but less confident update must replace.",
@@ -1350,7 +1871,7 @@
     {
       "id": "C-11",
       "category": "typed",
-      "description": "Typed resolution is per slot: two deadlines for different subjects; an update to one must not touch the other. Control.",
+      "description": "Typed resolution is per slot: two deadlines for different subjects; an update to one must not touch the other. Control — the update is newer and no weaker, so no guard is in play. (pilot-3: the update's confidence was raised from 0.4 to 0.9; at 0.4 the scenario also exercised the deadline's newest-wins rule, which the negative-control test caught when v0_scd_g failed it. A control must exercise no mechanism.)",
       "types": [
         {
           "name": "deadline",
@@ -1387,7 +1908,7 @@
           "subject": "launch",
           "content": "Sep 21",
           "authority": 1.0,
-          "confidence": 0.4,
+          "confidence": 0.9,
           "observed_at": "2026-09-08T00:00:00Z",
           "expected_transition": "replace"
         }
@@ -1818,6 +2339,150 @@
           "as_of": null,
           "expected": "Austin",
           "mechanism": "guards_under_keep_both"
+        }
+      ]
+    },
+    {
+      "id": "G-06",
+      "category": "known_gap",
+      "description": "G-03 lengthened to four steps under replace, queried in two interior intervals. History under replace does not get better with more history.",
+      "types": [
+        {
+          "name": "team",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "team",
+          "subject": "user",
+          "content": "Research",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-01-05T00:00:00Z",
+          "expected_transition": "add",
+          "valid_from": "2026-01-01T00:00:00Z"
+        },
+        {
+          "id": "w2",
+          "type": "team",
+          "subject": "user",
+          "content": "Platform",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-03-05T00:00:00Z",
+          "expected_transition": "replace",
+          "valid_from": "2026-03-01T00:00:00Z"
+        },
+        {
+          "id": "w3",
+          "type": "team",
+          "subject": "user",
+          "content": "Inference",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-05-05T00:00:00Z",
+          "expected_transition": "replace",
+          "valid_from": "2026-05-01T00:00:00Z"
+        },
+        {
+          "id": "w4",
+          "type": "team",
+          "subject": "user",
+          "content": "Agents",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-10T00:00:00Z",
+          "expected_transition": "replace",
+          "valid_from": "2026-07-01T00:00:00Z"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q_apr",
+          "type": "team",
+          "subject": "user",
+          "as_of": "2026-04-15T00:00:00Z",
+          "expected": "Platform",
+          "mechanism": "history_under_replace"
+        },
+        {
+          "id": "q_jun",
+          "type": "team",
+          "subject": "user",
+          "as_of": "2026-06-15T00:00:00Z",
+          "expected": "Inference",
+          "mechanism": "history_under_replace"
+        },
+        {
+          "id": "q_now",
+          "type": "team",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Agents",
+          "mechanism": "none"
+        }
+      ]
+    },
+    {
+      "id": "G-07",
+      "category": "known_gap",
+      "description": "G-04 with two later lower-authority writes of different kinds (inference, then document). Under keep_both neither is vetoed and the last becomes current. No baseline has authority either.",
+      "types": [
+        {
+          "name": "residence",
+          "conflict": "keep_both"
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "residence",
+          "subject": "user",
+          "content": "San Jose",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-01-05T00:00:00Z",
+          "expected_transition": "add",
+          "valid_from": "2026-01-01T00:00:00Z",
+          "source_type": "explicit_user"
+        },
+        {
+          "id": "w2",
+          "type": "residence",
+          "subject": "user",
+          "content": "Seattle",
+          "authority": 0.3,
+          "confidence": 0.9,
+          "observed_at": "2026-09-05T00:00:00Z",
+          "expected_transition": "ignore",
+          "source_type": "model_inference"
+        },
+        {
+          "id": "w3",
+          "type": "residence",
+          "subject": "user",
+          "content": "Tacoma",
+          "authority": 0.6,
+          "confidence": 0.9,
+          "observed_at": "2026-09-08T00:00:00Z",
+          "expected_transition": "ignore",
+          "source_type": "document"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q_now",
+          "type": "residence",
+          "subject": "user",
+          "as_of": null,
+          "expected": "San Jose",
+          "mechanism": "authority_under_keep_both"
         }
       ]
     }
