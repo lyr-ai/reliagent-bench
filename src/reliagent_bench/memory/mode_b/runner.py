@@ -30,6 +30,19 @@ VARIANTS = [B0(), BSCD(), BSCDG(), BTyped(), Oracle(), NoMem()]
 FAMILIES = ["provenance", "typed", "repeated_failure", "control"]
 
 
+def _load_dotenv() -> None:
+    """Read KEY=VALUE lines from a gitignored .env at the repo root, if present,
+    so a key never has to be typed into a shell history."""
+    import os
+    for cand in (Path.cwd() / ".env", Path(__file__).resolve().parents[4] / ".env"):
+        if cand.exists():
+            for line in cand.read_text().splitlines():
+                if "=" in line and not line.lstrip().startswith("#"):
+                    k, v = line.split("=", 1)
+                    os.environ.setdefault(k.strip(), v.strip().strip('"'))
+            return
+
+
 def _rate(xs):
     xs = [x for x in xs if x is not None]
     return None if not xs else sum(xs) / len(xs)
@@ -100,7 +113,16 @@ def main(argv=None) -> int:
     p.add_argument("--model", default=None)
     p.add_argument("--tasks", default=None)
     p.add_argument("--out", default="pilot-0")
+    p.add_argument("--variant", action="append", default=None, help="run only these variants (repeatable); default: all")
+    p.add_argument("--list-models", action="store_true", help="print the model ids the API account can call, then exit")
     args = p.parse_args(argv)
+
+    _load_dotenv()
+    if args.list_models:
+        import anthropic
+        for m in anthropic.Anthropic().models.list():
+            print(m.id)
+        return 0
 
     scenarios = load_scenarios(args.tasks) if args.tasks else load_scenarios()
     agent = None if args.dry_run else default_agent()
@@ -110,12 +132,12 @@ def main(argv=None) -> int:
     if agent is not None and args.model:
         agent.model = args.model
 
-    scores, transcripts = run(scenarios, args.runs, agent)
+    scores, transcripts = run(scenarios, args.runs, agent, only_variants=args.variant)
     text = render(scores, scenarios, agent is not None)
     print(text)
     out = Path(__file__).parent / "results"
     out.mkdir(exist_ok=True)
-    stem = args.out + ("-dry" if agent is None else "")
+    stem = args.out + ("-dry" if agent is None else "") + ("-" + "+".join(args.variant) if args.variant else "")
     (out / f"{stem}.txt").write_text(text + "\n")
     (out / f"{stem}.json").write_text(json.dumps({
         "generated": datetime.now(timezone.utc).isoformat(),
