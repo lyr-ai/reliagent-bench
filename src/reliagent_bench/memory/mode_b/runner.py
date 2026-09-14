@@ -156,6 +156,7 @@ def main(argv=None) -> int:
     p.add_argument("--tasks", default=None)
     p.add_argument("--out", default="pilot-0")
     p.add_argument("--variant", action="append", default=None, help="run only these variants (repeatable); default: all")
+    p.add_argument("--scenario", action="append", default=None, help="run only these scenario ids (repeatable)")
     p.add_argument("--list-models", action="store_true", help="print the model ids the API account can call, then exit")
     args = p.parse_args(argv)
 
@@ -167,6 +168,8 @@ def main(argv=None) -> int:
         return 0
 
     scenarios = load_scenarios(args.tasks) if args.tasks else load_scenarios()
+    if args.scenario:
+        scenarios = [s for s in scenarios if s.id in set(args.scenario)]
     agent = None if args.dry_run else default_agent()
     if not args.dry_run and agent is None:
         print("no agent available (set ANTHROPIC_API_KEY) — use --dry-run for the resolution stage")
@@ -184,7 +187,7 @@ def main(argv=None) -> int:
     print(text)
     out = Path(__file__).parent / "results"
     out.mkdir(exist_ok=True)
-    stem = args.out + ("-dry" if agent is None else "") + ("-" + "+".join(v.replace(">", "") for v in args.variant) if args.variant else "")
+    stem = args.out + ("-dry" if agent is None else "") + ("-" + "+".join(v.replace(">", "") for v in args.variant) if args.variant else "") + ("-" + "+".join(args.scenario) if args.scenario else "")
     (out / f"{stem}.txt").write_text(text + "\n")
     (out / f"{stem}.json").write_text(json.dumps({
         "generated": datetime.now(timezone.utc).isoformat(),

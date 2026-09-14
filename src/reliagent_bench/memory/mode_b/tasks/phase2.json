@@ -1228,7 +1228,7 @@
         },
         {
           "id": "m2",
-          "content": "Now Tuesday the 24th ('tues 24th, actually' — quick reply).",
+          "content": "The application deadline is now Tuesday the 24th ('tues 24th, actually' — quick reply).",
           "state_type": "deadline",
           "subject": "visa_application",
           "source_type": "explicit_user",
@@ -1256,7 +1256,7 @@
       "incoming_confidence_reason": "the revision is terse and context-dependent; the referent is resolved from thread context, so recording certainty is lower",
       "nomem_predicted": "Thursday the 26th",
       "default_aligned": false,
-      "note": "Deadline Tuesday the 24th → Monday the 23rd. If Friday the 27th still governed → Thursday the 26th."
+      "note": "Deadline Tuesday the 24th → Monday the 23rd. If Friday the 27th still governed → Thursday the 26th. Wording corrected after the oracle gate: the record originally began 'Now Tuesday the 24th', which the oracle read as today's date in 5/5 runs (reasons in results/phase2-0-oracle.json). Gold unchanged."
     },
     {
       "id": "P-11-F",

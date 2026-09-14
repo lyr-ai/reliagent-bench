@@ -45,5 +45,21 @@
     "BRQ2-narrow REFUTED": "E1: some fixed ordering = 24/24 on pairs.",
     "BRQ2-narrow INCONCLUSIVE": "E1 matches but E2 oracle fails the gate, or correct_state_wrong_agent_decision > 0.1 on any class."
   },
-  "labelling_corrections": []
+  "labelling_corrections": [
+    {
+      "scenario": "P-10-D",
+      "when": "after the oracle gate (phase2-0-oracle), before any comparative run",
+      "what": "incoming memory content 'Now Tuesday the 24th (...)' → 'The application deadline is now Tuesday the 24th (...)'",
+      "why": "the oracle, given the gold governing state, read 'Now Tuesday the 24th' as the current date in 5/5 runs and chose Thursday the 26th because 'Monday the 23rd has already passed'. The scenario as worded could not detect a wrong governing state (every variant would pick Thursday). Independent of any variant outcome; no comparative run existed.",
+      "gold": "unchanged",
+      "action": "oracle re-run on P-10-D alone (5 runs) as phase2-0-oracle-P-10-D before the comparative run",
+      "gate_before_correction": {
+        "overall": 0.97,
+        "epistemic": 0.98,
+        "declared": 0.92,
+        "controls": 1.0,
+        "note": "passes numerically; P-10-F 4/5 is one run with reason 'placeholder', attributed correct_state_wrong_agent_decision and left alone"
+      }
+    }
+  ]
 }

@@ -1,0 +1,4884 @@
+{
+  "generated": "2026-09-14T16:26:49.921105+00:00",
+  "prompt_version": "mode-b-pilot-0",
+  "model": "claude-sonnet-5",
+  "runs": 5,
+  "request_config": {
+    "thinking": {
+      "type": "disabled"
+    },
+    "effort": "low",
+    "format": "json_schema(action enum, reason)"
+  },
+  "source_priority": {
+    "verified_result": 3,
+    "explicit_user": 3,
+    "document": 2,
+    "observed_behavior": 1,
+    "model_inference": 0
+  },
+  "scores": [
+    {
+      "scenario": "P-01-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "the MySQL check",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-01-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "the MySQL check",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-01-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "the MySQL check",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-01-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "the MySQL check",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-01-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "the MySQL check",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-01-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "Tuesday the 15th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-01-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "Tuesday the 15th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-01-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "Tuesday the 15th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-01-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "Tuesday the 15th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-01-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "Tuesday the 15th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-02-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "pnpm install",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-02-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "pnpm install",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-02-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "pnpm install",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-02-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "pnpm install",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-02-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "pnpm install",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-02-C",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "add lodash and use its merge",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-02-C",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "add lodash and use its merge",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-02-C",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "add lodash and use its merge",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-02-C",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "add lodash and use its merge",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-02-C",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "add lodash and use its merge",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-03-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "depart from OAK",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-03-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "depart from OAK",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-03-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "depart from OAK",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-03-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "depart from OAK",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-03-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "depart from OAK",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-03-P",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "window seat",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-03-P",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "window seat",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-03-P",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "window seat",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-03-P",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "window seat",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-03-P",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "window seat",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-04-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "9:00 UK time",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-04-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "9:00 UK time",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-04-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "9:00 UK time",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-04-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "9:00 UK time",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-04-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "9:00 UK time",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-04-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "Monday the 21st",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-04-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "Monday the 21st",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-04-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "Monday the 21st",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-04-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "Monday the 21st",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-04-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "Monday the 21st",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-05-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "assign to Priya",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-05-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "assign to Priya",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-05-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "assign to Priya",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-05-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "assign to Priya",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-05-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "assign to Priya",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-05-C",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "flag as overdue",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-05-C",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "flag as overdue",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-05-C",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "flag as overdue",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-05-C",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "flag as overdue",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-05-C",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "flag as overdue",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-06-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "size L",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-06-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "size L",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-06-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "size L",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-06-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "size L",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-06-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "size L",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-06-P",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "Kat",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-06-P",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "Kat",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-06-P",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "Kat",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-06-P",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "Kat",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-06-P",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "Kat",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-07-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "the /v2 endpoints",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-07-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "the /v2 endpoints",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-07-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "the /v2 endpoints",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-07-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "the /v2 endpoints",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-07-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "the /v2 endpoints",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-07-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "Tuesday the 22nd",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-07-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "Tuesday the 22nd",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-07-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "Tuesday the 22nd",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-07-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "Tuesday the 22nd",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-07-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "Tuesday the 22nd",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-08-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "Acme Analytics",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-08-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "Acme Analytics",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-08-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "Acme Analytics",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-08-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "Acme Analytics",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-08-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "Acme Analytics",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-08-C",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "include the user",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-08-C",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "include the user",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-08-C",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "include the user",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-08-C",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "include the user",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-08-C",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "include the user",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-09-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "biweekly rotation",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-09-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "biweekly rotation",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-09-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "biweekly rotation",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-09-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "biweekly rotation",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-09-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "biweekly rotation",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-09-P",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "open an async retro doc",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-09-P",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "open an async retro doc",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-09-P",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "open an async retro doc",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-09-P",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "open an async retro doc",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-09-P",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "open an async retro doc",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-10-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "the Hilton",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-10-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "the Hilton",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-10-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "the Hilton",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-10-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "the Hilton",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-10-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "the Marriott",
+      "action_correct": false,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": "correct_state_wrong_agent_decision"
+    },
+    {
+      "scenario": "P-10-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "Thursday the 26th",
+      "action_correct": false,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": "correct_state_wrong_agent_decision"
+    },
+    {
+      "scenario": "P-10-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "Thursday the 26th",
+      "action_correct": false,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": "correct_state_wrong_agent_decision"
+    },
+    {
+      "scenario": "P-10-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "Thursday the 26th",
+      "action_correct": false,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": "correct_state_wrong_agent_decision"
+    },
+    {
+      "scenario": "P-10-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "Thursday the 26th",
+      "action_correct": false,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": "correct_state_wrong_agent_decision"
+    },
+    {
+      "scenario": "P-10-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "Thursday the 26th",
+      "action_correct": false,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": "correct_state_wrong_agent_decision"
+    },
+    {
+      "scenario": "P-11-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "us-west-2",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-11-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "us-west-2",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-11-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "us-west-2",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-11-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "us-west-2",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-11-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "us-west-2",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-11-C",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "Terraform Cloud",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-11-C",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "Terraform Cloud",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-11-C",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "Terraform Cloud",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-11-C",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "Terraform Cloud",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-11-C",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "Terraform Cloud",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-12-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "Tuesday",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-12-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "Tuesday",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-12-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "Tuesday",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-12-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "Tuesday",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-12-F",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "Tuesday",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-12-P",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "15:00",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-12-P",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "15:00",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-12-P",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "15:00",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-12-P",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "15:00",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-12-P",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "15:00",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-01",
+      "family": "control",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "the Denver address",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-01",
+      "family": "control",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "the Denver address",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-01",
+      "family": "control",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "the Denver address",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-01",
+      "family": "control",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "the Denver address",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-01",
+      "family": "control",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "the Denver address",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-02",
+      "family": "control",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "Tuesday the 17th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-02",
+      "family": "control",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "Tuesday the 17th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-02",
+      "family": "control",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "Tuesday the 17th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-02",
+      "family": "control",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "Tuesday the 17th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-02",
+      "family": "control",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "Tuesday the 17th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-03",
+      "family": "control",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "add the user's talk to the agenda",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-03",
+      "family": "control",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "add the user's talk to the agenda",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-03",
+      "family": "control",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "add the user's talk to the agenda",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-03",
+      "family": "control",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "add the user's talk to the agenda",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-03",
+      "family": "control",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "add the user's talk to the agenda",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-04",
+      "family": "control",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "light theme",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-04",
+      "family": "control",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "light theme",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-04",
+      "family": "control",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "light theme",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-04",
+      "family": "control",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "light theme",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-04",
+      "family": "control",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "light theme",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-05",
+      "family": "control",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "8 GB heap",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-05",
+      "family": "control",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "8 GB heap",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-05",
+      "family": "control",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "8 GB heap",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-05",
+      "family": "control",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "8 GB heap",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-05",
+      "family": "control",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "8 GB heap",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-06",
+      "family": "control",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "Thursday the 26th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-06",
+      "family": "control",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "Thursday the 26th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-06",
+      "family": "control",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "Thursday the 26th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-06",
+      "family": "control",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "Thursday the 26th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-06",
+      "family": "control",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "Thursday the 26th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-07",
+      "family": "control",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "on the user's own instance",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-07",
+      "family": "control",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "on the user's own instance",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-07",
+      "family": "control",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "on the user's own instance",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-07",
+      "family": "control",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "on the user's own instance",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-07",
+      "family": "control",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "on the user's own instance",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-08",
+      "family": "control",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "plain-text format",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-08",
+      "family": "control",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "plain-text format",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-08",
+      "family": "control",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "plain-text format",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-08",
+      "family": "control",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "plain-text format",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-08",
+      "family": "control",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "plain-text format",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-09",
+      "family": "control",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "hold PR #442",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-09",
+      "family": "control",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "hold PR #442",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-09",
+      "family": "control",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "hold PR #442",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-09",
+      "family": "control",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "hold PR #442",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-09",
+      "family": "control",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "hold PR #442",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-10",
+      "family": "control",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "merge PR #451",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-10",
+      "family": "control",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "merge PR #451",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-10",
+      "family": "control",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "merge PR #451",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-10",
+      "family": "control",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "merge PR #451",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-10",
+      "family": "control",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "merge PR #451",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-11",
+      "family": "control",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "the Boise address",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-11",
+      "family": "control",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "the Boise address",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-11",
+      "family": "control",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "the Boise address",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-11",
+      "family": "control",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "the Boise address",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-11",
+      "family": "control",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "the Boise address",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-12",
+      "family": "control",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "Thursday the 17th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-12",
+      "family": "control",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "Thursday the 17th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-12",
+      "family": "control",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "Thursday the 17th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-12",
+      "family": "control",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "Thursday the 17th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "K-12",
+      "family": "control",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "Thursday the 17th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    }
+  ],
+  "transcripts": [
+    {
+      "scenario": "P-01-F",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "fact/orders_service_db": "m1"
+      },
+      "memory": [
+        "The orders service runs on MySQL."
+      ],
+      "action": "the MySQL check",
+      "reason": "The orders service runs on MySQL according to resolved memory, so the MySQL health check template should be used.",
+      "raw": "{\"action\":\"the MySQL check\",\"reason\":\"The orders service runs on MySQL according to resolved memory, so the MySQL health check template should be used.\"}"
+    },
+    {
+      "scenario": "P-01-F",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "fact/orders_service_db": "m1"
+      },
+      "memory": [
+        "The orders service runs on MySQL."
+      ],
+      "action": "the MySQL check",
+      "reason": "The orders service runs on MySQL according to resolved memory, so the MySQL health check template is appropriate.",
+      "raw": "{\"action\":\"the MySQL check\",\"reason\":\"The orders service runs on MySQL according to resolved memory, so the MySQL health check template is appropriate.\"}"
+    },
+    {
+      "scenario": "P-01-F",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "fact/orders_service_db": "m1"
+      },
+      "memory": [
+        "The orders service runs on MySQL."
+      ],
+      "action": "the MySQL check",
+      "reason": "The orders service runs on MySQL according to memory, so the MySQL health check template is appropriate.",
+      "raw": "{\"action\":\"the MySQL check\",\"reason\":\"The orders service runs on MySQL according to memory, so the MySQL health check template is appropriate.\"}"
+    },
+    {
+      "scenario": "P-01-F",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "fact/orders_service_db": "m1"
+      },
+      "memory": [
+        "The orders service runs on MySQL."
+      ],
+      "action": "the MySQL check",
+      "reason": "The orders service runs on MySQL according to resolved memory, so its health check should use the MySQL template.",
+      "raw": "{\"action\":\"the MySQL check\",\"reason\":\"The orders service runs on MySQL according to resolved memory, so its health check should use the MySQL template.\"}"
+    },
+    {
+      "scenario": "P-01-F",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "fact/orders_service_db": "m1"
+      },
+      "memory": [
+        "The orders service runs on MySQL."
+      ],
+      "action": "the MySQL check",
+      "reason": "The orders service runs on MySQL according to resolved memory, so the MySQL health check template is appropriate.",
+      "raw": "{\"action\":\"the MySQL check\",\"reason\":\"The orders service runs on MySQL according to resolved memory, so the MySQL health check template is appropriate.\"}"
+    },
+    {
+      "scenario": "P-01-D",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "deadline/orders_db_cutover": "m2"
+      },
+      "memory": [
+        "Cutover deadline is now Wednesday the 16th (terse reply in the migration thread: 'Wednesday, actually')."
+      ],
+      "action": "Tuesday the 15th",
+      "reason": "The cutover deadline is Wednesday the 16th, so the backup must run before then, making Tuesday the 15th the latest valid slot.",
+      "raw": "{\"action\":\"Tuesday the 15th\",\"reason\":\"The cutover deadline is Wednesday the 16th, so the backup must run before then, making Tuesday the 15th the latest valid slot.\"}"
+    },
+    {
+      "scenario": "P-01-D",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "deadline/orders_db_cutover": "m2"
+      },
+      "memory": [
+        "Cutover deadline is now Wednesday the 16th (terse reply in the migration thread: 'Wednesday, actually')."
+      ],
+      "action": "Tuesday the 15th",
+      "reason": "The cutover deadline is Wednesday the 16th, so the backup must occur before then, making Tuesday the 15th the latest valid slot.",
+      "raw": "{\"action\":\"Tuesday the 15th\",\"reason\":\"The cutover deadline is Wednesday the 16th, so the backup must occur before then, making Tuesday the 15th the latest valid slot.\"}"
+    },
+    {
+      "scenario": "P-01-D",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "deadline/orders_db_cutover": "m2"
+      },
+      "memory": [
+        "Cutover deadline is now Wednesday the 16th (terse reply in the migration thread: 'Wednesday, actually')."
+      ],
+      "action": "Tuesday the 15th",
+      "reason": "The backup must run before the Wednesday 16th cutover deadline, so Tuesday the 15th is the latest available slot that satisfies this.",
+      "raw": "{\"action\":\"Tuesday the 15th\",\"reason\":\"The backup must run before the Wednesday 16th cutover deadline, so Tuesday the 15th is the latest available slot that satisfies this.\"}"
+    },
+    {
+      "scenario": "P-01-D",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "deadline/orders_db_cutover": "m2"
+      },
+      "memory": [
+        "Cutover deadline is now Wednesday the 16th (terse reply in the migration thread: 'Wednesday, actually')."
+      ],
+      "action": "Tuesday the 15th",
+      "reason": "The backup must occur before the Wednesday the 16th cutover deadline, so Tuesday the 15th is the latest available slot that satisfies this constraint.",
+      "raw": "{\"action\":\"Tuesday the 15th\",\"reason\":\"The backup must occur before the Wednesday the 16th cutover deadline, so Tuesday the 15th is the latest available slot that satisfies this constraint.\"}"
+    },
+    {
+      "scenario": "P-01-D",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "deadline/orders_db_cutover": "m2"
+      },
+      "memory": [
+        "Cutover deadline is now Wednesday the 16th (terse reply in the migration thread: 'Wednesday, actually')."
+      ],
+      "action": "Tuesday the 15th",
+      "reason": "The backup must occur before the Wednesday the 16th cutover deadline, and Tuesday the 15th is the latest available slot that satisfies this.",
+      "raw": "{\"action\":\"Tuesday the 15th\",\"reason\":\"The backup must occur before the Wednesday the 16th cutover deadline, and Tuesday the 15th is the latest available slot that satisfies this.\"}"
+    },
+    {
+      "scenario": "P-02-F",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "fact/web_repo_package_manager": "m1"
+      },
+      "memory": [
+        "The web repo builds with pnpm."
+      ],
+      "action": "pnpm install",
+      "reason": "The web repo builds with pnpm according to resolved memory, so the CI dependency-install step should use pnpm install.",
+      "raw": "{\"action\":\"pnpm install\",\"reason\":\"The web repo builds with pnpm according to resolved memory, so the CI dependency-install step should use pnpm install.\"}"
+    },
+    {
+      "scenario": "P-02-F",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "fact/web_repo_package_manager": "m1"
+      },
+      "memory": [
+        "The web repo builds with pnpm."
+      ],
+      "action": "pnpm install",
+      "reason": "The web repo builds with pnpm according to memory, so the CI install step should match that convention.",
+      "raw": "{\"action\":\"pnpm install\",\"reason\":\"The web repo builds with pnpm according to memory, so the CI install step should match that convention.\"}"
+    },
+    {
+      "scenario": "P-02-F",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "fact/web_repo_package_manager": "m1"
+      },
+      "memory": [
+        "The web repo builds with pnpm."
+      ],
+      "action": "pnpm install",
+      "reason": "Memory indicates the web repo builds with pnpm, so the CI install step should use pnpm install.",
+      "raw": "{\"action\":\"pnpm install\",\"reason\":\"Memory indicates the web repo builds with pnpm, so the CI install step should use pnpm install.\"}"
+    },
+    {
+      "scenario": "P-02-F",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "fact/web_repo_package_manager": "m1"
+      },
+      "memory": [
+        "The web repo builds with pnpm."
+      ],
+      "action": "pnpm install",
+      "reason": "Memory indicates the web repo builds with pnpm, so the CI install step should use pnpm install.",
+      "raw": "{\"action\":\"pnpm install\",\"reason\":\"Memory indicates the web repo builds with pnpm, so the CI install step should use pnpm install.\"}"
+    },
+    {
+      "scenario": "P-02-F",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "fact/web_repo_package_manager": "m1"
+      },
+      "memory": [
+        "The web repo builds with pnpm."
+      ],
+      "action": "pnpm install",
+      "reason": "Memory indicates the web repo builds with pnpm, so the CI install step should use pnpm install.",
+      "raw": "{\"action\":\"pnpm install\",\"reason\":\"Memory indicates the web repo builds with pnpm, so the CI install step should use pnpm install.\"}"
+    },
+    {
+      "scenario": "P-02-C",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "commitment/lodash_in_web_repo": "m2"
+      },
+      "memory": [
+        "Lodash is fine after all (one-line reply in the PR thread: 'ok, lodash is fine')."
+      ],
+      "action": "add lodash and use its merge",
+      "reason": "The user already approved using lodash in the PR thread, so leveraging its well-tested merge function is preferable to reinventing it.",
+      "raw": "{\"action\":\"add lodash and use its merge\",\"reason\":\"The user already approved using lodash in the PR thread, so leveraging its well-tested merge function is preferable to reinventing it.\"}"
+    },
+    {
+      "scenario": "P-02-C",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "commitment/lodash_in_web_repo": "m2"
+      },
+      "memory": [
+        "Lodash is fine after all (one-line reply in the PR thread: 'ok, lodash is fine')."
+      ],
+      "action": "add lodash and use its merge",
+      "reason": "The user already approved using lodash, so leveraging its well-tested merge function is simpler and consistent with prior approval.",
+      "raw": "{\"action\":\"add lodash and use its merge\",\"reason\":\"The user already approved using lodash, so leveraging its well-tested merge function is simpler and consistent with prior approval.\"}"
+    },
+    {
+      "scenario": "P-02-C",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "commitment/lodash_in_web_repo": "m2"
+      },
+      "memory": [
+        "Lodash is fine after all (one-line reply in the PR thread: 'ok, lodash is fine')."
+      ],
+      "action": "add lodash and use its merge",
+      "reason": "The team already approved using lodash, so leveraging its well-tested merge function is more efficient than reimplementing deep-merge logic.",
+      "raw": "{\"action\":\"add lodash and use its merge\",\"reason\":\"The team already approved using lodash, so leveraging its well-tested merge function is more efficient than reimplementing deep-merge logic.\"}"
+    },
+    {
+      "scenario": "P-02-C",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "commitment/lodash_in_web_repo": "m2"
+      },
+      "memory": [
+        "Lodash is fine after all (one-line reply in the PR thread: 'ok, lodash is fine')."
+      ],
+      "action": "add lodash and use its merge",
+      "reason": "Memory indicates lodash was approved for use, so leveraging its well-tested merge function is preferable to reimplementing deep-merge by hand.",
+      "raw": "{\"action\":\"add lodash and use its merge\",\"reason\":\"Memory indicates lodash was approved for use, so leveraging its well-tested merge function is preferable to reimplementing deep-merge by hand.\"}"
+    },
+    {
+      "scenario": "P-02-C",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "commitment/lodash_in_web_repo": "m2"
+      },
+      "memory": [
+        "Lodash is fine after all (one-line reply in the PR thread: 'ok, lodash is fine')."
+      ],
+      "action": "add lodash and use its merge",
+      "reason": "The user already approved using lodash in the PR thread, so leveraging its well-tested merge function is appropriate.",
+      "raw": "{\"action\":\"add lodash and use its merge\",\"reason\":\"The user already approved using lodash in the PR thread, so leveraging its well-tested merge function is appropriate.\"}"
+    },
+    {
+      "scenario": "P-03-F",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "fact/home_airport": "m1"
+      },
+      "memory": [
+        "The user's home airport is Oakland (OAK)."
+      ],
+      "action": "depart from OAK",
+      "reason": "OAK is the user's home airport and fares/times are equivalent, so it's the most convenient choice.",
+      "raw": "{\"action\":\"depart from OAK\",\"reason\":\"OAK is the user's home airport and fares/times are equivalent, so it's the most convenient choice.\"}"
+    },
+    {
+      "scenario": "P-03-F",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "fact/home_airport": "m1"
+      },
+      "memory": [
+        "The user's home airport is Oakland (OAK)."
+      ],
+      "action": "depart from OAK",
+      "reason": "OAK is the user's home airport and fares/times are equivalent, so it's the preferred default choice.",
+      "raw": "{\"action\":\"depart from OAK\",\"reason\":\"OAK is the user's home airport and fares/times are equivalent, so it's the preferred default choice.\"}"
+    },
+    {
+      "scenario": "P-03-F",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "fact/home_airport": "m1"
+      },
+      "memory": [
+        "The user's home airport is Oakland (OAK)."
+      ],
+      "action": "depart from OAK",
+      "reason": "The user's home airport is OAK, and since fares and times are equivalent, departing from their home airport is most convenient.",
+      "raw": "{\"action\":\"depart from OAK\",\"reason\":\"The user's home airport is OAK, and since fares and times are equivalent, departing from their home airport is most convenient.\"}"
+    },
+    {
+      "scenario": "P-03-F",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "fact/home_airport": "m1"
+      },
+      "memory": [
+        "The user's home airport is Oakland (OAK)."
+      ],
+      "action": "depart from OAK",
+      "reason": "The user's home airport is OAK, and since fares and times are equivalent, departing from their home airport is most convenient.",
+      "raw": "{\"action\": \"depart from OAK\", \"reason\": \"The user's home airport is OAK, and since fares and times are equivalent, departing from their home airport is most convenient.\"}"
+    },
+    {
+      "scenario": "P-03-F",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "fact/home_airport": "m1"
+      },
+      "memory": [
+        "The user's home airport is Oakland (OAK)."
+      ],
+      "action": "depart from OAK",
+      "reason": "OAK is the user's home airport and fares/times are equivalent, so it's the natural default choice.",
+      "raw": "{\"action\":\"depart from OAK\",\"reason\":\"OAK is the user's home airport and fares/times are equivalent, so it's the natural default choice.\"}"
+    },
+    {
+      "scenario": "P-03-P",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "preference/seat_preference": "m2"
+      },
+      "memory": [
+        "Window now (short reply when asked about seating: 'window pls')."
+      ],
+      "action": "window seat",
+      "reason": "User's stored preference indicates they want a window seat.",
+      "raw": "{\"action\":\"window seat\",\"reason\":\"User's stored preference indicates they want a window seat.\"}"
+    },
+    {
+      "scenario": "P-03-P",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "preference/seat_preference": "m2"
+      },
+      "memory": [
+        "Window now (short reply when asked about seating: 'window pls')."
+      ],
+      "action": "window seat",
+      "reason": "User's stored preference indicates they prefer a window seat.",
+      "raw": "{\"action\":\"window seat\",\"reason\":\"User's stored preference indicates they prefer a window seat.\"}"
+    },
+    {
+      "scenario": "P-03-P",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "preference/seat_preference": "m2"
+      },
+      "memory": [
+        "Window now (short reply when asked about seating: 'window pls')."
+      ],
+      "action": "window seat",
+      "reason": "User's memory indicates a preference for window seating.",
+      "raw": "{\"action\":\"window seat\",\"reason\":\"User's memory indicates a preference for window seating.\"}"
+    },
+    {
+      "scenario": "P-03-P",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "preference/seat_preference": "m2"
+      },
+      "memory": [
+        "Window now (short reply when asked about seating: 'window pls')."
+      ],
+      "action": "window seat",
+      "reason": "User's stored preference explicitly requests a window seat.",
+      "raw": "{\"action\":\"window seat\",\"reason\":\"User's stored preference explicitly requests a window seat.\"}"
+    },
+    {
+      "scenario": "P-03-P",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "preference/seat_preference": "m2"
+      },
+      "memory": [
+        "Window now (short reply when asked about seating: 'window pls')."
+      ],
+      "action": "window seat",
+      "reason": "User's memory indicates a preference for window seating.",
+      "raw": "{\"action\":\"window seat\",\"reason\":\"User's memory indicates a preference for window seating.\"}"
+    },
+    {
+      "scenario": "P-04-F",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "fact/design_team_timezone": "m1"
+      },
+      "memory": [
+        "Team wiki: the design team is based in London (UK time)."
+      ],
+      "action": "9:00 UK time",
+      "reason": "The design team is based in London, so their local time is UK time.",
+      "raw": "{\"action\":\"9:00 UK time\",\"reason\":\"The design team is based in London, so their local time is UK time.\"}"
+    },
+    {
+      "scenario": "P-04-F",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "fact/design_team_timezone": "m1"
+      },
+      "memory": [
+        "Team wiki: the design team is based in London (UK time)."
+      ],
+      "action": "9:00 UK time",
+      "reason": "The design team is based in London, so their local time is UK time.",
+      "raw": "{\"action\":\"9:00 UK time\",\"reason\":\"The design team is based in London, so their local time is UK time.\"}"
+    },
+    {
+      "scenario": "P-04-F",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "fact/design_team_timezone": "m1"
+      },
+      "memory": [
+        "Team wiki: the design team is based in London (UK time)."
+      ],
+      "action": "9:00 UK time",
+      "reason": "The design team is based in London, so the local time is UK time.",
+      "raw": "{\"action\":\"9:00 UK time\",\"reason\":\"The design team is based in London, so the local time is UK time.\"}"
+    },
+    {
+      "scenario": "P-04-F",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "fact/design_team_timezone": "m1"
+      },
+      "memory": [
+        "Team wiki: the design team is based in London (UK time)."
+      ],
+      "action": "9:00 UK time",
+      "reason": "The design team is based in London, so the local time is UK time.",
+      "raw": "{\"action\":\"9:00 UK time\",\"reason\":\"The design team is based in London, so the local time is UK time.\"}"
+    },
+    {
+      "scenario": "P-04-F",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "fact/design_team_timezone": "m1"
+      },
+      "memory": [
+        "Team wiki: the design team is based in London (UK time)."
+      ],
+      "action": "9:00 UK time",
+      "reason": "The design team is based in London, so their local time is UK time.",
+      "raw": "{\"action\":\"9:00 UK time\",\"reason\":\"The design team is based in London, so their local time is UK time.\"}"
+    },
+    {
+      "scenario": "P-04-D",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "deadline/proposal_submission": "m2"
+      },
+      "memory": [
+        "Tracker field edited to read 'due Tue 22' (one-line change, no note)."
+      ],
+      "action": "Monday the 21st",
+      "reason": "The deadline is Tuesday the 22nd, so the review must occur before that, making Monday the 21st the latest available option.",
+      "raw": "{\"action\":\"Monday the 21st\",\"reason\":\"The deadline is Tuesday the 22nd, so the review must occur before that, making Monday the 21st the latest available option.\"}"
+    },
+    {
+      "scenario": "P-04-D",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "deadline/proposal_submission": "m2"
+      },
+      "memory": [
+        "Tracker field edited to read 'due Tue 22' (one-line change, no note)."
+      ],
+      "action": "Monday the 21st",
+      "reason": "The deadline is Tuesday the 22nd, so the review must occur before that, making Monday the 21st the latest available option.",
+      "raw": "{\"action\":\"Monday the 21st\",\"reason\":\"The deadline is Tuesday the 22nd, so the review must occur before that, making Monday the 21st the latest available option.\"}"
+    },
+    {
+      "scenario": "P-04-D",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "deadline/proposal_submission": "m2"
+      },
+      "memory": [
+        "Tracker field edited to read 'due Tue 22' (one-line change, no note)."
+      ],
+      "action": "Monday the 21st",
+      "reason": "The deadline is Tuesday the 22nd, so the review must occur before that, making Monday the 21st the latest available option.",
+      "raw": "{\"action\":\"Monday the 21st\",\"reason\":\"The deadline is Tuesday the 22nd, so the review must occur before that, making Monday the 21st the latest available option.\"}"
+    },
+    {
+      "scenario": "P-04-D",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "deadline/proposal_submission": "m2"
+      },
+      "memory": [
+        "Tracker field edited to read 'due Tue 22' (one-line change, no note)."
+      ],
+      "action": "Monday the 21st",
+      "reason": "The deadline is Tuesday the 22nd, so the review must be scheduled before that, making Monday the 21st the latest available option.",
+      "raw": "{\"action\":\"Monday the 21st\",\"reason\":\"The deadline is Tuesday the 22nd, so the review must be scheduled before that, making Monday the 21st the latest available option.\"}"
+    },
+    {
+      "scenario": "P-04-D",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "deadline/proposal_submission": "m2"
+      },
+      "memory": [
+        "Tracker field edited to read 'due Tue 22' (one-line change, no note)."
+      ],
+      "action": "Monday the 21st",
+      "reason": "The deadline is Tuesday the 22nd, so the review must occur before then, making Monday the 21st the latest available option.",
+      "raw": "{\"action\":\"Monday the 21st\",\"reason\":\"The deadline is Tuesday the 22nd, so the review must occur before then, making Monday the 21st the latest available option.\"}"
+    },
+    {
+      "scenario": "P-05-F",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "fact/release_manager": "m1"
+      },
+      "memory": [
+        "Priya is the release manager for the platform team."
+      ],
+      "action": "assign to Priya",
+      "reason": "placeholder",
+      "raw": "{\"action\": \"assign to Priya\", \"reason\": \"placeholder\"}"
+    },
+    {
+      "scenario": "P-05-F",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "fact/release_manager": "m1"
+      },
+      "memory": [
+        "Priya is the release manager for the platform team."
+      ],
+      "action": "assign to Priya",
+      "reason": "placeholder",
+      "raw": "{\"action\":\"assign to Priya\",\"reason\":\"placeholder\"}"
+    },
+    {
+      "scenario": "P-05-F",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "fact/release_manager": "m1"
+      },
+      "memory": [
+        "Priya is the release manager for the platform team."
+      ],
+      "action": "assign to Priya",
+      "reason": "placeholder",
+      "raw": "{\"action\":\"assign to Priya\",\"reason\":\"placeholder\"}"
+    },
+    {
+      "scenario": "P-05-F",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "fact/release_manager": "m1"
+      },
+      "memory": [
+        "Priya is the release manager for the platform team."
+      ],
+      "action": "assign to Priya",
+      "reason": "placeholder",
+      "raw": "{\"action\": \"assign to Priya\", \"reason\": \"placeholder\"}"
+    },
+    {
+      "scenario": "P-05-F",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "fact/release_manager": "m1"
+      },
+      "memory": [
+        "Priya is the release manager for the platform team."
+      ],
+      "action": "assign to Priya",
+      "reason": "invalid",
+      "raw": "{\"action\":\"assign to Priya\",\"reason\":\"invalid\"}"
+    },
+    {
+      "scenario": "P-05-C",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "commitment/pr_review_sla": "m2"
+      },
+      "memory": [
+        "One business day from now on ('one day, actually \u2014 starting now', said in passing at standup)."
+      ],
+      "action": "flag as overdue",
+      "reason": "The user set a one-business-day deadline starting yesterday, and it is now the following afternoon, so the review is past due.",
+      "raw": "{\"action\": \"flag as overdue\", \"reason\": \"The user set a one-business-day deadline starting yesterday, and it is now the following afternoon, so the review is past due.\"}"
+    },
+    {
+      "scenario": "P-05-C",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "commitment/pr_review_sla": "m2"
+      },
+      "memory": [
+        "One business day from now on ('one day, actually \u2014 starting now', said in passing at standup)."
+      ],
+      "action": "flag as overdue",
+      "reason": "The user set a one business day deadline starting yesterday, and since it is now the following afternoon that deadline has passed without a review.",
+      "raw": "{\"action\":\"flag as overdue\",\"reason\":\"The user set a one business day deadline starting yesterday, and since it is now the following afternoon that deadline has passed without a review.\"}"
+    },
+    {
+      "scenario": "P-05-C",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "commitment/pr_review_sla": "m2"
+      },
+      "memory": [
+        "One business day from now on ('one day, actually \u2014 starting now', said in passing at standup)."
+      ],
+      "action": "flag as overdue",
+      "reason": "The one business day deadline stated at standup has elapsed since the PR was opened yesterday morning, and it is now the following afternoon.",
+      "raw": "{\"action\": \"flag as overdue\", \"reason\": \"The one business day deadline stated at standup has elapsed since the PR was opened yesterday morning, and it is now the following afternoon.\"}"
+    },
+    {
+      "scenario": "P-05-C",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "commitment/pr_review_sla": "m2"
+      },
+      "memory": [
+        "One business day from now on ('one day, actually \u2014 starting now', said in passing at standup)."
+      ],
+      "action": "flag as overdue",
+      "reason": "The PR was opened yesterday morning and the user's own stated one-business-day SLA has now elapsed, so it qualifies as overdue by their own standard.",
+      "raw": "{\"action\": \"flag as overdue\", \"reason\": \"The PR was opened yesterday morning and the user's own stated one-business-day SLA has now elapsed, so it qualifies as overdue by their own standard.\"}"
+    },
+    {
+      "scenario": "P-05-C",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "commitment/pr_review_sla": "m2"
+      },
+      "memory": [
+        "One business day from now on ('one day, actually \u2014 starting now', said in passing at standup)."
+      ],
+      "action": "flag as overdue",
+      "reason": "The user set a one-business-day SLA starting at yesterday's standup, and it is now the following afternoon, exceeding that window.",
+      "raw": "{\"action\": \"flag as overdue\", \"reason\": \"The user set a one-business-day SLA starting at yesterday's standup, and it is now the following afternoon, exceeding that window.\"}"
+    },
+    {
+      "scenario": "P-06-F",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "fact/tshirt_size": "m1"
+      },
+      "memory": [
+        "The user's T-shirt size is L."
+      ],
+      "action": "size L",
+      "reason": "The user's known T-shirt size on record is L.",
+      "raw": "{\"action\":\"size L\",\"reason\":\"The user's known T-shirt size on record is L.\"}"
+    },
+    {
+      "scenario": "P-06-F",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "fact/tshirt_size": "m1"
+      },
+      "memory": [
+        "The user's T-shirt size is L."
+      ],
+      "action": "size L",
+      "reason": "",
+      "raw": "{\"action\":\"size L\",\"reason\":\"\"}"
+    },
+    {
+      "scenario": "P-06-F",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "fact/tshirt_size": "m1"
+      },
+      "memory": [
+        "The user's T-shirt size is L."
+      ],
+      "action": "size L",
+      "reason": "placeholder",
+      "raw": "{\"action\":\"size L\",\"reason\":\"placeholder\"}"
+    },
+    {
+      "scenario": "P-06-F",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "fact/tshirt_size": "m1"
+      },
+      "memory": [
+        "The user's T-shirt size is L."
+      ],
+      "action": "size L",
+      "reason": "placeholder",
+      "raw": "{\"action\":\"size L\",\"reason\":\"placeholder\"}"
+    },
+    {
+      "scenario": "P-06-F",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "fact/tshirt_size": "m1"
+      },
+      "memory": [
+        "The user's T-shirt size is L."
+      ],
+      "action": "size L",
+      "reason": "The user's known T-shirt size in memory is L.",
+      "raw": "{\"action\":\"size L\",\"reason\":\"The user's known T-shirt size in memory is L.\"}"
+    },
+    {
+      "scenario": "P-06-P",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "preference/preferred_name": "m2"
+      },
+      "memory": [
+        "Kat now ('just Kat is fine', in a quick reply)."
+      ],
+      "action": "Kat",
+      "reason": "The user explicitly stated a preference to be called 'just Kat' in their resolved memory.",
+      "raw": "{\"action\":\"Kat\",\"reason\":\"The user explicitly stated a preference to be called 'just Kat' in their resolved memory.\"}"
+    },
+    {
+      "scenario": "P-06-P",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "preference/preferred_name": "m2"
+      },
+      "memory": [
+        "Kat now ('just Kat is fine', in a quick reply)."
+      ],
+      "action": "Kat",
+      "reason": "The user explicitly stated a preference to be called 'just Kat' in their resolved memory.",
+      "raw": "{\"action\":\"Kat\",\"reason\":\"The user explicitly stated a preference to be called 'just Kat' in their resolved memory.\"}"
+    },
+    {
+      "scenario": "P-06-P",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "preference/preferred_name": "m2"
+      },
+      "memory": [
+        "Kat now ('just Kat is fine', in a quick reply)."
+      ],
+      "action": "Kat",
+      "reason": "The user's resolved memory indicates they prefer to be called 'Kat' now.",
+      "raw": "{\"action\":\"Kat\",\"reason\":\"The user's resolved memory indicates they prefer to be called 'Kat' now.\"}"
+    },
+    {
+      "scenario": "P-06-P",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "preference/preferred_name": "m2"
+      },
+      "memory": [
+        "Kat now ('just Kat is fine', in a quick reply)."
+      ],
+      "action": "Kat",
+      "reason": "The user's resolved memory indicates they prefer to be called 'Kat' now.",
+      "raw": "{\"action\":\"Kat\",\"reason\":\"The user's resolved memory indicates they prefer to be called 'Kat' now.\"}"
+    },
+    {
+      "scenario": "P-06-P",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "preference/preferred_name": "m2"
+      },
+      "memory": [
+        "Kat now ('just Kat is fine', in a quick reply)."
+      ],
+      "action": "Kat",
+      "reason": "The user's resolved memory indicates they prefer to be called 'Kat' now, so the badge should reflect that preference.",
+      "raw": "{\"action\":\"Kat\",\"reason\":\"The user's resolved memory indicates they prefer to be called 'Kat' now, so the badge should reflect that preference.\"}"
+    },
+    {
+      "scenario": "P-07-F",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "fact/public_api_version": "m1"
+      },
+      "memory": [
+        "README: the service's public API version is v2."
+      ],
+      "action": "the /v2 endpoints",
+      "reason": "The README states the service's current public API version is v2.",
+      "raw": "{\"action\":\"the /v2 endpoints\",\"reason\":\"The README states the service's current public API version is v2.\"}"
+    },
+    {
+      "scenario": "P-07-F",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "fact/public_api_version": "m1"
+      },
+      "memory": [
+        "README: the service's public API version is v2."
+      ],
+      "action": "the /v2 endpoints",
+      "reason": "The README indicates the service's current public API version is v2.",
+      "raw": "{\"action\":\"the /v2 endpoints\",\"reason\":\"The README indicates the service's current public API version is v2.\"}"
+    },
+    {
+      "scenario": "P-07-F",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "fact/public_api_version": "m1"
+      },
+      "memory": [
+        "README: the service's public API version is v2."
+      ],
+      "action": "the /v2 endpoints",
+      "reason": "The README states the service's current public API version is v2.",
+      "raw": "{\"action\":\"the /v2 endpoints\",\"reason\":\"The README states the service's current public API version is v2.\"}"
+    },
+    {
+      "scenario": "P-07-F",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "fact/public_api_version": "m1"
+      },
+      "memory": [
+        "README: the service's public API version is v2."
+      ],
+      "action": "the /v2 endpoints",
+      "reason": "README indicates the service's current public API version is v2.",
+      "raw": "{\"action\":\"the /v2 endpoints\",\"reason\":\"README indicates the service's current public API version is v2.\"}"
+    },
+    {
+      "scenario": "P-07-F",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "fact/public_api_version": "m1"
+      },
+      "memory": [
+        "README: the service's public API version is v2."
+      ],
+      "action": "the /v2 endpoints",
+      "reason": "The README states the service's current public API version is v2.",
+      "raw": "{\"action\":\"the /v2 endpoints\",\"reason\":\"The README states the service's current public API version is v2.\"}"
+    },
+    {
+      "scenario": "P-07-D",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "deadline/feature_freeze": "m2"
+      },
+      "memory": [
+        "Board header changed to 'freeze Wed 23' (no accompanying note)."
+      ],
+      "action": "Tuesday the 22nd",
+      "reason": "The freeze is Wednesday the 23rd, so the last merge window before that must be Tuesday the 22nd, as Thursday the 24th falls after the freeze.",
+      "raw": "{\"action\":\"Tuesday the 22nd\",\"reason\":\"The freeze is Wednesday the 23rd, so the last merge window before that must be Tuesday the 22nd, as Thursday the 24th falls after the freeze.\"}"
+    },
+    {
+      "scenario": "P-07-D",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "deadline/feature_freeze": "m2"
+      },
+      "memory": [
+        "Board header changed to 'freeze Wed 23' (no accompanying note)."
+      ],
+      "action": "Tuesday the 22nd",
+      "reason": "Feature freeze is Wednesday the 23rd, so the last merge window before it must be Tuesday the 22nd since Thursday the 24th falls after the freeze.",
+      "raw": "{\"action\":\"Tuesday the 22nd\",\"reason\":\"Feature freeze is Wednesday the 23rd, so the last merge window before it must be Tuesday the 22nd since Thursday the 24th falls after the freeze.\"}"
+    },
+    {
+      "scenario": "P-07-D",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "deadline/feature_freeze": "m2"
+      },
+      "memory": [
+        "Board header changed to 'freeze Wed 23' (no accompanying note)."
+      ],
+      "action": "Tuesday the 22nd",
+      "reason": "Feature freeze is Wednesday the 23rd, so the last merge window before it must be Tuesday the 22nd since Thursday the 24th falls after the freeze.",
+      "raw": "{\"action\":\"Tuesday the 22nd\",\"reason\":\"Feature freeze is Wednesday the 23rd, so the last merge window before it must be Tuesday the 22nd since Thursday the 24th falls after the freeze.\"}"
+    },
+    {
+      "scenario": "P-07-D",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "deadline/feature_freeze": "m2"
+      },
+      "memory": [
+        "Board header changed to 'freeze Wed 23' (no accompanying note)."
+      ],
+      "action": "Tuesday the 22nd",
+      "reason": "The feature freeze is Wednesday the 23rd, so the last merge window before it must be Tuesday the 22nd.",
+      "raw": "{\"action\":\"Tuesday the 22nd\",\"reason\":\"The feature freeze is Wednesday the 23rd, so the last merge window before it must be Tuesday the 22nd.\"}"
+    },
+    {
+      "scenario": "P-07-D",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "deadline/feature_freeze": "m2"
+      },
+      "memory": [
+        "Board header changed to 'freeze Wed 23' (no accompanying note)."
+      ],
+      "action": "Tuesday the 22nd",
+      "reason": "Feature freeze is Wednesday the 23rd, so the last merge window before it must be Tuesday the 22nd since Thursday the 24th falls after the freeze.",
+      "raw": "{\"action\":\"Tuesday the 22nd\",\"reason\":\"Feature freeze is Wednesday the 23rd, so the last merge window before it must be Tuesday the 22nd since Thursday the 24th falls after the freeze.\"}"
+    },
+    {
+      "scenario": "P-08-F",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "fact/employer": "m1"
+      },
+      "memory": [
+        "The user works at Acme Analytics."
+      ],
+      "action": "Acme Analytics",
+      "reason": "placeholder",
+      "raw": "{\"action\":\"Acme Analytics\",\"reason\":\"placeholder\"}"
+    },
+    {
+      "scenario": "P-08-F",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "fact/employer": "m1"
+      },
+      "memory": [
+        "The user works at Acme Analytics."
+      ],
+      "action": "Acme Analytics",
+      "reason": "invalid",
+      "raw": "{\"action\":\"Acme Analytics\",\"reason\":\"invalid\"}"
+    },
+    {
+      "scenario": "P-08-F",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "fact/employer": "m1"
+      },
+      "memory": [
+        "The user works at Acme Analytics."
+      ],
+      "action": "Acme Analytics",
+      "reason": "placeholder",
+      "raw": "{\"action\":\"Acme Analytics\",\"reason\":\"placeholder\"}"
+    },
+    {
+      "scenario": "P-08-F",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "fact/employer": "m1"
+      },
+      "memory": [
+        "The user works at Acme Analytics."
+      ],
+      "action": "Acme Analytics",
+      "reason": "Wait, must copy verbatim",
+      "raw": "{\"action\":\"Acme Analytics\",\"reason\":\"Wait, must copy verbatim\"}"
+    },
+    {
+      "scenario": "P-08-F",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "fact/employer": "m1"
+      },
+      "memory": [
+        "The user works at Acme Analytics."
+      ],
+      "action": "Acme Analytics",
+      "reason": "placeholder",
+      "raw": "{\"action\":\"Acme Analytics\",\"reason\":\"placeholder\"}"
+    },
+    {
+      "scenario": "P-08-C",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "commitment/marketing_email_optin": "m2"
+      },
+      "memory": [
+        "Opted back in to the monthly product newsletter ('ok sign me up for the monthly one', quick reply)."
+      ],
+      "action": "include the user",
+      "reason": "The user explicitly opted back in to the monthly product newsletter.",
+      "raw": "{\"action\":\"include the user\",\"reason\":\"The user explicitly opted back in to the monthly product newsletter.\"}"
+    },
+    {
+      "scenario": "P-08-C",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "commitment/marketing_email_optin": "m2"
+      },
+      "memory": [
+        "Opted back in to the monthly product newsletter ('ok sign me up for the monthly one', quick reply)."
+      ],
+      "action": "include the user",
+      "reason": "The user explicitly opted back in to the monthly product newsletter.",
+      "raw": "{\"action\":\"include the user\",\"reason\":\"The user explicitly opted back in to the monthly product newsletter.\"}"
+    },
+    {
+      "scenario": "P-08-C",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "commitment/marketing_email_optin": "m2"
+      },
+      "memory": [
+        "Opted back in to the monthly product newsletter ('ok sign me up for the monthly one', quick reply)."
+      ],
+      "action": "include the user",
+      "reason": "The user explicitly opted back in to the monthly product newsletter.",
+      "raw": "{\"action\":\"include the user\",\"reason\":\"The user explicitly opted back in to the monthly product newsletter.\"}"
+    },
+    {
+      "scenario": "P-08-C",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "commitment/marketing_email_optin": "m2"
+      },
+      "memory": [
+        "Opted back in to the monthly product newsletter ('ok sign me up for the monthly one', quick reply)."
+      ],
+      "action": "include the user",
+      "reason": "The user explicitly opted back in to the monthly product newsletter.",
+      "raw": "{\"action\":\"include the user\",\"reason\":\"The user explicitly opted back in to the monthly product newsletter.\"}"
+    },
+    {
+      "scenario": "P-08-C",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "commitment/marketing_email_optin": "m2"
+      },
+      "memory": [
+        "Opted back in to the monthly product newsletter ('ok sign me up for the monthly one', quick reply)."
+      ],
+      "action": "include the user",
+      "reason": "The user explicitly opted back in to the monthly product newsletter.",
+      "raw": "{\"action\":\"include the user\",\"reason\":\"The user explicitly opted back in to the monthly product newsletter.\"}"
+    },
+    {
+      "scenario": "P-09-F",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "fact/oncall_rotation_length": "m1"
+      },
+      "memory": [
+        "Team handbook: the on-call rotation is biweekly."
+      ],
+      "action": "biweekly rotation",
+      "reason": "The team handbook specifies that the on-call rotation is biweekly.",
+      "raw": "{\"action\":\"biweekly rotation\",\"reason\":\"The team handbook specifies that the on-call rotation is biweekly.\"}"
+    },
+    {
+      "scenario": "P-09-F",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "fact/oncall_rotation_length": "m1"
+      },
+      "memory": [
+        "Team handbook: the on-call rotation is biweekly."
+      ],
+      "action": "biweekly rotation",
+      "reason": "The team handbook specifies that the on-call rotation is biweekly.",
+      "raw": "{\"action\": \"biweekly rotation\", \"reason\": \"The team handbook specifies that the on-call rotation is biweekly.\"}"
+    },
+    {
+      "scenario": "P-09-F",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "fact/oncall_rotation_length": "m1"
+      },
+      "memory": [
+        "Team handbook: the on-call rotation is biweekly."
+      ],
+      "action": "biweekly rotation",
+      "reason": "The team handbook specifies the on-call rotation is biweekly, so the schedule should follow that policy.",
+      "raw": "{\"action\":\"biweekly rotation\",\"reason\":\"The team handbook specifies the on-call rotation is biweekly, so the schedule should follow that policy.\"}"
+    },
+    {
+      "scenario": "P-09-F",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "fact/oncall_rotation_length": "m1"
+      },
+      "memory": [
+        "Team handbook: the on-call rotation is biweekly."
+      ],
+      "action": "biweekly rotation",
+      "reason": "The team handbook specifies that the on-call rotation is biweekly.",
+      "raw": "{\"action\":\"biweekly rotation\",\"reason\":\"The team handbook specifies that the on-call rotation is biweekly.\"}"
+    },
+    {
+      "scenario": "P-09-F",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "fact/oncall_rotation_length": "m1"
+      },
+      "memory": [
+        "Team handbook: the on-call rotation is biweekly."
+      ],
+      "action": "biweekly rotation",
+      "reason": "The team handbook specifies that the on-call rotation is biweekly.",
+      "raw": "{\"action\":\"biweekly rotation\",\"reason\":\"The team handbook specifies that the on-call rotation is biweekly.\"}"
+    },
+    {
+      "scenario": "P-09-P",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "preference/retro_format": "m2"
+      },
+      "memory": [
+        "Doc line edited to 'retros: async in the doc' (one-line change, no context)."
+      ],
+      "action": "open an async retro doc",
+      "reason": "Resolved memory indicates the user's established preference is to run retros asynchronously via a doc rather than a call.",
+      "raw": "{\"action\":\"open an async retro doc\",\"reason\":\"Resolved memory indicates the user's established preference is to run retros asynchronously via a doc rather than a call.\"}"
+    },
+    {
+      "scenario": "P-09-P",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "preference/retro_format": "m2"
+      },
+      "memory": [
+        "Doc line edited to 'retros: async in the doc' (one-line change, no context)."
+      ],
+      "action": "open an async retro doc",
+      "reason": "User's stated preference in memory indicates retros should be conducted asynchronously via a doc rather than a live call.",
+      "raw": "{\"action\": \"open an async retro doc\", \"reason\": \"User's stated preference in memory indicates retros should be conducted asynchronously via a doc rather than a live call.\"}"
+    },
+    {
+      "scenario": "P-09-P",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "preference/retro_format": "m2"
+      },
+      "memory": [
+        "Doc line edited to 'retros: async in the doc' (one-line change, no context)."
+      ],
+      "action": "open an async retro doc",
+      "reason": "The user's established preference is to run retros asynchronously in a doc rather than scheduling calls.",
+      "raw": "{\"action\":\"open an async retro doc\",\"reason\":\"The user's established preference is to run retros asynchronously in a doc rather than scheduling calls.\"}"
+    },
+    {
+      "scenario": "P-09-P",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "preference/retro_format": "m2"
+      },
+      "memory": [
+        "Doc line edited to 'retros: async in the doc' (one-line change, no context)."
+      ],
+      "action": "open an async retro doc",
+      "reason": "The user's established preference is for async retros documented in a doc rather than live calls.",
+      "raw": "{\"action\":\"open an async retro doc\",\"reason\":\"The user's established preference is for async retros documented in a doc rather than live calls.\"}"
+    },
+    {
+      "scenario": "P-09-P",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "preference/retro_format": "m2"
+      },
+      "memory": [
+        "Doc line edited to 'retros: async in the doc' (one-line change, no context)."
+      ],
+      "action": "open an async retro doc",
+      "reason": "The user's documented preference is that retros be handled asynchronously in a doc rather than via a call.",
+      "raw": "{\"action\":\"open an async retro doc\",\"reason\":\"The user's documented preference is that retros be handled asynchronously in a doc rather than via a call.\"}"
+    },
+    {
+      "scenario": "P-10-F",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "fact/hotel_loyalty": "m1"
+      },
+      "memory": [
+        "The user's hotel loyalty status is with Hilton."
+      ],
+      "action": "the Hilton",
+      "reason": "With equivalent rates and locations, booking with Hilton leverages the user's existing loyalty status for potential benefits and points.",
+      "raw": "{\"action\":\"the Hilton\", \"reason\":\"With equivalent rates and locations, booking with Hilton leverages the user's existing loyalty status for potential benefits and points.\"}"
+    },
+    {
+      "scenario": "P-10-F",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "fact/hotel_loyalty": "m1"
+      },
+      "memory": [
+        "The user's hotel loyalty status is with Hilton."
+      ],
+      "action": "the Hilton",
+      "reason": "The user holds Hilton loyalty status, so booking at the Hilton maximizes benefits when rates and locations are equivalent.",
+      "raw": "{\"action\":\"the Hilton\",\"reason\":\"The user holds Hilton loyalty status, so booking at the Hilton maximizes benefits when rates and locations are equivalent.\"}"
+    },
+    {
+      "scenario": "P-10-F",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "fact/hotel_loyalty": "m1"
+      },
+      "memory": [
+        "The user's hotel loyalty status is with Hilton."
+      ],
+      "action": "the Hilton",
+      "reason": "placeholder",
+      "raw": "{\"action\":\"the Hilton\",\"reason\":\"placeholder\"}"
+    },
+    {
+      "scenario": "P-10-F",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "fact/hotel_loyalty": "m1"
+      },
+      "memory": [
+        "The user's hotel loyalty status is with Hilton."
+      ],
+      "action": "the Hilton",
+      "reason": "With equivalent rates and locations, booking Hilton lets the user leverage their existing Hilton loyalty status for benefits and points.",
+      "raw": "{\"action\":\"the Hilton\",\"reason\":\"With equivalent rates and locations, booking Hilton lets the user leverage their existing Hilton loyalty status for benefits and points.\"}"
+    },
+    {
+      "scenario": "P-10-F",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "fact/hotel_loyalty": "m1"
+      },
+      "memory": [
+        "The user's hotel loyalty status is with Hilton."
+      ],
+      "action": "the Marriott",
+      "reason": "placeholder",
+      "raw": "{\"action\":\"the Marriott\",\"reason\":\"placeholder\"}"
+    },
+    {
+      "scenario": "P-10-D",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "deadline/visa_application": "m2"
+      },
+      "memory": [
+        "Now Tuesday the 24th ('tues 24th, actually' \u2014 quick reply)."
+      ],
+      "action": "Thursday the 26th",
+      "reason": "Since today is Tuesday the 24th, Monday the 23rd has already passed, so Thursday the 26th is the only viable option and it satisfies booking as late as possible before the deadline.",
+      "raw": "{\"action\":\"Thursday the 26th\",\"reason\":\"Since today is Tuesday the 24th, Monday the 23rd has already passed, so Thursday the 26th is the only viable option and it satisfies booking as late as possible before the deadline.\"}"
+    },
+    {
+      "scenario": "P-10-D",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "deadline/visa_application": "m2"
+      },
+      "memory": [
+        "Now Tuesday the 24th ('tues 24th, actually' \u2014 quick reply)."
+      ],
+      "action": "Thursday the 26th",
+      "reason": "Since today is Tuesday the 24th, Monday the 23rd has already passed, so Thursday the 26th is the only available and latest option before the deadline.",
+      "raw": "{\"action\":\"Thursday the 26th\",\"reason\":\"Since today is Tuesday the 24th, Monday the 23rd has already passed, so Thursday the 26th is the only available and latest option before the deadline.\"}"
+    },
+    {
+      "scenario": "P-10-D",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "deadline/visa_application": "m2"
+      },
+      "memory": [
+        "Now Tuesday the 24th ('tues 24th, actually' \u2014 quick reply)."
+      ],
+      "action": "Thursday the 26th",
+      "reason": "Since today is Tuesday the 24th, Monday the 23rd has already passed, so the only viable and latest option before the deadline is Thursday the 26th.",
+      "raw": "{\"action\":\"Thursday the 26th\",\"reason\":\"Since today is Tuesday the 24th, Monday the 23rd has already passed, so the only viable and latest option before the deadline is Thursday the 26th.\"}"
+    },
+    {
+      "scenario": "P-10-D",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "deadline/visa_application": "m2"
+      },
+      "memory": [
+        "Now Tuesday the 24th ('tues 24th, actually' \u2014 quick reply)."
+      ],
+      "action": "Thursday the 26th",
+      "reason": "Since today is Tuesday the 24th, Monday the 23rd is in the past, so the latest available option before the deadline is Thursday the 26th.",
+      "raw": "{\"action\":\"Thursday the 26th\",\"reason\":\"Since today is Tuesday the 24th, Monday the 23rd is in the past, so the latest available option before the deadline is Thursday the 26th.\"}"
+    },
+    {
+      "scenario": "P-10-D",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "deadline/visa_application": "m2"
+      },
+      "memory": [
+        "Now Tuesday the 24th ('tues 24th, actually' \u2014 quick reply)."
+      ],
+      "action": "Thursday the 26th",
+      "reason": "Since today is Tuesday the 24th, Monday the 23rd has already passed, so Thursday the 26th is the only valid and latest available option before the deadline.",
+      "raw": "{\"action\":\"Thursday the 26th\",\"reason\":\"Since today is Tuesday the 24th, Monday the 23rd has already passed, so Thursday the 26th is the only valid and latest available option before the deadline.\"}"
+    },
+    {
+      "scenario": "P-11-F",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "fact/staging_region": "m1"
+      },
+      "memory": [
+        "Runbook: the staging cluster is in us-west-2."
+      ],
+      "action": "us-west-2",
+      "reason": "The runbook specifies that the staging cluster is located in us-west-2.",
+      "raw": "{\"action\":\"us-west-2\",\"reason\":\"The runbook specifies that the staging cluster is located in us-west-2.\"}"
+    },
+    {
+      "scenario": "P-11-F",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "fact/staging_region": "m1"
+      },
+      "memory": [
+        "Runbook: the staging cluster is in us-west-2."
+      ],
+      "action": "us-west-2",
+      "reason": "The runbook specifies the staging cluster resides in us-west-2, so the staging deploy job should target that region.",
+      "raw": "{\"action\":\"us-west-2\",\"reason\":\"The runbook specifies the staging cluster resides in us-west-2, so the staging deploy job should target that region.\"}"
+    },
+    {
+      "scenario": "P-11-F",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "fact/staging_region": "m1"
+      },
+      "memory": [
+        "Runbook: the staging cluster is in us-west-2."
+      ],
+      "action": "us-west-2",
+      "reason": "The runbook specifies that the staging cluster is located in us-west-2.",
+      "raw": "{\"action\":\"us-west-2\",\"reason\":\"The runbook specifies that the staging cluster is located in us-west-2.\"}"
+    },
+    {
+      "scenario": "P-11-F",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "fact/staging_region": "m1"
+      },
+      "memory": [
+        "Runbook: the staging cluster is in us-west-2."
+      ],
+      "action": "us-west-2",
+      "reason": "The runbook specifies that the staging cluster resides in us-west-2, so the staging deploy job should target that region.",
+      "raw": "{\"action\":\"us-west-2\",\"reason\":\"The runbook specifies that the staging cluster resides in us-west-2, so the staging deploy job should target that region.\"}"
+    },
+    {
+      "scenario": "P-11-F",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "fact/staging_region": "m1"
+      },
+      "memory": [
+        "Runbook: the staging cluster is in us-west-2."
+      ],
+      "action": "us-west-2",
+      "reason": "The runbook specifies that the staging cluster is located in us-west-2.",
+      "raw": "{\"action\":\"us-west-2\",\"reason\":\"The runbook specifies that the staging cluster is located in us-west-2.\"}"
+    },
+    {
+      "scenario": "P-11-C",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "commitment/terraform_state_backend": "m2"
+      },
+      "memory": [
+        "Log appended: 'TF Cloud \u2014 ok, go' (one-line entry)."
+      ],
+      "action": "Terraform Cloud",
+      "reason": "placeholder",
+      "raw": "{\"action\": \"Terraform Cloud\", \"reason\": \"placeholder\"}"
+    },
+    {
+      "scenario": "P-11-C",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "commitment/terraform_state_backend": "m2"
+      },
+      "memory": [
+        "Log appended: 'TF Cloud \u2014 ok, go' (one-line entry)."
+      ],
+      "action": "Terraform Cloud",
+      "reason": "placeholder",
+      "raw": "{\"action\": \"Terraform Cloud\",\"reason\":\"placeholder\"}"
+    },
+    {
+      "scenario": "P-11-C",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "commitment/terraform_state_backend": "m2"
+      },
+      "memory": [
+        "Log appended: 'TF Cloud \u2014 ok, go' (one-line entry)."
+      ],
+      "action": "Terraform Cloud",
+      "reason": "placeholder",
+      "raw": "{\"action\": \"Terraform Cloud\", \"reason\": \"placeholder\"}"
+    },
+    {
+      "scenario": "P-11-C",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "commitment/terraform_state_backend": "m2"
+      },
+      "memory": [
+        "Log appended: 'TF Cloud \u2014 ok, go' (one-line entry)."
+      ],
+      "action": "Terraform Cloud",
+      "reason": "placeholder",
+      "raw": "{\"action\":\"Terraform Cloud\",\"reason\":\"placeholder\"}"
+    },
+    {
+      "scenario": "P-11-C",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "commitment/terraform_state_backend": "m2"
+      },
+      "memory": [
+        "Log appended: 'TF Cloud \u2014 ok, go' (one-line entry)."
+      ],
+      "action": "Terraform Cloud",
+      "reason": "placeholder",
+      "raw": "{\"action\":\"Terraform Cloud\",\"reason\":\"placeholder\"}"
+    },
+    {
+      "scenario": "P-12-F",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "fact/manager_office_day": "m1"
+      },
+      "memory": [
+        "The user's manager is in the office on Tuesdays."
+      ],
+      "action": "Tuesday",
+      "reason": "The manager is only in the office on Tuesdays, so the in-person 1:1 should be booked then.",
+      "raw": "{\"action\":\"Tuesday\",\"reason\":\"The manager is only in the office on Tuesdays, so the in-person 1:1 should be booked then.\"}"
+    },
+    {
+      "scenario": "P-12-F",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "fact/manager_office_day": "m1"
+      },
+      "memory": [
+        "The user's manager is in the office on Tuesdays."
+      ],
+      "action": "Tuesday",
+      "reason": "The manager is only in the office on Tuesdays, so the in-person 1:1 should be booked then.",
+      "raw": "{\"action\":\"Tuesday\",\"reason\":\"The manager is only in the office on Tuesdays, so the in-person 1:1 should be booked then.\"}"
+    },
+    {
+      "scenario": "P-12-F",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "fact/manager_office_day": "m1"
+      },
+      "memory": [
+        "The user's manager is in the office on Tuesdays."
+      ],
+      "action": "Tuesday",
+      "reason": "The user's manager is only in the office on Tuesdays, making it the appropriate day for an in-person 1:1.",
+      "raw": "{\"action\":\"Tuesday\",\"reason\":\"The user's manager is only in the office on Tuesdays, making it the appropriate day for an in-person 1:1.\"}"
+    },
+    {
+      "scenario": "P-12-F",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "fact/manager_office_day": "m1"
+      },
+      "memory": [
+        "The user's manager is in the office on Tuesdays."
+      ],
+      "action": "Tuesday",
+      "reason": "The manager is only in the office on Tuesdays, so the in-person 1:1 should be booked then.",
+      "raw": "{\"action\":\"Tuesday\",\"reason\":\"The manager is only in the office on Tuesdays, so the in-person 1:1 should be booked then.\"}"
+    },
+    {
+      "scenario": "P-12-F",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "fact/manager_office_day": "m1"
+      },
+      "memory": [
+        "The user's manager is in the office on Tuesdays."
+      ],
+      "action": "Tuesday",
+      "reason": "The manager is only in the office on Tuesdays, so the in-person 1:1 should be scheduled then.",
+      "raw": "{\"action\":\"Tuesday\",\"reason\":\"The manager is only in the office on Tuesdays, so the in-person 1:1 should be scheduled then.\"}"
+    },
+    {
+      "scenario": "P-12-P",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "preference/meeting_time": "m2"
+      },
+      "memory": [
+        "Afternoons now ('afternoons, pls', quick reply when asked about slots)."
+      ],
+      "action": "15:00",
+      "reason": "User prefers afternoons per their stated preference, and 15:00 is free.",
+      "raw": "{\"action\":\"15:00\",\"reason\":\"User prefers afternoons per their stated preference, and 15:00 is free.\"}"
+    },
+    {
+      "scenario": "P-12-P",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "preference/meeting_time": "m2"
+      },
+      "memory": [
+        "Afternoons now ('afternoons, pls', quick reply when asked about slots)."
+      ],
+      "action": "15:00",
+      "reason": "User's memory indicates a preference for afternoon slots.",
+      "raw": "{\"action\":\"15:00\",\"reason\":\"User's memory indicates a preference for afternoon slots.\"}"
+    },
+    {
+      "scenario": "P-12-P",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "preference/meeting_time": "m2"
+      },
+      "memory": [
+        "Afternoons now ('afternoons, pls', quick reply when asked about slots)."
+      ],
+      "action": "15:00",
+      "reason": "User prefers afternoon slots based on their stated preference.",
+      "raw": "{\"action\":\"15:00\",\"reason\":\"User prefers afternoon slots based on their stated preference.\"}"
+    },
+    {
+      "scenario": "P-12-P",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "preference/meeting_time": "m2"
+      },
+      "memory": [
+        "Afternoons now ('afternoons, pls', quick reply when asked about slots)."
+      ],
+      "action": "15:00",
+      "reason": "User's stored preference is for afternoon slots, so 15:00 aligns with that preference.",
+      "raw": "{\"action\":\"15:00\",\"reason\":\"User's stored preference is for afternoon slots, so 15:00 aligns with that preference.\"}"
+    },
+    {
+      "scenario": "P-12-P",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "preference/meeting_time": "m2"
+      },
+      "memory": [
+        "Afternoons now ('afternoons, pls', quick reply when asked about slots)."
+      ],
+      "action": "15:00",
+      "reason": "User's memory indicates a preference for afternoon slots.",
+      "raw": "{\"action\":\"15:00\",\"reason\":\"User's memory indicates a preference for afternoon slots.\"}"
+    },
+    {
+      "scenario": "K-01",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "fact/home_city": "m2"
+      },
+      "memory": [
+        "The user confirmed they live in Denver."
+      ],
+      "action": "the Denver address",
+      "reason": "placeholder",
+      "raw": "{\"action\":\"the Denver address\",\"reason\":\"placeholder\"}"
+    },
+    {
+      "scenario": "K-01",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "fact/home_city": "m2"
+      },
+      "memory": [
+        "The user confirmed they live in Denver."
+      ],
+      "action": "the Denver address",
+      "reason": "placeholder",
+      "raw": "{\"action\":\"the Denver address\",\"reason\":\"placeholder\"}"
+    },
+    {
+      "scenario": "K-01",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "fact/home_city": "m2"
+      },
+      "memory": [
+        "The user confirmed they live in Denver."
+      ],
+      "action": "the Denver address",
+      "reason": "placeholder",
+      "raw": "{\"action\":\"the Denver address\",\"reason\":\"placeholder\"}"
+    },
+    {
+      "scenario": "K-01",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "fact/home_city": "m2"
+      },
+      "memory": [
+        "The user confirmed they live in Denver."
+      ],
+      "action": "the Denver address",
+      "reason": "The user confirmed Denver as their home address, so ship there.",
+      "raw": "{\"action\":\"the Denver address\",\"reason\":\"The user confirmed Denver as their home address, so ship there.\"}"
+    },
+    {
+      "scenario": "K-01",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "fact/home_city": "m2"
+      },
+      "memory": [
+        "The user confirmed they live in Denver."
+      ],
+      "action": "the Denver address",
+      "reason": "The user confirmed they live in Denver, so the replacement hardware key should be shipped to the Denver address on file.",
+      "raw": "{\"action\":\"the Denver address\",\"reason\":\"The user confirmed they live in Denver, so the replacement hardware key should be shipped to the Denver address on file.\"}"
+    },
+    {
+      "scenario": "K-02",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "deadline/audit": "m2"
+      },
+      "memory": [
+        "The audit deadline is Wednesday the 18th, stated in full."
+      ],
+      "action": "Tuesday the 17th",
+      "reason": "It must be before the Wednesday 18th deadline, and Tuesday the 17th is the latest available slot before that date.",
+      "raw": "{\"action\":\"Tuesday the 17th\",\"reason\":\"It must be before the Wednesday 18th deadline, and Tuesday the 17th is the latest available slot before that date.\"}"
+    },
+    {
+      "scenario": "K-02",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "deadline/audit": "m2"
+      },
+      "memory": [
+        "The audit deadline is Wednesday the 18th, stated in full."
+      ],
+      "action": "Tuesday the 17th",
+      "reason": "The session must occur before the Wednesday the 18th deadline, and Tuesday the 17th is the latest available day that satisfies that constraint.",
+      "raw": "{\"action\":\"Tuesday the 17th\",\"reason\":\"The session must occur before the Wednesday the 18th deadline, and Tuesday the 17th is the latest available day that satisfies that constraint.\"}"
+    },
+    {
+      "scenario": "K-02",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "deadline/audit": "m2"
+      },
+      "memory": [
+        "The audit deadline is Wednesday the 18th, stated in full."
+      ],
+      "action": "Tuesday the 17th",
+      "reason": "It must occur before the Wednesday 18th deadline, and Tuesday the 17th is the latest available slot before that date.",
+      "raw": "{\"action\":\"Tuesday the 17th\",\"reason\":\"It must occur before the Wednesday 18th deadline, and Tuesday the 17th is the latest available slot before that date.\"}"
+    },
+    {
+      "scenario": "K-02",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "deadline/audit": "m2"
+      },
+      "memory": [
+        "The audit deadline is Wednesday the 18th, stated in full."
+      ],
+      "action": "Tuesday the 17th",
+      "reason": "It must be before the Wednesday the 18th deadline, and Tuesday the 17th is the latest available slot before that.",
+      "raw": "{\"action\":\"Tuesday the 17th\",\"reason\":\"It must be before the Wednesday the 18th deadline, and Tuesday the 17th is the latest available slot before that.\"}"
+    },
+    {
+      "scenario": "K-02",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "deadline/audit": "m2"
+      },
+      "memory": [
+        "The audit deadline is Wednesday the 18th, stated in full."
+      ],
+      "action": "Tuesday the 17th",
+      "reason": "It must occur before the Wednesday the 18th deadline, and Tuesday the 17th is the latest available slot that satisfies this constraint.",
+      "raw": "{\"action\":\"Tuesday the 17th\",\"reason\":\"It must occur before the Wednesday the 18th deadline, and Tuesday the 17th is the latest available slot that satisfies this constraint.\"}"
+    },
+    {
+      "scenario": "K-03",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "commitment/allhands_talk": "m2"
+      },
+      "memory": [
+        "The user confirmed they will present at the all-hands."
+      ],
+      "action": "add the user's talk to the agenda",
+      "reason": "The user confirmed they will present at the all-hands, so their talk should be included in the finalized agenda.",
+      "raw": "{\"action\":\"add the user's talk to the agenda\",\"reason\":\"The user confirmed they will present at the all-hands, so their talk should be included in the finalized agenda.\"}"
+    },
+    {
+      "scenario": "K-03",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "commitment/allhands_talk": "m2"
+      },
+      "memory": [
+        "The user confirmed they will present at the all-hands."
+      ],
+      "action": "add the user's talk to the agenda",
+      "reason": "The user confirmed they will present at the all-hands, so their talk should be included in the finalized agenda.",
+      "raw": "{\"action\": \"add the user's talk to the agenda\", \"reason\": \"The user confirmed they will present at the all-hands, so their talk should be included in the finalized agenda.\"}"
+    },
+    {
+      "scenario": "K-03",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "commitment/allhands_talk": "m2"
+      },
+      "memory": [
+        "The user confirmed they will present at the all-hands."
+      ],
+      "action": "add the user's talk to the agenda",
+      "reason": "The user confirmed they will present at the all-hands, so their talk should be included in the finalized agenda.",
+      "raw": "{\"action\":\"add the user's talk to the agenda\",\"reason\":\"The user confirmed they will present at the all-hands, so their talk should be included in the finalized agenda.\"}"
+    },
+    {
+      "scenario": "K-03",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "commitment/allhands_talk": "m2"
+      },
+      "memory": [
+        "The user confirmed they will present at the all-hands."
+      ],
+      "action": "add the user's talk to the agenda",
+      "reason": "The user confirmed they will present at the all-hands, so their talk should be included in the finalized agenda.",
+      "raw": "{\"action\":\"add the user's talk to the agenda\",\"reason\":\"The user confirmed they will present at the all-hands, so their talk should be included in the finalized agenda.\"}"
+    },
+    {
+      "scenario": "K-03",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "commitment/allhands_talk": "m2"
+      },
+      "memory": [
+        "The user confirmed they will present at the all-hands."
+      ],
+      "action": "add the user's talk to the agenda",
+      "reason": "The user confirmed they will present at the all-hands, so their talk should be included in the finalized agenda.",
+      "raw": "{\"action\":\"add the user's talk to the agenda\",\"reason\":\"The user confirmed they will present at the all-hands, so their talk should be included in the finalized agenda.\"}"
+    },
+    {
+      "scenario": "K-04",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "preference/ui_theme": "m2"
+      },
+      "memory": [
+        "The user stated clearly that they now prefer light mode."
+      ],
+      "action": "light theme",
+      "reason": "The user explicitly stated they now prefer light mode, so the new workstation should default to it.",
+      "raw": "{\"action\":\"light theme\",\"reason\":\"The user explicitly stated they now prefer light mode, so the new workstation should default to it.\"}"
+    },
+    {
+      "scenario": "K-04",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "preference/ui_theme": "m2"
+      },
+      "memory": [
+        "The user stated clearly that they now prefer light mode."
+      ],
+      "action": "light theme",
+      "reason": "The user explicitly stated they now prefer light mode.",
+      "raw": "{\"action\":\"light theme\",\"reason\":\"The user explicitly stated they now prefer light mode.\"}"
+    },
+    {
+      "scenario": "K-04",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "preference/ui_theme": "m2"
+      },
+      "memory": [
+        "The user stated clearly that they now prefer light mode."
+      ],
+      "action": "light theme",
+      "reason": "The user explicitly stated they now prefer light mode.",
+      "raw": "{\"action\":\"light theme\",\"reason\":\"The user explicitly stated they now prefer light mode.\"}"
+    },
+    {
+      "scenario": "K-04",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "preference/ui_theme": "m2"
+      },
+      "memory": [
+        "The user stated clearly that they now prefer light mode."
+      ],
+      "action": "light theme",
+      "reason": "The user explicitly stated they now prefer light mode, so the new workstation should be set to light theme.",
+      "raw": "{\"action\":\"light theme\",\"reason\":\"The user explicitly stated they now prefer light mode, so the new workstation should be set to light theme.\"}"
+    },
+    {
+      "scenario": "K-04",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "preference/ui_theme": "m2"
+      },
+      "memory": [
+        "The user stated clearly that they now prefer light mode."
+      ],
+      "action": "light theme",
+      "reason": "The user explicitly stated a clear preference for light mode.",
+      "raw": "{\"action\":\"light theme\",\"reason\":\"The user explicitly stated a clear preference for light mode.\"}"
+    },
+    {
+      "scenario": "K-05",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "fact/build_server_ram": "m1"
+      },
+      "memory": [
+        "The build server has 16 GB of RAM."
+      ],
+      "action": "8 GB heap",
+      "reason": "With only 16 GB of RAM on the build server, an 8 GB heap leaves adequate headroom for the OS and other agents, whereas 24 GB exceeds available memory.",
+      "raw": "{\"action\":\"8 GB heap\",\"reason\":\"With only 16 GB of RAM on the build server, an 8 GB heap leaves adequate headroom for the OS and other agents, whereas 24 GB exceeds available memory.\"}"
+    },
+    {
+      "scenario": "K-05",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "fact/build_server_ram": "m1"
+      },
+      "memory": [
+        "The build server has 16 GB of RAM."
+      ],
+      "action": "8 GB heap",
+      "reason": "With only 16 GB RAM on the build server, an 8 GB heap leaves adequate headroom for the OS and other agents, whereas 24 GB exceeds available memory.",
+      "raw": "{\"action\":\"8 GB heap\",\"reason\":\"With only 16 GB RAM on the build server, an 8 GB heap leaves adequate headroom for the OS and other agents, whereas 24 GB exceeds available memory.\"}"
+    },
+    {
+      "scenario": "K-05",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "fact/build_server_ram": "m1"
+      },
+      "memory": [
+        "The build server has 16 GB of RAM."
+      ],
+      "action": "8 GB heap",
+      "reason": "With only 16 GB of RAM on the build server, 8 GB leaves sufficient headroom for the OS and other agents, whereas 24 GB exceeds available memory.",
+      "raw": "{\"action\":\"8 GB heap\",\"reason\":\"With only 16 GB of RAM on the build server, 8 GB leaves sufficient headroom for the OS and other agents, whereas 24 GB exceeds available memory.\"}"
+    },
+    {
+      "scenario": "K-05",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "fact/build_server_ram": "m1"
+      },
+      "memory": [
+        "The build server has 16 GB of RAM."
+      ],
+      "action": "8 GB heap",
+      "reason": "With only 16 GB RAM on the build server, an 8 GB heap leaves sufficient headroom for the OS and other agents, whereas 24 GB exceeds available memory.",
+      "raw": "{\"action\":\"8 GB heap\",\"reason\":\"With only 16 GB RAM on the build server, an 8 GB heap leaves sufficient headroom for the OS and other agents, whereas 24 GB exceeds available memory.\"}"
+    },
+    {
+      "scenario": "K-05",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "fact/build_server_ram": "m1"
+      },
+      "memory": [
+        "The build server has 16 GB of RAM."
+      ],
+      "action": "8 GB heap",
+      "reason": "With only 16 GB of RAM on the build server, allocating 8 GB leaves adequate headroom for the OS and other agents, while 24 GB exceeds available memory.",
+      "raw": "{\"action\":\"8 GB heap\",\"reason\":\"With only 16 GB of RAM on the build server, allocating 8 GB leaves adequate headroom for the OS and other agents, while 24 GB exceeds available memory.\"}"
+    },
+    {
+      "scenario": "K-06",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "deadline/grant_report": "m1"
+      },
+      "memory": [
+        "The grant report is due Friday the 27th."
+      ],
+      "action": "Thursday the 26th",
+      "reason": "The report must be edited before the Friday the 27th deadline, so the latest available slot is Thursday the 26th.",
+      "raw": "{\"action\":\"Thursday the 26th\",\"reason\":\"The report must be edited before the Friday the 27th deadline, so the latest available slot is Thursday the 26th.\"}"
+    },
+    {
+      "scenario": "K-06",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "deadline/grant_report": "m1"
+      },
+      "memory": [
+        "The grant report is due Friday the 27th."
+      ],
+      "action": "Thursday the 26th",
+      "reason": "The final edit must occur before the Friday 27th deadline, so the latest available slot is Thursday the 26th.",
+      "raw": "{\"action\":\"Thursday the 26th\",\"reason\":\"The final edit must occur before the Friday 27th deadline, so the latest available slot is Thursday the 26th.\"}"
+    },
+    {
+      "scenario": "K-06",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "deadline/grant_report": "m1"
+      },
+      "memory": [
+        "The grant report is due Friday the 27th."
+      ],
+      "action": "Thursday the 26th",
+      "reason": "The report is due Friday the 27th, so the final edit must be scheduled before that deadline, making Thursday the 26th the latest available option.",
+      "raw": "{\"action\":\"Thursday the 26th\",\"reason\":\"The report is due Friday the 27th, so the final edit must be scheduled before that deadline, making Thursday the 26th the latest available option.\"}"
+    },
+    {
+      "scenario": "K-06",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "deadline/grant_report": "m1"
+      },
+      "memory": [
+        "The grant report is due Friday the 27th."
+      ],
+      "action": "Thursday the 26th",
+      "reason": "The report must be edited before the Friday deadline, so the latest available slot is Thursday the 26th.",
+      "raw": "{\"action\":\"Thursday the 26th\",\"reason\":\"The report must be edited before the Friday deadline, so the latest available slot is Thursday the 26th.\"}"
+    },
+    {
+      "scenario": "K-06",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "deadline/grant_report": "m1"
+      },
+      "memory": [
+        "The grant report is due Friday the 27th."
+      ],
+      "action": "Thursday the 26th",
+      "reason": "The report must be edited before the Friday deadline, so the latest available slot is Thursday the 26th.",
+      "raw": "{\"action\":\"Thursday the 26th\",\"reason\":\"The report must be edited before the Friday deadline, so the latest available slot is Thursday the 26th.\"}"
+    },
+    {
+      "scenario": "K-07",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "commitment/shared_gpu_pool": "m1"
+      },
+      "memory": [
+        "The user will not run experiments on the shared GPU pool."
+      ],
+      "action": "on the user's own instance",
+      "reason": "The user has explicitly stated they will not run experiments on the shared GPU pool.",
+      "raw": "{\"action\":\"on the user's own instance\",\"reason\":\"The user has explicitly stated they will not run experiments on the shared GPU pool.\"}"
+    },
+    {
+      "scenario": "K-07",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "commitment/shared_gpu_pool": "m1"
+      },
+      "memory": [
+        "The user will not run experiments on the shared GPU pool."
+      ],
+      "action": "on the user's own instance",
+      "reason": "The user's stated preference is to never run experiments on the shared GPU pool, so the training job should be launched on their own instance.",
+      "raw": "{\"action\":\"on the user's own instance\",\"reason\":\"The user's stated preference is to never run experiments on the shared GPU pool, so the training job should be launched on their own instance.\"}"
+    },
+    {
+      "scenario": "K-07",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "commitment/shared_gpu_pool": "m1"
+      },
+      "memory": [
+        "The user will not run experiments on the shared GPU pool."
+      ],
+      "action": "on the user's own instance",
+      "reason": "The user's stated preference is to never run experiments on the shared GPU pool, so the training job should be launched on their own instance.",
+      "raw": "{\"action\":\"on the user's own instance\",\"reason\":\"The user's stated preference is to never run experiments on the shared GPU pool, so the training job should be launched on their own instance.\"}"
+    },
+    {
+      "scenario": "K-07",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "commitment/shared_gpu_pool": "m1"
+      },
+      "memory": [
+        "The user will not run experiments on the shared GPU pool."
+      ],
+      "action": "on the user's own instance",
+      "reason": "The user has explicitly stated they will not run experiments on the shared GPU pool.",
+      "raw": "{\"action\":\"on the user's own instance\",\"reason\":\"The user has explicitly stated they will not run experiments on the shared GPU pool.\"}"
+    },
+    {
+      "scenario": "K-07",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "commitment/shared_gpu_pool": "m1"
+      },
+      "memory": [
+        "The user will not run experiments on the shared GPU pool."
+      ],
+      "action": "on the user's own instance",
+      "reason": "The user has stated they will not run experiments on the shared GPU pool, so the training job should launch on their own instance.",
+      "raw": "{\"action\":\"on the user's own instance\",\"reason\":\"The user has stated they will not run experiments on the shared GPU pool, so the training job should launch on their own instance.\"}"
+    },
+    {
+      "scenario": "K-08",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "preference/email_format": "m1"
+      },
+      "memory": [
+        "The user prefers plain-text email."
+      ],
+      "action": "plain-text format",
+      "reason": "The user's resolved memory explicitly states a preference for plain-text email.",
+      "raw": "{\"action\":\"plain-text format\",\"reason\":\"The user's resolved memory explicitly states a preference for plain-text email.\"}"
+    },
+    {
+      "scenario": "K-08",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "preference/email_format": "m1"
+      },
+      "memory": [
+        "The user prefers plain-text email."
+      ],
+      "action": "plain-text format",
+      "reason": "The user's stored preference explicitly states they prefer plain-text email.",
+      "raw": "{\"action\":\"plain-text format\",\"reason\":\"The user's stored preference explicitly states they prefer plain-text email.\"}"
+    },
+    {
+      "scenario": "K-08",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "preference/email_format": "m1"
+      },
+      "memory": [
+        "The user prefers plain-text email."
+      ],
+      "action": "plain-text format",
+      "reason": "The user's stored preference is for plain-text email, so the weekly digest should be sent accordingly.",
+      "raw": "{\"action\":\"plain-text format\",\"reason\":\"The user's stored preference is for plain-text email, so the weekly digest should be sent accordingly.\"}"
+    },
+    {
+      "scenario": "K-08",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "preference/email_format": "m1"
+      },
+      "memory": [
+        "The user prefers plain-text email."
+      ],
+      "action": "plain-text format",
+      "reason": "The user's stored preference explicitly states they prefer plain-text email.",
+      "raw": "{\"action\":\"plain-text format\",\"reason\":\"The user's stored preference explicitly states they prefer plain-text email.\"}"
+    },
+    {
+      "scenario": "K-08",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "preference/email_format": "m1"
+      },
+      "memory": [
+        "The user prefers plain-text email."
+      ],
+      "action": "plain-text format",
+      "reason": "The user has an established preference for plain-text email, so the weekly digest should be sent accordingly.",
+      "raw": "{\"action\":\"plain-text format\",\"reason\":\"The user has an established preference for plain-text email, so the weekly digest should be sent accordingly.\"}"
+    },
+    {
+      "scenario": "K-09",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "verification_status/pr_442_ci": "m1"
+      },
+      "memory": [
+        "CI on PR #442: FAILING (integration test timeout)."
+      ],
+      "action": "hold PR #442",
+      "reason": "CI is failing due to an integration test timeout, so the PR should not be merged until it passes despite having two approvals.",
+      "raw": "{\"action\": \"hold PR #442\", \"reason\": \"CI is failing due to an integration test timeout, so the PR should not be merged until it passes despite having two approvals.\"}"
+    },
+    {
+      "scenario": "K-09",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "verification_status/pr_442_ci": "m1"
+      },
+      "memory": [
+        "CI on PR #442: FAILING (integration test timeout)."
+      ],
+      "action": "hold PR #442",
+      "reason": "CI is failing due to an integration test timeout, so the PR should not be merged until it passes despite having approvals.",
+      "raw": "{\"action\":\"hold PR #442\",\"reason\":\"CI is failing due to an integration test timeout, so the PR should not be merged until it passes despite having approvals.\"}"
+    },
+    {
+      "scenario": "K-09",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "verification_status/pr_442_ci": "m1"
+      },
+      "memory": [
+        "CI on PR #442: FAILING (integration test timeout)."
+      ],
+      "action": "hold PR #442",
+      "reason": "CI is failing due to an integration test timeout, so the PR should not be merged until CI passes despite having two approvals.",
+      "raw": "{\"action\": \"hold PR #442\", \"reason\": \"CI is failing due to an integration test timeout, so the PR should not be merged until CI passes despite having two approvals.\"}"
+    },
+    {
+      "scenario": "K-09",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "verification_status/pr_442_ci": "m1"
+      },
+      "memory": [
+        "CI on PR #442: FAILING (integration test timeout)."
+      ],
+      "action": "hold PR #442",
+      "reason": "CI is failing due to an integration test timeout, so the PR should not be merged until it passes despite having approvals.",
+      "raw": "{\"action\":\"hold PR #442\",\"reason\":\"CI is failing due to an integration test timeout, so the PR should not be merged until it passes despite having approvals.\"}"
+    },
+    {
+      "scenario": "K-09",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "verification_status/pr_442_ci": "m1"
+      },
+      "memory": [
+        "CI on PR #442: FAILING (integration test timeout)."
+      ],
+      "action": "hold PR #442",
+      "reason": "CI is currently failing due to an integration test timeout, so the PR should not be merged until it passes despite having two approvals.",
+      "raw": "{\"action\":\"hold PR #442\",\"reason\":\"CI is currently failing due to an integration test timeout, so the PR should not be merged until it passes despite having two approvals.\"}"
+    },
+    {
+      "scenario": "K-10",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "verification_status/pr_451_ci": "m2"
+      },
+      "memory": [
+        "CI on PR #451: PASSING (re-run after fix)."
+      ],
+      "action": "merge PR #451",
+      "reason": "CI is passing after the re-run and the PR has been approved by two reviewers, so it meets merge criteria.",
+      "raw": "{\"action\":\"merge PR #451\",\"reason\":\"CI is passing after the re-run and the PR has been approved by two reviewers, so it meets merge criteria.\"}"
+    },
+    {
+      "scenario": "K-10",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "verification_status/pr_451_ci": "m2"
+      },
+      "memory": [
+        "CI on PR #451: PASSING (re-run after fix)."
+      ],
+      "action": "merge PR #451",
+      "reason": "CI is passing after the re-run and the PR has been approved by two reviewers, so it meets the criteria to merge.",
+      "raw": "{\"action\":\"merge PR #451\",\"reason\":\"CI is passing after the re-run and the PR has been approved by two reviewers, so it meets the criteria to merge.\"}"
+    },
+    {
+      "scenario": "K-10",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "verification_status/pr_451_ci": "m2"
+      },
+      "memory": [
+        "CI on PR #451: PASSING (re-run after fix)."
+      ],
+      "action": "merge PR #451",
+      "reason": "CI is passing after a re-run and the PR has two reviewer approvals, so it meets merge criteria.",
+      "raw": "{\"action\":\"merge PR #451\",\"reason\":\"CI is passing after a re-run and the PR has two reviewer approvals, so it meets merge criteria.\"}"
+    },
+    {
+      "scenario": "K-10",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "verification_status/pr_451_ci": "m2"
+      },
+      "memory": [
+        "CI on PR #451: PASSING (re-run after fix)."
+      ],
+      "action": "merge PR #451",
+      "reason": "CI is passing after a re-run and the PR has two approvals, so it meets merge criteria.",
+      "raw": "{\"action\":\"merge PR #451\",\"reason\":\"CI is passing after a re-run and the PR has two approvals, so it meets merge criteria.\"}"
+    },
+    {
+      "scenario": "K-10",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "verification_status/pr_451_ci": "m2"
+      },
+      "memory": [
+        "CI on PR #451: PASSING (re-run after fix)."
+      ],
+      "action": "merge PR #451",
+      "reason": "CI is passing after the fix and the PR has two approvals, so it meets merge criteria.",
+      "raw": "{\"action\":\"merge PR #451\",\"reason\":\"CI is passing after the fix and the PR has two approvals, so it meets merge criteria.\"}"
+    },
+    {
+      "scenario": "K-11",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "fact/home_city_agree": "m2"
+      },
+      "memory": [
+        "The user lives in Boise."
+      ],
+      "action": "the Boise address",
+      "reason": "placeholder",
+      "raw": "{\"action\":\"the Boise address\",\"reason\":\"placeholder\"}"
+    },
+    {
+      "scenario": "K-11",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "fact/home_city_agree": "m2"
+      },
+      "memory": [
+        "The user lives in Boise."
+      ],
+      "action": "the Boise address",
+      "reason": "placeholder",
+      "raw": "{\"action\":\"the Boise address\",\"reason\":\"placeholder\"}"
+    },
+    {
+      "scenario": "K-11",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "fact/home_city_agree": "m2"
+      },
+      "memory": [
+        "The user lives in Boise."
+      ],
+      "action": "the Boise address",
+      "reason": "The user's home address on file is Boise, as confirmed by resolved memory.",
+      "raw": "{\"action\":\"the Boise address\",\"reason\":\"The user's home address on file is Boise, as confirmed by resolved memory.\"}"
+    },
+    {
+      "scenario": "K-11",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "fact/home_city_agree": "m2"
+      },
+      "memory": [
+        "The user lives in Boise."
+      ],
+      "action": "the Boise address",
+      "reason": "placeholder",
+      "raw": "{\"action\":\"the Boise address\",\"reason\":\"placeholder\"}"
+    },
+    {
+      "scenario": "K-11",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "fact/home_city_agree": "m2"
+      },
+      "memory": [
+        "The user lives in Boise."
+      ],
+      "action": "the Boise address",
+      "reason": "The resolved memory indicates the user lives in Boise, so that is their home address on file.",
+      "raw": "{\"action\":\"the Boise address\",\"reason\":\"The resolved memory indicates the user lives in Boise, so that is their home address on file.\"}"
+    },
+    {
+      "scenario": "K-12",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "deadline/launch_agree": "m2"
+      },
+      "memory": [
+        "Launch deadline unchanged per a quick 'yep, still the 18th' \u2014 Friday the 18th."
+      ],
+      "action": "Thursday the 17th",
+      "reason": "It is the latest available day before the Friday the 18th launch deadline.",
+      "raw": "{\"action\":\"Thursday the 17th\",\"reason\":\"It is the latest available day before the Friday the 18th launch deadline.\"}"
+    },
+    {
+      "scenario": "K-12",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "deadline/launch_agree": "m2"
+      },
+      "memory": [
+        "Launch deadline unchanged per a quick 'yep, still the 18th' \u2014 Friday the 18th."
+      ],
+      "action": "Thursday the 17th",
+      "reason": "It's the latest available day before the Friday the 18th launch deadline.",
+      "raw": "{\"action\":\"Thursday the 17th\",\"reason\":\"It's the latest available day before the Friday the 18th launch deadline.\"}"
+    },
+    {
+      "scenario": "K-12",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "deadline/launch_agree": "m2"
+      },
+      "memory": [
+        "Launch deadline unchanged per a quick 'yep, still the 18th' \u2014 Friday the 18th."
+      ],
+      "action": "Thursday the 17th",
+      "reason": "It is the latest available day before the confirmed Friday the 18th launch deadline.",
+      "raw": "{\"action\":\"Thursday the 17th\",\"reason\":\"It is the latest available day before the confirmed Friday the 18th launch deadline.\"}"
+    },
+    {
+      "scenario": "K-12",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "deadline/launch_agree": "m2"
+      },
+      "memory": [
+        "Launch deadline unchanged per a quick 'yep, still the 18th' \u2014 Friday the 18th."
+      ],
+      "action": "Thursday the 17th",
+      "reason": "It is the latest available day before the confirmed Friday the 18th launch deadline.",
+      "raw": "{\"action\":\"Thursday the 17th\",\"reason\":\"It is the latest available day before the confirmed Friday the 18th launch deadline.\"}"
+    },
+    {
+      "scenario": "K-12",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "deadline/launch_agree": "m2"
+      },
+      "memory": [
+        "Launch deadline unchanged per a quick 'yep, still the 18th' \u2014 Friday the 18th."
+      ],
+      "action": "Thursday the 17th",
+      "reason": "It is the latest available slot before the confirmed Friday the 18th launch deadline.",
+      "raw": "{\"action\":\"Thursday the 17th\",\"reason\":\"It is the latest available slot before the confirmed Friday the 18th launch deadline.\"}"
+    }
+  ]
+}
