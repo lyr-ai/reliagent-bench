@@ -44,6 +44,24 @@ declared semantics do not. `b0`/`b_scd` lose the opposite half (B-02, B-04).
 This is the Mode A interaction at the resolution stage. **Whether it reaches
 behaviour is the agent stage's question, and that has not been run.**
 
+## Agent-stage protocol (decided before running)
+
+1. **Oracle first, alone**: `python -m reliagent_bench.memory.mode_b --variant oracle --runs 5`
+   (80 calls). Go/no-go: overall task success ≥ 0.95 and no family < 0.90.
+   Below that, the tasks or prompt are the problem and no other variant runs.
+2. **Model**: one Sonnet-class model, pinned by the *exact* id the account can
+   call (`--list-models` prints them), temperature 0, recorded in the result
+   file. Same model for every variant; never changed after a result is seen.
+   Sonnet over Opus deliberately: the tasks are meant to be easy given the
+   right state; a stronger model may solve them from context alone.
+3. Then all memory-bearing variants × 5 runs; freeze; write
+   `analysis/mode-b-pilot.md`.
+4. No scenario is edited on the strength of oracle raw outputs unless it is a
+   documented task ambiguity, in which case the agent-stage predictions are
+   re-frozen before the comparative run.
+
+The key is read from `ANTHROPIC_API_KEY` or a gitignored `.env` at the repo root.
+
 ## Not yet done
 
 The agent stage needs a model key. Everything upstream of it — scenarios,
