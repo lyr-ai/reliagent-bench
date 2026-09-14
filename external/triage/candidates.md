@@ -76,6 +76,17 @@ for this phase. **Not selected.**
 unanswerable questions. Little state-update structure evident. **Not
 selected unless inspection of another candidate fails.**
 
+## Inspected
+
+**LongMemEval** — 36 examples, purposeful deterministic sample (12 knowledge-update,
+12 temporal-reasoning, 6 preference, 6 abstention), rules frozen before reading:
+[`longmemeval.json`](longmemeval.json). Result: Finding 1 **testable at the
+threshold** (10 slot-value updates, 5 needing the earlier state); Findings 2 and
+3 **not testable** (0 provenance-sensitive, 0 type-dependent). The
+`temporal-reasoning` category is date arithmetic over events, not temporal
+state, and does not feed Finding 1. Adapter would be Track E-B: writes are
+values in free text; oracle flags say *which* turns, not *what* value.
+
 ## Seen only by title — not screened
 
 Surfaced by the search and not yet read: DynamicMem (arXiv 2606.22877),
