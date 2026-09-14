@@ -93,3 +93,26 @@ def test_phase2_orderings_match_pre_registered_structure():
         ep = [governing_correct(s, v.resolve(s)) for s in pairs if cls[s.id] == "epistemic"]
         de = [governing_correct(s, v.resolve(s)) for s in pairs if cls[s.id] == "declared"]
         assert (all(ep) and not any(de)) or (all(de) and not any(ep)), v.name
+
+
+def test_e2_runner_resolves_exactly_what_e1_measured():
+    """The agent stage must run the same policy object E1 measured: for every
+    Phase 2 scenario and every ordering, the governing ids the runner hands to
+    the agent equal the ids recorded in the committed E1 result file."""
+    import json
+    from pathlib import Path
+    from reliagent_bench.memory.mode_b.runner import REGISTRY, run
+    from reliagent_bench.memory.mode_b.schema import load_scenarios
+    from reliagent_bench.memory.mode_b.variants.orderings import ORDERINGS
+
+    base = Path("src/reliagent_bench/memory/mode_b")
+    e1 = json.loads((base / "results" / "phase2-e1.json").read_text())["governing"]
+    S = load_scenarios(base / "tasks" / "phase2.json")
+    for name in ORDERINGS:
+        assert REGISTRY[name] is ORDERINGS[name]
+        for s in S:
+            got = {slot: (m.id if m else None) for slot, m in REGISTRY[name].resolve(s).governing.items()}
+            assert got == e1[name][s.id], (name, s.id)
+    # and the runner path itself (dry) uses the registry object
+    scores, _ = run(S, 0, None, only_variants=["S>C>R"])
+    assert {sc.scenario: sc.governing_correct for sc in scores} == json.loads((base / "results" / "phase2-e1.json").read_text())["per_scenario"]["S>C>R"]

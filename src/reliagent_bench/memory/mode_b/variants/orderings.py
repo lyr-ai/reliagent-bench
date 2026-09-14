@@ -43,5 +43,12 @@ class FixedOrdering:
         return r
 
 
+# The single registry both E1 (resolution stage) and E2 (agent stage) draw from,
+# so the policy E1 measured is the object E2 runs.
+ORDERINGS: dict[str, FixedOrdering] = {
+    v.name: v for v in [FixedOrdering("".join(p)) for p in permutations("SCR")] + [FixedOrdering(d) for d in "SCR"]
+}
+
+
 def all_orderings() -> list[FixedOrdering]:
-    return [FixedOrdering("".join(p)) for p in permutations("SCR")] + [FixedOrdering(d) for d in "SCR"]
+    return list(ORDERINGS.values())

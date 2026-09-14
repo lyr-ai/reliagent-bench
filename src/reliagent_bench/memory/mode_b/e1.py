@@ -31,10 +31,12 @@ def main() -> int:
     ctrls = [s for s in S if s.family == "control"]
     variants = all_orderings() + [B0(), BSCD(), BTyped()]
 
-    rows, per = [], {}
+    rows, per, gov = [], {}, {}
     for v in variants:
-        ok = {s.id: governing_correct(s, v.resolve(s)) for s in S}
+        res = {s.id: v.resolve(s) for s in S}
+        ok = {sid: governing_correct(next(x for x in S if x.id == sid), r) for sid, r in res.items()}
         per[v.name] = ok
+        gov[v.name] = {sid: {slot: (m.id if m else None) for slot, m in r.governing.items()} for sid, r in res.items()}
         ep = [ok[s.id] for s in pairs if cls[s.id] == "epistemic"]
         de = [ok[s.id] for s in pairs if cls[s.id] == "declared"]
         ct = [ok[s.id] for s in ctrls]
@@ -53,7 +55,7 @@ def main() -> int:
     print(text)
     out = HERE / "results"
     (out / "phase2-e1.txt").write_text(text + "\n")
-    (out / "phase2-e1.json").write_text(json.dumps({"version": raw["version"], "rows": rows, "per_scenario": per}, indent=2))
+    (out / "phase2-e1.json").write_text(json.dumps({"version": raw["version"], "rows": rows, "per_scenario": per, "governing": gov}, indent=2))
     return 0
 
 

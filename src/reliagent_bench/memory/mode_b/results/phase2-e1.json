@@ -591,5 +591,1327 @@
       "K-11": true,
       "K-12": true
     }
+  },
+  "governing": {
+    "S>C>R": {
+      "P-01-F": {
+        "fact/orders_service_db": "m1"
+      },
+      "P-01-D": {
+        "deadline/orders_db_cutover": "m1"
+      },
+      "P-02-F": {
+        "fact/web_repo_package_manager": "m1"
+      },
+      "P-02-C": {
+        "commitment/lodash_in_web_repo": "m1"
+      },
+      "P-03-F": {
+        "fact/home_airport": "m1"
+      },
+      "P-03-P": {
+        "preference/seat_preference": "m1"
+      },
+      "P-04-F": {
+        "fact/design_team_timezone": "m1"
+      },
+      "P-04-D": {
+        "deadline/proposal_submission": "m1"
+      },
+      "P-05-F": {
+        "fact/release_manager": "m1"
+      },
+      "P-05-C": {
+        "commitment/pr_review_sla": "m1"
+      },
+      "P-06-F": {
+        "fact/tshirt_size": "m1"
+      },
+      "P-06-P": {
+        "preference/preferred_name": "m1"
+      },
+      "P-07-F": {
+        "fact/public_api_version": "m1"
+      },
+      "P-07-D": {
+        "deadline/feature_freeze": "m1"
+      },
+      "P-08-F": {
+        "fact/employer": "m1"
+      },
+      "P-08-C": {
+        "commitment/marketing_email_optin": "m1"
+      },
+      "P-09-F": {
+        "fact/oncall_rotation_length": "m1"
+      },
+      "P-09-P": {
+        "preference/retro_format": "m1"
+      },
+      "P-10-F": {
+        "fact/hotel_loyalty": "m1"
+      },
+      "P-10-D": {
+        "deadline/visa_application": "m1"
+      },
+      "P-11-F": {
+        "fact/staging_region": "m1"
+      },
+      "P-11-C": {
+        "commitment/terraform_state_backend": "m1"
+      },
+      "P-12-F": {
+        "fact/manager_office_day": "m1"
+      },
+      "P-12-P": {
+        "preference/meeting_time": "m1"
+      },
+      "K-01": {
+        "fact/home_city": "m2"
+      },
+      "K-02": {
+        "deadline/audit": "m2"
+      },
+      "K-03": {
+        "commitment/allhands_talk": "m2"
+      },
+      "K-04": {
+        "preference/ui_theme": "m2"
+      },
+      "K-05": {
+        "fact/build_server_ram": "m1"
+      },
+      "K-06": {
+        "deadline/grant_report": "m1"
+      },
+      "K-07": {
+        "commitment/shared_gpu_pool": "m1"
+      },
+      "K-08": {
+        "preference/email_format": "m1"
+      },
+      "K-09": {
+        "verification_status/pr_442_ci": "m1"
+      },
+      "K-10": {
+        "verification_status/pr_451_ci": "m2"
+      },
+      "K-11": {
+        "fact/home_city_agree": "m2"
+      },
+      "K-12": {
+        "deadline/launch_agree": "m1"
+      }
+    },
+    "S>R>C": {
+      "P-01-F": {
+        "fact/orders_service_db": "m2"
+      },
+      "P-01-D": {
+        "deadline/orders_db_cutover": "m2"
+      },
+      "P-02-F": {
+        "fact/web_repo_package_manager": "m2"
+      },
+      "P-02-C": {
+        "commitment/lodash_in_web_repo": "m2"
+      },
+      "P-03-F": {
+        "fact/home_airport": "m2"
+      },
+      "P-03-P": {
+        "preference/seat_preference": "m2"
+      },
+      "P-04-F": {
+        "fact/design_team_timezone": "m2"
+      },
+      "P-04-D": {
+        "deadline/proposal_submission": "m2"
+      },
+      "P-05-F": {
+        "fact/release_manager": "m2"
+      },
+      "P-05-C": {
+        "commitment/pr_review_sla": "m2"
+      },
+      "P-06-F": {
+        "fact/tshirt_size": "m2"
+      },
+      "P-06-P": {
+        "preference/preferred_name": "m2"
+      },
+      "P-07-F": {
+        "fact/public_api_version": "m2"
+      },
+      "P-07-D": {
+        "deadline/feature_freeze": "m2"
+      },
+      "P-08-F": {
+        "fact/employer": "m2"
+      },
+      "P-08-C": {
+        "commitment/marketing_email_optin": "m2"
+      },
+      "P-09-F": {
+        "fact/oncall_rotation_length": "m2"
+      },
+      "P-09-P": {
+        "preference/retro_format": "m2"
+      },
+      "P-10-F": {
+        "fact/hotel_loyalty": "m2"
+      },
+      "P-10-D": {
+        "deadline/visa_application": "m2"
+      },
+      "P-11-F": {
+        "fact/staging_region": "m2"
+      },
+      "P-11-C": {
+        "commitment/terraform_state_backend": "m2"
+      },
+      "P-12-F": {
+        "fact/manager_office_day": "m2"
+      },
+      "P-12-P": {
+        "preference/meeting_time": "m2"
+      },
+      "K-01": {
+        "fact/home_city": "m2"
+      },
+      "K-02": {
+        "deadline/audit": "m2"
+      },
+      "K-03": {
+        "commitment/allhands_talk": "m2"
+      },
+      "K-04": {
+        "preference/ui_theme": "m2"
+      },
+      "K-05": {
+        "fact/build_server_ram": "m1"
+      },
+      "K-06": {
+        "deadline/grant_report": "m1"
+      },
+      "K-07": {
+        "commitment/shared_gpu_pool": "m1"
+      },
+      "K-08": {
+        "preference/email_format": "m1"
+      },
+      "K-09": {
+        "verification_status/pr_442_ci": "m1"
+      },
+      "K-10": {
+        "verification_status/pr_451_ci": "m2"
+      },
+      "K-11": {
+        "fact/home_city_agree": "m2"
+      },
+      "K-12": {
+        "deadline/launch_agree": "m2"
+      }
+    },
+    "C>S>R": {
+      "P-01-F": {
+        "fact/orders_service_db": "m1"
+      },
+      "P-01-D": {
+        "deadline/orders_db_cutover": "m1"
+      },
+      "P-02-F": {
+        "fact/web_repo_package_manager": "m1"
+      },
+      "P-02-C": {
+        "commitment/lodash_in_web_repo": "m1"
+      },
+      "P-03-F": {
+        "fact/home_airport": "m1"
+      },
+      "P-03-P": {
+        "preference/seat_preference": "m1"
+      },
+      "P-04-F": {
+        "fact/design_team_timezone": "m1"
+      },
+      "P-04-D": {
+        "deadline/proposal_submission": "m1"
+      },
+      "P-05-F": {
+        "fact/release_manager": "m1"
+      },
+      "P-05-C": {
+        "commitment/pr_review_sla": "m1"
+      },
+      "P-06-F": {
+        "fact/tshirt_size": "m1"
+      },
+      "P-06-P": {
+        "preference/preferred_name": "m1"
+      },
+      "P-07-F": {
+        "fact/public_api_version": "m1"
+      },
+      "P-07-D": {
+        "deadline/feature_freeze": "m1"
+      },
+      "P-08-F": {
+        "fact/employer": "m1"
+      },
+      "P-08-C": {
+        "commitment/marketing_email_optin": "m1"
+      },
+      "P-09-F": {
+        "fact/oncall_rotation_length": "m1"
+      },
+      "P-09-P": {
+        "preference/retro_format": "m1"
+      },
+      "P-10-F": {
+        "fact/hotel_loyalty": "m1"
+      },
+      "P-10-D": {
+        "deadline/visa_application": "m1"
+      },
+      "P-11-F": {
+        "fact/staging_region": "m1"
+      },
+      "P-11-C": {
+        "commitment/terraform_state_backend": "m1"
+      },
+      "P-12-F": {
+        "fact/manager_office_day": "m1"
+      },
+      "P-12-P": {
+        "preference/meeting_time": "m1"
+      },
+      "K-01": {
+        "fact/home_city": "m2"
+      },
+      "K-02": {
+        "deadline/audit": "m2"
+      },
+      "K-03": {
+        "commitment/allhands_talk": "m2"
+      },
+      "K-04": {
+        "preference/ui_theme": "m2"
+      },
+      "K-05": {
+        "fact/build_server_ram": "m2"
+      },
+      "K-06": {
+        "deadline/grant_report": "m2"
+      },
+      "K-07": {
+        "commitment/shared_gpu_pool": "m2"
+      },
+      "K-08": {
+        "preference/email_format": "m2"
+      },
+      "K-09": {
+        "verification_status/pr_442_ci": "m1"
+      },
+      "K-10": {
+        "verification_status/pr_451_ci": "m2"
+      },
+      "K-11": {
+        "fact/home_city_agree": "m2"
+      },
+      "K-12": {
+        "deadline/launch_agree": "m1"
+      }
+    },
+    "C>R>S": {
+      "P-01-F": {
+        "fact/orders_service_db": "m1"
+      },
+      "P-01-D": {
+        "deadline/orders_db_cutover": "m1"
+      },
+      "P-02-F": {
+        "fact/web_repo_package_manager": "m1"
+      },
+      "P-02-C": {
+        "commitment/lodash_in_web_repo": "m1"
+      },
+      "P-03-F": {
+        "fact/home_airport": "m1"
+      },
+      "P-03-P": {
+        "preference/seat_preference": "m1"
+      },
+      "P-04-F": {
+        "fact/design_team_timezone": "m1"
+      },
+      "P-04-D": {
+        "deadline/proposal_submission": "m1"
+      },
+      "P-05-F": {
+        "fact/release_manager": "m1"
+      },
+      "P-05-C": {
+        "commitment/pr_review_sla": "m1"
+      },
+      "P-06-F": {
+        "fact/tshirt_size": "m1"
+      },
+      "P-06-P": {
+        "preference/preferred_name": "m1"
+      },
+      "P-07-F": {
+        "fact/public_api_version": "m1"
+      },
+      "P-07-D": {
+        "deadline/feature_freeze": "m1"
+      },
+      "P-08-F": {
+        "fact/employer": "m1"
+      },
+      "P-08-C": {
+        "commitment/marketing_email_optin": "m1"
+      },
+      "P-09-F": {
+        "fact/oncall_rotation_length": "m1"
+      },
+      "P-09-P": {
+        "preference/retro_format": "m1"
+      },
+      "P-10-F": {
+        "fact/hotel_loyalty": "m1"
+      },
+      "P-10-D": {
+        "deadline/visa_application": "m1"
+      },
+      "P-11-F": {
+        "fact/staging_region": "m1"
+      },
+      "P-11-C": {
+        "commitment/terraform_state_backend": "m1"
+      },
+      "P-12-F": {
+        "fact/manager_office_day": "m1"
+      },
+      "P-12-P": {
+        "preference/meeting_time": "m1"
+      },
+      "K-01": {
+        "fact/home_city": "m2"
+      },
+      "K-02": {
+        "deadline/audit": "m2"
+      },
+      "K-03": {
+        "commitment/allhands_talk": "m2"
+      },
+      "K-04": {
+        "preference/ui_theme": "m2"
+      },
+      "K-05": {
+        "fact/build_server_ram": "m2"
+      },
+      "K-06": {
+        "deadline/grant_report": "m2"
+      },
+      "K-07": {
+        "commitment/shared_gpu_pool": "m2"
+      },
+      "K-08": {
+        "preference/email_format": "m2"
+      },
+      "K-09": {
+        "verification_status/pr_442_ci": "m1"
+      },
+      "K-10": {
+        "verification_status/pr_451_ci": "m2"
+      },
+      "K-11": {
+        "fact/home_city_agree": "m2"
+      },
+      "K-12": {
+        "deadline/launch_agree": "m1"
+      }
+    },
+    "R>S>C": {
+      "P-01-F": {
+        "fact/orders_service_db": "m2"
+      },
+      "P-01-D": {
+        "deadline/orders_db_cutover": "m2"
+      },
+      "P-02-F": {
+        "fact/web_repo_package_manager": "m2"
+      },
+      "P-02-C": {
+        "commitment/lodash_in_web_repo": "m2"
+      },
+      "P-03-F": {
+        "fact/home_airport": "m2"
+      },
+      "P-03-P": {
+        "preference/seat_preference": "m2"
+      },
+      "P-04-F": {
+        "fact/design_team_timezone": "m2"
+      },
+      "P-04-D": {
+        "deadline/proposal_submission": "m2"
+      },
+      "P-05-F": {
+        "fact/release_manager": "m2"
+      },
+      "P-05-C": {
+        "commitment/pr_review_sla": "m2"
+      },
+      "P-06-F": {
+        "fact/tshirt_size": "m2"
+      },
+      "P-06-P": {
+        "preference/preferred_name": "m2"
+      },
+      "P-07-F": {
+        "fact/public_api_version": "m2"
+      },
+      "P-07-D": {
+        "deadline/feature_freeze": "m2"
+      },
+      "P-08-F": {
+        "fact/employer": "m2"
+      },
+      "P-08-C": {
+        "commitment/marketing_email_optin": "m2"
+      },
+      "P-09-F": {
+        "fact/oncall_rotation_length": "m2"
+      },
+      "P-09-P": {
+        "preference/retro_format": "m2"
+      },
+      "P-10-F": {
+        "fact/hotel_loyalty": "m2"
+      },
+      "P-10-D": {
+        "deadline/visa_application": "m2"
+      },
+      "P-11-F": {
+        "fact/staging_region": "m2"
+      },
+      "P-11-C": {
+        "commitment/terraform_state_backend": "m2"
+      },
+      "P-12-F": {
+        "fact/manager_office_day": "m2"
+      },
+      "P-12-P": {
+        "preference/meeting_time": "m2"
+      },
+      "K-01": {
+        "fact/home_city": "m2"
+      },
+      "K-02": {
+        "deadline/audit": "m2"
+      },
+      "K-03": {
+        "commitment/allhands_talk": "m2"
+      },
+      "K-04": {
+        "preference/ui_theme": "m2"
+      },
+      "K-05": {
+        "fact/build_server_ram": "m2"
+      },
+      "K-06": {
+        "deadline/grant_report": "m2"
+      },
+      "K-07": {
+        "commitment/shared_gpu_pool": "m2"
+      },
+      "K-08": {
+        "preference/email_format": "m2"
+      },
+      "K-09": {
+        "verification_status/pr_442_ci": "m2"
+      },
+      "K-10": {
+        "verification_status/pr_451_ci": "m2"
+      },
+      "K-11": {
+        "fact/home_city_agree": "m2"
+      },
+      "K-12": {
+        "deadline/launch_agree": "m2"
+      }
+    },
+    "R>C>S": {
+      "P-01-F": {
+        "fact/orders_service_db": "m2"
+      },
+      "P-01-D": {
+        "deadline/orders_db_cutover": "m2"
+      },
+      "P-02-F": {
+        "fact/web_repo_package_manager": "m2"
+      },
+      "P-02-C": {
+        "commitment/lodash_in_web_repo": "m2"
+      },
+      "P-03-F": {
+        "fact/home_airport": "m2"
+      },
+      "P-03-P": {
+        "preference/seat_preference": "m2"
+      },
+      "P-04-F": {
+        "fact/design_team_timezone": "m2"
+      },
+      "P-04-D": {
+        "deadline/proposal_submission": "m2"
+      },
+      "P-05-F": {
+        "fact/release_manager": "m2"
+      },
+      "P-05-C": {
+        "commitment/pr_review_sla": "m2"
+      },
+      "P-06-F": {
+        "fact/tshirt_size": "m2"
+      },
+      "P-06-P": {
+        "preference/preferred_name": "m2"
+      },
+      "P-07-F": {
+        "fact/public_api_version": "m2"
+      },
+      "P-07-D": {
+        "deadline/feature_freeze": "m2"
+      },
+      "P-08-F": {
+        "fact/employer": "m2"
+      },
+      "P-08-C": {
+        "commitment/marketing_email_optin": "m2"
+      },
+      "P-09-F": {
+        "fact/oncall_rotation_length": "m2"
+      },
+      "P-09-P": {
+        "preference/retro_format": "m2"
+      },
+      "P-10-F": {
+        "fact/hotel_loyalty": "m2"
+      },
+      "P-10-D": {
+        "deadline/visa_application": "m2"
+      },
+      "P-11-F": {
+        "fact/staging_region": "m2"
+      },
+      "P-11-C": {
+        "commitment/terraform_state_backend": "m2"
+      },
+      "P-12-F": {
+        "fact/manager_office_day": "m2"
+      },
+      "P-12-P": {
+        "preference/meeting_time": "m2"
+      },
+      "K-01": {
+        "fact/home_city": "m2"
+      },
+      "K-02": {
+        "deadline/audit": "m2"
+      },
+      "K-03": {
+        "commitment/allhands_talk": "m2"
+      },
+      "K-04": {
+        "preference/ui_theme": "m2"
+      },
+      "K-05": {
+        "fact/build_server_ram": "m2"
+      },
+      "K-06": {
+        "deadline/grant_report": "m2"
+      },
+      "K-07": {
+        "commitment/shared_gpu_pool": "m2"
+      },
+      "K-08": {
+        "preference/email_format": "m2"
+      },
+      "K-09": {
+        "verification_status/pr_442_ci": "m2"
+      },
+      "K-10": {
+        "verification_status/pr_451_ci": "m2"
+      },
+      "K-11": {
+        "fact/home_city_agree": "m2"
+      },
+      "K-12": {
+        "deadline/launch_agree": "m2"
+      }
+    },
+    "S_only": {
+      "P-01-F": {
+        "fact/orders_service_db": "m2"
+      },
+      "P-01-D": {
+        "deadline/orders_db_cutover": "m2"
+      },
+      "P-02-F": {
+        "fact/web_repo_package_manager": "m2"
+      },
+      "P-02-C": {
+        "commitment/lodash_in_web_repo": "m2"
+      },
+      "P-03-F": {
+        "fact/home_airport": "m2"
+      },
+      "P-03-P": {
+        "preference/seat_preference": "m2"
+      },
+      "P-04-F": {
+        "fact/design_team_timezone": "m2"
+      },
+      "P-04-D": {
+        "deadline/proposal_submission": "m2"
+      },
+      "P-05-F": {
+        "fact/release_manager": "m2"
+      },
+      "P-05-C": {
+        "commitment/pr_review_sla": "m2"
+      },
+      "P-06-F": {
+        "fact/tshirt_size": "m2"
+      },
+      "P-06-P": {
+        "preference/preferred_name": "m2"
+      },
+      "P-07-F": {
+        "fact/public_api_version": "m2"
+      },
+      "P-07-D": {
+        "deadline/feature_freeze": "m2"
+      },
+      "P-08-F": {
+        "fact/employer": "m2"
+      },
+      "P-08-C": {
+        "commitment/marketing_email_optin": "m2"
+      },
+      "P-09-F": {
+        "fact/oncall_rotation_length": "m2"
+      },
+      "P-09-P": {
+        "preference/retro_format": "m2"
+      },
+      "P-10-F": {
+        "fact/hotel_loyalty": "m2"
+      },
+      "P-10-D": {
+        "deadline/visa_application": "m2"
+      },
+      "P-11-F": {
+        "fact/staging_region": "m2"
+      },
+      "P-11-C": {
+        "commitment/terraform_state_backend": "m2"
+      },
+      "P-12-F": {
+        "fact/manager_office_day": "m2"
+      },
+      "P-12-P": {
+        "preference/meeting_time": "m2"
+      },
+      "K-01": {
+        "fact/home_city": "m2"
+      },
+      "K-02": {
+        "deadline/audit": "m2"
+      },
+      "K-03": {
+        "commitment/allhands_talk": "m2"
+      },
+      "K-04": {
+        "preference/ui_theme": "m2"
+      },
+      "K-05": {
+        "fact/build_server_ram": "m1"
+      },
+      "K-06": {
+        "deadline/grant_report": "m1"
+      },
+      "K-07": {
+        "commitment/shared_gpu_pool": "m1"
+      },
+      "K-08": {
+        "preference/email_format": "m1"
+      },
+      "K-09": {
+        "verification_status/pr_442_ci": "m1"
+      },
+      "K-10": {
+        "verification_status/pr_451_ci": "m2"
+      },
+      "K-11": {
+        "fact/home_city_agree": "m2"
+      },
+      "K-12": {
+        "deadline/launch_agree": "m2"
+      }
+    },
+    "C_only": {
+      "P-01-F": {
+        "fact/orders_service_db": "m1"
+      },
+      "P-01-D": {
+        "deadline/orders_db_cutover": "m1"
+      },
+      "P-02-F": {
+        "fact/web_repo_package_manager": "m1"
+      },
+      "P-02-C": {
+        "commitment/lodash_in_web_repo": "m1"
+      },
+      "P-03-F": {
+        "fact/home_airport": "m1"
+      },
+      "P-03-P": {
+        "preference/seat_preference": "m1"
+      },
+      "P-04-F": {
+        "fact/design_team_timezone": "m1"
+      },
+      "P-04-D": {
+        "deadline/proposal_submission": "m1"
+      },
+      "P-05-F": {
+        "fact/release_manager": "m1"
+      },
+      "P-05-C": {
+        "commitment/pr_review_sla": "m1"
+      },
+      "P-06-F": {
+        "fact/tshirt_size": "m1"
+      },
+      "P-06-P": {
+        "preference/preferred_name": "m1"
+      },
+      "P-07-F": {
+        "fact/public_api_version": "m1"
+      },
+      "P-07-D": {
+        "deadline/feature_freeze": "m1"
+      },
+      "P-08-F": {
+        "fact/employer": "m1"
+      },
+      "P-08-C": {
+        "commitment/marketing_email_optin": "m1"
+      },
+      "P-09-F": {
+        "fact/oncall_rotation_length": "m1"
+      },
+      "P-09-P": {
+        "preference/retro_format": "m1"
+      },
+      "P-10-F": {
+        "fact/hotel_loyalty": "m1"
+      },
+      "P-10-D": {
+        "deadline/visa_application": "m1"
+      },
+      "P-11-F": {
+        "fact/staging_region": "m1"
+      },
+      "P-11-C": {
+        "commitment/terraform_state_backend": "m1"
+      },
+      "P-12-F": {
+        "fact/manager_office_day": "m1"
+      },
+      "P-12-P": {
+        "preference/meeting_time": "m1"
+      },
+      "K-01": {
+        "fact/home_city": "m2"
+      },
+      "K-02": {
+        "deadline/audit": "m2"
+      },
+      "K-03": {
+        "commitment/allhands_talk": "m2"
+      },
+      "K-04": {
+        "preference/ui_theme": "m2"
+      },
+      "K-05": {
+        "fact/build_server_ram": "m2"
+      },
+      "K-06": {
+        "deadline/grant_report": "m2"
+      },
+      "K-07": {
+        "commitment/shared_gpu_pool": "m2"
+      },
+      "K-08": {
+        "preference/email_format": "m2"
+      },
+      "K-09": {
+        "verification_status/pr_442_ci": "m1"
+      },
+      "K-10": {
+        "verification_status/pr_451_ci": "m2"
+      },
+      "K-11": {
+        "fact/home_city_agree": "m2"
+      },
+      "K-12": {
+        "deadline/launch_agree": "m1"
+      }
+    },
+    "R_only": {
+      "P-01-F": {
+        "fact/orders_service_db": "m2"
+      },
+      "P-01-D": {
+        "deadline/orders_db_cutover": "m2"
+      },
+      "P-02-F": {
+        "fact/web_repo_package_manager": "m2"
+      },
+      "P-02-C": {
+        "commitment/lodash_in_web_repo": "m2"
+      },
+      "P-03-F": {
+        "fact/home_airport": "m2"
+      },
+      "P-03-P": {
+        "preference/seat_preference": "m2"
+      },
+      "P-04-F": {
+        "fact/design_team_timezone": "m2"
+      },
+      "P-04-D": {
+        "deadline/proposal_submission": "m2"
+      },
+      "P-05-F": {
+        "fact/release_manager": "m2"
+      },
+      "P-05-C": {
+        "commitment/pr_review_sla": "m2"
+      },
+      "P-06-F": {
+        "fact/tshirt_size": "m2"
+      },
+      "P-06-P": {
+        "preference/preferred_name": "m2"
+      },
+      "P-07-F": {
+        "fact/public_api_version": "m2"
+      },
+      "P-07-D": {
+        "deadline/feature_freeze": "m2"
+      },
+      "P-08-F": {
+        "fact/employer": "m2"
+      },
+      "P-08-C": {
+        "commitment/marketing_email_optin": "m2"
+      },
+      "P-09-F": {
+        "fact/oncall_rotation_length": "m2"
+      },
+      "P-09-P": {
+        "preference/retro_format": "m2"
+      },
+      "P-10-F": {
+        "fact/hotel_loyalty": "m2"
+      },
+      "P-10-D": {
+        "deadline/visa_application": "m2"
+      },
+      "P-11-F": {
+        "fact/staging_region": "m2"
+      },
+      "P-11-C": {
+        "commitment/terraform_state_backend": "m2"
+      },
+      "P-12-F": {
+        "fact/manager_office_day": "m2"
+      },
+      "P-12-P": {
+        "preference/meeting_time": "m2"
+      },
+      "K-01": {
+        "fact/home_city": "m2"
+      },
+      "K-02": {
+        "deadline/audit": "m2"
+      },
+      "K-03": {
+        "commitment/allhands_talk": "m2"
+      },
+      "K-04": {
+        "preference/ui_theme": "m2"
+      },
+      "K-05": {
+        "fact/build_server_ram": "m2"
+      },
+      "K-06": {
+        "deadline/grant_report": "m2"
+      },
+      "K-07": {
+        "commitment/shared_gpu_pool": "m2"
+      },
+      "K-08": {
+        "preference/email_format": "m2"
+      },
+      "K-09": {
+        "verification_status/pr_442_ci": "m2"
+      },
+      "K-10": {
+        "verification_status/pr_451_ci": "m2"
+      },
+      "K-11": {
+        "fact/home_city_agree": "m2"
+      },
+      "K-12": {
+        "deadline/launch_agree": "m2"
+      }
+    },
+    "b0": {
+      "P-01-F": {
+        "fact/orders_service_db": "m2"
+      },
+      "P-01-D": {
+        "deadline/orders_db_cutover": "m2"
+      },
+      "P-02-F": {
+        "fact/web_repo_package_manager": "m2"
+      },
+      "P-02-C": {
+        "commitment/lodash_in_web_repo": "m2"
+      },
+      "P-03-F": {
+        "fact/home_airport": "m2"
+      },
+      "P-03-P": {
+        "preference/seat_preference": "m2"
+      },
+      "P-04-F": {
+        "fact/design_team_timezone": "m2"
+      },
+      "P-04-D": {
+        "deadline/proposal_submission": "m2"
+      },
+      "P-05-F": {
+        "fact/release_manager": "m2"
+      },
+      "P-05-C": {
+        "commitment/pr_review_sla": "m2"
+      },
+      "P-06-F": {
+        "fact/tshirt_size": "m2"
+      },
+      "P-06-P": {
+        "preference/preferred_name": "m2"
+      },
+      "P-07-F": {
+        "fact/public_api_version": "m2"
+      },
+      "P-07-D": {
+        "deadline/feature_freeze": "m2"
+      },
+      "P-08-F": {
+        "fact/employer": "m2"
+      },
+      "P-08-C": {
+        "commitment/marketing_email_optin": "m2"
+      },
+      "P-09-F": {
+        "fact/oncall_rotation_length": "m2"
+      },
+      "P-09-P": {
+        "preference/retro_format": "m2"
+      },
+      "P-10-F": {
+        "fact/hotel_loyalty": "m2"
+      },
+      "P-10-D": {
+        "deadline/visa_application": "m2"
+      },
+      "P-11-F": {
+        "fact/staging_region": "m2"
+      },
+      "P-11-C": {
+        "commitment/terraform_state_backend": "m2"
+      },
+      "P-12-F": {
+        "fact/manager_office_day": "m2"
+      },
+      "P-12-P": {
+        "preference/meeting_time": "m2"
+      },
+      "K-01": {
+        "fact/home_city": "m2"
+      },
+      "K-02": {
+        "deadline/audit": "m2"
+      },
+      "K-03": {
+        "commitment/allhands_talk": "m2"
+      },
+      "K-04": {
+        "preference/ui_theme": "m2"
+      },
+      "K-05": {
+        "fact/build_server_ram": "m2"
+      },
+      "K-06": {
+        "deadline/grant_report": "m2"
+      },
+      "K-07": {
+        "commitment/shared_gpu_pool": "m2"
+      },
+      "K-08": {
+        "preference/email_format": "m2"
+      },
+      "K-09": {
+        "verification_status/pr_442_ci": "m2"
+      },
+      "K-10": {
+        "verification_status/pr_451_ci": "m2"
+      },
+      "K-11": {
+        "fact/home_city_agree": "m2"
+      },
+      "K-12": {
+        "deadline/launch_agree": "m2"
+      }
+    },
+    "b_scd": {
+      "P-01-F": {
+        "fact/orders_service_db": "m2"
+      },
+      "P-01-D": {
+        "deadline/orders_db_cutover": "m2"
+      },
+      "P-02-F": {
+        "fact/web_repo_package_manager": "m2"
+      },
+      "P-02-C": {
+        "commitment/lodash_in_web_repo": "m2"
+      },
+      "P-03-F": {
+        "fact/home_airport": "m2"
+      },
+      "P-03-P": {
+        "preference/seat_preference": "m2"
+      },
+      "P-04-F": {
+        "fact/design_team_timezone": "m2"
+      },
+      "P-04-D": {
+        "deadline/proposal_submission": "m2"
+      },
+      "P-05-F": {
+        "fact/release_manager": "m2"
+      },
+      "P-05-C": {
+        "commitment/pr_review_sla": "m2"
+      },
+      "P-06-F": {
+        "fact/tshirt_size": "m2"
+      },
+      "P-06-P": {
+        "preference/preferred_name": "m2"
+      },
+      "P-07-F": {
+        "fact/public_api_version": "m2"
+      },
+      "P-07-D": {
+        "deadline/feature_freeze": "m2"
+      },
+      "P-08-F": {
+        "fact/employer": "m2"
+      },
+      "P-08-C": {
+        "commitment/marketing_email_optin": "m2"
+      },
+      "P-09-F": {
+        "fact/oncall_rotation_length": "m2"
+      },
+      "P-09-P": {
+        "preference/retro_format": "m2"
+      },
+      "P-10-F": {
+        "fact/hotel_loyalty": "m2"
+      },
+      "P-10-D": {
+        "deadline/visa_application": "m2"
+      },
+      "P-11-F": {
+        "fact/staging_region": "m2"
+      },
+      "P-11-C": {
+        "commitment/terraform_state_backend": "m2"
+      },
+      "P-12-F": {
+        "fact/manager_office_day": "m2"
+      },
+      "P-12-P": {
+        "preference/meeting_time": "m2"
+      },
+      "K-01": {
+        "fact/home_city": "m2"
+      },
+      "K-02": {
+        "deadline/audit": "m2"
+      },
+      "K-03": {
+        "commitment/allhands_talk": "m2"
+      },
+      "K-04": {
+        "preference/ui_theme": "m2"
+      },
+      "K-05": {
+        "fact/build_server_ram": "m2"
+      },
+      "K-06": {
+        "deadline/grant_report": "m2"
+      },
+      "K-07": {
+        "commitment/shared_gpu_pool": "m2"
+      },
+      "K-08": {
+        "preference/email_format": "m2"
+      },
+      "K-09": {
+        "verification_status/pr_442_ci": "m2"
+      },
+      "K-10": {
+        "verification_status/pr_451_ci": "m2"
+      },
+      "K-11": {
+        "fact/home_city_agree": "m2"
+      },
+      "K-12": {
+        "deadline/launch_agree": "m2"
+      }
+    },
+    "b_typed": {
+      "P-01-F": {
+        "fact/orders_service_db": "m1"
+      },
+      "P-01-D": {
+        "deadline/orders_db_cutover": "m2"
+      },
+      "P-02-F": {
+        "fact/web_repo_package_manager": "m1"
+      },
+      "P-02-C": {
+        "commitment/lodash_in_web_repo": "m2"
+      },
+      "P-03-F": {
+        "fact/home_airport": "m1"
+      },
+      "P-03-P": {
+        "preference/seat_preference": "m2"
+      },
+      "P-04-F": {
+        "fact/design_team_timezone": "m1"
+      },
+      "P-04-D": {
+        "deadline/proposal_submission": "m2"
+      },
+      "P-05-F": {
+        "fact/release_manager": "m1"
+      },
+      "P-05-C": {
+        "commitment/pr_review_sla": "m2"
+      },
+      "P-06-F": {
+        "fact/tshirt_size": "m1"
+      },
+      "P-06-P": {
+        "preference/preferred_name": "m2"
+      },
+      "P-07-F": {
+        "fact/public_api_version": "m1"
+      },
+      "P-07-D": {
+        "deadline/feature_freeze": "m2"
+      },
+      "P-08-F": {
+        "fact/employer": "m1"
+      },
+      "P-08-C": {
+        "commitment/marketing_email_optin": "m2"
+      },
+      "P-09-F": {
+        "fact/oncall_rotation_length": "m1"
+      },
+      "P-09-P": {
+        "preference/retro_format": "m2"
+      },
+      "P-10-F": {
+        "fact/hotel_loyalty": "m1"
+      },
+      "P-10-D": {
+        "deadline/visa_application": "m2"
+      },
+      "P-11-F": {
+        "fact/staging_region": "m1"
+      },
+      "P-11-C": {
+        "commitment/terraform_state_backend": "m2"
+      },
+      "P-12-F": {
+        "fact/manager_office_day": "m1"
+      },
+      "P-12-P": {
+        "preference/meeting_time": "m2"
+      },
+      "K-01": {
+        "fact/home_city": "m2"
+      },
+      "K-02": {
+        "deadline/audit": "m2"
+      },
+      "K-03": {
+        "commitment/allhands_talk": "m2"
+      },
+      "K-04": {
+        "preference/ui_theme": "m2"
+      },
+      "K-05": {
+        "fact/build_server_ram": "m1"
+      },
+      "K-06": {
+        "deadline/grant_report": "m1"
+      },
+      "K-07": {
+        "commitment/shared_gpu_pool": "m1"
+      },
+      "K-08": {
+        "preference/email_format": "m1"
+      },
+      "K-09": {
+        "verification_status/pr_442_ci": "m1"
+      },
+      "K-10": {
+        "verification_status/pr_451_ci": "m2"
+      },
+      "K-11": {
+        "fact/home_city_agree": "m2"
+      },
+      "K-12": {
+        "deadline/launch_agree": "m2"
+      }
+    }
   }
 }
