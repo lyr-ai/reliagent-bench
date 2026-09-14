@@ -1,0 +1,19 @@
+Mode B Phase 2 · E1 exhaustive fixed-ordering evaluation · resolution stage · mode-b-phase2-0 · 2026-09-14
+governing-state accuracy on the 12 reversal pairs (24 scenarios) by state class, and on the 12 controls
+
+policy      epistemic   declared    pairs   controls   fails
+──────────────────────────────────────────────────────────────────────────────
+S>C>R          12/12       0/12    12/24      12/12    P-01-D P-02-C P-03-P P-04-D P-05-C P-06-P P-07-D P-08-C P-09-P P-10-D P-11-C P-12-P
+S>R>C           0/12      12/12    12/24      12/12    P-01-F P-02-F P-03-F P-04-F P-05-F P-06-F P-07-F P-08-F P-09-F P-10-F P-11-F P-12-F
+C>S>R          12/12       0/12    12/24       8/12    P-01-D P-02-C P-03-P P-04-D P-05-C P-06-P P-07-D P-08-C P-09-P P-10-D P-11-C P-12-P K-05 K-06 K-07 K-08
+C>R>S          12/12       0/12    12/24       8/12    P-01-D P-02-C P-03-P P-04-D P-05-C P-06-P P-07-D P-08-C P-09-P P-10-D P-11-C P-12-P K-05 K-06 K-07 K-08
+R>S>C           0/12      12/12    12/24       7/12    P-01-F P-02-F P-03-F P-04-F P-05-F P-06-F P-07-F P-08-F P-09-F P-10-F P-11-F P-12-F K-05 K-06 K-07 K-08 K-09
+R>C>S           0/12      12/12    12/24       7/12    P-01-F P-02-F P-03-F P-04-F P-05-F P-06-F P-07-F P-08-F P-09-F P-10-F P-11-F P-12-F K-05 K-06 K-07 K-08 K-09
+S_only          0/12      12/12    12/24      12/12    P-01-F P-02-F P-03-F P-04-F P-05-F P-06-F P-07-F P-08-F P-09-F P-10-F P-11-F P-12-F
+C_only         12/12       0/12    12/24       8/12    P-01-D P-02-C P-03-P P-04-D P-05-C P-06-P P-07-D P-08-C P-09-P P-10-D P-11-C P-12-P K-05 K-06 K-07 K-08
+R_only          0/12      12/12    12/24       7/12    P-01-F P-02-F P-03-F P-04-F P-05-F P-06-F P-07-F P-08-F P-09-F P-10-F P-11-F P-12-F K-05 K-06 K-07 K-08 K-09
+b0              0/12      12/12    12/24       7/12    P-01-F P-02-F P-03-F P-04-F P-05-F P-06-F P-07-F P-08-F P-09-F P-10-F P-11-F P-12-F K-05 K-06 K-07 K-08 K-09
+b_scd           0/12      12/12    12/24       7/12    P-01-F P-02-F P-03-F P-04-F P-05-F P-06-F P-07-F P-08-F P-09-F P-10-F P-11-F P-12-F K-05 K-06 K-07 K-08 K-09
+b_typed        12/12      12/12    24/24      12/12    
+
+orderings correct on all pairs: ['b_typed']

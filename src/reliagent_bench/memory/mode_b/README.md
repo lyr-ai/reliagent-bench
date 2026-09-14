@@ -81,3 +81,32 @@ Every failed run is `wrong_governing_state`; none is
 `correct_state_wrong_agent_decision`. Verdicts and the reading —
 BRQ1 SUPPORTED with the F3 qualification, BRQ2 SUPPORTED, BRQ3 INCONCLUSIVE
 — are in [`analysis/mode-b-pilot.md`](../../../../analysis/mode-b-pilot.md).
+
+## Phase 2 — global policy stress test
+
+Design: [`docs/mode-b-phase2-global-policy-stress-test.md`](../../../../docs/mode-b-phase2-global-policy-stress-test.md).
+Order of freezing, each committed before the next existed:
+
+1. `semantics/phase2-types.md` — per-type governing-state semantics, argued
+   without reference to any implementation; defines `confidence` (recorder's
+   certainty of faithful capture; admission floor 0.5) and the epistemic /
+   declared split.
+2. `tasks/phase2.json` — 12 reversal pairs (24) + 12 controls. Every pair:
+   equal source, incoming newer, incoming confidence 0.6 vs 0.9; only the state
+   class varies. The lower confidence is earned by the text and the reason is
+   recorded per scenario.
+3. `predictions/phase2.json` — E1 per-ordering predictions, E2 selection rule,
+   verdict rules.
+4. `variants/orderings.py` + `e1.py` — the 6 permutations of (S, C, R) and the
+   3 single-dimension policies; resolution stage only, no model.
+
+```text
+python -m reliagent_bench.memory.mode_b.e1          # E1, deterministic → results/phase2-e1.txt
+```
+
+E1 result (`results/phase2-e1.txt`): every ordering with C before R is
+12/12 epistemic · 0/12 declared; every ordering with R before C is the mirror;
+`b_typed` 24/24. No fixed ordering is correct on both classes. S-first
+orderings pass all 12 controls; C-first lose K-05..K-08 (source conflicts);
+R-first additionally lose K-09 (inference newer than a verified result).
+Matches `predictions/phase2.json` row for row. E2 (agent stage) is not yet run.

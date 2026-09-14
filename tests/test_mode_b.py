@@ -68,3 +68,28 @@ def test_resolution_stage_matches_preregistered_table():
         for fam in ("provenance", "typed", "repeated_failure", "control"):
             xs = [sc.governing_correct for sc in scores if sc.variant == v and sc.family == fam]
             assert round(sum(xs) / len(xs), 2) == pred[v][fam], (v, fam)
+
+
+def test_phase2_orderings_match_pre_registered_structure():
+    """E1 structure (predictions/phase2.json): S>C>R ≡ b_scd_g everywhere; on the
+    reversal pairs (source held equal) every ordering collapses to C-before-R or
+    R-before-C; only the per-type policy is correct on both classes."""
+    import json
+    from pathlib import Path
+    from reliagent_bench.memory.mode_b.schema import load_scenarios
+    from reliagent_bench.memory.mode_b.scoring import governing_correct
+    from reliagent_bench.memory.mode_b.variants.b_scd_g import BSCDG
+    from reliagent_bench.memory.mode_b.variants.b_typed import BTyped
+    from reliagent_bench.memory.mode_b.variants.orderings import FixedOrdering, all_orderings
+
+    tasks = Path("src/reliagent_bench/memory/mode_b/tasks/phase2.json")
+    cls = {s["id"]: s["state_class"] for s in json.loads(tasks.read_text())["scenarios"]}
+    S = load_scenarios(tasks)
+    for s in S:
+        assert BSCDG().resolve(s).governing == FixedOrdering("SCR").resolve(s).governing
+    pairs = [s for s in S if s.family == "typed"]
+    assert all(governing_correct(s, BTyped().resolve(s)) for s in S)
+    for v in all_orderings():
+        ep = [governing_correct(s, v.resolve(s)) for s in pairs if cls[s.id] == "epistemic"]
+        de = [governing_correct(s, v.resolve(s)) for s in pairs if cls[s.id] == "declared"]
+        assert (all(ep) and not any(de)) or (all(de) and not any(ep)), v.name
