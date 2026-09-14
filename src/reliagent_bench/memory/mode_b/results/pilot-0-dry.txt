@@ -1,0 +1,41 @@
+Mode B pilot · 16 scenarios · resolution stage only (dry run)
+
+governing-state accuracy (deterministic; one row per variant)
+variant           provenance             typed  repeated_failure           control       all
+────────────────────────────────────────────────────────────────────────────────────────────
+b0                     0.25              0.50              1.00              1.00      0.69 
+b_scd                  0.25              0.50              1.00              1.00      0.69 
+b_scd_g                1.00              0.50              1.00              1.00      0.88 
+b_typed                1.00              1.00              1.00              1.00      1.00 
+oracle                 1.00              1.00              1.00              1.00      1.00 
+nomem                  0.00              0.00              0.00              0.00      0.00 
+
+resolution failures (scenario, variant, slot: got → gold)
+  A-01   b0        
+  A-02   b0        
+  A-03   b0        
+  B-02   b0        
+  B-04   b0        
+  A-01   b_scd     
+  A-02   b_scd     
+  A-03   b_scd     
+  B-02   b_scd     
+  B-04   b_scd     
+  B-01   b_scd_g   
+  B-03   b_scd_g   
+  A-01   nomem     
+  A-02   nomem     
+  A-03   nomem     
+  A-04   nomem     
+  B-01   nomem     
+  B-02   nomem     
+  B-03   nomem     
+  B-04   nomem     
+  C-01   nomem     
+  C-02   nomem     
+  C-03   nomem     
+  C-04   nomem     
+  N-01   nomem     
+  N-02   nomem     
+  N-03   nomem     
+  N-04   nomem     
