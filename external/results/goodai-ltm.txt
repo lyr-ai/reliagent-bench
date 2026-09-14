@@ -1,0 +1,21 @@
+GoodAI LTM selected update tests · Benchmark 3 (32k) stored definitions · Track E-A · instance-level accuracy
+
+variant              Colours      NameList     SallyAnne       all_run
+──────────────────────────────────────────────────────────────────────
+v0                     3/3           3/3           3/3           9/9  
+v0_scd                 3/3           3/3           3/3           9/9  
+v0_scd_g               3/3           3/3           3/3           9/9  
+v4_replace             3/3           0/3           1/3           4/9  
+v4_keep_both           3/3           3/3           3/3           9/9  
+v4_default             3/3           3/3           3/3           9/9  
+
+not run: Shopping — accumulation over a set-valued slot is not expressible as writes in any variant's protocol; Restaurant — dynamic script generated at run time; no replay harness in this phase
+
+failures
+  NameList/0.def.json      v4_replace     ['terence', 'christopher', 'jane', 'liam → ['janet']                                unsupported_semantics:history_under_replace
+  NameList/1.def.json      v4_replace     ['gabriel', 'sinead', 'phillip', 'jody', → ['samantha']                             unsupported_semantics:history_under_replace
+  NameList/2.def.json      v4_replace     ['blaine', 'harold', 'todd', 'timothy',  → ['kimberly']                             unsupported_semantics:history_under_replace
+  SallyAnne/0.def.json     v4_replace     pantry                                   → None                                     unsupported_semantics:history_under_replace
+  SallyAnne/2.def.json     v4_replace     crate                                    → None                                     unsupported_semantics:history_under_replace
+
+failure attribution by variant: {"v0": {}, "v0_scd": {}, "v0_scd_g": {}, "v4_replace": {"unsupported_semantics:history_under_replace": 5}, "v4_keep_both": {}, "v4_default": {}}
