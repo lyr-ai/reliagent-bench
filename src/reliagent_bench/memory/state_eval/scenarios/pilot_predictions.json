@@ -1,24 +1,132 @@
 {
-  "note": "Written before the first run (plan §15, §16.1). Per query: which variants are predicted to return the gold state. A mismatch between this file and an actual run is a finding to investigate, not a number to adjust.",
-  "frozen": "2026-09-13",
+  "note": "Written before each run (plan \u00a715, \u00a716.1). Per query: which variants are predicted to return the gold state. A mismatch between this file and an actual run is a finding to investigate, not a number to adjust. pilot-1 adds v0_scd and the known_gap scenarios; the pilot-0 predictions for v0 and v4 are unchanged.",
+  "frozen": "2026-09-13 (pilot-0); v0_scd and G-* added 2026-09-13 before pilot-1",
   "predictions": {
-    "A-01/q1":        {"v0": false, "v4_typedmem": true},
-    "A-02/q1":        {"v0": false, "v4_typedmem": true},
-    "A-03/q1":        {"v0": true,  "v4_typedmem": true},
-    "B-01/q_jul":     {"v0": true,  "v4_typedmem": true},
-    "B-01/q_aug":     {"v0": false, "v4_typedmem": true},
-    "B-01/q_now":     {"v0": true,  "v4_typedmem": true},
-    "B-02/q_before":  {"v0": true,  "v4_typedmem": true},
-    "B-02/q_at":      {"v0": false, "v4_typedmem": true},
-    "B-03/q_now":     {"v0": false, "v4_typedmem": true},
-    "B-03/q_oct":     {"v0": true,  "v4_typedmem": true},
-    "C-01/q1":        {"v0": true,  "v4_typedmem": true},
-    "C-02/q1":        {"v0": false, "v4_typedmem": true},
-    "C-03/q_deadline":{"v0": true,  "v4_typedmem": true},
-    "C-03/q_fact":    {"v0": false, "v4_typedmem": true},
-    "N-01/q1":        {"v0": true,  "v4_typedmem": true},
-    "N-02/q1":        {"v0": true,  "v4_typedmem": true},
-    "M-01/q1":        {"v0": false, "v4_typedmem": true}
+    "A-01/q1": {
+      "v0": false,
+      "v4_typedmem": true,
+      "v0_scd": false
+    },
+    "A-02/q1": {
+      "v0": false,
+      "v4_typedmem": true,
+      "v0_scd": true
+    },
+    "A-03/q1": {
+      "v0": true,
+      "v4_typedmem": true,
+      "v0_scd": true
+    },
+    "B-01/q_jul": {
+      "v0": true,
+      "v4_typedmem": true,
+      "v0_scd": true
+    },
+    "B-01/q_aug": {
+      "v0": false,
+      "v4_typedmem": true,
+      "v0_scd": true
+    },
+    "B-01/q_now": {
+      "v0": true,
+      "v4_typedmem": true,
+      "v0_scd": true
+    },
+    "B-02/q_before": {
+      "v0": true,
+      "v4_typedmem": true,
+      "v0_scd": true
+    },
+    "B-02/q_at": {
+      "v0": false,
+      "v4_typedmem": true,
+      "v0_scd": true
+    },
+    "B-03/q_now": {
+      "v0": false,
+      "v4_typedmem": true,
+      "v0_scd": true
+    },
+    "B-03/q_oct": {
+      "v0": true,
+      "v4_typedmem": true,
+      "v0_scd": true
+    },
+    "C-01/q1": {
+      "v0": true,
+      "v4_typedmem": true,
+      "v0_scd": true
+    },
+    "C-02/q1": {
+      "v0": false,
+      "v4_typedmem": true,
+      "v0_scd": false
+    },
+    "C-03/q_deadline": {
+      "v0": true,
+      "v4_typedmem": true,
+      "v0_scd": true
+    },
+    "C-03/q_fact": {
+      "v0": false,
+      "v4_typedmem": true,
+      "v0_scd": false
+    },
+    "N-01/q1": {
+      "v0": true,
+      "v4_typedmem": true,
+      "v0_scd": true
+    },
+    "N-02/q1": {
+      "v0": true,
+      "v4_typedmem": true,
+      "v0_scd": true
+    },
+    "M-01/q1": {
+      "v0": false,
+      "v4_typedmem": true,
+      "v0_scd": true
+    },
+    "G-01/q_jul": {
+      "v0": true,
+      "v0_scd": true,
+      "v4_typedmem": false
+    },
+    "G-01/q_now": {
+      "v0": true,
+      "v0_scd": true,
+      "v4_typedmem": true
+    },
+    "G-02/q_jul": {
+      "v0": false,
+      "v0_scd": true,
+      "v4_typedmem": false
+    },
+    "G-03/q_may": {
+      "v0": true,
+      "v0_scd": true,
+      "v4_typedmem": false
+    },
+    "G-03/q_now": {
+      "v0": true,
+      "v0_scd": true,
+      "v4_typedmem": true
+    },
+    "G-04/q_now": {
+      "v0": false,
+      "v0_scd": false,
+      "v4_typedmem": false
+    },
+    "G-04/q_jan": {
+      "v0": true,
+      "v0_scd": true,
+      "v4_typedmem": true
+    }
   },
-  "corruption_rate": {"v0": 1.0, "v4_typedmem": 0.0}
+  "corruption_rate": {
+    "v0": 1.0,
+    "v0_scd": 0.6666666666666666,
+    "v4_typedmem": 0.0
+  },
+  "corruption_note": "Corruption is state-based: an expected-ignore write that the variant applied as a replace. Six opportunities: A-01, A-02, C-02, C-03/b2, M-01, G-04/w2. v0 replaces on every second write \u2192 6/6. v0_scd: A-02 and M-01 are historical inserts (keep), the other four displace the current state \u2192 4/6. v4: the G-04 inference is inserted (keep) under keep_both, not replaced \u2192 0/6; its state failure is carried by the query metric."
 }

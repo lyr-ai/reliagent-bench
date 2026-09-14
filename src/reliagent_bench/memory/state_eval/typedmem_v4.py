@@ -1,4 +1,7 @@
-"""V4 — TypedMem, full typed resolution, through its public API only.
+"""V4 — TypedMem, full typed resolution, through the supported package API.
+
+Uses top-level ``typedmem`` exports and the ``typedmem.retrieval`` exports;
+no store internals, no private modules.
 
 Each scenario's declared type semantics become a ``DomainProfile``: the
 conflict policy and ``resolve_by`` per type. Writes become ``Memory`` objects
@@ -14,9 +17,10 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 
-from typedmem import DomainProfile, InMemoryStore, Memory, PolicyEngine, Source, TypeSpec
-from typedmem.policy import ConflictPolicy
-from typedmem.retrieval import resolve_temporal
+from typedmem import (
+    ConflictPolicy, DomainProfile, InMemoryStore, Memory, PolicyEngine, Source, TypeSpec,
+)
+from typedmem.retrieval import resolve_temporal   # exported by typedmem.retrieval.__all__
 
 from .schema import MemoryWrite, Query, Scenario, TransitionKind, TypeSemantics
 

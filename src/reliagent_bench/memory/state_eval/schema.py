@@ -24,6 +24,8 @@ MECHANISMS = frozenset({
     "confidence_guard",
     "type_specific_resolution",
     "none",            # negative control: no mechanism should be needed
+    "history_under_replace",   # known gap: replace keeps no queryable history
+    "authority_under_keep_both",  # known gap: the provenance guard fires only under replace
 })
 
 TransitionKind = Literal["add", "replace", "ignore", "keep"]
@@ -77,7 +79,7 @@ class Query:
 @dataclass(frozen=True)
 class Scenario:
     id: str
-    category: Literal["authority", "temporal", "typed", "control", "mixed"]
+    category: Literal["authority", "temporal", "typed", "control", "mixed", "known_gap"]
     description: str
     types: dict[str, TypeSemantics]
     writes: tuple[MemoryWrite, ...]
