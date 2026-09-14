@@ -186,6 +186,7 @@ def main(argv: list[str] | None = None) -> int:
     from .typedmem_v4 import TypedMemV4
     from .v0 import V0Baseline
     from .v0_scd import V0SCDBaseline
+    from .v0_scd_g import V0SCDGuardedBaseline
 
     p = argparse.ArgumentParser(prog="reliagent-bench-state-eval")
     p.add_argument("--scenarios", default=None, help="scenario JSON (default: pilot.json)")
@@ -193,7 +194,7 @@ def main(argv: list[str] | None = None) -> int:
     args = p.parse_args(argv)
 
     scenarios = load_scenarios(args.scenarios) if args.scenarios else load_scenarios()
-    report = run([V0Baseline(), V0SCDBaseline(), TypedMemV4()], scenarios)
+    report = run([V0Baseline(), V0SCDBaseline(), V0SCDGuardedBaseline(), TypedMemV4()], scenarios)
     print(report.to_json() if args.json else render(report, scenarios))
     return 0
 

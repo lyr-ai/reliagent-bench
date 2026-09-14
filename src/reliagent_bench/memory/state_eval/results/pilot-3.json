@@ -1,0 +1,5882 @@
+{
+  "scenarios": 42,
+  "typedmem_version": "0.8.0",
+  "variants": [
+    {
+      "variant": "v0",
+      "state_accuracy": 0.547945205479452,
+      "temporal_accuracy": 0.59375,
+      "transition_accuracy": 0.6730769230769231,
+      "corruption_rate": 1.0,
+      "queries": [
+        {
+          "scenario": "A-01",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "San Jose",
+          "actual": "Seattle",
+          "correct": false
+        },
+        {
+          "scenario": "A-02",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "San Jose",
+          "correct": false
+        },
+        {
+          "scenario": "A-03",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "A-04",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "Berlin",
+          "actual": "Munich",
+          "correct": false
+        },
+        {
+          "scenario": "A-05",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Lisbon",
+          "actual": "Lisbon",
+          "correct": true
+        },
+        {
+          "scenario": "A-06",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "Lisbon",
+          "actual": "Madrid",
+          "correct": false
+        },
+        {
+          "scenario": "A-07",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Bergen",
+          "actual": "Bergen",
+          "correct": true
+        },
+        {
+          "scenario": "A-08",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "Zurich",
+          "actual": "Basel",
+          "correct": false
+        },
+        {
+          "scenario": "A-09",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Cork",
+          "actual": "Cork",
+          "correct": true
+        },
+        {
+          "scenario": "A-10",
+          "category": "authority",
+          "query": "q_user",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "Rome",
+          "actual": "Naples",
+          "correct": false
+        },
+        {
+          "scenario": "A-10",
+          "category": "authority",
+          "query": "q_office",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Milan",
+          "actual": "Milan",
+          "correct": true
+        },
+        {
+          "scenario": "A-11",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Graz",
+          "actual": "Graz",
+          "correct": true
+        },
+        {
+          "scenario": "B-01",
+          "category": "temporal",
+          "query": "q_jul",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "B-01",
+          "category": "temporal",
+          "query": "q_aug",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "San Jose",
+          "correct": false
+        },
+        {
+          "scenario": "B-01",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-02",
+          "category": "temporal",
+          "query": "q_before",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "B-02",
+          "category": "temporal",
+          "query": "q_at",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "San Jose",
+          "correct": false
+        },
+        {
+          "scenario": "B-03",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "validity_future",
+          "temporal": true,
+          "expected": "MySQL",
+          "actual": "Postgres",
+          "correct": false
+        },
+        {
+          "scenario": "B-03",
+          "category": "temporal",
+          "query": "q_oct",
+          "mechanism": "validity_future",
+          "temporal": true,
+          "expected": "Postgres",
+          "actual": "Postgres",
+          "correct": true
+        },
+        {
+          "scenario": "B-04",
+          "category": "temporal",
+          "query": "q_feb",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "B-04",
+          "category": "temporal",
+          "query": "q_may",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Portland",
+          "actual": "Portland",
+          "correct": true
+        },
+        {
+          "scenario": "B-04",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-05",
+          "category": "temporal",
+          "query": "q_jan",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "B-05",
+          "category": "temporal",
+          "query": "q_feb",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Portland",
+          "actual": "San Jose",
+          "correct": false
+        },
+        {
+          "scenario": "B-05",
+          "category": "temporal",
+          "query": "q_mar",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-05",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Portland",
+          "correct": false
+        },
+        {
+          "scenario": "B-06",
+          "category": "temporal",
+          "query": "q_feb",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Portland",
+          "actual": "San Jose",
+          "correct": false
+        },
+        {
+          "scenario": "B-06",
+          "category": "temporal",
+          "query": "q_mar",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-06",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Portland",
+          "correct": false
+        },
+        {
+          "scenario": "B-07",
+          "category": "temporal",
+          "query": "q_feb",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Research",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "scenario": "B-07",
+          "category": "temporal",
+          "query": "q_apr",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Platform",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "scenario": "B-07",
+          "category": "temporal",
+          "query": "q_jun",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Inference",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "scenario": "B-07",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Agents",
+          "actual": "Research",
+          "correct": false
+        },
+        {
+          "scenario": "B-08",
+          "category": "temporal",
+          "query": "q_may",
+          "mechanism": "validity_expired",
+          "temporal": true,
+          "expected": "Pro plan",
+          "actual": "Pro plan",
+          "correct": true
+        },
+        {
+          "scenario": "B-08",
+          "category": "temporal",
+          "query": "q_aug",
+          "mechanism": "validity_expired",
+          "temporal": true,
+          "expected": null,
+          "actual": "Pro plan",
+          "correct": false
+        },
+        {
+          "scenario": "B-08",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "validity_expired",
+          "temporal": false,
+          "expected": null,
+          "actual": "Pro plan",
+          "correct": false
+        },
+        {
+          "scenario": "B-09",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "validity_future",
+          "temporal": true,
+          "expected": "SQLite",
+          "actual": "SQLite",
+          "correct": true
+        },
+        {
+          "scenario": "B-09",
+          "category": "temporal",
+          "query": "q_oct",
+          "mechanism": "validity_future",
+          "temporal": true,
+          "expected": "SQLite",
+          "actual": "SQLite",
+          "correct": true
+        },
+        {
+          "scenario": "B-09",
+          "category": "temporal",
+          "query": "q_dec",
+          "mechanism": "validity_future",
+          "temporal": true,
+          "expected": "Postgres",
+          "actual": "SQLite",
+          "correct": false
+        },
+        {
+          "scenario": "B-10",
+          "category": "temporal",
+          "query": "q_b1_before",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "B-10",
+          "category": "temporal",
+          "query": "q_b1_at",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "Portland",
+          "actual": "San Jose",
+          "correct": false
+        },
+        {
+          "scenario": "B-10",
+          "category": "temporal",
+          "query": "q_b2_before",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "Portland",
+          "actual": "Portland",
+          "correct": true
+        },
+        {
+          "scenario": "B-10",
+          "category": "temporal",
+          "query": "q_b2_at",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "Portland",
+          "correct": false
+        },
+        {
+          "scenario": "C-01",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Monday Sep 21",
+          "actual": "Monday Sep 21",
+          "correct": true
+        },
+        {
+          "scenario": "C-02",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "confidence_guard",
+          "temporal": false,
+          "expected": "Austin",
+          "actual": "Dallas",
+          "correct": false
+        },
+        {
+          "scenario": "C-03",
+          "category": "typed",
+          "query": "q_deadline",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Sep 22",
+          "actual": "Sep 22",
+          "correct": true
+        },
+        {
+          "scenario": "C-03",
+          "category": "typed",
+          "query": "q_fact",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Austin",
+          "actual": "Dallas",
+          "correct": false
+        },
+        {
+          "scenario": "C-04",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Sep 24",
+          "actual": "Sep 24",
+          "correct": true
+        },
+        {
+          "scenario": "C-05",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Sep 21",
+          "actual": "Sep 18",
+          "correct": false
+        },
+        {
+          "scenario": "C-06",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Round Rock",
+          "actual": "Round Rock",
+          "correct": true
+        },
+        {
+          "scenario": "C-07",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "vim",
+          "actual": "emacs",
+          "correct": false
+        },
+        {
+          "scenario": "C-08",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "helix",
+          "actual": "helix",
+          "correct": true
+        },
+        {
+          "scenario": "C-09",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "draft B",
+          "actual": "draft B",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "category": "typed",
+          "query": "q_deadline",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Sep 21",
+          "actual": "Sep 14",
+          "correct": false
+        },
+        {
+          "scenario": "C-10",
+          "category": "typed",
+          "query": "q_fact",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Austin",
+          "actual": "Dallas",
+          "correct": false
+        },
+        {
+          "scenario": "C-10",
+          "category": "typed",
+          "query": "q_scratch",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "draft B",
+          "actual": "draft B",
+          "correct": true
+        },
+        {
+          "scenario": "C-11",
+          "category": "typed",
+          "query": "q_launch",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Sep 21",
+          "actual": "Sep 21",
+          "correct": true
+        },
+        {
+          "scenario": "C-11",
+          "category": "typed",
+          "query": "q_review",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Sep 25",
+          "actual": "Sep 25",
+          "correct": true
+        },
+        {
+          "scenario": "N-01",
+          "category": "control",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Python",
+          "actual": "Python",
+          "correct": true
+        },
+        {
+          "scenario": "N-02",
+          "category": "control",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "3.12",
+          "actual": "3.12",
+          "correct": true
+        },
+        {
+          "scenario": "M-01",
+          "category": "mixed",
+          "query": "q1",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "San Jose",
+          "correct": false
+        },
+        {
+          "scenario": "G-01",
+          "category": "known_gap",
+          "query": "q_jul",
+          "mechanism": "history_under_replace",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "G-01",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "G-02",
+          "category": "known_gap",
+          "query": "q_jul",
+          "mechanism": "history_under_replace",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "scenario": "G-03",
+          "category": "known_gap",
+          "query": "q_may",
+          "mechanism": "history_under_replace",
+          "temporal": true,
+          "expected": "Inference",
+          "actual": "Inference",
+          "correct": true
+        },
+        {
+          "scenario": "G-03",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Agents",
+          "actual": "Agents",
+          "correct": true
+        },
+        {
+          "scenario": "G-04",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "authority_under_keep_both",
+          "temporal": false,
+          "expected": "San Jose",
+          "actual": "Seattle",
+          "correct": false
+        },
+        {
+          "scenario": "G-04",
+          "category": "known_gap",
+          "query": "q_jan",
+          "mechanism": "none",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "G-05",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "guards_under_keep_both",
+          "temporal": false,
+          "expected": "Austin",
+          "actual": "Dallas",
+          "correct": false
+        },
+        {
+          "scenario": "G-06",
+          "category": "known_gap",
+          "query": "q_apr",
+          "mechanism": "history_under_replace",
+          "temporal": true,
+          "expected": "Platform",
+          "actual": "Platform",
+          "correct": true
+        },
+        {
+          "scenario": "G-06",
+          "category": "known_gap",
+          "query": "q_jun",
+          "mechanism": "history_under_replace",
+          "temporal": true,
+          "expected": "Inference",
+          "actual": "Inference",
+          "correct": true
+        },
+        {
+          "scenario": "G-06",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Agents",
+          "actual": "Agents",
+          "correct": true
+        },
+        {
+          "scenario": "G-07",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "authority_under_keep_both",
+          "temporal": false,
+          "expected": "San Jose",
+          "actual": "Tacoma",
+          "correct": false
+        }
+      ],
+      "transitions": [
+        {
+          "scenario": "A-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-01",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "A-02",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-02",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "A-03",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-03",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "A-04",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-04",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "A-05",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-05",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "A-05",
+          "write": "w3",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "A-06",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-06",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "A-06",
+          "write": "w3",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "A-07",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-07",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "A-08",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-08",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "A-09",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-09",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "A-10",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-10",
+          "write": "w2",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-10",
+          "write": "w3",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "A-11",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-11",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "B-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-01",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-02",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-02",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-03",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-03",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-04",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-04",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-04",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-05",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-05",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-05",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-06",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-06",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-06",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-07",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-07",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-07",
+          "write": "w4",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-08",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-09",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-09",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-09",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-10",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-10",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-10",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "C-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-01",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-02",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-02",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "C-03",
+          "write": "d1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-03",
+          "write": "d2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-03",
+          "write": "b1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-03",
+          "write": "b2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "C-04",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-04",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-04",
+          "write": "w3",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-05",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-05",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "C-06",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-06",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-07",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-07",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "C-08",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-08",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-09",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-09",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "write": "d1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "write": "d2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "C-10",
+          "write": "b1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "write": "b2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "C-10",
+          "write": "s1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "write": "s2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-11",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-11",
+          "write": "w2",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-11",
+          "write": "w3",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "N-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "N-02",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "N-02",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "M-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "M-01",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "G-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-01",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-02",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-02",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-03",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-03",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-03",
+          "write": "w3",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-04",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-04",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "G-05",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-05",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "G-06",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-06",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-06",
+          "write": "w3",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-06",
+          "write": "w4",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-07",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-07",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "G-07",
+          "write": "w3",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "variant": "v0_scd",
+      "state_accuracy": 0.8356164383561644,
+      "temporal_accuracy": 1.0,
+      "transition_accuracy": 0.7115384615384616,
+      "corruption_rate": 0.6666666666666666,
+      "queries": [
+        {
+          "scenario": "A-01",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "San Jose",
+          "actual": "Seattle",
+          "correct": false
+        },
+        {
+          "scenario": "A-02",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "A-03",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "A-04",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "Berlin",
+          "actual": "Munich",
+          "correct": false
+        },
+        {
+          "scenario": "A-05",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Lisbon",
+          "actual": "Lisbon",
+          "correct": true
+        },
+        {
+          "scenario": "A-06",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "Lisbon",
+          "actual": "Madrid",
+          "correct": false
+        },
+        {
+          "scenario": "A-07",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Bergen",
+          "actual": "Bergen",
+          "correct": true
+        },
+        {
+          "scenario": "A-08",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "Zurich",
+          "actual": "Zurich",
+          "correct": true
+        },
+        {
+          "scenario": "A-09",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Cork",
+          "actual": "Cork",
+          "correct": true
+        },
+        {
+          "scenario": "A-10",
+          "category": "authority",
+          "query": "q_user",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "Rome",
+          "actual": "Naples",
+          "correct": false
+        },
+        {
+          "scenario": "A-10",
+          "category": "authority",
+          "query": "q_office",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Milan",
+          "actual": "Milan",
+          "correct": true
+        },
+        {
+          "scenario": "A-11",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Graz",
+          "actual": "Graz",
+          "correct": true
+        },
+        {
+          "scenario": "B-01",
+          "category": "temporal",
+          "query": "q_jul",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "B-01",
+          "category": "temporal",
+          "query": "q_aug",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-01",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-02",
+          "category": "temporal",
+          "query": "q_before",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "B-02",
+          "category": "temporal",
+          "query": "q_at",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-03",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "validity_future",
+          "temporal": true,
+          "expected": "MySQL",
+          "actual": "MySQL",
+          "correct": true
+        },
+        {
+          "scenario": "B-03",
+          "category": "temporal",
+          "query": "q_oct",
+          "mechanism": "validity_future",
+          "temporal": true,
+          "expected": "Postgres",
+          "actual": "Postgres",
+          "correct": true
+        },
+        {
+          "scenario": "B-04",
+          "category": "temporal",
+          "query": "q_feb",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "B-04",
+          "category": "temporal",
+          "query": "q_may",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Portland",
+          "actual": "Portland",
+          "correct": true
+        },
+        {
+          "scenario": "B-04",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-05",
+          "category": "temporal",
+          "query": "q_jan",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "B-05",
+          "category": "temporal",
+          "query": "q_feb",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Portland",
+          "actual": "Portland",
+          "correct": true
+        },
+        {
+          "scenario": "B-05",
+          "category": "temporal",
+          "query": "q_mar",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-05",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-06",
+          "category": "temporal",
+          "query": "q_feb",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Portland",
+          "actual": "Portland",
+          "correct": true
+        },
+        {
+          "scenario": "B-06",
+          "category": "temporal",
+          "query": "q_mar",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-06",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "category": "temporal",
+          "query": "q_feb",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Research",
+          "actual": "Research",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "category": "temporal",
+          "query": "q_apr",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Platform",
+          "actual": "Platform",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "category": "temporal",
+          "query": "q_jun",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Inference",
+          "actual": "Inference",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Agents",
+          "actual": "Agents",
+          "correct": true
+        },
+        {
+          "scenario": "B-08",
+          "category": "temporal",
+          "query": "q_may",
+          "mechanism": "validity_expired",
+          "temporal": true,
+          "expected": "Pro plan",
+          "actual": "Pro plan",
+          "correct": true
+        },
+        {
+          "scenario": "B-08",
+          "category": "temporal",
+          "query": "q_aug",
+          "mechanism": "validity_expired",
+          "temporal": true,
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        {
+          "scenario": "B-08",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "validity_expired",
+          "temporal": false,
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        {
+          "scenario": "B-09",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "validity_future",
+          "temporal": true,
+          "expected": "SQLite",
+          "actual": "SQLite",
+          "correct": true
+        },
+        {
+          "scenario": "B-09",
+          "category": "temporal",
+          "query": "q_oct",
+          "mechanism": "validity_future",
+          "temporal": true,
+          "expected": "SQLite",
+          "actual": "SQLite",
+          "correct": true
+        },
+        {
+          "scenario": "B-09",
+          "category": "temporal",
+          "query": "q_dec",
+          "mechanism": "validity_future",
+          "temporal": true,
+          "expected": "Postgres",
+          "actual": "Postgres",
+          "correct": true
+        },
+        {
+          "scenario": "B-10",
+          "category": "temporal",
+          "query": "q_b1_before",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "B-10",
+          "category": "temporal",
+          "query": "q_b1_at",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "Portland",
+          "actual": "Portland",
+          "correct": true
+        },
+        {
+          "scenario": "B-10",
+          "category": "temporal",
+          "query": "q_b2_before",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "Portland",
+          "actual": "Portland",
+          "correct": true
+        },
+        {
+          "scenario": "B-10",
+          "category": "temporal",
+          "query": "q_b2_at",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "C-01",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Monday Sep 21",
+          "actual": "Monday Sep 21",
+          "correct": true
+        },
+        {
+          "scenario": "C-02",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "confidence_guard",
+          "temporal": false,
+          "expected": "Austin",
+          "actual": "Dallas",
+          "correct": false
+        },
+        {
+          "scenario": "C-03",
+          "category": "typed",
+          "query": "q_deadline",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Sep 22",
+          "actual": "Sep 22",
+          "correct": true
+        },
+        {
+          "scenario": "C-03",
+          "category": "typed",
+          "query": "q_fact",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Austin",
+          "actual": "Dallas",
+          "correct": false
+        },
+        {
+          "scenario": "C-04",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Sep 24",
+          "actual": "Sep 24",
+          "correct": true
+        },
+        {
+          "scenario": "C-05",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Sep 21",
+          "actual": "Sep 21",
+          "correct": true
+        },
+        {
+          "scenario": "C-06",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Round Rock",
+          "actual": "Round Rock",
+          "correct": true
+        },
+        {
+          "scenario": "C-07",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "vim",
+          "actual": "emacs",
+          "correct": false
+        },
+        {
+          "scenario": "C-08",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "helix",
+          "actual": "helix",
+          "correct": true
+        },
+        {
+          "scenario": "C-09",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "draft B",
+          "actual": "draft A",
+          "correct": false
+        },
+        {
+          "scenario": "C-10",
+          "category": "typed",
+          "query": "q_deadline",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Sep 21",
+          "actual": "Sep 21",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "category": "typed",
+          "query": "q_fact",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Austin",
+          "actual": "Austin",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "category": "typed",
+          "query": "q_scratch",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "draft B",
+          "actual": "draft A",
+          "correct": false
+        },
+        {
+          "scenario": "C-11",
+          "category": "typed",
+          "query": "q_launch",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Sep 21",
+          "actual": "Sep 21",
+          "correct": true
+        },
+        {
+          "scenario": "C-11",
+          "category": "typed",
+          "query": "q_review",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Sep 25",
+          "actual": "Sep 25",
+          "correct": true
+        },
+        {
+          "scenario": "N-01",
+          "category": "control",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Python",
+          "actual": "Python",
+          "correct": true
+        },
+        {
+          "scenario": "N-02",
+          "category": "control",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "3.12",
+          "actual": "3.12",
+          "correct": true
+        },
+        {
+          "scenario": "M-01",
+          "category": "mixed",
+          "query": "q1",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "G-01",
+          "category": "known_gap",
+          "query": "q_jul",
+          "mechanism": "history_under_replace",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "G-01",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "G-02",
+          "category": "known_gap",
+          "query": "q_jul",
+          "mechanism": "history_under_replace",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "G-03",
+          "category": "known_gap",
+          "query": "q_may",
+          "mechanism": "history_under_replace",
+          "temporal": true,
+          "expected": "Inference",
+          "actual": "Inference",
+          "correct": true
+        },
+        {
+          "scenario": "G-03",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Agents",
+          "actual": "Agents",
+          "correct": true
+        },
+        {
+          "scenario": "G-04",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "authority_under_keep_both",
+          "temporal": false,
+          "expected": "San Jose",
+          "actual": "Seattle",
+          "correct": false
+        },
+        {
+          "scenario": "G-04",
+          "category": "known_gap",
+          "query": "q_jan",
+          "mechanism": "none",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "G-05",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "guards_under_keep_both",
+          "temporal": false,
+          "expected": "Austin",
+          "actual": "Dallas",
+          "correct": false
+        },
+        {
+          "scenario": "G-06",
+          "category": "known_gap",
+          "query": "q_apr",
+          "mechanism": "history_under_replace",
+          "temporal": true,
+          "expected": "Platform",
+          "actual": "Platform",
+          "correct": true
+        },
+        {
+          "scenario": "G-06",
+          "category": "known_gap",
+          "query": "q_jun",
+          "mechanism": "history_under_replace",
+          "temporal": true,
+          "expected": "Inference",
+          "actual": "Inference",
+          "correct": true
+        },
+        {
+          "scenario": "G-06",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Agents",
+          "actual": "Agents",
+          "correct": true
+        },
+        {
+          "scenario": "G-07",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "authority_under_keep_both",
+          "temporal": false,
+          "expected": "San Jose",
+          "actual": "Tacoma",
+          "correct": false
+        }
+      ],
+      "transitions": [
+        {
+          "scenario": "A-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-01",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "A-02",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-02",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "keep",
+          "correct": false
+        },
+        {
+          "scenario": "A-03",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-03",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "A-04",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-04",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "A-05",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-05",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "A-05",
+          "write": "w3",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "A-06",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-06",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "A-06",
+          "write": "w3",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "A-07",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-07",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "A-08",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-08",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "keep",
+          "correct": false
+        },
+        {
+          "scenario": "A-09",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-09",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "A-10",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-10",
+          "write": "w2",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-10",
+          "write": "w3",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "A-11",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-11",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "B-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-01",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-02",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-02",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "add",
+          "correct": false
+        },
+        {
+          "scenario": "B-03",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-03",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-04",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-04",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-04",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-05",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-05",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-05",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-06",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-06",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-06",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "write": "w4",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-08",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-09",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-09",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-09",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-10",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-10",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "add",
+          "correct": false
+        },
+        {
+          "scenario": "B-10",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "add",
+          "correct": false
+        },
+        {
+          "scenario": "C-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-01",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-02",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-02",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "C-03",
+          "write": "d1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-03",
+          "write": "d2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-03",
+          "write": "b1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-03",
+          "write": "b2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "C-04",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-04",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-04",
+          "write": "w3",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-05",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-05",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "keep",
+          "correct": false
+        },
+        {
+          "scenario": "C-06",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-06",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-07",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-07",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "C-08",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-08",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-09",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-09",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "keep",
+          "correct": false
+        },
+        {
+          "scenario": "C-10",
+          "write": "d1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "write": "d2",
+          "expected": "ignore",
+          "actual": "keep",
+          "correct": false
+        },
+        {
+          "scenario": "C-10",
+          "write": "b1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "write": "b2",
+          "expected": "ignore",
+          "actual": "keep",
+          "correct": false
+        },
+        {
+          "scenario": "C-10",
+          "write": "s1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "write": "s2",
+          "expected": "replace",
+          "actual": "keep",
+          "correct": false
+        },
+        {
+          "scenario": "C-11",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-11",
+          "write": "w2",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-11",
+          "write": "w3",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "N-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "N-02",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "N-02",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "M-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "M-01",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "keep",
+          "correct": false
+        },
+        {
+          "scenario": "G-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-01",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-02",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-02",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-03",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-03",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-03",
+          "write": "w3",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-04",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-04",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "G-05",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-05",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "G-06",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-06",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-06",
+          "write": "w3",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-06",
+          "write": "w4",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-07",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-07",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "G-07",
+          "write": "w3",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "variant": "v0_scd_g",
+      "state_accuracy": 0.8493150684931506,
+      "temporal_accuracy": 1.0,
+      "transition_accuracy": 0.7115384615384616,
+      "corruption_rate": 0.4444444444444444,
+      "queries": [
+        {
+          "scenario": "A-01",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "San Jose",
+          "actual": "Seattle",
+          "correct": false
+        },
+        {
+          "scenario": "A-02",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "A-03",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "A-04",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "Berlin",
+          "actual": "Munich",
+          "correct": false
+        },
+        {
+          "scenario": "A-05",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Lisbon",
+          "actual": "Lisbon",
+          "correct": true
+        },
+        {
+          "scenario": "A-06",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "Lisbon",
+          "actual": "Madrid",
+          "correct": false
+        },
+        {
+          "scenario": "A-07",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Bergen",
+          "actual": "Bergen",
+          "correct": true
+        },
+        {
+          "scenario": "A-08",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "Zurich",
+          "actual": "Zurich",
+          "correct": true
+        },
+        {
+          "scenario": "A-09",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Cork",
+          "actual": "Cork",
+          "correct": true
+        },
+        {
+          "scenario": "A-10",
+          "category": "authority",
+          "query": "q_user",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "Rome",
+          "actual": "Naples",
+          "correct": false
+        },
+        {
+          "scenario": "A-10",
+          "category": "authority",
+          "query": "q_office",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Milan",
+          "actual": "Milan",
+          "correct": true
+        },
+        {
+          "scenario": "A-11",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Graz",
+          "actual": "Graz",
+          "correct": true
+        },
+        {
+          "scenario": "B-01",
+          "category": "temporal",
+          "query": "q_jul",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "B-01",
+          "category": "temporal",
+          "query": "q_aug",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-01",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-02",
+          "category": "temporal",
+          "query": "q_before",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "B-02",
+          "category": "temporal",
+          "query": "q_at",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-03",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "validity_future",
+          "temporal": true,
+          "expected": "MySQL",
+          "actual": "MySQL",
+          "correct": true
+        },
+        {
+          "scenario": "B-03",
+          "category": "temporal",
+          "query": "q_oct",
+          "mechanism": "validity_future",
+          "temporal": true,
+          "expected": "Postgres",
+          "actual": "Postgres",
+          "correct": true
+        },
+        {
+          "scenario": "B-04",
+          "category": "temporal",
+          "query": "q_feb",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "B-04",
+          "category": "temporal",
+          "query": "q_may",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Portland",
+          "actual": "Portland",
+          "correct": true
+        },
+        {
+          "scenario": "B-04",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-05",
+          "category": "temporal",
+          "query": "q_jan",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "B-05",
+          "category": "temporal",
+          "query": "q_feb",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Portland",
+          "actual": "Portland",
+          "correct": true
+        },
+        {
+          "scenario": "B-05",
+          "category": "temporal",
+          "query": "q_mar",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-05",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-06",
+          "category": "temporal",
+          "query": "q_feb",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Portland",
+          "actual": "Portland",
+          "correct": true
+        },
+        {
+          "scenario": "B-06",
+          "category": "temporal",
+          "query": "q_mar",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-06",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "category": "temporal",
+          "query": "q_feb",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Research",
+          "actual": "Research",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "category": "temporal",
+          "query": "q_apr",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Platform",
+          "actual": "Platform",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "category": "temporal",
+          "query": "q_jun",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Inference",
+          "actual": "Inference",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Agents",
+          "actual": "Agents",
+          "correct": true
+        },
+        {
+          "scenario": "B-08",
+          "category": "temporal",
+          "query": "q_may",
+          "mechanism": "validity_expired",
+          "temporal": true,
+          "expected": "Pro plan",
+          "actual": "Pro plan",
+          "correct": true
+        },
+        {
+          "scenario": "B-08",
+          "category": "temporal",
+          "query": "q_aug",
+          "mechanism": "validity_expired",
+          "temporal": true,
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        {
+          "scenario": "B-08",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "validity_expired",
+          "temporal": false,
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        {
+          "scenario": "B-09",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "validity_future",
+          "temporal": true,
+          "expected": "SQLite",
+          "actual": "SQLite",
+          "correct": true
+        },
+        {
+          "scenario": "B-09",
+          "category": "temporal",
+          "query": "q_oct",
+          "mechanism": "validity_future",
+          "temporal": true,
+          "expected": "SQLite",
+          "actual": "SQLite",
+          "correct": true
+        },
+        {
+          "scenario": "B-09",
+          "category": "temporal",
+          "query": "q_dec",
+          "mechanism": "validity_future",
+          "temporal": true,
+          "expected": "Postgres",
+          "actual": "Postgres",
+          "correct": true
+        },
+        {
+          "scenario": "B-10",
+          "category": "temporal",
+          "query": "q_b1_before",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "B-10",
+          "category": "temporal",
+          "query": "q_b1_at",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "Portland",
+          "actual": "Portland",
+          "correct": true
+        },
+        {
+          "scenario": "B-10",
+          "category": "temporal",
+          "query": "q_b2_before",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "Portland",
+          "actual": "Portland",
+          "correct": true
+        },
+        {
+          "scenario": "B-10",
+          "category": "temporal",
+          "query": "q_b2_at",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "C-01",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Monday Sep 21",
+          "actual": "Friday Sep 18",
+          "correct": false
+        },
+        {
+          "scenario": "C-02",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "confidence_guard",
+          "temporal": false,
+          "expected": "Austin",
+          "actual": "Austin",
+          "correct": true
+        },
+        {
+          "scenario": "C-03",
+          "category": "typed",
+          "query": "q_deadline",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Sep 22",
+          "actual": "Sep 15",
+          "correct": false
+        },
+        {
+          "scenario": "C-03",
+          "category": "typed",
+          "query": "q_fact",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Austin",
+          "actual": "Austin",
+          "correct": true
+        },
+        {
+          "scenario": "C-04",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Sep 24",
+          "actual": "Sep 10",
+          "correct": false
+        },
+        {
+          "scenario": "C-05",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Sep 21",
+          "actual": "Sep 21",
+          "correct": true
+        },
+        {
+          "scenario": "C-06",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Round Rock",
+          "actual": "Round Rock",
+          "correct": true
+        },
+        {
+          "scenario": "C-07",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "vim",
+          "actual": "vim",
+          "correct": true
+        },
+        {
+          "scenario": "C-08",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "helix",
+          "actual": "helix",
+          "correct": true
+        },
+        {
+          "scenario": "C-09",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "draft B",
+          "actual": "draft A",
+          "correct": false
+        },
+        {
+          "scenario": "C-10",
+          "category": "typed",
+          "query": "q_deadline",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Sep 21",
+          "actual": "Sep 21",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "category": "typed",
+          "query": "q_fact",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Austin",
+          "actual": "Austin",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "category": "typed",
+          "query": "q_scratch",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "draft B",
+          "actual": "draft A",
+          "correct": false
+        },
+        {
+          "scenario": "C-11",
+          "category": "typed",
+          "query": "q_launch",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Sep 21",
+          "actual": "Sep 21",
+          "correct": true
+        },
+        {
+          "scenario": "C-11",
+          "category": "typed",
+          "query": "q_review",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Sep 25",
+          "actual": "Sep 25",
+          "correct": true
+        },
+        {
+          "scenario": "N-01",
+          "category": "control",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Python",
+          "actual": "Python",
+          "correct": true
+        },
+        {
+          "scenario": "N-02",
+          "category": "control",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "3.12",
+          "actual": "3.12",
+          "correct": true
+        },
+        {
+          "scenario": "M-01",
+          "category": "mixed",
+          "query": "q1",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "G-01",
+          "category": "known_gap",
+          "query": "q_jul",
+          "mechanism": "history_under_replace",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "G-01",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "G-02",
+          "category": "known_gap",
+          "query": "q_jul",
+          "mechanism": "history_under_replace",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "G-03",
+          "category": "known_gap",
+          "query": "q_may",
+          "mechanism": "history_under_replace",
+          "temporal": true,
+          "expected": "Inference",
+          "actual": "Inference",
+          "correct": true
+        },
+        {
+          "scenario": "G-03",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Agents",
+          "actual": "Agents",
+          "correct": true
+        },
+        {
+          "scenario": "G-04",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "authority_under_keep_both",
+          "temporal": false,
+          "expected": "San Jose",
+          "actual": "Seattle",
+          "correct": false
+        },
+        {
+          "scenario": "G-04",
+          "category": "known_gap",
+          "query": "q_jan",
+          "mechanism": "none",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "G-05",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "guards_under_keep_both",
+          "temporal": false,
+          "expected": "Austin",
+          "actual": "Austin",
+          "correct": true
+        },
+        {
+          "scenario": "G-06",
+          "category": "known_gap",
+          "query": "q_apr",
+          "mechanism": "history_under_replace",
+          "temporal": true,
+          "expected": "Platform",
+          "actual": "Platform",
+          "correct": true
+        },
+        {
+          "scenario": "G-06",
+          "category": "known_gap",
+          "query": "q_jun",
+          "mechanism": "history_under_replace",
+          "temporal": true,
+          "expected": "Inference",
+          "actual": "Inference",
+          "correct": true
+        },
+        {
+          "scenario": "G-06",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Agents",
+          "actual": "Agents",
+          "correct": true
+        },
+        {
+          "scenario": "G-07",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "authority_under_keep_both",
+          "temporal": false,
+          "expected": "San Jose",
+          "actual": "Tacoma",
+          "correct": false
+        }
+      ],
+      "transitions": [
+        {
+          "scenario": "A-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-01",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "A-02",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-02",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "keep",
+          "correct": false
+        },
+        {
+          "scenario": "A-03",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-03",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "A-04",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-04",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "A-05",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-05",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "A-05",
+          "write": "w3",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "A-06",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-06",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "A-06",
+          "write": "w3",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "A-07",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-07",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "A-08",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-08",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "keep",
+          "correct": false
+        },
+        {
+          "scenario": "A-09",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-09",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "A-10",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-10",
+          "write": "w2",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-10",
+          "write": "w3",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "A-11",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-11",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "B-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-01",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-02",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-02",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "add",
+          "correct": false
+        },
+        {
+          "scenario": "B-03",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-03",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-04",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-04",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-04",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-05",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-05",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-05",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-06",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-06",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-06",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "write": "w4",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-08",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-09",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-09",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "B-09",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-10",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-10",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "add",
+          "correct": false
+        },
+        {
+          "scenario": "B-10",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "add",
+          "correct": false
+        },
+        {
+          "scenario": "C-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-01",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "ignore",
+          "correct": false
+        },
+        {
+          "scenario": "C-02",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-02",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "ignore",
+          "correct": true
+        },
+        {
+          "scenario": "C-03",
+          "write": "d1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-03",
+          "write": "d2",
+          "expected": "replace",
+          "actual": "ignore",
+          "correct": false
+        },
+        {
+          "scenario": "C-03",
+          "write": "b1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-03",
+          "write": "b2",
+          "expected": "ignore",
+          "actual": "ignore",
+          "correct": true
+        },
+        {
+          "scenario": "C-04",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-04",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "ignore",
+          "correct": false
+        },
+        {
+          "scenario": "C-04",
+          "write": "w3",
+          "expected": "replace",
+          "actual": "ignore",
+          "correct": false
+        },
+        {
+          "scenario": "C-05",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-05",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "keep",
+          "correct": false
+        },
+        {
+          "scenario": "C-06",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-06",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-07",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-07",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "ignore",
+          "correct": true
+        },
+        {
+          "scenario": "C-08",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-08",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-09",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-09",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "keep",
+          "correct": false
+        },
+        {
+          "scenario": "C-10",
+          "write": "d1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "write": "d2",
+          "expected": "ignore",
+          "actual": "keep",
+          "correct": false
+        },
+        {
+          "scenario": "C-10",
+          "write": "b1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "write": "b2",
+          "expected": "ignore",
+          "actual": "keep",
+          "correct": false
+        },
+        {
+          "scenario": "C-10",
+          "write": "s1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "write": "s2",
+          "expected": "replace",
+          "actual": "keep",
+          "correct": false
+        },
+        {
+          "scenario": "C-11",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-11",
+          "write": "w2",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-11",
+          "write": "w3",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "N-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "N-02",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "N-02",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "M-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "M-01",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "keep",
+          "correct": false
+        },
+        {
+          "scenario": "G-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-01",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-02",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-02",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-03",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-03",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-03",
+          "write": "w3",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-04",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-04",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "G-05",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-05",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "ignore",
+          "correct": true
+        },
+        {
+          "scenario": "G-06",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-06",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-06",
+          "write": "w3",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-06",
+          "write": "w4",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-07",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-07",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        },
+        {
+          "scenario": "G-07",
+          "write": "w3",
+          "expected": "ignore",
+          "actual": "replace",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "variant": "v4_typedmem",
+      "state_accuracy": 0.8904109589041096,
+      "temporal_accuracy": 0.84375,
+      "transition_accuracy": 0.9615384615384616,
+      "corruption_rate": 0.0,
+      "queries": [
+        {
+          "scenario": "A-01",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "A-02",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "A-03",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "A-04",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "Berlin",
+          "actual": "Berlin",
+          "correct": true
+        },
+        {
+          "scenario": "A-05",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Lisbon",
+          "actual": "Lisbon",
+          "correct": true
+        },
+        {
+          "scenario": "A-06",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "Lisbon",
+          "actual": "Lisbon",
+          "correct": true
+        },
+        {
+          "scenario": "A-07",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Bergen",
+          "actual": "Bergen",
+          "correct": true
+        },
+        {
+          "scenario": "A-08",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "Zurich",
+          "actual": "Zurich",
+          "correct": true
+        },
+        {
+          "scenario": "A-09",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Cork",
+          "actual": "Cork",
+          "correct": true
+        },
+        {
+          "scenario": "A-10",
+          "category": "authority",
+          "query": "q_user",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "Rome",
+          "actual": "Rome",
+          "correct": true
+        },
+        {
+          "scenario": "A-10",
+          "category": "authority",
+          "query": "q_office",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Milan",
+          "actual": "Milan",
+          "correct": true
+        },
+        {
+          "scenario": "A-11",
+          "category": "authority",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Graz",
+          "actual": "Graz",
+          "correct": true
+        },
+        {
+          "scenario": "B-01",
+          "category": "temporal",
+          "query": "q_jul",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "B-01",
+          "category": "temporal",
+          "query": "q_aug",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-01",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-02",
+          "category": "temporal",
+          "query": "q_before",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "B-02",
+          "category": "temporal",
+          "query": "q_at",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-03",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "validity_future",
+          "temporal": true,
+          "expected": "MySQL",
+          "actual": "MySQL",
+          "correct": true
+        },
+        {
+          "scenario": "B-03",
+          "category": "temporal",
+          "query": "q_oct",
+          "mechanism": "validity_future",
+          "temporal": true,
+          "expected": "Postgres",
+          "actual": "Postgres",
+          "correct": true
+        },
+        {
+          "scenario": "B-04",
+          "category": "temporal",
+          "query": "q_feb",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "B-04",
+          "category": "temporal",
+          "query": "q_may",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Portland",
+          "actual": "Portland",
+          "correct": true
+        },
+        {
+          "scenario": "B-04",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-05",
+          "category": "temporal",
+          "query": "q_jan",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "B-05",
+          "category": "temporal",
+          "query": "q_feb",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Portland",
+          "actual": "Portland",
+          "correct": true
+        },
+        {
+          "scenario": "B-05",
+          "category": "temporal",
+          "query": "q_mar",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-05",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-06",
+          "category": "temporal",
+          "query": "q_feb",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Portland",
+          "actual": "Portland",
+          "correct": true
+        },
+        {
+          "scenario": "B-06",
+          "category": "temporal",
+          "query": "q_mar",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-06",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "category": "temporal",
+          "query": "q_feb",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Research",
+          "actual": "Research",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "category": "temporal",
+          "query": "q_apr",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Platform",
+          "actual": "Platform",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "category": "temporal",
+          "query": "q_jun",
+          "mechanism": "effective_from",
+          "temporal": true,
+          "expected": "Inference",
+          "actual": "Inference",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Agents",
+          "actual": "Agents",
+          "correct": true
+        },
+        {
+          "scenario": "B-08",
+          "category": "temporal",
+          "query": "q_may",
+          "mechanism": "validity_expired",
+          "temporal": true,
+          "expected": "Pro plan",
+          "actual": "Pro plan",
+          "correct": true
+        },
+        {
+          "scenario": "B-08",
+          "category": "temporal",
+          "query": "q_aug",
+          "mechanism": "validity_expired",
+          "temporal": true,
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        {
+          "scenario": "B-08",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "validity_expired",
+          "temporal": false,
+          "expected": null,
+          "actual": null,
+          "correct": true
+        },
+        {
+          "scenario": "B-09",
+          "category": "temporal",
+          "query": "q_now",
+          "mechanism": "validity_future",
+          "temporal": true,
+          "expected": "SQLite",
+          "actual": "SQLite",
+          "correct": true
+        },
+        {
+          "scenario": "B-09",
+          "category": "temporal",
+          "query": "q_oct",
+          "mechanism": "validity_future",
+          "temporal": true,
+          "expected": "SQLite",
+          "actual": "SQLite",
+          "correct": true
+        },
+        {
+          "scenario": "B-09",
+          "category": "temporal",
+          "query": "q_dec",
+          "mechanism": "validity_future",
+          "temporal": true,
+          "expected": "Postgres",
+          "actual": "Postgres",
+          "correct": true
+        },
+        {
+          "scenario": "B-10",
+          "category": "temporal",
+          "query": "q_b1_before",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "B-10",
+          "category": "temporal",
+          "query": "q_b1_at",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "Portland",
+          "actual": "Portland",
+          "correct": true
+        },
+        {
+          "scenario": "B-10",
+          "category": "temporal",
+          "query": "q_b2_before",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "Portland",
+          "actual": "Portland",
+          "correct": true
+        },
+        {
+          "scenario": "B-10",
+          "category": "temporal",
+          "query": "q_b2_at",
+          "mechanism": "validity_boundary",
+          "temporal": true,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "C-01",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Monday Sep 21",
+          "actual": "Monday Sep 21",
+          "correct": true
+        },
+        {
+          "scenario": "C-02",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "confidence_guard",
+          "temporal": false,
+          "expected": "Austin",
+          "actual": "Austin",
+          "correct": true
+        },
+        {
+          "scenario": "C-03",
+          "category": "typed",
+          "query": "q_deadline",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Sep 22",
+          "actual": "Sep 22",
+          "correct": true
+        },
+        {
+          "scenario": "C-03",
+          "category": "typed",
+          "query": "q_fact",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Austin",
+          "actual": "Austin",
+          "correct": true
+        },
+        {
+          "scenario": "C-04",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Sep 24",
+          "actual": "Sep 24",
+          "correct": true
+        },
+        {
+          "scenario": "C-05",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "effective_from",
+          "temporal": false,
+          "expected": "Sep 21",
+          "actual": "Sep 21",
+          "correct": true
+        },
+        {
+          "scenario": "C-06",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Round Rock",
+          "actual": "Round Rock",
+          "correct": true
+        },
+        {
+          "scenario": "C-07",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "vim",
+          "actual": "vim",
+          "correct": true
+        },
+        {
+          "scenario": "C-08",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "helix",
+          "actual": "helix",
+          "correct": true
+        },
+        {
+          "scenario": "C-09",
+          "category": "typed",
+          "query": "q1",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "draft B",
+          "actual": "draft B",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "category": "typed",
+          "query": "q_deadline",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Sep 21",
+          "actual": "Sep 21",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "category": "typed",
+          "query": "q_fact",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "Austin",
+          "actual": "Austin",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "category": "typed",
+          "query": "q_scratch",
+          "mechanism": "type_specific_resolution",
+          "temporal": false,
+          "expected": "draft B",
+          "actual": "draft B",
+          "correct": true
+        },
+        {
+          "scenario": "C-11",
+          "category": "typed",
+          "query": "q_launch",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Sep 21",
+          "actual": "Sep 21",
+          "correct": true
+        },
+        {
+          "scenario": "C-11",
+          "category": "typed",
+          "query": "q_review",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Sep 25",
+          "actual": "Sep 25",
+          "correct": true
+        },
+        {
+          "scenario": "N-01",
+          "category": "control",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Python",
+          "actual": "Python",
+          "correct": true
+        },
+        {
+          "scenario": "N-02",
+          "category": "control",
+          "query": "q1",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "3.12",
+          "actual": "3.12",
+          "correct": true
+        },
+        {
+          "scenario": "M-01",
+          "category": "mixed",
+          "query": "q1",
+          "mechanism": "authority_veto",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "G-01",
+          "category": "known_gap",
+          "query": "q_jul",
+          "mechanism": "history_under_replace",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "scenario": "G-01",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Seattle",
+          "actual": "Seattle",
+          "correct": true
+        },
+        {
+          "scenario": "G-02",
+          "category": "known_gap",
+          "query": "q_jul",
+          "mechanism": "history_under_replace",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "scenario": "G-03",
+          "category": "known_gap",
+          "query": "q_may",
+          "mechanism": "history_under_replace",
+          "temporal": true,
+          "expected": "Inference",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "scenario": "G-03",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Agents",
+          "actual": "Agents",
+          "correct": true
+        },
+        {
+          "scenario": "G-04",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "authority_under_keep_both",
+          "temporal": false,
+          "expected": "San Jose",
+          "actual": "Seattle",
+          "correct": false
+        },
+        {
+          "scenario": "G-04",
+          "category": "known_gap",
+          "query": "q_jan",
+          "mechanism": "none",
+          "temporal": true,
+          "expected": "San Jose",
+          "actual": "San Jose",
+          "correct": true
+        },
+        {
+          "scenario": "G-05",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "guards_under_keep_both",
+          "temporal": false,
+          "expected": "Austin",
+          "actual": "Dallas",
+          "correct": false
+        },
+        {
+          "scenario": "G-06",
+          "category": "known_gap",
+          "query": "q_apr",
+          "mechanism": "history_under_replace",
+          "temporal": true,
+          "expected": "Platform",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "scenario": "G-06",
+          "category": "known_gap",
+          "query": "q_jun",
+          "mechanism": "history_under_replace",
+          "temporal": true,
+          "expected": "Inference",
+          "actual": null,
+          "correct": false
+        },
+        {
+          "scenario": "G-06",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "none",
+          "temporal": false,
+          "expected": "Agents",
+          "actual": "Agents",
+          "correct": true
+        },
+        {
+          "scenario": "G-07",
+          "category": "known_gap",
+          "query": "q_now",
+          "mechanism": "authority_under_keep_both",
+          "temporal": false,
+          "expected": "San Jose",
+          "actual": "Tacoma",
+          "correct": false
+        }
+      ],
+      "transitions": [
+        {
+          "scenario": "A-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-01",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "ignore",
+          "correct": true
+        },
+        {
+          "scenario": "A-02",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-02",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "ignore",
+          "correct": true
+        },
+        {
+          "scenario": "A-03",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-03",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "A-04",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-04",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "ignore",
+          "correct": true
+        },
+        {
+          "scenario": "A-05",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-05",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "A-05",
+          "write": "w3",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "A-06",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-06",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "ignore",
+          "correct": true
+        },
+        {
+          "scenario": "A-06",
+          "write": "w3",
+          "expected": "ignore",
+          "actual": "ignore",
+          "correct": true
+        },
+        {
+          "scenario": "A-07",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-07",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "A-08",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-08",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "ignore",
+          "correct": true
+        },
+        {
+          "scenario": "A-09",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-09",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "A-10",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-10",
+          "write": "w2",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-10",
+          "write": "w3",
+          "expected": "ignore",
+          "actual": "ignore",
+          "correct": true
+        },
+        {
+          "scenario": "A-11",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "A-11",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "B-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-01",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-02",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-02",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-03",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-03",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-04",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-04",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-04",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-05",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-05",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-05",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-06",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-06",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-06",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-07",
+          "write": "w4",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-08",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-09",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-09",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-09",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-10",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "B-10",
+          "write": "w2",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "B-10",
+          "write": "w3",
+          "expected": "keep",
+          "actual": "keep",
+          "correct": true
+        },
+        {
+          "scenario": "C-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-01",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-02",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-02",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "ignore",
+          "correct": true
+        },
+        {
+          "scenario": "C-03",
+          "write": "d1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-03",
+          "write": "d2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-03",
+          "write": "b1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-03",
+          "write": "b2",
+          "expected": "ignore",
+          "actual": "ignore",
+          "correct": true
+        },
+        {
+          "scenario": "C-04",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-04",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-04",
+          "write": "w3",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-05",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-05",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "ignore",
+          "correct": true
+        },
+        {
+          "scenario": "C-06",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-06",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-07",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-07",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "ignore",
+          "correct": true
+        },
+        {
+          "scenario": "C-08",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-08",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-09",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-09",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "write": "d1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "write": "d2",
+          "expected": "ignore",
+          "actual": "ignore",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "write": "b1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "write": "b2",
+          "expected": "ignore",
+          "actual": "ignore",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "write": "s1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-10",
+          "write": "s2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "C-11",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-11",
+          "write": "w2",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "C-11",
+          "write": "w3",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "N-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "N-02",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "N-02",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "M-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "M-01",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "ignore",
+          "correct": true
+        },
+        {
+          "scenario": "G-01",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-01",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-02",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-02",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-03",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-03",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-03",
+          "write": "w3",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-04",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-04",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "keep",
+          "correct": false
+        },
+        {
+          "scenario": "G-05",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-05",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "keep",
+          "correct": false
+        },
+        {
+          "scenario": "G-06",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-06",
+          "write": "w2",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-06",
+          "write": "w3",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-06",
+          "write": "w4",
+          "expected": "replace",
+          "actual": "replace",
+          "correct": true
+        },
+        {
+          "scenario": "G-07",
+          "write": "w1",
+          "expected": "add",
+          "actual": "add",
+          "correct": true
+        },
+        {
+          "scenario": "G-07",
+          "write": "w2",
+          "expected": "ignore",
+          "actual": "keep",
+          "correct": false
+        },
+        {
+          "scenario": "G-07",
+          "write": "w3",
+          "expected": "ignore",
+          "actual": "keep",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}
