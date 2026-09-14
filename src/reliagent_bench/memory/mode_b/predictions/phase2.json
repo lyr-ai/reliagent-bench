@@ -1,0 +1,49 @@
+{
+  "written": "2026-09-14, after tasks/phase2.json was frozen and BEFORE any fixed-ordering variant existed or ran. One deterministic check was run on the frozen tasks before this file: the four pilot resolution variants (b0, b_scd, b_scd_g, b_typed) were loaded against the new tasks to confirm the file encodes the table (b_typed 36/36; b_scd_g right on every fact and wrong on every declared scenario; b0/b_scd the mirror; controls all correct). That check is entailed by table §3.3 and is not a result; it is recorded here so nothing is hidden.",
+  "frozen_inputs": {
+    "semantics": "semantics/phase2-types.md — confidence = recorder's certainty of faithful capture; admission floor 0.5; epistemic (fact, verified result) vs declared (deadline, commitment, explicit preference)",
+    "scenarios": "tasks/phase2.json — 12 reversal pairs (24) + 12 controls; every pair: equal source, incoming newer, incoming confidence 0.6 vs 0.9",
+    "typedmem": "main @ 33d989e (semantics through ba010a1); no change in this phase",
+    "orderings": "E1 enumerates all 6 permutations of (S, C, R) each preceded by validity, plus S-only, C-only, R-only, plus b0, b_scd, b_typed. Ties on a dimension fall through to the next; a full tie is broken by observed_at (recency) — the only defensible tie-break for a memory system, declared here."
+  },
+  "e1_predictions": {
+    "headline": "No fixed ordering is correct on both state classes. The per-type policy (b_typed) is correct on all 24 pair scenarios and all 12 controls.",
+    "per_ordering_on_pairs": {
+      "S>C>R": "12/12 epistemic, 0/12 declared — the Phase 1 strong baseline; confidence ranks above recency",
+      "C>S>R": "12/12 epistemic, 0/12 declared — source is equal in every pair, so C>S>R behaves as S>C>R on pairs",
+      "S>R>C": "0/12 epistemic, 12/12 declared — recency ranks above confidence",
+      "R>S>C": "0/12 epistemic, 12/12 declared — same reason",
+      "C>R>S": "12/12 epistemic, 0/12 declared",
+      "R>C>S": "0/12 epistemic, 12/12 declared",
+      "S_only": "ties on every pair (equal source) → tie-break by recency → 0/12 epistemic, 12/12 declared",
+      "C_only": "12/12 epistemic, 0/12 declared",
+      "R_only": "0/12 epistemic, 12/12 declared",
+      "b0 / b_scd": "recency → 0/12 epistemic, 12/12 declared",
+      "b_typed": "12/12, 12/12"
+    },
+    "structure": "Because source is held equal in every pair, the six permutations collapse into two equivalence classes on the pairs: {C before R} and {R before C}. The permutations differ only on the controls K-05..K-08 (source conflicts), where every ordering with S first is correct and every ordering with C or R before S is wrong (incoming is lower-priority but newer and more confident). So: orderings with S first split the pairs by class and pass the source controls; orderings without S first split the pairs the same way AND fail K-05..K-08.",
+    "per_ordering_on_controls": {
+      "S first (S>C>R, S>R>C)": "12/12",
+      "C first (C>S>R, C>R>S) and C_only": "K-05..K-08 wrong (4 losses), K-12 correct via agreement → 8/12",
+      "R first (R>S>C, R>C>S), R_only, b0, b_scd": "K-05..K-08 wrong → 8/12; K-09 wrong (inference newer than verified) → 7/12",
+      "S_only": "K-05..K-08 right; K-01..K-04 tie on source → recency tie-break → right; K-09 right; K-10 tie → recency → right; K-11/K-12 agree → 12/12",
+      "b_typed": "12/12"
+    },
+    "falsifier": "If any fixed ordering scores 24/24 on the pairs, the claim is refuted and the paper says heterogeneous semantics on these types are expressible as one global order. If b_typed scores below 24/24, the tasks encode something the table does not say, and the discrepancy is investigated before anything else — scenarios are not edited to fit."
+  },
+  "e2_selection_rule": "If E1 matches: run the agent stage on S>C>R and S>R>C (the two S-first orderings, complementary on the pairs), plus b_typed, oracle, nomem. Oracle gate first, alone: ≥ 0.95 overall, no state class < 0.90. Then five runs each.",
+  "e2_predictions": {
+    "oracle": "≥ 0.95; every pair scenario's two governing states imply different actions by construction (verified per scenario in the tasks' notes)",
+    "S>C>R": "task success ≈ 1.0 on epistemic pairs, ≈ 0.0 on declared pairs (the agent acts on the stale declaration: schedules for the old deadline, refuses the accepted library, books the old seat)",
+    "S>R>C": "≈ 0.0 on epistemic pairs (acts on the hedged guess), ≈ 1.0 on declared",
+    "b_typed": "≈ oracle on both classes",
+    "nomem": "≈ nomem_predicted per scenario; on 'symmetric' scenarios roughly 0.5; default_aligned scenarios (K-09, K-12) reported separately",
+    "attribution": "correct_state_wrong_agent_decision stays ≈ 0, as in Phase 1"
+  },
+  "verdict_rules": {
+    "BRQ2-narrow SUPPORTED": "E1: no fixed ordering ≥ 24/24 on pairs AND b_typed = 24/24 AND the best fixed orderings split exactly along epistemic vs declared. E2: the same split appears in task success for S>C>R vs S>R>C with oracle ≥ 0.95 and b_typed within 0.05 of oracle.",
+    "BRQ2-narrow REFUTED": "E1: some fixed ordering = 24/24 on pairs.",
+    "BRQ2-narrow INCONCLUSIVE": "E1 matches but E2 oracle fails the gate, or correct_state_wrong_agent_decision > 0.1 on any class."
+  },
+  "labelling_corrections": []
+}
