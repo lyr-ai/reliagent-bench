@@ -1,0 +1,35 @@
+{
+  "benchmark": "LongMemEval knowledge-update (frozen manifest: external/triage/longmemeval-ku-manifest.json)",
+  "written": "2026-09-13, before the adapter existed and before any variant was run on this data",
+  "track": "E-B, oracle-candidate: evidence turns identified by the benchmark's has_answer flags; slot and value hand-normalised per turn before the run and frozen; the same normalised writes are given to every variant",
+  "variants": {
+    "v0": "timestamped records, newest observation wins",
+    "v0_scd": "bitemporal SCD-2 table",
+    "v0_scd_g": "v0_scd plus a global confidence guard (inert here: hand-normalised writes carry no confidence structure, so it must behave exactly as v0_scd)",
+    "v4_replace": "TypedMem with every slot declared conflict=replace (default guard)",
+    "v4_keep_both": "TypedMem with every slot declared conflict=keep_both",
+    "v4_default": "TypedMem with its shipped DEFAULT_POLICIES by state type: fact/count/routine/duration/boolean → fact (keep_both); preference → preference (replace); goal → goal (replace)"
+  },
+  "structural_fact_that_drives_the_predictions": "In this benchmark observed order == valid order for every usable question (each later statement supersedes the earlier one and no statement carries a validity date), and every write is the user's own statement with no confidence structure. So on current-state questions all six variants reduce to 'latest write wins' and should tie; the only mechanism that can separate them is whether history is retained.",
+  "predictions_by_group": {
+    "current_state (53)":   {"v0": "≈100%", "v0_scd": "≈100%", "v0_scd_g": "= v0_scd", "v4_replace": "≈100%", "v4_keep_both": "≈100%", "v4_default": "≈100%", "note": "no separation predicted; any difference is adapter or normalisation, and is attributed as such"},
+    "historical_state (6)": {"v0": "≈100%", "v0_scd": "≈100%", "v0_scd_g": "= v0_scd", "v4_replace": "≈0% — the earlier value is overwritten in place; expected answer None", "v4_keep_both": "≈100%", "v4_default": "≈100% for fact-typed slots (keep_both); 0% for any preference/goal-typed slot (replace)"},
+    "both_states (2)":      {"same as historical_state; a question is correct only if both values are correct": true},
+    "delta_direction (3)":  {"same as historical_state; direction derived by the adapter from the two values": true},
+    "accumulation (1)":     {"all": "≈100%, because the normaliser resolves the delta into an absolute value; reported separately as a normalisation artefact, not a mechanism result"},
+    "abstention (6)":       {"all": "100% — no write exists for the slot; every variant must return None"}
+  },
+  "pre_registered_reading": {
+    "if_current_state_ties": "Finding 1 SURVIVED on external current-state data: a bitemporal table is sufficient; TypedMem adds nothing and loses nothing here.",
+    "if_v4_replace_loses_history": "the Mode A known gap (history_under_replace) reproduced on data not designed around TypedMem; recorded as an external failure of the replace contract, not as a failure of Finding 1.",
+    "if_v4_keep_both_or_default_ties_scd_on_history": "TypedMem CAN express history — the limitation is that replace and keep_both are exclusive: a slot cannot both have one governing value and a queryable past. That is the contract statement to carry into Mode B / the paper.",
+    "if_anything_else": "investigate the disagreement; attribute to normalisation before attributing to a mechanism; change nothing during the run."
+  },
+  "attribution_rules_for_failures": {
+    "answer None on a history query under replace": "unsupported_semantics:history_under_replace",
+    "wrong value where the normalised writes contain the right one": "temporal_resolution",
+    "wrong value where the normalised writes do not contain the gold": "normalization",
+    "non-None on an abstention question": "temporal_resolution (a phantom state)",
+    "delta_direction wrong with both values present": "temporal_resolution"
+  }
+}

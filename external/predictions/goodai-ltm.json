@@ -1,0 +1,18 @@
+{
+  "benchmark": "GoodAI LTM selected update tests (frozen manifest: external/triage/goodai-ltm-manifest.json)",
+  "written": "2026-09-13, before the adapter existed",
+  "track": "E-A: statements are templated; writes are derived by pattern, no hand judgement",
+  "run": {
+    "Colours (3)":   "current-state query",
+    "NameList (3)":  "history query: every value the slot has held, in order — needs a history() operation on the variant protocol, added for this run and reported as such",
+    "SallyAnne (3)": "as-of query at the observer's exit — writes are the object's location; the exit is the as-of instant",
+    "Shopping (3)":  "NOT RUN — accumulation over a set-valued slot is not expressible as writes in any variant's protocol without the adapter folding the deltas itself, which would test the adapter",
+    "Restaurant (3)":"NOT RUN — dynamic script generated at run time; no replay harness in this phase"
+  },
+  "predictions_by_test": {
+    "Colours":   {"all": "100% — three restatements, newest wins; observed order == valid order"},
+    "NameList":  {"v0": "100%", "v0_scd": "100%", "v0_scd_g": "= v0_scd", "v4_replace": "0% — only the last name survives", "v4_keep_both": "100%", "v4_default": "100% (fact → keep_both)"},
+    "SallyAnne": {"v0": "100% — records observed before the exit", "v0_scd": "100%", "v0_scd_g": "= v0_scd", "v4_replace": "0% — the pre-move location is overwritten", "v4_keep_both": "100%", "v4_default": "100%"}
+  },
+  "pre_registered_reading": "Same shape as LongMemEval: no separation on current state; the history-preserving variants tie; replace loses every history question. GoodAI adds the as-of-an-observer form (SallyAnne), which is a genuine as_of query rather than a 'previous value' question."
+}
