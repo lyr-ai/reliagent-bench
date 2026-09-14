@@ -87,6 +87,18 @@ threshold** (10 slot-value updates, 5 needing the earlier state); Findings 2 and
 state, and does not feed Finding 1. Adapter would be Track E-B: writes are
 values in free text; oracle flags say *which* turns, not *what* value.
 
+**GoodAI LTM** — all 33 stored definitions of the published v3 (32k) set, 11
+tests × 3 draws; rules and the three questions (only newest-wins? history and
+current together? any source or type semantics?) frozen before reading:
+[`goodai-ltm.json`](goodai-ltm.json). Result: Finding 1 **testable** (15
+state-change instances) and *not* only newest-wins — NameList wants every
+superseded value, SallyAnne wants the value as of an earlier observation,
+Shopping wants accumulation; Findings 2 and 3 **not testable** (sources
+present in Spy Meeting and Restaurant but never decisive; set-vs-scalar
+semantics present but never contrasted on one surface). Track E-A feasible
+for 8 of 11 tests (templated statements). Caveat: 33 instances are 11
+structures.
+
 ## Seen only by title — not screened
 
 Surfaced by the search and not yet read: DynamicMem (arXiv 2606.22877),
