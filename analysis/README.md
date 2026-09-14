@@ -18,6 +18,9 @@ analysis/
     external-validation.md  the three findings against LongMemEval KU and GoodAI:
                          Finding 1 survived, 2 and 3 not testable, the history
                          limitation reproduced externally
+    mode-b-pilot.md      end-to-end agent utility, 16 scenarios × 6 variants × 5 runs:
+                         resolution differences reach behaviour; BRQ1 supported
+                         (source ranking suffices), BRQ2 supported, BRQ3 inconclusive
 ```
 
 Regenerate (writes a record keyed by version + config; new versions are kept,

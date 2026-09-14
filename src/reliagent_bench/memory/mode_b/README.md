@@ -62,8 +62,22 @@ behaviour is the agent stage's question, and that has not been run.**
 
 The key is read from `ANTHROPIC_API_KEY` or a gitignored `.env` at the repo root.
 
-## Not yet done
+## Pilot-0 (agent stage run)
 
-The agent stage needs a model key. Everything upstream of it — scenarios,
-gold, type semantics, the baseline policy, the prompt, the predictions, the
-verdict rules — is frozen in this directory before it runs.
+`results/pilot-0-oracle.*` (gate, 80/80) and
+`results/pilot-0-b0+b_scd+b_scd_g+b_typed+nomem.*` (400 runs). Task success:
+
+```text
+variant     provenance   typed   repeated_failure   control    all
+b0                0.50    0.50               1.00      1.00   0.75
+b_scd             0.50    0.55               1.00      1.00   0.76
+b_scd_g           1.00    0.50               1.00      1.00   0.88
+b_typed           1.00    1.00               1.00      1.00   1.00
+oracle            1.00    1.00               1.00      1.00   1.00
+nomem             0.75    0.85               1.00      0.75   0.84
+```
+
+Every failed run is `wrong_governing_state`; none is
+`correct_state_wrong_agent_decision`. Verdicts and the reading —
+BRQ1 SUPPORTED with the F3 qualification, BRQ2 SUPPORTED, BRQ3 INCONCLUSIVE
+— are in [`analysis/mode-b-pilot.md`](../../../../analysis/mode-b-pilot.md).
