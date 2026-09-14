@@ -2,25 +2,50 @@
   "written": "2026-09-13, after the resolution-stage dry run (which is deterministic and needs no model) and BEFORE any agent run",
   "frozen_inputs": {
     "scenarios": "tasks/pilot.json (16)",
-    "b_scd_g_policy": "validity → source priority (verified_result = explicit_user 3 > document 2 > observed_behavior 1 > model_inference 0) → confidence → recency; declared in schema.SOURCE_PRIORITY",
+    "b_scd_g_policy": "validity \u2192 source priority (verified_result = explicit_user 3 > document 2 > observed_behavior 1 > model_inference 0) \u2192 confidence \u2192 recency; declared in schema.SOURCE_PRIORITY",
     "prompt": "agent.PROMPT_VERSION = mode-b-pilot-0",
-    "model": "one fixed Anthropic model at temperature 0, id recorded in the result file; 5 runs per scenario × variant",
+    "model": "one fixed Anthropic model at temperature 0, id recorded in the result file; 5 runs per scenario \u00d7 variant",
     "typedmem": "main @ 33d989e (semantics through ba010a1)"
   },
   "resolution_stage_observed_in_dry_run": {
-    "b0":      {"provenance": 0.25, "typed": 0.50, "repeated_failure": 1.00, "control": 1.00},
-    "b_scd":   {"provenance": 0.25, "typed": 0.50, "repeated_failure": 1.00, "control": 1.00},
-    "b_scd_g": {"provenance": 1.00, "typed": 0.50, "repeated_failure": 1.00, "control": 1.00},
-    "b_typed": {"provenance": 1.00, "typed": 1.00, "repeated_failure": 1.00, "control": 1.00},
-    "oracle":  {"provenance": 1.00, "typed": 1.00, "repeated_failure": 1.00, "control": 1.00},
+    "b0": {
+      "provenance": 0.25,
+      "typed": 0.5,
+      "repeated_failure": 1.0,
+      "control": 1.0
+    },
+    "b_scd": {
+      "provenance": 0.25,
+      "typed": 0.5,
+      "repeated_failure": 1.0,
+      "control": 1.0
+    },
+    "b_scd_g": {
+      "provenance": 1.0,
+      "typed": 0.5,
+      "repeated_failure": 1.0,
+      "control": 1.0
+    },
+    "b_typed": {
+      "provenance": 1.0,
+      "typed": 1.0,
+      "repeated_failure": 1.0,
+      "control": 1.0
+    },
+    "oracle": {
+      "provenance": 1.0,
+      "typed": 1.0,
+      "repeated_failure": 1.0,
+      "control": 1.0
+    },
     "note": "b_scd_g's two typed losses are B-01 (deadline: confidence ranks above recency in the global order) and B-03 (commitment: same). Its provenance wins come from the frozen source priority. This is the Mode A interaction reproduced at the resolution stage; the agent stage tests whether it reaches behaviour."
   },
   "agent_stage_predictions": {
-    "oracle": "task success ≥ 0.9 on every family. If lower, the tasks are not solvable from the prompt and must be redesigned before any comparison is read (design §15).",
-    "provenance (A-01..03)": "b_typed ≈ b_scd_g ≈ oracle > b_scd ≈ b0. A-04 (control within the family) ≈ equal for all memory-bearing variants.",
-    "typed (B-01..04)": "b_typed ≈ oracle on all four; b_scd_g fails B-01 and B-03 (governing state is the older value → the agent schedules Tuesday / avoids requests); b0 and b_scd fail B-02 and B-04. The critical read is per scenario, not the family mean.",
-    "repeated_failure (C-01..04)": "every memory-bearing variant ≈ oracle and low repeated-failure rate; nomem shows the base rate at which the model takes the failing action without the lesson. C-04 (supersession) is the only one where resolution differs, and there all variants resolve to m2, so no separation is predicted. BRQ3 is tested here only as memory-vs-no-memory.",
-    "control (N-01..04)": "all memory-bearing variants ≈ oracle; N-03 (irrelevant memory) and N-04 (lesson does not apply) are where a variant could lose by over-applying memory — predicted flat; if any memory-bearing variant trails nomem on N-04, that is F4 (over-generalisation) and is reported as such.",
+    "oracle": "task success \u2265 0.9 on every family. If lower, the tasks are not solvable from the prompt and must be redesigned before any comparison is read (design \u00a715).",
+    "provenance (A-01..03)": "b_typed \u2248 b_scd_g \u2248 oracle > b_scd \u2248 b0. A-04 (control within the family) \u2248 equal for all memory-bearing variants.",
+    "typed (B-01..04)": "b_typed \u2248 oracle on all four; b_scd_g fails B-01 and B-03 (governing state is the older value \u2192 the agent schedules Tuesday / avoids requests); b0 and b_scd fail B-02 and B-04. The critical read is per scenario, not the family mean.",
+    "repeated_failure (C-01..04)": "every memory-bearing variant \u2248 oracle and low repeated-failure rate; nomem shows the base rate at which the model takes the failing action without the lesson. C-04 (supersession) is the only one where resolution differs, and there all variants resolve to m2, so no separation is predicted. BRQ3 is tested here only as memory-vs-no-memory.",
+    "control (N-01..04)": "all memory-bearing variants \u2248 oracle; N-03 (irrelevant memory) and N-04 (lesson does not apply) are where a variant could lose by over-applying memory \u2014 predicted flat; if any memory-bearing variant trails nomem on N-04, that is F4 (over-generalisation) and is reported as such.",
     "expected_shape_if_semantics_reach_behaviour": "task-success ordering on typed follows the resolution ordering: b_typed > b_scd_g > b_scd = b0. If instead all memory-bearing variants tie on typed despite different governing states, that is F1 (the agent ignores the payload) and BRQ2 is NOT SUPPORTED regardless of resolution accuracy."
   },
   "attribution_rules": {
@@ -30,8 +55,11 @@
     "action not one of the choices": "other:unparseable_action"
   },
   "verdict_rules": {
-    "BRQ1 SUPPORTED if": "provenance task success for b_typed and b_scd_g exceeds b0/b_scd by ≥ 0.25 with oracle ≥ 0.9; NOT SUPPORTED if the four memory-bearing variants are within 0.1 of each other; INCONCLUSIVE otherwise",
-    "BRQ2 SUPPORTED if": "on typed, b_typed exceeds b_scd_g and b_scd_g's losses are B-01/B-03 while b0/b_scd's are B-02/B-04 (the interaction), with oracle ≥ 0.9; NOT SUPPORTED if b_scd_g ≈ b_typed (F2) or all variants tie (F1); INCONCLUSIVE otherwise",
-    "BRQ3 SUPPORTED if": "repeated-failure rate for memory-bearing variants is ≤ half of nomem's AND N-04 false-avoidance does not exceed nomem's by more than 0.2; NOT SUPPORTED if memory does not reduce repetition; INCONCLUSIVE if it reduces repetition but false avoidance rises (F4)"
-  }
+    "BRQ1 SUPPORTED if": "provenance task success for b_typed and b_scd_g exceeds b0/b_scd by \u2265 0.25 with oracle \u2265 0.9; NOT SUPPORTED if the four memory-bearing variants are within 0.1 of each other; INCONCLUSIVE otherwise",
+    "BRQ2 SUPPORTED if": "on typed, b_typed exceeds b_scd_g and b_scd_g's losses are B-01/B-03 while b0/b_scd's are B-02/B-04 (the interaction), with oracle \u2265 0.9; NOT SUPPORTED if b_scd_g \u2248 b_typed (F2) or all variants tie (F1); INCONCLUSIVE otherwise",
+    "BRQ3 SUPPORTED if": "repeated-failure rate for memory-bearing variants is \u2264 half of nomem's AND N-04 false-avoidance does not exceed nomem's by more than 0.2; NOT SUPPORTED if memory does not reduce repetition; INCONCLUSIVE if it reduces repetition but false avoidance rises (F4)"
+  },
+  "labelling_corrections": [
+    "2026-09-13, after the oracle gate run (80/80) and BEFORE any comparative run: B-01's task was re-specified. The oracle's reason on B-01 showed it read 'Tuesday' as the day after the Monday deadline, so the original choices (Thursday / Tuesday) did not make the two governing states (deadline Friday the 18th vs Monday the 21st) imply different actions \u2014 the scenario could not detect a wrong governing state. Choices are now 'Thursday the 17th' / 'Friday the 18th' with the instruction 'before the deadline, as late as possible'; gold action Friday the 18th under the moved deadline, Thursday the 17th under the stale one. Gold governing state unchanged. Independent of any variant's outcome \u2014 no comparative run had been made. The oracle gate is re-run on the corrected set before the comparative run; agent-stage predictions are otherwise unchanged and re-frozen here."
+  ]
 }

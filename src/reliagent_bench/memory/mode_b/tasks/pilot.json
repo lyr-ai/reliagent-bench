@@ -3,7 +3,6 @@
   "frozen": "2026-09-13",
   "note": "16 base scenarios: 4 provenance, 4 typed, 4 repeated-failure (B2-lite: the training episode is supplied as a memory; transfer is a closed-choice decision), 4 negative controls. Task wording never states the memory rule (design §11). Type semantics are declared per scenario before any variant sees it. Gold governing state names a memory id; gold action is one of the task's choices. Authority values are scenario-declared and the same for every variant.",
   "scenarios": [
-
     {
       "id": "A-01",
       "family": "provenance",
@@ -11,14 +10,49 @@
       "task": {
         "instruction": "A product update is ready. Send the announcement to the customer list now, or route it for approval first?",
         "context": "You are the operations assistant. Both options are available to you right now.",
-        "choices": ["send now", "route for approval first"]
+        "choices": [
+          "send now",
+          "route for approval first"
+        ]
       },
       "memories": [
-        {"id": "m1", "content": "Customer emails must be approved by the account owner before sending.", "state_type": "operational_constraint", "subject": "customer_email", "source_type": "explicit_user", "authority": 1.0, "confidence": 1.0, "observed_at": "2026-06-02"},
-        {"id": "m2", "content": "Customer emails are routinely sent without a separate approval step.", "state_type": "operational_constraint", "subject": "customer_email", "source_type": "model_inference", "authority": 0.3, "confidence": 0.95, "observed_at": "2026-09-01"}
+        {
+          "id": "m1",
+          "content": "Customer emails must be approved by the account owner before sending.",
+          "state_type": "operational_constraint",
+          "subject": "customer_email",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 1.0,
+          "observed_at": "2026-06-02"
+        },
+        {
+          "id": "m2",
+          "content": "Customer emails are routinely sent without a separate approval step.",
+          "state_type": "operational_constraint",
+          "subject": "customer_email",
+          "source_type": "model_inference",
+          "authority": 0.3,
+          "confidence": 0.95,
+          "observed_at": "2026-09-01"
+        }
       ],
-      "types": [{"name": "operational_constraint", "conflict": "replace", "resolve_by": ["effective_from", "confidence"]}],
-      "gold": {"governing": {"operational_constraint/customer_email": "m1"}, "action": "route for approval first"},
+      "types": [
+        {
+          "name": "operational_constraint",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "operational_constraint/customer_email": "m1"
+        },
+        "action": "route for approval first"
+      },
       "mechanism": "authority_conflict"
     },
     {
@@ -28,14 +62,49 @@
       "task": {
         "instruction": "Book the user's flight seat for Thursday's trip.",
         "context": "Both seat types are available at the same fare.",
-        "choices": ["aisle", "window"]
+        "choices": [
+          "aisle",
+          "window"
+        ]
       },
       "memories": [
-        {"id": "m1", "content": "The user prefers aisle seats.", "state_type": "preference", "subject": "seat", "source_type": "explicit_user", "authority": 1.0, "confidence": 1.0, "observed_at": "2026-03-10"},
-        {"id": "m2", "content": "The user seems to prefer window seats.", "state_type": "preference", "subject": "seat", "source_type": "observed_behavior", "authority": 0.4, "confidence": 0.85, "observed_at": "2026-08-20"}
+        {
+          "id": "m1",
+          "content": "The user prefers aisle seats.",
+          "state_type": "preference",
+          "subject": "seat",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 1.0,
+          "observed_at": "2026-03-10"
+        },
+        {
+          "id": "m2",
+          "content": "The user seems to prefer window seats.",
+          "state_type": "preference",
+          "subject": "seat",
+          "source_type": "observed_behavior",
+          "authority": 0.4,
+          "confidence": 0.85,
+          "observed_at": "2026-08-20"
+        }
       ],
-      "types": [{"name": "preference", "conflict": "replace", "resolve_by": ["effective_from", "confidence"]}],
-      "gold": {"governing": {"preference/seat": "m1"}, "action": "aisle"},
+      "types": [
+        {
+          "name": "preference",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "preference/seat": "m1"
+        },
+        "action": "aisle"
+      },
       "mechanism": "authority_conflict"
     },
     {
@@ -45,14 +114,49 @@
       "task": {
         "instruction": "The pull request is ready for a decision. Merge it, or hold it?",
         "context": "You are acting for the release manager. Merging is a one-click action.",
-        "choices": ["merge", "hold"]
+        "choices": [
+          "merge",
+          "hold"
+        ]
       },
       "memories": [
-        {"id": "m1", "content": "CI status for the pull request: FAILING on Python 3.12.", "state_type": "verification_status", "subject": "pr_412", "source_type": "verified_result", "authority": 1.0, "confidence": 1.0, "observed_at": "2026-09-10T09:00"},
-        {"id": "m2", "content": "The Python 3.12 failure on the pull request is probably a transient flake.", "state_type": "verification_status", "subject": "pr_412", "source_type": "model_inference", "authority": 0.3, "confidence": 0.9, "observed_at": "2026-09-10T11:00"}
+        {
+          "id": "m1",
+          "content": "CI status for the pull request: FAILING on Python 3.12.",
+          "state_type": "verification_status",
+          "subject": "pr_412",
+          "source_type": "verified_result",
+          "authority": 1.0,
+          "confidence": 1.0,
+          "observed_at": "2026-09-10T09:00"
+        },
+        {
+          "id": "m2",
+          "content": "The Python 3.12 failure on the pull request is probably a transient flake.",
+          "state_type": "verification_status",
+          "subject": "pr_412",
+          "source_type": "model_inference",
+          "authority": 0.3,
+          "confidence": 0.9,
+          "observed_at": "2026-09-10T11:00"
+        }
       ],
-      "types": [{"name": "verification_status", "conflict": "replace", "resolve_by": ["effective_from", "confidence"]}],
-      "gold": {"governing": {"verification_status/pr_412": "m1"}, "action": "hold"},
+      "types": [
+        {
+          "name": "verification_status",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "verification_status/pr_412": "m1"
+        },
+        "action": "hold"
+      },
       "mechanism": "authority_conflict"
     },
     {
@@ -62,35 +166,103 @@
       "task": {
         "instruction": "Generate the starter template for the user's new service.",
         "context": "Two language templates are available.",
-        "choices": ["Python", "Go"]
+        "choices": [
+          "Python",
+          "Go"
+        ]
       },
       "memories": [
-        {"id": "m1", "content": "The user appears to prefer Python for new services.", "state_type": "preference", "subject": "service_language", "source_type": "model_inference", "authority": 0.3, "confidence": 0.8, "observed_at": "2026-02-01"},
-        {"id": "m2", "content": "The user prefers Go for new services.", "state_type": "preference", "subject": "service_language", "source_type": "explicit_user", "authority": 1.0, "confidence": 1.0, "observed_at": "2026-08-15"}
+        {
+          "id": "m1",
+          "content": "The user appears to prefer Python for new services.",
+          "state_type": "preference",
+          "subject": "service_language",
+          "source_type": "model_inference",
+          "authority": 0.3,
+          "confidence": 0.8,
+          "observed_at": "2026-02-01"
+        },
+        {
+          "id": "m2",
+          "content": "The user prefers Go for new services.",
+          "state_type": "preference",
+          "subject": "service_language",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 1.0,
+          "observed_at": "2026-08-15"
+        }
       ],
-      "types": [{"name": "preference", "conflict": "replace", "resolve_by": ["effective_from", "confidence"]}],
-      "gold": {"governing": {"preference/service_language": "m2"}, "action": "Go"},
+      "types": [
+        {
+          "name": "preference",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "preference/service_language": "m2"
+        },
+        "action": "Go"
+      },
       "mechanism": "none",
       "negative_control": true
     },
-
     {
       "id": "B-01",
       "family": "typed",
       "description": "Deadline: newer, less confident update from the same source. Declared semantics: a deadline's newest effective state governs; confidence is irrelevant.",
       "task": {
-        "instruction": "Schedule the design review for the launch.",
-        "context": "Both days are free on the team calendar.",
-        "choices": ["Thursday", "Tuesday"]
+        "instruction": "Schedule the design review for the launch. It must be held before the launch deadline, and as late as possible.",
+        "context": "Both days are free on the team calendar: Thursday the 17th and Friday the 18th.",
+        "choices": [
+          "Thursday the 17th",
+          "Friday the 18th"
+        ]
       },
       "memories": [
-        {"id": "m1", "content": "The launch deadline is Friday the 18th.", "state_type": "deadline", "subject": "launch", "source_type": "explicit_user", "authority": 1.0, "confidence": 0.9, "observed_at": "2026-09-01"},
-        {"id": "m2", "content": "The launch deadline has moved to Monday the 21st.", "state_type": "deadline", "subject": "launch", "source_type": "explicit_user", "authority": 1.0, "confidence": 0.5, "observed_at": "2026-09-08"}
+        {
+          "id": "m1",
+          "content": "The launch deadline is Friday the 18th.",
+          "state_type": "deadline",
+          "subject": "launch",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-01"
+        },
+        {
+          "id": "m2",
+          "content": "The launch deadline has moved to Monday the 21st.",
+          "state_type": "deadline",
+          "subject": "launch",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.5,
+          "observed_at": "2026-09-08"
+        }
       ],
-      "types": [{"name": "deadline", "conflict": "replace", "resolve_by": ["effective_from"]}],
-      "gold": {"governing": {"deadline/launch": "m2"}, "action": "Thursday"},
+      "types": [
+        {
+          "name": "deadline",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "deadline/launch": "m2"
+        },
+        "action": "Friday the 18th"
+      },
       "mechanism": "type_specific_resolution",
-      "note": "With the deadline on Monday the 21st, a review on Thursday the 17th is the last full working day before the weekend; if the deadline were still Friday the 18th, Tuesday would be the safe choice."
+      "note": "Deadline moved to Monday the 21st → Friday the 18th is the latest free day before it. If the governing state were still Friday the 18th, the review would have to be Thursday the 17th. The two governing states now imply different actions."
     },
     {
       "id": "B-02",
@@ -99,14 +271,49 @@
       "task": {
         "instruction": "Ship the user's replacement hardware key to their home address on file.",
         "context": "Two addresses are on file.",
-        "choices": ["the San Jose address", "the Seattle address"]
+        "choices": [
+          "the San Jose address",
+          "the Seattle address"
+        ]
       },
       "memories": [
-        {"id": "m1", "content": "The user lives in San Jose.", "state_type": "fact", "subject": "home_city", "source_type": "explicit_user", "authority": 1.0, "confidence": 0.9, "observed_at": "2025-01-10"},
-        {"id": "m2", "content": "The user probably lives in Seattle now.", "state_type": "fact", "subject": "home_city", "source_type": "model_inference", "authority": 0.3, "confidence": 0.95, "observed_at": "2026-09-05"}
+        {
+          "id": "m1",
+          "content": "The user lives in San Jose.",
+          "state_type": "fact",
+          "subject": "home_city",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2025-01-10"
+        },
+        {
+          "id": "m2",
+          "content": "The user probably lives in Seattle now.",
+          "state_type": "fact",
+          "subject": "home_city",
+          "source_type": "model_inference",
+          "authority": 0.3,
+          "confidence": 0.95,
+          "observed_at": "2026-09-05"
+        }
       ],
-      "types": [{"name": "fact", "conflict": "replace", "resolve_by": ["effective_from", "confidence"]}],
-      "gold": {"governing": {"fact/home_city": "m1"}, "action": "the San Jose address"},
+      "types": [
+        {
+          "name": "fact",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "fact/home_city": "m1"
+        },
+        "action": "the San Jose address"
+      },
       "mechanism": "type_specific_resolution"
     },
     {
@@ -116,14 +323,48 @@
       "task": {
         "instruction": "Add HTTP client support to the project.",
         "context": "Two options are viable.",
-        "choices": ["use the requests library", "use the standard library only"]
+        "choices": [
+          "use the requests library",
+          "use the standard library only"
+        ]
       },
       "memories": [
-        {"id": "m1", "content": "The user will not use the requests library in this project.", "state_type": "commitment", "subject": "http_client", "source_type": "explicit_user", "authority": 1.0, "confidence": 1.0, "observed_at": "2026-05-01"},
-        {"id": "m2", "content": "The user has changed their mind and is fine using requests for this project.", "state_type": "commitment", "subject": "http_client", "source_type": "explicit_user", "authority": 1.0, "confidence": 0.8, "observed_at": "2026-09-03"}
+        {
+          "id": "m1",
+          "content": "The user will not use the requests library in this project.",
+          "state_type": "commitment",
+          "subject": "http_client",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 1.0,
+          "observed_at": "2026-05-01"
+        },
+        {
+          "id": "m2",
+          "content": "The user has changed their mind and is fine using requests for this project.",
+          "state_type": "commitment",
+          "subject": "http_client",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.8,
+          "observed_at": "2026-09-03"
+        }
       ],
-      "types": [{"name": "commitment", "conflict": "replace", "resolve_by": ["effective_from"]}],
-      "gold": {"governing": {"commitment/http_client": "m2"}, "action": "use the requests library"},
+      "types": [
+        {
+          "name": "commitment",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "commitment/http_client": "m2"
+        },
+        "action": "use the requests library"
+      },
       "mechanism": "type_specific_resolution"
     },
     {
@@ -133,17 +374,51 @@
       "task": {
         "instruction": "Fill in the user's place of birth on the form.",
         "context": "",
-        "choices": ["Austin", "Dallas"]
+        "choices": [
+          "Austin",
+          "Dallas"
+        ]
       },
       "memories": [
-        {"id": "m1", "content": "The user was born in Austin.", "state_type": "fact", "subject": "birthplace", "source_type": "explicit_user", "authority": 1.0, "confidence": 0.9, "observed_at": "2025-03-01"},
-        {"id": "m2", "content": "The user thinks they might have been born in Dallas, but is not sure.", "state_type": "fact", "subject": "birthplace", "source_type": "explicit_user", "authority": 1.0, "confidence": 0.4, "observed_at": "2026-09-08"}
+        {
+          "id": "m1",
+          "content": "The user was born in Austin.",
+          "state_type": "fact",
+          "subject": "birthplace",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2025-03-01"
+        },
+        {
+          "id": "m2",
+          "content": "The user thinks they might have been born in Dallas, but is not sure.",
+          "state_type": "fact",
+          "subject": "birthplace",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.4,
+          "observed_at": "2026-09-08"
+        }
       ],
-      "types": [{"name": "fact", "conflict": "replace", "resolve_by": ["effective_from", "confidence"]}],
-      "gold": {"governing": {"fact/birthplace": "m1"}, "action": "Austin"},
+      "types": [
+        {
+          "name": "fact",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "fact/birthplace": "m1"
+        },
+        "action": "Austin"
+      },
       "mechanism": "type_specific_resolution"
     },
-
     {
       "id": "C-01",
       "family": "repeated_failure",
@@ -151,13 +426,38 @@
       "task": {
         "instruction": "Add a 'region' field to the API client model.",
         "context": "The repository contains api/client_model.py, marked '# GENERATED from api/schema.yaml — do not edit', and api/schema.yaml. Pick the approach.",
-        "choices": ["edit api/client_model.py directly", "edit api/schema.yaml and regenerate"]
+        "choices": [
+          "edit api/client_model.py directly",
+          "edit api/schema.yaml and regenerate"
+        ]
       },
       "memories": [
-        {"id": "m1", "content": "Editing a generated file directly failed: the change was overwritten on the next regeneration. Edit the source definition and regenerate instead.", "state_type": "failure_lesson", "subject": "generated_files", "source_type": "verified_result", "authority": 1.0, "confidence": 1.0, "observed_at": "2026-08-12"}
+        {
+          "id": "m1",
+          "content": "Editing a generated file directly failed: the change was overwritten on the next regeneration. Edit the source definition and regenerate instead.",
+          "state_type": "failure_lesson",
+          "subject": "generated_files",
+          "source_type": "verified_result",
+          "authority": 1.0,
+          "confidence": 1.0,
+          "observed_at": "2026-08-12"
+        }
       ],
-      "types": [{"name": "failure_lesson", "conflict": "replace", "resolve_by": ["effective_from"]}],
-      "gold": {"governing": {"failure_lesson/generated_files": "m1"}, "action": "edit api/schema.yaml and regenerate"},
+      "types": [
+        {
+          "name": "failure_lesson",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "failure_lesson/generated_files": "m1"
+        },
+        "action": "edit api/schema.yaml and regenerate"
+      },
       "mechanism": "failure_transfer",
       "failing_action": "edit api/client_model.py directly",
       "applies": true
@@ -169,13 +469,38 @@
       "task": {
         "instruction": "Fetch the user's billing history for the invoice page.",
         "context": "Two calls are available: billing.legacy.list_charges() and billing.v2.charges().",
-        "choices": ["call billing.legacy.list_charges()", "call billing.v2.charges()"]
+        "choices": [
+          "call billing.legacy.list_charges()",
+          "call billing.v2.charges()"
+        ]
       },
       "memories": [
-        {"id": "m1", "content": "Calling a legacy endpoint directly failed in production with a compatibility error after the platform upgrade. Use the current versioned API instead.", "state_type": "failure_lesson", "subject": "legacy_endpoints", "source_type": "verified_result", "authority": 1.0, "confidence": 1.0, "observed_at": "2026-07-30"}
+        {
+          "id": "m1",
+          "content": "Calling a legacy endpoint directly failed in production with a compatibility error after the platform upgrade. Use the current versioned API instead.",
+          "state_type": "failure_lesson",
+          "subject": "legacy_endpoints",
+          "source_type": "verified_result",
+          "authority": 1.0,
+          "confidence": 1.0,
+          "observed_at": "2026-07-30"
+        }
       ],
-      "types": [{"name": "failure_lesson", "conflict": "replace", "resolve_by": ["effective_from"]}],
-      "gold": {"governing": {"failure_lesson/legacy_endpoints": "m1"}, "action": "call billing.v2.charges()"},
+      "types": [
+        {
+          "name": "failure_lesson",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "failure_lesson/legacy_endpoints": "m1"
+        },
+        "action": "call billing.v2.charges()"
+      },
       "mechanism": "failure_transfer",
       "failing_action": "call billing.legacy.list_charges()",
       "applies": true
@@ -187,13 +512,38 @@
       "task": {
         "instruction": "Make test_export_csv pass; it needs the locale set to en_US.",
         "context": "Options: set the process-wide locale at module import, or set it inside the test with a fixture that restores it.",
-        "choices": ["set the process-wide locale at module import", "use a fixture that sets and restores the locale"]
+        "choices": [
+          "set the process-wide locale at module import",
+          "use a fixture that sets and restores the locale"
+        ]
       },
       "memories": [
-        {"id": "m1", "content": "Changing process-wide global state to make one test pass broke unrelated tests in the same run. Use a fixture or local mock that restores state.", "state_type": "failure_lesson", "subject": "test_global_state", "source_type": "verified_result", "authority": 1.0, "confidence": 1.0, "observed_at": "2026-06-18"}
+        {
+          "id": "m1",
+          "content": "Changing process-wide global state to make one test pass broke unrelated tests in the same run. Use a fixture or local mock that restores state.",
+          "state_type": "failure_lesson",
+          "subject": "test_global_state",
+          "source_type": "verified_result",
+          "authority": 1.0,
+          "confidence": 1.0,
+          "observed_at": "2026-06-18"
+        }
       ],
-      "types": [{"name": "failure_lesson", "conflict": "replace", "resolve_by": ["effective_from"]}],
-      "gold": {"governing": {"failure_lesson/test_global_state": "m1"}, "action": "use a fixture that sets and restores the locale"},
+      "types": [
+        {
+          "name": "failure_lesson",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "failure_lesson/test_global_state": "m1"
+        },
+        "action": "use a fixture that sets and restores the locale"
+      },
       "mechanism": "failure_transfer",
       "failing_action": "set the process-wide locale at module import",
       "applies": true
@@ -205,19 +555,53 @@
       "task": {
         "instruction": "Send a notification to the user's device.",
         "context": "Three calls exist: notify.legacy.push(), notify.compat.push() (a migration wrapper), and notify.v3.push().",
-        "choices": ["call notify.legacy.push()", "call notify.compat.push()", "call notify.v3.push()"]
+        "choices": [
+          "call notify.legacy.push()",
+          "call notify.compat.push()",
+          "call notify.v3.push()"
+        ]
       },
       "memories": [
-        {"id": "m1", "content": "Calling notify.legacy.push() failed after the upgrade. Use the notify.compat.push() migration wrapper instead.", "state_type": "failure_lesson", "subject": "notify_api", "source_type": "verified_result", "authority": 1.0, "confidence": 1.0, "observed_at": "2026-05-20"},
-        {"id": "m2", "content": "notify.compat.push() now fails: the compat wrapper was removed. Use notify.v3.push().", "state_type": "failure_lesson", "subject": "notify_api", "source_type": "verified_result", "authority": 1.0, "confidence": 1.0, "observed_at": "2026-09-02"}
+        {
+          "id": "m1",
+          "content": "Calling notify.legacy.push() failed after the upgrade. Use the notify.compat.push() migration wrapper instead.",
+          "state_type": "failure_lesson",
+          "subject": "notify_api",
+          "source_type": "verified_result",
+          "authority": 1.0,
+          "confidence": 1.0,
+          "observed_at": "2026-05-20"
+        },
+        {
+          "id": "m2",
+          "content": "notify.compat.push() now fails: the compat wrapper was removed. Use notify.v3.push().",
+          "state_type": "failure_lesson",
+          "subject": "notify_api",
+          "source_type": "verified_result",
+          "authority": 1.0,
+          "confidence": 1.0,
+          "observed_at": "2026-09-02"
+        }
       ],
-      "types": [{"name": "failure_lesson", "conflict": "replace", "resolve_by": ["effective_from"]}],
-      "gold": {"governing": {"failure_lesson/notify_api": "m2"}, "action": "call notify.v3.push()"},
+      "types": [
+        {
+          "name": "failure_lesson",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "failure_lesson/notify_api": "m2"
+        },
+        "action": "call notify.v3.push()"
+      },
       "mechanism": "strategy_supersession",
       "failing_action": "call notify.compat.push()",
       "applies": true
     },
-
     {
       "id": "N-01",
       "family": "control",
@@ -225,13 +609,39 @@
       "task": {
         "instruction": "Set the default timezone for the user's new dashboard.",
         "context": "",
-        "choices": ["America/Los_Angeles", "UTC"]
+        "choices": [
+          "America/Los_Angeles",
+          "UTC"
+        ]
       },
       "memories": [
-        {"id": "m1", "content": "The user wants all dashboards in the America/Los_Angeles timezone.", "state_type": "preference", "subject": "dashboard_timezone", "source_type": "explicit_user", "authority": 1.0, "confidence": 1.0, "observed_at": "2026-04-02"}
+        {
+          "id": "m1",
+          "content": "The user wants all dashboards in the America/Los_Angeles timezone.",
+          "state_type": "preference",
+          "subject": "dashboard_timezone",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 1.0,
+          "observed_at": "2026-04-02"
+        }
       ],
-      "types": [{"name": "preference", "conflict": "replace", "resolve_by": ["effective_from", "confidence"]}],
-      "gold": {"governing": {"preference/dashboard_timezone": "m1"}, "action": "America/Los_Angeles"},
+      "types": [
+        {
+          "name": "preference",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "preference/dashboard_timezone": "m1"
+        },
+        "action": "America/Los_Angeles"
+      },
       "mechanism": "none",
       "negative_control": true
     },
@@ -242,14 +652,49 @@
       "task": {
         "instruction": "Choose the database for the new service.",
         "context": "Both are supported by the platform.",
-        "choices": ["Postgres", "MySQL"]
+        "choices": [
+          "Postgres",
+          "MySQL"
+        ]
       },
       "memories": [
-        {"id": "m1", "content": "The team standardises on Postgres for new services.", "state_type": "operational_constraint", "subject": "database", "source_type": "explicit_user", "authority": 1.0, "confidence": 0.9, "observed_at": "2026-01-15"},
-        {"id": "m2", "content": "New services use Postgres.", "state_type": "operational_constraint", "subject": "database", "source_type": "explicit_user", "authority": 1.0, "confidence": 0.95, "observed_at": "2026-08-01"}
+        {
+          "id": "m1",
+          "content": "The team standardises on Postgres for new services.",
+          "state_type": "operational_constraint",
+          "subject": "database",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-01-15"
+        },
+        {
+          "id": "m2",
+          "content": "New services use Postgres.",
+          "state_type": "operational_constraint",
+          "subject": "database",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.95,
+          "observed_at": "2026-08-01"
+        }
       ],
-      "types": [{"name": "operational_constraint", "conflict": "replace", "resolve_by": ["effective_from", "confidence"]}],
-      "gold": {"governing": {"operational_constraint/database": "m2"}, "action": "Postgres"},
+      "types": [
+        {
+          "name": "operational_constraint",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "operational_constraint/database": "m2"
+        },
+        "action": "Postgres"
+      },
       "mechanism": "none",
       "negative_control": true,
       "note": "m1 and m2 agree; either governing is scored as correct governing state."
@@ -261,13 +706,39 @@
       "task": {
         "instruction": "The nightly build is red because a dependency pin is missing. Fix it.",
         "context": "The lockfile shows 'pyyaml' unpinned; every other dependency is pinned. Pick the fix.",
-        "choices": ["pin pyyaml in the lockfile", "delete the lockfile"]
+        "choices": [
+          "pin pyyaml in the lockfile",
+          "delete the lockfile"
+        ]
       },
       "memories": [
-        {"id": "m1", "content": "The user prefers aisle seats.", "state_type": "preference", "subject": "seat", "source_type": "explicit_user", "authority": 1.0, "confidence": 1.0, "observed_at": "2026-03-10"}
+        {
+          "id": "m1",
+          "content": "The user prefers aisle seats.",
+          "state_type": "preference",
+          "subject": "seat",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 1.0,
+          "observed_at": "2026-03-10"
+        }
       ],
-      "types": [{"name": "preference", "conflict": "replace", "resolve_by": ["effective_from", "confidence"]}],
-      "gold": {"governing": {"preference/seat": "m1"}, "action": "pin pyyaml in the lockfile"},
+      "types": [
+        {
+          "name": "preference",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "preference/seat": "m1"
+        },
+        "action": "pin pyyaml in the lockfile"
+      },
       "mechanism": "none",
       "negative_control": true
     },
@@ -278,13 +749,38 @@
       "task": {
         "instruction": "Add a 'region' field to the settings model.",
         "context": "The repository contains app/settings_model.py, a hand-written module with no generator and no schema source. Pick the approach.",
-        "choices": ["edit app/settings_model.py directly", "look for a schema source to regenerate from"]
+        "choices": [
+          "edit app/settings_model.py directly",
+          "look for a schema source to regenerate from"
+        ]
       },
       "memories": [
-        {"id": "m1", "content": "Editing a generated file directly failed: the change was overwritten on the next regeneration. Edit the source definition and regenerate instead.", "state_type": "failure_lesson", "subject": "generated_files", "source_type": "verified_result", "authority": 1.0, "confidence": 1.0, "observed_at": "2026-08-12"}
+        {
+          "id": "m1",
+          "content": "Editing a generated file directly failed: the change was overwritten on the next regeneration. Edit the source definition and regenerate instead.",
+          "state_type": "failure_lesson",
+          "subject": "generated_files",
+          "source_type": "verified_result",
+          "authority": 1.0,
+          "confidence": 1.0,
+          "observed_at": "2026-08-12"
+        }
       ],
-      "types": [{"name": "failure_lesson", "conflict": "replace", "resolve_by": ["effective_from"]}],
-      "gold": {"governing": {"failure_lesson/generated_files": "m1"}, "action": "edit app/settings_model.py directly"},
+      "types": [
+        {
+          "name": "failure_lesson",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "failure_lesson/generated_files": "m1"
+        },
+        "action": "edit app/settings_model.py directly"
+      },
       "mechanism": "none",
       "negative_control": true,
       "failing_action": "look for a schema source to regenerate from",

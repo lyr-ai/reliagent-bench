@@ -1,0 +1,19 @@
+Mode B pilot · 16 scenarios · agent runs
+
+governing-state accuracy (deterministic; one row per variant)
+variant           provenance             typed  repeated_failure           control       all
+────────────────────────────────────────────────────────────────────────────────────────────
+oracle                 1.00              1.00              1.00              1.00      1.00 
+
+task success (agent action == gold action; mean over runs)
+variant           provenance             typed  repeated_failure           control       all
+────────────────────────────────────────────────────────────────────────────────────────────
+oracle                 1.00              1.00              1.00              1.00      1.00 
+
+family rates: violation (provenance) · repeated failure (repeated_failure) · false avoidance (controls with applies=false)
+oracle     violation  0.00  repeated  0.00  false-avoid  0.00 
+
+attribution of failed runs
+oracle     {}
+
+resolution failures (scenario, variant, slot: got → gold)

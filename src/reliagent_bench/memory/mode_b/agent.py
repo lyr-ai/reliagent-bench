@@ -64,22 +64,41 @@ def parse_decision(raw: str, choices: tuple[str, ...]) -> Decision:
 
 class AgentClient(Protocol):
     model: str
-    def complete(self, system: str, user: str) -> str: ...
+    def complete(self, system: str, user: str, choices: tuple[str, ...] = ()) -> str: ...
 
 
 class AnthropicAgent:
-    """Fixed model, temperature 0. Requires ANTHROPIC_API_KEY."""
+    """Fixed model. Requires ANTHROPIC_API_KEY (or .env).
 
-    def __init__(self, model: str = "claude-sonnet-5", temperature: float = 0.0, max_tokens: int = 200):
+    Sampling controls (temperature / top_p / top_k) are not request parameters
+    on this model generation, so "temperature 0" cannot be requested. The
+    lowest-variance configuration available is used instead — thinking
+    disabled, effort low — and run-to-run variance is handled by repetition
+    and reported. The action is constrained to the task's choices by a JSON
+    schema on the response, so an off-list action cannot occur.
+    """
+
+    def __init__(self, model: str = "claude-sonnet-5", max_tokens: int = 300):
         import anthropic  # local import so the package is optional
         self.model = model
-        self.temperature = temperature
         self.max_tokens = max_tokens
+        self.request_config = {"thinking": {"type": "disabled"}, "effort": "low", "format": "json_schema(action enum, reason)"}
         self._client = anthropic.Anthropic()
 
-    def complete(self, system: str, user: str) -> str:
+    def complete(self, system: str, user: str, choices: tuple[str, ...] = ()) -> str:
+        schema = {
+            "type": "object",
+            "properties": {
+                "action": {"type": "string", **({"enum": list(choices)} if choices else {})},
+                "reason": {"type": "string"},
+            },
+            "required": ["action", "reason"],
+            "additionalProperties": False,
+        }
         r = self._client.messages.create(
-            model=self.model, max_tokens=self.max_tokens, temperature=self.temperature,
+            model=self.model, max_tokens=self.max_tokens,
+            thinking={"type": "disabled"},
+            output_config={"effort": "low", "format": {"type": "json_schema", "schema": schema}},
             system=system, messages=[{"role": "user", "content": user}],
         )
         return "".join(getattr(b, "text", "") for b in r.content)

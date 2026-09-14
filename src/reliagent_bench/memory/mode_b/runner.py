@@ -66,7 +66,7 @@ def run(scenarios, runs: int, agent, only_variants=None):
                 continue
             user = build_user_message(s, lines)
             for r in range(runs):
-                raw = agent.complete(SYSTEM, user)
+                raw = agent.complete(SYSTEM, user, s.task.choices)
                 d = parse_decision(raw, s.task.choices)
                 scores.append(score(s, v.name, r, resolved, d.action, agent_ran=True))
                 transcripts.append(dict(scenario=s.id, variant=v.name, run=r, memory=lines, action=d.action, reason=d.reason, raw=raw))
@@ -142,6 +142,7 @@ def main(argv=None) -> int:
     (out / f"{stem}.json").write_text(json.dumps({
         "generated": datetime.now(timezone.utc).isoformat(),
         "prompt_version": PROMPT_VERSION, "model": getattr(agent, "model", None), "runs": args.runs if agent else 0,
+        "request_config": getattr(agent, "request_config", None),
         "source_priority": SOURCE_PRIORITY,
         "scores": [asdict(s) for s in scores], "transcripts": transcripts,
     }, indent=2, default=str))
