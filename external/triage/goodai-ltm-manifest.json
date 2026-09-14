@@ -1,0 +1,88 @@
+{
+  "benchmark": "GoodAI LTM Benchmark \u2014 selected update tests",
+  "source": "data/tests/'Benchmark 3 - 32k'/definitions; the same tests exist at 120k/200k/500k with more filler",
+  "frozen": "2026-09-13",
+  "selection_rule_defined_before_selecting": "a test is selected iff at least one of its stored instances has state_change_present == yes in goodai-ltm.json; tests are excluded with the reason recorded; instances are never excluded individually",
+  "selected": {
+    "Colours": {
+      "group": "current_state",
+      "update": "replacement",
+      "track": "E-A",
+      "note": "scalar slot restated; gold = last",
+      "instances": [
+        "Colours/0.def.json",
+        "Colours/1.def.json",
+        "Colours/2.def.json"
+      ]
+    },
+    "NameList": {
+      "group": "all_history",
+      "update": "replacement",
+      "track": "E-A",
+      "note": "gold = every value the slot has held, in order",
+      "instances": [
+        "NameList/0.def.json",
+        "NameList/1.def.json",
+        "NameList/2.def.json"
+      ]
+    },
+    "SallyAnne": {
+      "group": "as_of_observer",
+      "update": "replacement",
+      "track": "E-A",
+      "note": "gold = value as of the moment the observer last saw the slot",
+      "instances": [
+        "SallyAnne/0.def.json",
+        "SallyAnne/1.def.json",
+        "SallyAnne/2.def.json"
+      ]
+    },
+    "Shopping": {
+      "group": "accumulation",
+      "update": "accumulation",
+      "track": "E-A",
+      "note": "set-valued slot with add / add-another / remove; gold = folded list",
+      "instances": [
+        "Shopping/0.def.json",
+        "Shopping/1.def.json",
+        "Shopping/2.def.json"
+      ]
+    },
+    "Restaurant": {
+      "group": "current_state",
+      "update": "replacement",
+      "track": "dynamic",
+      "note": "order changes mid-run; script generated at run time \u2014 included only if a replay harness is built; otherwise reported as not run",
+      "instances": [
+        "Restaurant/0.def.json",
+        "Restaurant/1.def.json",
+        "Restaurant/2.def.json"
+      ]
+    }
+  },
+  "excluded": {
+    "ChapterBreak": "not_state_update \u2014 reading comprehension",
+    "Jokes": "not_state_update \u2014 event lookup by time",
+    "Locations Directions": "no_update \u2014 facts accumulate without revision; composes but never supersedes",
+    "Prospective Memory": "not_state_update \u2014 deferred instruction",
+    "Spy Meeting": "no_update \u2014 multi-source aggregation, no revision; sources never decisive",
+    "Trigger Response": "not_state_update \u2014 standing instruction"
+  },
+  "manifest": {
+    "selected_tests": 5,
+    "selected_instances": 15,
+    "by_group": {
+      "all_history": 3,
+      "current_state": 6,
+      "as_of_observer": 3,
+      "accumulation": 3
+    },
+    "static_deterministic_instances": 12,
+    "dynamic_instances": 3
+  },
+  "reading": {
+    "what_it_adds_over_longmemeval": "three update semantics LongMemEval barely has \u2014 retain-all-history (NameList), as-of-an-observer (SallyAnne), and accumulation (Shopping) \u2014 with templated statements, so Track E-A normalisation and no extraction noise.",
+    "caveat": "12 static instances are 4 structures \u00d7 3 draws. Predictions and results are reported per test structure as well as per instance.",
+    "what_it_cannot_do": "no provenance conflicts; no type-dependent contrast on one surface; Restaurant's two speakers are never decisive."
+  }
+}

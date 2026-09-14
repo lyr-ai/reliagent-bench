@@ -1,0 +1,1039 @@
+{
+  "benchmark": "LongMemEval — knowledge-update category, full inspection",
+  "source": "longmemeval_oracle.json, all 78 question_type == 'knowledge-update' (72 answerable + 6 abstention)",
+  "inspected": "2026-09-13",
+  "groups_defined_before_reading": {
+    "current_state": "newest valid value of one slot answers the question",
+    "historical_state": "an earlier value of the slot answers the question",
+    "both_states": "the question asks for an earlier and the current value",
+    "delta_direction": "the question asks whether the value went up or down; needs both values",
+    "accumulation": "the new value must be computed by applying a delta to the old one",
+    "abstention": "unanswerable; the correct state is 'none'; negative control",
+    "excluded": "one of the exclusion reasons below"
+  },
+  "exclusion_reasons_defined_before_reading": {
+    "not_state_update": "the evidence is two distinct events or items, not one slot revisited",
+    "single_write": "only one evidence turn carries a value for the slot; nothing is updated",
+    "ambiguous_slot": "the two statements measure different things and cannot be one slot without a judgment call",
+    "evidence_missing_value": "the gold value does not appear in the evidence turns",
+    "gold_inconsistent_with_evidence": "gold contradicts the evidence"
+  },
+  "manifest": {
+    "total": 78,
+    "usable_state_update": 65,
+    "by_group": {
+      "current_state": 53,
+      "both_states": 2,
+      "abstention": 6,
+      "historical_state": 6,
+      "excluded": 7,
+      "delta_direction": 3,
+      "accumulation": 1
+    },
+    "excluded_by_reason": {
+      "not_state_update": 2,
+      "ambiguous_slot": 1,
+      "single_write": 4
+    },
+    "usable_by_state_type": {
+      "count": 28,
+      "fact": 16,
+      "duration": 7,
+      "preference": 1,
+      "routine": 8,
+      "boolean": 4,
+      "goal": 1
+    },
+    "flags": {
+      "second_write_phrased_as_plan": 3,
+      "time_dependent_value": 5,
+      "monotone_value": 1,
+      "explicit_self_correction": 1,
+      "durations_inconsistent_with_elapsed_time": 2,
+      "event_series": 1,
+      "conflicting_reports_of_one_fact": 1,
+      "both_writes_say_recent": 1,
+      "hedged_value": 1,
+      "implicit_supersession": 1
+    }
+  },
+  "reading": {
+    "shape": "65 of 72 answerable questions are genuine slot updates; 53 are current-state (newest valid value), 11 require an earlier value (historical, both, or delta-direction), 1 is accumulation. Six are abstention controls; 7 are excluded, all for pre-defined reasons and none for how any system performs.",
+    "history_matters": "11 questions cannot be answered from the current state alone. These are the external stress cases for the replace-in-place gap: a system that overwrites in place answers 11 of them from nothing.",
+    "provenance": "every evidence turn is the user's own statement; 0 provenance conflicts, as in the 12-example sample. The nearest case is 852ce960 — two conflicting reports of one fact (pre-approved for $350k, later 'remember, $400k') — which gold resolves by recency, not by source.",
+    "types": "state types are implicit — counts, facts, routines, durations, booleans, one preference, one goal. All resolve by the same rule (newest wins, with history retained where asked). No structurally similar update resolves differently by type; Finding 3 stays NOT TESTABLE here.",
+    "time_dependent_values": "5 questions ask for a duration ('how long have I…'); the stated value is only correct near the question date, and in two cases the two stated durations are inconsistent with the elapsed time between sessions. Kept, flagged; a system that answers from the latest statement matches gold.",
+    "adapter_note": "values sit in free text ('I've added 25 new postcards'), so normalisation is Track E-B for all 65 usable questions; the oracle has_answer flags identify the turns, so oracle-candidate evaluation needs no retrieval."
+  },
+  "frozen": "This manifest is frozen as of the inspection date. Group and exclusion labels do not change after variant results are seen; any later correction is recorded with a reason, as in Mode A.",
+  "questions": [
+    {
+      "question_id": "01493427",
+      "question": "How many new postcards have I added to my collection since I started collecting again?",
+      "answer": "25",
+      "question_date": "2023/12/20 (Wed) 22:41",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "031748ae",
+      "question": "How many engineers do I lead when I just started my new role as Senior Software Engineer? How many engineers do I lead now?",
+      "answer": "When you just started your new role as Senior Software Engineer, you led 4 engineers. Now, you lead 5 engineers",
+      "question_date": "2023/10/31 (Tue) 06:56",
+      "n_evidence_turns": 2,
+      "group": "both_states",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": "asks initial and current in one question"
+    },
+    {
+      "question_id": "031748ae_abs",
+      "question": "How many engineers do I lead when I just started my new role as Software Engineer Manager?",
+      "answer": "The information provided is not enough. You mentioned starting the role as Senior Software Engineer but not Software Engineer Manager.",
+      "question_date": "2023/06/03 (Sat) 02:36",
+      "n_evidence_turns": 0,
+      "group": "abstention",
+      "state_type": "fact",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "06db6396",
+      "question": "How many projects have I completed since starting painting classes?",
+      "answer": "5",
+      "question_date": "2023/10/20 (Fri) 12:00",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "07741c44",
+      "question": "Where do I initially keep my old sneakers?",
+      "answer": "under my bed",
+      "question_date": "2023/11/30 (Thu) 14:06",
+      "n_evidence_turns": 2,
+      "group": "historical_state",
+      "state_type": "fact",
+      "exclusion_reason": null,
+      "flags": [
+        "second_write_phrased_as_plan"
+      ],
+      "note": "asks the initial location"
+    },
+    {
+      "question_id": "07741c45",
+      "question": "Where do I currently keep my old sneakers?",
+      "answer": "in a shoe rack in my closet",
+      "question_date": "2023/06/07 (Wed) 04:15",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "fact",
+      "exclusion_reason": null,
+      "flags": [
+        "second_write_phrased_as_plan"
+      ],
+      "note": "paired with 07741c44 on the same history"
+    },
+    {
+      "question_id": "08e075c7",
+      "question": "How long have I been using my Fitbit Charge 3?",
+      "answer": "9 months",
+      "question_date": "2023/09/03 (Sun) 20:23",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "duration",
+      "exclusion_reason": null,
+      "flags": [
+        "time_dependent_value"
+      ],
+      "note": ""
+    },
+    {
+      "question_id": "0977f2af",
+      "question": "What new kitchen gadget did I invest in before getting the Air Fryer?",
+      "answer": "Instant Pot",
+      "question_date": "2023/05/24 (Wed) 22:13",
+      "n_evidence_turns": 2,
+      "group": "excluded",
+      "state_type": "event",
+      "exclusion_reason": "not_state_update",
+      "flags": [],
+      "note": "two distinct acquisitions; asks their order"
+    },
+    {
+      "question_id": "0ddfec37",
+      "question": "How many autographed baseballs have I added to my collection in the first three months of collection?",
+      "answer": "15",
+      "question_date": "2024/01/12 (Fri) 07:27",
+      "n_evidence_turns": 2,
+      "group": "excluded",
+      "state_type": "count",
+      "exclusion_reason": "ambiguous_slot",
+      "flags": [],
+      "note": "'in the first three months' vs 'in the past few months' are different windows, not one slot revisited"
+    },
+    {
+      "question_id": "0ddfec37_abs",
+      "question": "How many autographed football have I added to my collection in the first three months of collection?",
+      "answer": "The information provided is not enough. You mentioned collecting autographed baseball but not football.",
+      "question_date": "2023/06/16 (Fri) 03:13",
+      "n_evidence_turns": 0,
+      "group": "abstention",
+      "state_type": "fact",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "0e4e4c46",
+      "question": "What is my current highest score in Ticket to Ride?",
+      "answer": "132 points",
+      "question_date": "2023/06/09 (Fri) 07:46",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [
+        "monotone_value"
+      ],
+      "note": ""
+    },
+    {
+      "question_id": "0f05491a",
+      "question": "How many stars do I need to reach the gold level on my Starbucks Rewards app?",
+      "answer": 120,
+      "question_date": "2023/08/01 (Tue) 14:49",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "fact",
+      "exclusion_reason": null,
+      "flags": [
+        "explicit_self_correction"
+      ],
+      "note": "both writes are self-corrections; same speaker"
+    },
+    {
+      "question_id": "10e09553",
+      "question": "How many largemouth bass did I catch with Alex on the earlier fishing trip to Lake Michigan before the 7/22 trip?",
+      "answer": "7",
+      "question_date": "2023/12/12 (Tue) 20:12",
+      "n_evidence_turns": 2,
+      "group": "excluded",
+      "state_type": "event",
+      "exclusion_reason": "not_state_update",
+      "flags": [],
+      "note": "two dated fishing trips; asks the earlier one"
+    },
+    {
+      "question_id": "184da446",
+      "question": "How many pages of 'A Short History of Nearly Everything' have I read so far?",
+      "answer": "220",
+      "question_date": "2023/06/28 (Wed) 22:01",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "18bc8abd",
+      "question": "What brand of BBQ sauce am I currently obsessed with?",
+      "answer": "Kansas City Masterpiece",
+      "question_date": "2023/07/02 (Sun) 10:10",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "preference",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": "favourite BBQ sauce changes brand"
+    },
+    {
+      "question_id": "1cea1afa",
+      "question": "How many Instagram followers do I currently have?",
+      "answer": "600",
+      "question_date": "2023/06/08 (Thu) 22:24",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "2133c1b5",
+      "question": "How long have I been living in my current apartment in Harajuku?",
+      "answer": "3 months",
+      "question_date": "2023/10/15 (Sun) 12:38",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "duration",
+      "exclusion_reason": null,
+      "flags": [
+        "time_dependent_value",
+        "durations_inconsistent_with_elapsed_time"
+      ],
+      "note": ""
+    },
+    {
+      "question_id": "2133c1b5_abs",
+      "question": "How long have I been living in my current apartment in Shinjuku?",
+      "answer": "The information provided is not enough. You mentioned living in Harajuku but not Shinjuku.",
+      "question_date": "2023/10/15 (Sun) 09:44",
+      "n_evidence_turns": 0,
+      "group": "abstention",
+      "state_type": "fact",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "22d2cb42",
+      "question": "Where did I get my guitar serviced?",
+      "answer": "The music shop on Main St.",
+      "question_date": "2023/06/12 (Mon) 07:37",
+      "n_evidence_turns": 1,
+      "group": "excluded",
+      "state_type": "fact",
+      "exclusion_reason": "single_write",
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "2698e78f",
+      "question": "How often do I see my therapist, Dr. Smith?",
+      "answer": "every week",
+      "question_date": "2023/12/01 (Fri) 13:17",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "routine",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "2698e78f_abs",
+      "question": "How often do I see Dr. Johnson?",
+      "answer": "The information provided is not enough. You mentioned seeing Dr. Smith but not Dr. Johnson.",
+      "question_date": "2023/05/31 (Wed) 19:10",
+      "n_evidence_turns": 0,
+      "group": "abstention",
+      "state_type": "fact",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "26bdc477",
+      "question": "How many trips have I taken my Canon EOS 80D camera on?",
+      "answer": "five",
+      "question_date": "2023/06/14 (Wed) 10:15",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "3ba21379",
+      "question": "What type of vehicle model am I currently working on?",
+      "answer": "Ford F-150 pickup truck",
+      "question_date": "2023/06/11 (Sun) 18:18",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "fact",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "41698283",
+      "question": "What type of camera lens did I purchase most recently?",
+      "answer": "a 70-200mm zoom lens",
+      "question_date": "2023/09/08 (Fri) 04:23",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "fact",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": "'most recently purchased' — the slot is the latest acquisition"
+    },
+    {
+      "question_id": "42ec0761",
+      "question": "Do I have a spare screwdriver for opening up my laptop?",
+      "answer": "Yes",
+      "question_date": "2023/09/06 (Wed) 17:02",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "boolean",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "45dc21b6",
+      "question": "How many of Emma's recipes have I tried out?",
+      "answer": "3",
+      "question_date": "2023/06/09 (Fri) 10:52",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "4b24c848",
+      "question": "How many tops have I bought from H&M so far?",
+      "answer": "five",
+      "question_date": "2023/10/20 (Fri) 18:28",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "4d6b87c8",
+      "question": "How many titles are currently on my to-watch list?",
+      "answer": "25",
+      "question_date": "2023/06/20 (Tue) 09:36",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "50635ada",
+      "question": "What was my previous frequent flyer status on United Airlines before I got the current status?",
+      "answer": "Premier Silver",
+      "question_date": "2023/06/19 (Mon) 14:41",
+      "n_evidence_turns": 2,
+      "group": "historical_state",
+      "state_type": "fact",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": "asks the previous status"
+    },
+    {
+      "question_id": "5831f84d",
+      "question": "How many Crash Course videos have I watched in the past few weeks?",
+      "answer": "15",
+      "question_date": "2023/10/05 (Thu) 21:04",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "59524333",
+      "question": "What time do I usually go to the gym?",
+      "answer": "6:00 pm",
+      "question_date": "2023/06/08 (Thu) 00:54",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "routine",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "5a4f22c0",
+      "question": "What company is Rachel, an old colleague from my previous company, currently working at?",
+      "answer": "TechCorp",
+      "question_date": "2023/06/20 (Tue) 11:24",
+      "n_evidence_turns": 2,
+      "group": "excluded",
+      "state_type": "fact",
+      "exclusion_reason": "single_write",
+      "flags": [],
+      "note": "first mention carries no company"
+    },
+    {
+      "question_id": "5c40ec5b",
+      "question": "How many times have I met up with Alex from Germany?",
+      "answer": "We've met up twice.",
+      "question_date": "2023/10/15 (Sun) 07:17",
+      "n_evidence_turns": 2,
+      "group": "excluded",
+      "state_type": "count",
+      "exclusion_reason": "single_write",
+      "flags": [],
+      "note": "first mention carries no count"
+    },
+    {
+      "question_id": "603deb26",
+      "question": "How many times have I tried making a Negroni at home since my friend Emma showed me how to make it?",
+      "answer": "10",
+      "question_date": "2023/12/29 (Fri) 12:41",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "6071bd76",
+      "question": "For the coffee-to-water ratio in my French press, did I switch to more water per tablespoon of coffee, or less?",
+      "answer": "You switched to less water (5 ounces) per tablespoon of coffee.",
+      "question_date": "2023/07/23 (Sun) 03:18",
+      "n_evidence_turns": 2,
+      "group": "delta_direction",
+      "state_type": "fact",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": "asks more or less; needs both values"
+    },
+    {
+      "question_id": "618f13b2",
+      "question": "How many times have I worn my new black Converse Chuck Taylor All Star sneakers?",
+      "answer": "six",
+      "question_date": "2023/05/28 (Sun) 22:52",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "69fee5aa",
+      "question": "How many pre-1920 American coins do I have in my collection?",
+      "answer": "38",
+      "question_date": "2023/05/28 (Sun) 13:18",
+      "n_evidence_turns": 2,
+      "group": "accumulation",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": "'I just added a new coin' — the new value must be computed from the old one"
+    },
+    {
+      "question_id": "6a1eabeb",
+      "question": "What was my personal best time in the charity 5K run?",
+      "answer": "25 minutes and 50 seconds (or 25:50)",
+      "question_date": "2023/06/01 (Thu) 00:58",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "fact",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "6a27ffc2",
+      "question": "How many videos of Corey Schafer's Python programming series have I completed so far?",
+      "answer": "30",
+      "question_date": "2023/05/26 (Fri) 16:53",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "6aeb4375",
+      "question": "How many Korean restaurants have I tried in my city?",
+      "answer": "four",
+      "question_date": "2023/10/08 (Sun) 21:51",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "6aeb4375_abs",
+      "question": "How many Italian restaurants have I tried in my city?",
+      "answer": "The information provided is not enough. You mentioned trying Korean restaurants but not Italian restaurants.",
+      "question_date": "2023/06/24 (Sat) 09:01",
+      "n_evidence_turns": 0,
+      "group": "abstention",
+      "state_type": "fact",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "71315a70",
+      "question": "How many hours have I spent on my abstract ocean sculpture?",
+      "answer": "10-12 hours",
+      "question_date": "2023/06/18 (Sun) 14:57",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "duration",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "72e3ee87",
+      "question": "How many episodes of the Science series have I completed on Crash Course?",
+      "answer": "50",
+      "question_date": "2023/06/21 (Wed) 00:41",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "7401057b",
+      "question": "How many free night's stays can I redeem at any Hilton property with my accumulated points?",
+      "answer": "Two",
+      "question_date": "2023/06/23 (Fri) 07:47",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "7a87bd0c",
+      "question": "How long have I been sticking to my daily tidying routine?",
+      "answer": "4 weeks",
+      "question_date": "2023/09/30 (Sat) 18:36",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "duration",
+      "exclusion_reason": null,
+      "flags": [
+        "time_dependent_value",
+        "durations_inconsistent_with_elapsed_time"
+      ],
+      "note": ""
+    },
+    {
+      "question_id": "7e974930",
+      "question": "How much did I earn at the Downtown Farmers Market on my most recent visit?",
+      "answer": "$420",
+      "question_date": "2023/10/02 (Mon) 04:40",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "fact",
+      "exclusion_reason": null,
+      "flags": [
+        "event_series"
+      ],
+      "note": "'most recent visit' over a series of dated earnings"
+    },
+    {
+      "question_id": "830ce83f",
+      "question": "Where did Rachel move to after her recent relocation?",
+      "answer": "the suburbs",
+      "question_date": "2023/06/24 (Sat) 08:50",
+      "n_evidence_turns": 3,
+      "group": "current_state",
+      "state_type": "fact",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": "three writes: city, Chicago, suburbs"
+    },
+    {
+      "question_id": "852ce960",
+      "question": "What was the amount I was pre-approved for when I got my mortgage from Wells Fargo?",
+      "answer": "$400,000",
+      "question_date": "2023/12/09 (Sat) 11:53",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "fact",
+      "exclusion_reason": null,
+      "flags": [
+        "conflicting_reports_of_one_fact"
+      ],
+      "note": "$350k then 'remember when I got pre-approved for $400k' — not a change over time but two reports of one event; gold takes the later"
+    },
+    {
+      "question_id": "89941a93",
+      "question": "How many bikes do I currently own?",
+      "answer": "4",
+      "question_date": "2023/10/29 (Sun) 15:48",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "89941a94",
+      "question": "Before I purchased the gravel bike, do I have other bikes in addition to my mountain bike and my commuter bike?",
+      "answer": "Yes. (You have a road bike too.)",
+      "question_date": "2023/06/26 (Mon) 07:42",
+      "n_evidence_turns": 2,
+      "group": "historical_state",
+      "state_type": "boolean",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": "asks about the state before the newest bike"
+    },
+    {
+      "question_id": "8fb83627",
+      "question": "How many issues of National Geographic have I finished reading?",
+      "answer": "Five",
+      "question_date": "2023/07/18 (Tue) 09:43",
+      "n_evidence_turns": 3,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": "three writes"
+    },
+    {
+      "question_id": "945e3d21",
+      "question": "How often do I attend yoga classes to help with my anxiety?",
+      "answer": "Three times a week.",
+      "question_date": "2023/12/25 (Mon) 05:30",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "routine",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "9bbe84a2",
+      "question": "What was my previous goal for my Apex Legends level before I updated my goal?",
+      "answer": "level 100",
+      "question_date": "2023/10/12 (Thu) 00:50",
+      "n_evidence_turns": 2,
+      "group": "historical_state",
+      "state_type": "goal",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": "asks the previous goal"
+    },
+    {
+      "question_id": "9ea5eabc",
+      "question": "Where did I go on my most recent family trip?",
+      "answer": "Paris",
+      "question_date": "2023/06/09 (Fri) 21:26",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "fact",
+      "exclusion_reason": null,
+      "flags": [
+        "both_writes_say_recent"
+      ],
+      "note": "two 'recent family trips' one day apart; gold takes the later"
+    },
+    {
+      "question_id": "a1eacc2a",
+      "question": "How many short stories have I written since I started writing regularly?",
+      "answer": "seven",
+      "question_date": "2023/06/14 (Wed) 08:23",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "a2f3aa27",
+      "question": "How many followers do I have on Instagram now?",
+      "answer": 1300,
+      "question_date": "2023/06/03 (Sat) 09:01",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [
+        "hedged_value"
+      ],
+      "note": "'I think I'm close to 1300'"
+    },
+    {
+      "question_id": "affe2881",
+      "question": "How many different species of birds have I seen in my local park?",
+      "answer": "32",
+      "question_date": "2023/06/28 (Wed) 14:23",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "b01defab",
+      "question": "Did I finish reading 'The Nightingale' by Kristin Hannah?",
+      "answer": "Yes",
+      "question_date": "2023/04/23 (Sun) 13:41",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "boolean",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "b6019101",
+      "question": "How many MCU films did I watch in the last 3 months?",
+      "answer": "5",
+      "question_date": "2023/06/06 (Tue) 10:43",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "ba61f0b9",
+      "question": "How many women are on the team led by my former manager Rachel?",
+      "answer": "6",
+      "question_date": "2023/08/09 (Wed) 07:46",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": "first value is 'half of 10'"
+    },
+    {
+      "question_id": "c4ea545c",
+      "question": "Do I go to the gym more frequently than I did previously?",
+      "answer": "Yes",
+      "question_date": "2023/08/18 (Fri) 04:17",
+      "n_evidence_turns": 2,
+      "group": "delta_direction",
+      "state_type": "routine",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": "asks more or less frequently"
+    },
+    {
+      "question_id": "c6853660",
+      "question": "Did I mostly recently increase or decrease the limit on the number of cups of coffee in the morning?",
+      "answer": "You increased the limit (from one cup to two cups)",
+      "question_date": "2023/06/26 (Mon) 00:11",
+      "n_evidence_turns": 2,
+      "group": "delta_direction",
+      "state_type": "fact",
+      "exclusion_reason": null,
+      "flags": [
+        "second_write_phrased_as_plan"
+      ],
+      "note": "'thinking of changing to two cups'; gold treats it as the change"
+    },
+    {
+      "question_id": "c7dc5443",
+      "question": "What is my current record in the recreational volleyball league?",
+      "answer": "5-2",
+      "question_date": "2023/07/17 (Mon) 02:55",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "fact",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "cc5ded98",
+      "question": "How much time do I dedicate to coding exercises each day?",
+      "answer": "about two hours",
+      "question_date": "2023/06/22 (Thu) 19:41",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "duration",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "ce6d2d27",
+      "question": "What day of the week do I take a cocktail-making class?",
+      "answer": "Friday",
+      "question_date": "2023/07/12 (Wed) 04:11",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "routine",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "cf22b7bf",
+      "question": "How much weight have I lost since I started going to the gym consistently?",
+      "answer": "10 pounds",
+      "question_date": "2023/06/23 (Fri) 16:42",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "d7c942c3",
+      "question": "Is my mom using the same grocery list method as me?",
+      "answer": "Yes.",
+      "question_date": "2023/05/08 (Mon) 03:18",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "boolean",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "dad224aa",
+      "question": "What time do I wake up on Saturday mornings?",
+      "answer": "7:30 am",
+      "question_date": "2023/06/15 (Thu) 00:49",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "routine",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "db467c8c",
+      "question": "How long have my parents been staying with me in the US?",
+      "answer": "nine months",
+      "question_date": "2023/10/22 (Sun) 20:20",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "duration",
+      "exclusion_reason": null,
+      "flags": [
+        "time_dependent_value"
+      ],
+      "note": ""
+    },
+    {
+      "question_id": "dfde3500",
+      "question": "What day of the week did I meet with my previous language exchange tutor Juan?",
+      "answer": "Wednesday",
+      "question_date": "2023/06/25 (Sun) 04:48",
+      "n_evidence_turns": 2,
+      "group": "historical_state",
+      "state_type": "routine",
+      "exclusion_reason": null,
+      "flags": [
+        "implicit_supersession"
+      ],
+      "note": "tutor Juan (Wed) then Maria (Thu); asks Juan's day"
+    },
+    {
+      "question_id": "e493bb7c",
+      "question": "Where is the painting 'Ethereal Dreams' by Emma Taylor currently hanging?",
+      "answer": "in my bedroom",
+      "question_date": "2023/11/29 (Wed) 08:35",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "fact",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "e61a7584",
+      "question": "How long have I had my cat, Luna?",
+      "answer": "9 months",
+      "question_date": "2023/11/30 (Thu) 03:32",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "duration",
+      "exclusion_reason": null,
+      "flags": [
+        "time_dependent_value"
+      ],
+      "note": ""
+    },
+    {
+      "question_id": "e66b632c",
+      "question": "What was my previous personal best time for the charity 5K run?",
+      "answer": "27 minutes and 45 seconds",
+      "question_date": "2023/08/23 (Wed) 07:49",
+      "n_evidence_turns": 2,
+      "group": "historical_state",
+      "state_type": "fact",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": "PB 27:45 then 26:30; asks the previous PB"
+    },
+    {
+      "question_id": "eace081b",
+      "question": "Where am I planning to stay for my birthday trip to Hawaii?",
+      "answer": "Oahu",
+      "question_date": "2023/06/08 (Thu) 16:35",
+      "n_evidence_turns": 1,
+      "group": "excluded",
+      "state_type": "fact",
+      "exclusion_reason": "single_write",
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "ed4ddc30",
+      "question": "How many dozen eggs do we currently have stocked up in our refrigerator?",
+      "answer": "20",
+      "question_date": "2023/03/16 (Thu) 07:05",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "f685340e",
+      "question": "How often do I play tennis with my friends at the local park previously? How often do I play now?",
+      "answer": "Previously, you play tennis with your friends at the local park every week (on Sunday). Currently, you play tennis every other week (on Sunday).",
+      "question_date": "2023/08/15 (Tue) 05:55",
+      "n_evidence_turns": 2,
+      "group": "both_states",
+      "state_type": "routine",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": "asks previous and current in one question"
+    },
+    {
+      "question_id": "f685340e_abs",
+      "question": "How often do I play table tennis with my friends at the local park?",
+      "answer": "The information provided is not enough. You mentioned playing tennis but not table tennis.",
+      "question_date": "2023/06/19 (Mon) 15:12",
+      "n_evidence_turns": 0,
+      "group": "abstention",
+      "state_type": "fact",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    },
+    {
+      "question_id": "f9e8c073",
+      "question": "How many sessions of the bereavement support group did I attend?",
+      "answer": "five",
+      "question_date": "2023/11/14 (Tue) 04:58",
+      "n_evidence_turns": 2,
+      "group": "current_state",
+      "state_type": "count",
+      "exclusion_reason": null,
+      "flags": [],
+      "note": ""
+    }
+  ]
+}

@@ -159,9 +159,15 @@ written before any example was read (previous section) held in every cell.
 tests — the two that can carry Finding 1, and between them they contain the
 external stress cases for the replace-in-place known gap (paired initial /
 current questions; NameList; SallyAnne) and an accumulation semantics neither
-`replace` nor `keep_both` expresses. To be frozen with the full-category
-inspection of LongMemEval's 78 knowledge-update questions before any variant
-runs.
+`replace` nor `keep_both` expresses. **Frozen 2026-09-13**, after the full-category inspection:
+[`longmemeval-ku-manifest.json`](longmemeval-ku-manifest.json) — 78
+questions: 65 usable slot updates (53 current-state, 6 historical, 2 both,
+3 delta-direction, 1 accumulation), 6 abstention controls, 7 excluded for
+pre-defined reasons (4 single-write, 2 not-a-state-update, 1 ambiguous slot);
+[`goodai-ltm-manifest.json`](goodai-ltm-manifest.json) — 5 tests / 15
+instances selected by a rule (Colours, NameList, SallyAnne, Shopping,
+Restaurant), 6 tests excluded with reasons. Labels do not change after
+variant results are seen.
 
 **Findings 2 and 3:** `NOT TESTABLE` in existing benchmarks, on the evidence
 of four inspections. The observation this licenses — stated only now that the
