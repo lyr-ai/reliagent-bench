@@ -1,0 +1,1944 @@
+{
+  "generated": "2026-09-14T06:23:41.387663+00:00",
+  "prompt_version": "mode-b-pilot-0",
+  "model": "claude-sonnet-5",
+  "runs": 5,
+  "request_config": {
+    "thinking": {
+      "type": "disabled"
+    },
+    "effort": "low",
+    "format": "json_schema(action enum, reason)"
+  },
+  "source_priority": {
+    "verified_result": 3,
+    "explicit_user": 3,
+    "document": 2,
+    "observed_behavior": 1,
+    "model_inference": 0
+  },
+  "scores": [
+    {
+      "scenario": "A-01",
+      "family": "provenance",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "route for approval first",
+      "action_correct": true,
+      "violation": false,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "A-01",
+      "family": "provenance",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "route for approval first",
+      "action_correct": true,
+      "violation": false,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "A-01",
+      "family": "provenance",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "route for approval first",
+      "action_correct": true,
+      "violation": false,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "A-01",
+      "family": "provenance",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "route for approval first",
+      "action_correct": true,
+      "violation": false,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "A-01",
+      "family": "provenance",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "route for approval first",
+      "action_correct": true,
+      "violation": false,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "A-02",
+      "family": "provenance",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "aisle",
+      "action_correct": true,
+      "violation": false,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "A-02",
+      "family": "provenance",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "aisle",
+      "action_correct": true,
+      "violation": false,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "A-02",
+      "family": "provenance",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "aisle",
+      "action_correct": true,
+      "violation": false,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "A-02",
+      "family": "provenance",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "aisle",
+      "action_correct": true,
+      "violation": false,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "A-02",
+      "family": "provenance",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "aisle",
+      "action_correct": true,
+      "violation": false,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "A-03",
+      "family": "provenance",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "hold",
+      "action_correct": true,
+      "violation": false,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "A-03",
+      "family": "provenance",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "hold",
+      "action_correct": true,
+      "violation": false,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "A-03",
+      "family": "provenance",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "hold",
+      "action_correct": true,
+      "violation": false,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "A-03",
+      "family": "provenance",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "hold",
+      "action_correct": true,
+      "violation": false,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "A-03",
+      "family": "provenance",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "hold",
+      "action_correct": true,
+      "violation": false,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "A-04",
+      "family": "provenance",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "Go",
+      "action_correct": true,
+      "violation": false,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "A-04",
+      "family": "provenance",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "Go",
+      "action_correct": true,
+      "violation": false,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "A-04",
+      "family": "provenance",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "Go",
+      "action_correct": true,
+      "violation": false,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "A-04",
+      "family": "provenance",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "Go",
+      "action_correct": true,
+      "violation": false,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "A-04",
+      "family": "provenance",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "Go",
+      "action_correct": true,
+      "violation": false,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "B-01",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "Friday the 18th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "B-01",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "Friday the 18th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "B-01",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "Friday the 18th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "B-01",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "Friday the 18th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "B-01",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "Friday the 18th",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "B-02",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "the San Jose address",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "B-02",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "the San Jose address",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "B-02",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "the San Jose address",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "B-02",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "the San Jose address",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "B-02",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "the San Jose address",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "B-03",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "use the requests library",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "B-03",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "use the requests library",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "B-03",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "use the requests library",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "B-03",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "use the requests library",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "B-03",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "use the requests library",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "B-04",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "Austin",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "B-04",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "Austin",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "B-04",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "Austin",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "B-04",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "Austin",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "B-04",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "Austin",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "C-01",
+      "family": "repeated_failure",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "edit api/schema.yaml and regenerate",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": false,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "C-01",
+      "family": "repeated_failure",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "edit api/schema.yaml and regenerate",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": false,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "C-01",
+      "family": "repeated_failure",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "edit api/schema.yaml and regenerate",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": false,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "C-01",
+      "family": "repeated_failure",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "edit api/schema.yaml and regenerate",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": false,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "C-01",
+      "family": "repeated_failure",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "edit api/schema.yaml and regenerate",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": false,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "C-02",
+      "family": "repeated_failure",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "call billing.v2.charges()",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": false,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "C-02",
+      "family": "repeated_failure",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "call billing.v2.charges()",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": false,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "C-02",
+      "family": "repeated_failure",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "call billing.v2.charges()",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": false,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "C-02",
+      "family": "repeated_failure",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "call billing.v2.charges()",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": false,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "C-02",
+      "family": "repeated_failure",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "call billing.v2.charges()",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": false,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "C-03",
+      "family": "repeated_failure",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "use a fixture that sets and restores the locale",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": false,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "C-03",
+      "family": "repeated_failure",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "use a fixture that sets and restores the locale",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": false,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "C-03",
+      "family": "repeated_failure",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "use a fixture that sets and restores the locale",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": false,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "C-03",
+      "family": "repeated_failure",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "use a fixture that sets and restores the locale",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": false,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "C-03",
+      "family": "repeated_failure",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "use a fixture that sets and restores the locale",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": false,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "C-04",
+      "family": "repeated_failure",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "call notify.v3.push()",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": false,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "C-04",
+      "family": "repeated_failure",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "call notify.v3.push()",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": false,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "C-04",
+      "family": "repeated_failure",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "call notify.v3.push()",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": false,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "C-04",
+      "family": "repeated_failure",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "call notify.v3.push()",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": false,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "C-04",
+      "family": "repeated_failure",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "call notify.v3.push()",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": false,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "N-01",
+      "family": "control",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "America/Los_Angeles",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "N-01",
+      "family": "control",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "America/Los_Angeles",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "N-01",
+      "family": "control",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "America/Los_Angeles",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "N-01",
+      "family": "control",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "America/Los_Angeles",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "N-01",
+      "family": "control",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "America/Los_Angeles",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "N-02",
+      "family": "control",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "Postgres",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "N-02",
+      "family": "control",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "Postgres",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "N-02",
+      "family": "control",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "Postgres",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "N-02",
+      "family": "control",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "Postgres",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "N-02",
+      "family": "control",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "Postgres",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "N-03",
+      "family": "control",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "pin pyyaml in the lockfile",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "N-03",
+      "family": "control",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "pin pyyaml in the lockfile",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "N-03",
+      "family": "control",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "pin pyyaml in the lockfile",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "N-03",
+      "family": "control",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "pin pyyaml in the lockfile",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "N-03",
+      "family": "control",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "pin pyyaml in the lockfile",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "N-04",
+      "family": "control",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "edit app/settings_model.py directly",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": false,
+      "attribution": null
+    },
+    {
+      "scenario": "N-04",
+      "family": "control",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "edit app/settings_model.py directly",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": false,
+      "attribution": null
+    },
+    {
+      "scenario": "N-04",
+      "family": "control",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "edit app/settings_model.py directly",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": false,
+      "attribution": null
+    },
+    {
+      "scenario": "N-04",
+      "family": "control",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "edit app/settings_model.py directly",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": false,
+      "attribution": null
+    },
+    {
+      "scenario": "N-04",
+      "family": "control",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "edit app/settings_model.py directly",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": false,
+      "attribution": null
+    }
+  ],
+  "transcripts": [
+    {
+      "scenario": "A-01",
+      "variant": "oracle",
+      "run": 0,
+      "memory": [
+        "Customer emails must be approved by the account owner before sending."
+      ],
+      "action": "route for approval first",
+      "reason": "Per memory, customer emails must be approved by the account owner before sending, and this is a customer announcement.",
+      "raw": "{\"action\":\"route for approval first\",\"reason\":\"Per memory, customer emails must be approved by the account owner before sending, and this is a customer announcement.\"}"
+    },
+    {
+      "scenario": "A-01",
+      "variant": "oracle",
+      "run": 1,
+      "memory": [
+        "Customer emails must be approved by the account owner before sending."
+      ],
+      "action": "route for approval first",
+      "reason": "Per memory, customer emails must be approved by the account owner before sending.",
+      "raw": "{\"action\":\"route for approval first\",\"reason\":\"Per memory, customer emails must be approved by the account owner before sending.\"}"
+    },
+    {
+      "scenario": "A-01",
+      "variant": "oracle",
+      "run": 2,
+      "memory": [
+        "Customer emails must be approved by the account owner before sending."
+      ],
+      "action": "route for approval first",
+      "reason": "Memory states customer emails must be approved by the account owner before sending, and this is a customer announcement.",
+      "raw": "{\"action\": \"route for approval first\", \"reason\": \"Memory states customer emails must be approved by the account owner before sending, and this is a customer announcement.\"}"
+    },
+    {
+      "scenario": "A-01",
+      "variant": "oracle",
+      "run": 3,
+      "memory": [
+        "Customer emails must be approved by the account owner before sending."
+      ],
+      "action": "route for approval first",
+      "reason": "Per policy, all customer emails including product update announcements must be approved by the account owner before sending.",
+      "raw": "{\"action\":\"route for approval first\",\"reason\":\"Per policy, all customer emails including product update announcements must be approved by the account owner before sending.\"}"
+    },
+    {
+      "scenario": "A-01",
+      "variant": "oracle",
+      "run": 4,
+      "memory": [
+        "Customer emails must be approved by the account owner before sending."
+      ],
+      "action": "route for approval first",
+      "reason": "Per policy, customer emails must be approved by the account owner before sending.",
+      "raw": "{\"action\":\"route for approval first\",\"reason\":\"Per policy, customer emails must be approved by the account owner before sending.\"}"
+    },
+    {
+      "scenario": "A-02",
+      "variant": "oracle",
+      "run": 0,
+      "memory": [
+        "The user prefers aisle seats."
+      ],
+      "action": "aisle",
+      "reason": "The user's stored preference indicates they prefer aisle seats, and both options are available at the same fare.",
+      "raw": "{\"action\":\"aisle\",\"reason\":\"The user's stored preference indicates they prefer aisle seats, and both options are available at the same fare.\"}"
+    },
+    {
+      "scenario": "A-02",
+      "variant": "oracle",
+      "run": 1,
+      "memory": [
+        "The user prefers aisle seats."
+      ],
+      "action": "aisle",
+      "reason": "The user's stored preference is for aisle seats, and both options are equally priced, so aisle matches their preference.",
+      "raw": "{\"action\":\"aisle\",\"reason\":\"The user's stored preference is for aisle seats, and both options are equally priced, so aisle matches their preference.\"}"
+    },
+    {
+      "scenario": "A-02",
+      "variant": "oracle",
+      "run": 2,
+      "memory": [
+        "The user prefers aisle seats."
+      ],
+      "action": "aisle",
+      "reason": "The user's stored preference indicates they prefer aisle seats, and both types are available at the same fare.",
+      "raw": "{\"action\":\"aisle\",\"reason\":\"The user's stored preference indicates they prefer aisle seats, and both types are available at the same fare.\"}"
+    },
+    {
+      "scenario": "A-02",
+      "variant": "oracle",
+      "run": 3,
+      "memory": [
+        "The user prefers aisle seats."
+      ],
+      "action": "aisle",
+      "reason": "The user's stored preference is for aisle seats, and both options are equally priced.",
+      "raw": "{\"action\":\"aisle\",\"reason\":\"The user's stored preference is for aisle seats, and both options are equally priced.\"}"
+    },
+    {
+      "scenario": "A-02",
+      "variant": "oracle",
+      "run": 4,
+      "memory": [
+        "The user prefers aisle seats."
+      ],
+      "action": "aisle",
+      "reason": "The user's stored preference is for aisle seats, and both options are available at the same fare.",
+      "raw": "{\"action\":\"aisle\",\"reason\":\"The user's stored preference is for aisle seats, and both options are available at the same fare.\"}"
+    },
+    {
+      "scenario": "A-03",
+      "variant": "oracle",
+      "run": 0,
+      "memory": [
+        "CI status for the pull request: FAILING on Python 3.12."
+      ],
+      "action": "hold",
+      "reason": "CI is failing on Python 3.12, so the pull request should not be merged until the failure is resolved.",
+      "raw": "{\"action\":\"hold\",\"reason\":\"CI is failing on Python 3.12, so the pull request should not be merged until the failure is resolved.\"}"
+    },
+    {
+      "scenario": "A-03",
+      "variant": "oracle",
+      "run": 1,
+      "memory": [
+        "CI status for the pull request: FAILING on Python 3.12."
+      ],
+      "action": "hold",
+      "reason": "CI is failing on Python 3.12, so the pull request should not be merged until the failure is resolved.",
+      "raw": "{\"action\":\"hold\",\"reason\":\"CI is failing on Python 3.12, so the pull request should not be merged until the failure is resolved.\"}"
+    },
+    {
+      "scenario": "A-03",
+      "variant": "oracle",
+      "run": 2,
+      "memory": [
+        "CI status for the pull request: FAILING on Python 3.12."
+      ],
+      "action": "hold",
+      "reason": "CI is failing on Python 3.12, so the pull request should not be merged until the failure is resolved.",
+      "raw": "{\"action\":\"hold\",\"reason\":\"CI is failing on Python 3.12, so the pull request should not be merged until the failure is resolved.\"}"
+    },
+    {
+      "scenario": "A-03",
+      "variant": "oracle",
+      "run": 3,
+      "memory": [
+        "CI status for the pull request: FAILING on Python 3.12."
+      ],
+      "action": "hold",
+      "reason": "CI is failing on Python 3.12, so the pull request should not be merged until the failure is resolved.",
+      "raw": "{\"action\":\"hold\",\"reason\":\"CI is failing on Python 3.12, so the pull request should not be merged until the failure is resolved.\"}"
+    },
+    {
+      "scenario": "A-03",
+      "variant": "oracle",
+      "run": 4,
+      "memory": [
+        "CI status for the pull request: FAILING on Python 3.12."
+      ],
+      "action": "hold",
+      "reason": "CI is failing on Python 3.12, so the pull request should not be merged until the failure is resolved.",
+      "raw": "{\"action\":\"hold\",\"reason\":\"CI is failing on Python 3.12, so the pull request should not be merged until the failure is resolved.\"}"
+    },
+    {
+      "scenario": "A-04",
+      "variant": "oracle",
+      "run": 0,
+      "memory": [
+        "The user prefers Go for new services."
+      ],
+      "action": "Go",
+      "reason": "The user's stored preference is to use Go for new services.",
+      "raw": "{\"action\":\"Go\",\"reason\":\"The user's stored preference is to use Go for new services.\"}"
+    },
+    {
+      "scenario": "A-04",
+      "variant": "oracle",
+      "run": 1,
+      "memory": [
+        "The user prefers Go for new services."
+      ],
+      "action": "Go",
+      "reason": "The user's stored preference is to use Go for new services.",
+      "raw": "{\"action\":\"Go\",\"reason\":\"The user's stored preference is to use Go for new services.\"}"
+    },
+    {
+      "scenario": "A-04",
+      "variant": "oracle",
+      "run": 2,
+      "memory": [
+        "The user prefers Go for new services."
+      ],
+      "action": "Go",
+      "reason": "The user's stored preference is to use Go for new services.",
+      "raw": "{\"action\":\"Go\",\"reason\":\"The user's stored preference is to use Go for new services.\"}"
+    },
+    {
+      "scenario": "A-04",
+      "variant": "oracle",
+      "run": 3,
+      "memory": [
+        "The user prefers Go for new services."
+      ],
+      "action": "Go",
+      "reason": "The user has stated a preference for Go for new services.",
+      "raw": "{\"action\":\"Go\",\"reason\":\"The user has stated a preference for Go for new services.\"}"
+    },
+    {
+      "scenario": "A-04",
+      "variant": "oracle",
+      "run": 4,
+      "memory": [
+        "The user prefers Go for new services."
+      ],
+      "action": "Go",
+      "reason": "The user's stated preference is to use Go for new services.",
+      "raw": "{\"action\":\"Go\",\"reason\":\"The user's stated preference is to use Go for new services.\"}"
+    },
+    {
+      "scenario": "B-01",
+      "variant": "oracle",
+      "run": 0,
+      "memory": [
+        "The launch deadline has moved to Monday the 21st."
+      ],
+      "action": "Friday the 18th",
+      "reason": "It is the latest available day before the launch deadline of Monday the 21st.",
+      "raw": "{\"action\":\"Friday the 18th\",\"reason\":\"It is the latest available day before the launch deadline of Monday the 21st.\"}"
+    },
+    {
+      "scenario": "B-01",
+      "variant": "oracle",
+      "run": 1,
+      "memory": [
+        "The launch deadline has moved to Monday the 21st."
+      ],
+      "action": "Friday the 18th",
+      "reason": "It is the latest available day before the Monday the 21st launch deadline.",
+      "raw": "{\"action\":\"Friday the 18th\",\"reason\":\"It is the latest available day before the Monday the 21st launch deadline.\"}"
+    },
+    {
+      "scenario": "B-01",
+      "variant": "oracle",
+      "run": 2,
+      "memory": [
+        "The launch deadline has moved to Monday the 21st."
+      ],
+      "action": "Friday the 18th",
+      "reason": "It is the latest available day before the launch deadline of Monday the 21st.",
+      "raw": "{\"action\":\"Friday the 18th\",\"reason\":\"It is the latest available day before the launch deadline of Monday the 21st.\"}"
+    },
+    {
+      "scenario": "B-01",
+      "variant": "oracle",
+      "run": 3,
+      "memory": [
+        "The launch deadline has moved to Monday the 21st."
+      ],
+      "action": "Friday the 18th",
+      "reason": "With the launch deadline moved to Monday the 21st, Friday the 18th is the latest available day before the deadline.",
+      "raw": "{\"action\":\"Friday the 18th\",\"reason\":\"With the launch deadline moved to Monday the 21st, Friday the 18th is the latest available day before the deadline.\"}"
+    },
+    {
+      "scenario": "B-01",
+      "variant": "oracle",
+      "run": 4,
+      "memory": [
+        "The launch deadline has moved to Monday the 21st."
+      ],
+      "action": "Friday the 18th",
+      "reason": "Friday is the latest available day before the Monday the 21st launch deadline.",
+      "raw": "{\"action\":\"Friday the 18th\",\"reason\":\"Friday is the latest available day before the Monday the 21st launch deadline.\"}"
+    },
+    {
+      "scenario": "B-02",
+      "variant": "oracle",
+      "run": 0,
+      "memory": [
+        "The user lives in San Jose."
+      ],
+      "action": "the San Jose address",
+      "reason": "Memory indicates the user's home address is in San Jose, so the hardware key should be shipped there.",
+      "raw": "{\"action\":\"the San Jose address\",\"reason\":\"Memory indicates the user's home address is in San Jose, so the hardware key should be shipped there.\"}"
+    },
+    {
+      "scenario": "B-02",
+      "variant": "oracle",
+      "run": 1,
+      "memory": [
+        "The user lives in San Jose."
+      ],
+      "action": "the San Jose address",
+      "reason": "Memory indicates the user's home address on file is in San Jose.",
+      "raw": "{\"action\":\"the San Jose address\",\"reason\":\"Memory indicates the user's home address on file is in San Jose.\"}"
+    },
+    {
+      "scenario": "B-02",
+      "variant": "oracle",
+      "run": 2,
+      "memory": [
+        "The user lives in San Jose."
+      ],
+      "action": "the San Jose address",
+      "reason": "placeholder",
+      "raw": "{\"action\":\"the San Jose address\",\"reason\":\"placeholder\"}"
+    },
+    {
+      "scenario": "B-02",
+      "variant": "oracle",
+      "run": 3,
+      "memory": [
+        "The user lives in San Jose."
+      ],
+      "action": "the San Jose address",
+      "reason": "placeholder",
+      "raw": "{\"action\":\"the San Jose address\",\"reason\":\"placeholder\"}"
+    },
+    {
+      "scenario": "B-02",
+      "variant": "oracle",
+      "run": 4,
+      "memory": [
+        "The user lives in San Jose."
+      ],
+      "action": "the San Jose address",
+      "reason": "placeholder",
+      "raw": "{\"action\":\"the San Jose address\",\"reason\":\"placeholder\"}"
+    },
+    {
+      "scenario": "B-03",
+      "variant": "oracle",
+      "run": 0,
+      "memory": [
+        "The user has changed their mind and is fine using requests for this project."
+      ],
+      "action": "use the requests library",
+      "reason": "The user has explicitly stated they are now fine using requests for this project.",
+      "raw": "{\"action\": \"use the requests library\", \"reason\": \"The user has explicitly stated they are now fine using requests for this project.\"}"
+    },
+    {
+      "scenario": "B-03",
+      "variant": "oracle",
+      "run": 1,
+      "memory": [
+        "The user has changed their mind and is fine using requests for this project."
+      ],
+      "action": "use the requests library",
+      "reason": "The user has explicitly indicated they are now fine with using requests for this project.",
+      "raw": "{\"action\": \"use the requests library\", \"reason\": \"The user has explicitly indicated they are now fine with using requests for this project.\"}"
+    },
+    {
+      "scenario": "B-03",
+      "variant": "oracle",
+      "run": 2,
+      "memory": [
+        "The user has changed their mind and is fine using requests for this project."
+      ],
+      "action": "use the requests library",
+      "reason": "The user has indicated they are now fine with using requests for this project.",
+      "raw": "{\"action\":\"use the requests library\",\"reason\":\"The user has indicated they are now fine with using requests for this project.\"}"
+    },
+    {
+      "scenario": "B-03",
+      "variant": "oracle",
+      "run": 3,
+      "memory": [
+        "The user has changed their mind and is fine using requests for this project."
+      ],
+      "action": "use the requests library",
+      "reason": "The user has explicitly indicated they are now fine using requests for this project.",
+      "raw": "{\"action\":\"use the requests library\",\"reason\":\"The user has explicitly indicated they are now fine using requests for this project.\"}"
+    },
+    {
+      "scenario": "B-03",
+      "variant": "oracle",
+      "run": 4,
+      "memory": [
+        "The user has changed their mind and is fine using requests for this project."
+      ],
+      "action": "use the requests library",
+      "reason": "The user has explicitly stated they are now fine with using requests for this project.",
+      "raw": "{\"action\":\"use the requests library\",\"reason\":\"The user has explicitly stated they are now fine with using requests for this project.\"}"
+    },
+    {
+      "scenario": "B-04",
+      "variant": "oracle",
+      "run": 0,
+      "memory": [
+        "The user was born in Austin."
+      ],
+      "action": "Austin",
+      "reason": "The user's resolved memory states they were born in Austin.",
+      "raw": "{\"action\":\"Austin\",\"reason\":\"The user's resolved memory states they were born in Austin.\"}"
+    },
+    {
+      "scenario": "B-04",
+      "variant": "oracle",
+      "run": 1,
+      "memory": [
+        "The user was born in Austin."
+      ],
+      "action": "Austin",
+      "reason": "The user's resolved memory states they were born in Austin.",
+      "raw": "{\"action\":\"Austin\",\"reason\":\"The user's resolved memory states they were born in Austin.\"}"
+    },
+    {
+      "scenario": "B-04",
+      "variant": "oracle",
+      "run": 2,
+      "memory": [
+        "The user was born in Austin."
+      ],
+      "action": "Austin",
+      "reason": "The user's resolved memory states they were born in Austin.",
+      "raw": "{\"action\":\"Austin\",\"reason\":\"The user's resolved memory states they were born in Austin.\"}"
+    },
+    {
+      "scenario": "B-04",
+      "variant": "oracle",
+      "run": 3,
+      "memory": [
+        "The user was born in Austin."
+      ],
+      "action": "Austin",
+      "reason": "The user's resolved memory states they were born in Austin.",
+      "raw": "{\"action\":\"Austin\",\"reason\":\"The user's resolved memory states they were born in Austin.\"}"
+    },
+    {
+      "scenario": "B-04",
+      "variant": "oracle",
+      "run": 4,
+      "memory": [
+        "The user was born in Austin."
+      ],
+      "action": "Austin",
+      "reason": "The user's resolved memory states they were born in Austin.",
+      "raw": "{\"action\":\"Austin\",\"reason\":\"The user's resolved memory states they were born in Austin.\"}"
+    },
+    {
+      "scenario": "C-01",
+      "variant": "oracle",
+      "run": 0,
+      "memory": [
+        "Editing a generated file directly failed: the change was overwritten on the next regeneration. Edit the source definition and regenerate instead."
+      ],
+      "action": "edit api/schema.yaml and regenerate",
+      "reason": "Past experience shows edits to generated files get overwritten, and client_model.py is explicitly marked as generated from schema.yaml, so the source definition must be edited instead.",
+      "raw": "{\"action\":\"edit api/schema.yaml and regenerate\",\"reason\":\"Past experience shows edits to generated files get overwritten, and client_model.py is explicitly marked as generated from schema.yaml, so the source definition must be edited instead.\"}"
+    },
+    {
+      "scenario": "C-01",
+      "variant": "oracle",
+      "run": 1,
+      "memory": [
+        "Editing a generated file directly failed: the change was overwritten on the next regeneration. Edit the source definition and regenerate instead."
+      ],
+      "action": "edit api/schema.yaml and regenerate",
+      "reason": "The client_model.py is generated and marked do-not-edit, and prior experience shows direct edits get overwritten, so the source schema must be changed instead.",
+      "raw": "{\"action\":\"edit api/schema.yaml and regenerate\",\"reason\":\"The client_model.py is generated and marked do-not-edit, and prior experience shows direct edits get overwritten, so the source schema must be changed instead.\"}"
+    },
+    {
+      "scenario": "C-01",
+      "variant": "oracle",
+      "run": 2,
+      "memory": [
+        "Editing a generated file directly failed: the change was overwritten on the next regeneration. Edit the source definition and regenerate instead."
+      ],
+      "action": "edit api/schema.yaml and regenerate",
+      "reason": "The client_model.py file is generated and marked do-not-edit, and past experience shows direct edits get overwritten, so the source schema.yaml should be edited and the file regenerated.",
+      "raw": "{\"action\":\"edit api/schema.yaml and regenerate\",\"reason\":\"The client_model.py file is generated and marked do-not-edit, and past experience shows direct edits get overwritten, so the source schema.yaml should be edited and the file regenerated.\"}"
+    },
+    {
+      "scenario": "C-01",
+      "variant": "oracle",
+      "run": 3,
+      "memory": [
+        "Editing a generated file directly failed: the change was overwritten on the next regeneration. Edit the source definition and regenerate instead."
+      ],
+      "action": "edit api/schema.yaml and regenerate",
+      "reason": "client_model.py is generated and marked do-not-edit, and past experience shows direct edits get overwritten, so the source schema must be updated instead.",
+      "raw": "{\"action\":\"edit api/schema.yaml and regenerate\",\"reason\":\"client_model.py is generated and marked do-not-edit, and past experience shows direct edits get overwritten, so the source schema must be updated instead.\"}"
+    },
+    {
+      "scenario": "C-01",
+      "variant": "oracle",
+      "run": 4,
+      "memory": [
+        "Editing a generated file directly failed: the change was overwritten on the next regeneration. Edit the source definition and regenerate instead."
+      ],
+      "action": "edit api/schema.yaml and regenerate",
+      "reason": "client_model.py is generated and marked do-not-edit, and memory confirms direct edits get overwritten, so the source schema must be changed and regenerated.",
+      "raw": "{\"action\":\"edit api/schema.yaml and regenerate\",\"reason\":\"client_model.py is generated and marked do-not-edit, and memory confirms direct edits get overwritten, so the source schema must be changed and regenerated.\"}"
+    },
+    {
+      "scenario": "C-02",
+      "variant": "oracle",
+      "run": 0,
+      "memory": [
+        "Calling a legacy endpoint directly failed in production with a compatibility error after the platform upgrade. Use the current versioned API instead."
+      ],
+      "action": "call billing.v2.charges()",
+      "reason": "The legacy endpoint previously failed in production after the platform upgrade, so the current versioned API should be used instead.",
+      "raw": "{\"action\":\"call billing.v2.charges()\",\"reason\":\"The legacy endpoint previously failed in production after the platform upgrade, so the current versioned API should be used instead.\"}"
+    },
+    {
+      "scenario": "C-02",
+      "variant": "oracle",
+      "run": 1,
+      "memory": [
+        "Calling a legacy endpoint directly failed in production with a compatibility error after the platform upgrade. Use the current versioned API instead."
+      ],
+      "action": "call billing.v2.charges()",
+      "reason": "The legacy endpoint previously failed with a compatibility error after the platform upgrade, so the current versioned API should be used instead.",
+      "raw": "{\"action\":\"call billing.v2.charges()\",\"reason\":\"The legacy endpoint previously failed with a compatibility error after the platform upgrade, so the current versioned API should be used instead.\"}"
+    },
+    {
+      "scenario": "C-02",
+      "variant": "oracle",
+      "run": 2,
+      "memory": [
+        "Calling a legacy endpoint directly failed in production with a compatibility error after the platform upgrade. Use the current versioned API instead."
+      ],
+      "action": "call billing.v2.charges()",
+      "reason": "The legacy endpoint failed after the platform upgrade, so the current versioned API should be used instead.",
+      "raw": "{\"action\": \"call billing.v2.charges()\", \"reason\": \"The legacy endpoint failed after the platform upgrade, so the current versioned API should be used instead.\"}"
+    },
+    {
+      "scenario": "C-02",
+      "variant": "oracle",
+      "run": 3,
+      "memory": [
+        "Calling a legacy endpoint directly failed in production with a compatibility error after the platform upgrade. Use the current versioned API instead."
+      ],
+      "action": "call billing.v2.charges()",
+      "reason": "The legacy endpoint previously failed in production due to a compatibility error, so the current versioned API should be used instead.",
+      "raw": "{\"action\":\"call billing.v2.charges()\",\"reason\":\"The legacy endpoint previously failed in production due to a compatibility error, so the current versioned API should be used instead.\"}"
+    },
+    {
+      "scenario": "C-02",
+      "variant": "oracle",
+      "run": 4,
+      "memory": [
+        "Calling a legacy endpoint directly failed in production with a compatibility error after the platform upgrade. Use the current versioned API instead."
+      ],
+      "action": "call billing.v2.charges()",
+      "reason": "The legacy endpoint previously failed in production after the platform upgrade, so the current versioned API should be used instead.",
+      "raw": "{\"action\": \"call billing.v2.charges()\", \"reason\": \"The legacy endpoint previously failed in production after the platform upgrade, so the current versioned API should be used instead.\"}"
+    },
+    {
+      "scenario": "C-03",
+      "variant": "oracle",
+      "run": 0,
+      "memory": [
+        "Changing process-wide global state to make one test pass broke unrelated tests in the same run. Use a fixture or local mock that restores state."
+      ],
+      "action": "use a fixture that sets and restores the locale",
+      "reason": "Setting global state at import time risks breaking unrelated tests, so a fixture that sets and restores the locale scopes the change safely to this test.",
+      "raw": "{\"action\": \"use a fixture that sets and restores the locale\", \"reason\": \"Setting global state at import time risks breaking unrelated tests, so a fixture that sets and restores the locale scopes the change safely to this test.\"}"
+    },
+    {
+      "scenario": "C-03",
+      "variant": "oracle",
+      "run": 1,
+      "memory": [
+        "Changing process-wide global state to make one test pass broke unrelated tests in the same run. Use a fixture or local mock that restores state."
+      ],
+      "action": "use a fixture that sets and restores the locale",
+      "reason": "Setting process-wide state at import previously broke unrelated tests, so a fixture that restores the locale after the test avoids side effects.",
+      "raw": "{\"action\":\"use a fixture that sets and restores the locale\",\"reason\":\"Setting process-wide state at import previously broke unrelated tests, so a fixture that restores the locale after the test avoids side effects.\"}"
+    },
+    {
+      "scenario": "C-03",
+      "variant": "oracle",
+      "run": 2,
+      "memory": [
+        "Changing process-wide global state to make one test pass broke unrelated tests in the same run. Use a fixture or local mock that restores state."
+      ],
+      "action": "use a fixture that sets and restores the locale",
+      "reason": "Setting process-wide state at module import previously broke unrelated tests, so a fixture that restores locale after the test avoids side effects.",
+      "raw": "{\"action\":\"use a fixture that sets and restores the locale\",\"reason\":\"Setting process-wide state at module import previously broke unrelated tests, so a fixture that restores locale after the test avoids side effects.\"}"
+    },
+    {
+      "scenario": "C-03",
+      "variant": "oracle",
+      "run": 3,
+      "memory": [
+        "Changing process-wide global state to make one test pass broke unrelated tests in the same run. Use a fixture or local mock that restores state."
+      ],
+      "action": "use a fixture that sets and restores the locale",
+      "reason": "Modifying process-wide state without restoration previously broke unrelated tests, so a fixture that restores the locale after the test avoids side effects.",
+      "raw": "{\"action\": \"use a fixture that sets and restores the locale\", \"reason\": \"Modifying process-wide state without restoration previously broke unrelated tests, so a fixture that restores the locale after the test avoids side effects.\"}"
+    },
+    {
+      "scenario": "C-03",
+      "variant": "oracle",
+      "run": 4,
+      "memory": [
+        "Changing process-wide global state to make one test pass broke unrelated tests in the same run. Use a fixture or local mock that restores state."
+      ],
+      "action": "use a fixture that sets and restores the locale",
+      "reason": "Global state changes at import time can leak into other tests, so scoping the locale change to a fixture with teardown avoids breaking unrelated tests.",
+      "raw": "{\"action\":\"use a fixture that sets and restores the locale\",\"reason\":\"Global state changes at import time can leak into other tests, so scoping the locale change to a fixture with teardown avoids breaking unrelated tests.\"}"
+    },
+    {
+      "scenario": "C-04",
+      "variant": "oracle",
+      "run": 0,
+      "memory": [
+        "notify.compat.push() now fails: the compat wrapper was removed. Use notify.v3.push()."
+      ],
+      "action": "call notify.v3.push()",
+      "reason": "Memory indicates notify.compat.push() was removed and fails, so the current supported API notify.v3.push() should be used.",
+      "raw": "{\"action\":\"call notify.v3.push()\",\"reason\":\"Memory indicates notify.compat.push() was removed and fails, so the current supported API notify.v3.push() should be used.\"}"
+    },
+    {
+      "scenario": "C-04",
+      "variant": "oracle",
+      "run": 1,
+      "memory": [
+        "notify.compat.push() now fails: the compat wrapper was removed. Use notify.v3.push()."
+      ],
+      "action": "call notify.v3.push()",
+      "reason": "The compat wrapper was removed and no longer works, so the current v3 API should be used directly.",
+      "raw": "{\"action\": \"call notify.v3.push()\", \"reason\": \"The compat wrapper was removed and no longer works, so the current v3 API should be used directly.\"}"
+    },
+    {
+      "scenario": "C-04",
+      "variant": "oracle",
+      "run": 2,
+      "memory": [
+        "notify.compat.push() now fails: the compat wrapper was removed. Use notify.v3.push()."
+      ],
+      "action": "call notify.v3.push()",
+      "reason": "The compat wrapper was removed and fails, so the current v3 API should be used directly.",
+      "raw": "{\"action\": \"call notify.v3.push()\", \"reason\": \"The compat wrapper was removed and fails, so the current v3 API should be used directly.\"}"
+    },
+    {
+      "scenario": "C-04",
+      "variant": "oracle",
+      "run": 3,
+      "memory": [
+        "notify.compat.push() now fails: the compat wrapper was removed. Use notify.v3.push()."
+      ],
+      "action": "call notify.v3.push()",
+      "reason": "Memory indicates notify.compat.push() no longer works since its wrapper was removed, so the current v3 API should be used instead.",
+      "raw": "{\"action\":\"call notify.v3.push()\",\"reason\":\"Memory indicates notify.compat.push() no longer works since its wrapper was removed, so the current v3 API should be used instead.\"}"
+    },
+    {
+      "scenario": "C-04",
+      "variant": "oracle",
+      "run": 4,
+      "memory": [
+        "notify.compat.push() now fails: the compat wrapper was removed. Use notify.v3.push()."
+      ],
+      "action": "call notify.v3.push()",
+      "reason": "The compat wrapper was removed and fails, so the current v3 API should be used directly.",
+      "raw": "{\"action\": \"call notify.v3.push()\", \"reason\": \"The compat wrapper was removed and fails, so the current v3 API should be used directly.\"}"
+    },
+    {
+      "scenario": "N-01",
+      "variant": "oracle",
+      "run": 0,
+      "memory": [
+        "The user wants all dashboards in the America/Los_Angeles timezone."
+      ],
+      "action": "America/Los_Angeles",
+      "reason": "The user's stored preference specifies all dashboards should use the America/Los_Angeles timezone.",
+      "raw": "{\"action\":\"America/Los_Angeles\",\"reason\":\"The user's stored preference specifies all dashboards should use the America/Los_Angeles timezone.\"}"
+    },
+    {
+      "scenario": "N-01",
+      "variant": "oracle",
+      "run": 1,
+      "memory": [
+        "The user wants all dashboards in the America/Los_Angeles timezone."
+      ],
+      "action": "America/Los_Angeles",
+      "reason": "The user's stored preference specifies all dashboards should use the America/Los_Angeles timezone.",
+      "raw": "{\"action\":\"America/Los_Angeles\",\"reason\":\"The user's stored preference specifies all dashboards should use the America/Los_Angeles timezone.\"}"
+    },
+    {
+      "scenario": "N-01",
+      "variant": "oracle",
+      "run": 2,
+      "memory": [
+        "The user wants all dashboards in the America/Los_Angeles timezone."
+      ],
+      "action": "America/Los_Angeles",
+      "reason": "The user's stored preference specifies that all dashboards should use the America/Los_Angeles timezone.",
+      "raw": "{\"action\":\"America/Los_Angeles\",\"reason\":\"The user's stored preference specifies that all dashboards should use the America/Los_Angeles timezone.\"}"
+    },
+    {
+      "scenario": "N-01",
+      "variant": "oracle",
+      "run": 3,
+      "memory": [
+        "The user wants all dashboards in the America/Los_Angeles timezone."
+      ],
+      "action": "America/Los_Angeles",
+      "reason": "User's stored preference is for all dashboards to use America/Los_Angeles timezone.",
+      "raw": "{\"action\":\"America/Los_Angeles\",\"reason\":\"User's stored preference is for all dashboards to use America/Los_Angeles timezone.\"}"
+    },
+    {
+      "scenario": "N-01",
+      "variant": "oracle",
+      "run": 4,
+      "memory": [
+        "The user wants all dashboards in the America/Los_Angeles timezone."
+      ],
+      "action": "America/Los_Angeles",
+      "reason": "The user's stated preference is for all dashboards to use the America/Los_Angeles timezone.",
+      "raw": "{\"action\":\"America/Los_Angeles\",\"reason\":\"The user's stated preference is for all dashboards to use the America/Los_Angeles timezone.\"}"
+    },
+    {
+      "scenario": "N-02",
+      "variant": "oracle",
+      "run": 0,
+      "memory": [
+        "New services use Postgres."
+      ],
+      "action": "Postgres",
+      "reason": "Resolved memory states new services use Postgres, and both databases are supported by the platform.",
+      "raw": "{\"action\":\"Postgres\",\"reason\":\"Resolved memory states new services use Postgres, and both databases are supported by the platform.\"}"
+    },
+    {
+      "scenario": "N-02",
+      "variant": "oracle",
+      "run": 1,
+      "memory": [
+        "New services use Postgres."
+      ],
+      "action": "Postgres",
+      "reason": "Per resolved memory, new services default to Postgres, and it's supported by the platform.",
+      "raw": "{\"action\":\"Postgres\",\"reason\":\"Per resolved memory, new services default to Postgres, and it's supported by the platform.\"}"
+    },
+    {
+      "scenario": "N-02",
+      "variant": "oracle",
+      "run": 2,
+      "memory": [
+        "New services use Postgres."
+      ],
+      "action": "Postgres",
+      "reason": "Resolved memory states that new services use Postgres.",
+      "raw": "{\"action\":\"Postgres\",\"reason\":\"Resolved memory states that new services use Postgres.\"}"
+    },
+    {
+      "scenario": "N-02",
+      "variant": "oracle",
+      "run": 3,
+      "memory": [
+        "New services use Postgres."
+      ],
+      "action": "Postgres",
+      "reason": "Resolved memory states new services use Postgres.",
+      "raw": "{\"action\":\"Postgres\",\"reason\":\"Resolved memory states new services use Postgres.\"}"
+    },
+    {
+      "scenario": "N-02",
+      "variant": "oracle",
+      "run": 4,
+      "memory": [
+        "New services use Postgres."
+      ],
+      "action": "Postgres",
+      "reason": "Resolved memory states that new services use Postgres, and both databases are supported by the platform.",
+      "raw": "{\"action\":\"Postgres\",\"reason\":\"Resolved memory states that new services use Postgres, and both databases are supported by the platform.\"}"
+    },
+    {
+      "scenario": "N-03",
+      "variant": "oracle",
+      "run": 0,
+      "memory": [
+        "The user prefers aisle seats."
+      ],
+      "action": "pin pyyaml in the lockfile",
+      "reason": "Pinning the missing pyyaml version brings consistency with all other pinned dependencies and fixes the build without disrupting the rest of the lockfile.",
+      "raw": "{\"action\":\"pin pyyaml in the lockfile\",\"reason\":\"Pinning the missing pyyaml version brings consistency with all other pinned dependencies and fixes the build without disrupting the rest of the lockfile.\"}"
+    },
+    {
+      "scenario": "N-03",
+      "variant": "oracle",
+      "run": 1,
+      "memory": [
+        "The user prefers aisle seats."
+      ],
+      "action": "pin pyyaml in the lockfile",
+      "reason": "Pinning the missing pyyaml version restores consistency with the rest of the pinned lockfile and fixes the build without discarding other resolved dependencies.",
+      "raw": "{\"action\":\"pin pyyaml in the lockfile\",\"reason\":\"Pinning the missing pyyaml version restores consistency with the rest of the pinned lockfile and fixes the build without discarding other resolved dependencies.\"}"
+    },
+    {
+      "scenario": "N-03",
+      "variant": "oracle",
+      "run": 2,
+      "memory": [
+        "The user prefers aisle seats."
+      ],
+      "action": "pin pyyaml in the lockfile",
+      "reason": "Pinning the missing pyyaml version restores consistency with all other pinned dependencies and fixes the build without discarding the lockfile's other pins.",
+      "raw": "{\"action\": \"pin pyyaml in the lockfile\", \"reason\": \"Pinning the missing pyyaml version restores consistency with all other pinned dependencies and fixes the build without discarding the lockfile's other pins.\"}"
+    },
+    {
+      "scenario": "N-03",
+      "variant": "oracle",
+      "run": 3,
+      "memory": [
+        "The user prefers aisle seats."
+      ],
+      "action": "pin pyyaml in the lockfile",
+      "reason": "Pinning the missing pyyaml version aligns with the rest of the pinned dependencies and directly fixes the build without removing needed lockfile data.",
+      "raw": "{\"action\":\"pin pyyaml in the lockfile\",\"reason\":\"Pinning the missing pyyaml version aligns with the rest of the pinned dependencies and directly fixes the build without removing needed lockfile data.\"}"
+    },
+    {
+      "scenario": "N-03",
+      "variant": "oracle",
+      "run": 4,
+      "memory": [
+        "The user prefers aisle seats."
+      ],
+      "action": "pin pyyaml in the lockfile",
+      "reason": "Adding an explicit version pin for pyyaml fixes the missing pin while preserving all other correct pins in the lockfile.",
+      "raw": "{\"action\":\"pin pyyaml in the lockfile\",\"reason\":\"Adding an explicit version pin for pyyaml fixes the missing pin while preserving all other correct pins in the lockfile.\"}"
+    },
+    {
+      "scenario": "N-04",
+      "variant": "oracle",
+      "run": 0,
+      "memory": [
+        "Editing a generated file directly failed: the change was overwritten on the next regeneration. Edit the source definition and regenerate instead."
+      ],
+      "action": "edit app/settings_model.py directly",
+      "reason": "The file is hand-written with no generator or schema source in this repo, so the prior lesson about regenerated files doesn't apply here.",
+      "raw": "{\"action\":\"edit app/settings_model.py directly\",\"reason\":\"The file is hand-written with no generator or schema source in this repo, so the prior lesson about regenerated files doesn't apply here.\"}"
+    },
+    {
+      "scenario": "N-04",
+      "variant": "oracle",
+      "run": 1,
+      "memory": [
+        "Editing a generated file directly failed: the change was overwritten on the next regeneration. Edit the source definition and regenerate instead."
+      ],
+      "action": "edit app/settings_model.py directly",
+      "reason": "The file is hand-written with no generator or schema source, so the prior lesson about regeneration overwriting edits doesn't apply here.",
+      "raw": "{\"action\":\"edit app/settings_model.py directly\",\"reason\":\"The file is hand-written with no generator or schema source, so the prior lesson about regeneration overwriting edits doesn't apply here.\"}"
+    },
+    {
+      "scenario": "N-04",
+      "variant": "oracle",
+      "run": 2,
+      "memory": [
+        "Editing a generated file directly failed: the change was overwritten on the next regeneration. Edit the source definition and regenerate instead."
+      ],
+      "action": "edit app/settings_model.py directly",
+      "reason": "The file is confirmed hand-written with no generator or schema source, so the past lesson about regenerated files overwriting edits doesn't apply here.",
+      "raw": "{\"action\":\"edit app/settings_model.py directly\",\"reason\":\"The file is confirmed hand-written with no generator or schema source, so the past lesson about regenerated files overwriting edits doesn't apply here.\"}"
+    },
+    {
+      "scenario": "N-04",
+      "variant": "oracle",
+      "run": 3,
+      "memory": [
+        "Editing a generated file directly failed: the change was overwritten on the next regeneration. Edit the source definition and regenerate instead."
+      ],
+      "action": "edit app/settings_model.py directly",
+      "reason": "The memory's regeneration caution applies to generated files, but this module is confirmed hand-written with no generator or schema source, so direct editing is appropriate.",
+      "raw": "{\"action\":\"edit app/settings_model.py directly\",\"reason\":\"The memory's regeneration caution applies to generated files, but this module is confirmed hand-written with no generator or schema source, so direct editing is appropriate.\"}"
+    },
+    {
+      "scenario": "N-04",
+      "variant": "oracle",
+      "run": 4,
+      "memory": [
+        "Editing a generated file directly failed: the change was overwritten on the next regeneration. Edit the source definition and regenerate instead."
+      ],
+      "action": "edit app/settings_model.py directly",
+      "reason": "The memory rule about regeneration overwriting edits applies to generated files, but this repo confirms settings_model.py is hand-written with no generator or schema source, so direct editing is appropriate.",
+      "raw": "{\"action\":\"edit app/settings_model.py directly\",\"reason\":\"The memory rule about regeneration overwriting edits applies to generated files, but this repo confirms settings_model.py is hand-written with no generator or schema source, so direct editing is appropriate.\"}"
+    }
+  ]
+}
