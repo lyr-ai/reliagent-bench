@@ -1,6 +1,6 @@
 {
   "note": "Written before each run (plan \u00a715, \u00a716.1). Per query: which variants are predicted to return the gold state. A mismatch between this file and an actual run is a finding to investigate, not a number to adjust. pilot-1 adds v0_scd and the known_gap scenarios; the pilot-0 predictions for v0 and v4 are unchanged.",
-  "frozen": "2026-09-13 (pilot-0); v0_scd and G-* added 2026-09-13 before pilot-1",
+  "frozen": "2026-09-13 (pilot-0); v0_scd and G-* added 2026-09-13 before pilot-1; A-04..11, C-04..11, G-05 added 2026-09-13 before pilot-2",
   "predictions": {
     "A-01/q1": {
       "v0": false,
@@ -121,12 +121,117 @@
       "v0": true,
       "v0_scd": true,
       "v4_typedmem": true
+    },
+    "A-04/q1": {
+      "v0": false,
+      "v0_scd": false,
+      "v4_typedmem": true
+    },
+    "A-05/q1": {
+      "v0": true,
+      "v0_scd": true,
+      "v4_typedmem": true
+    },
+    "A-06/q1": {
+      "v0": false,
+      "v0_scd": false,
+      "v4_typedmem": true
+    },
+    "A-07/q1": {
+      "v0": true,
+      "v0_scd": true,
+      "v4_typedmem": true
+    },
+    "A-08/q1": {
+      "v0": false,
+      "v0_scd": true,
+      "v4_typedmem": true
+    },
+    "A-09/q1": {
+      "v0": true,
+      "v0_scd": true,
+      "v4_typedmem": true
+    },
+    "A-10/q_user": {
+      "v0": false,
+      "v0_scd": false,
+      "v4_typedmem": true
+    },
+    "A-10/q_office": {
+      "v0": true,
+      "v0_scd": true,
+      "v4_typedmem": true
+    },
+    "A-11/q1": {
+      "v0": true,
+      "v0_scd": true,
+      "v4_typedmem": true
+    },
+    "C-04/q1": {
+      "v0": true,
+      "v0_scd": true,
+      "v4_typedmem": true
+    },
+    "C-05/q1": {
+      "v0": false,
+      "v0_scd": true,
+      "v4_typedmem": true
+    },
+    "C-06/q1": {
+      "v0": true,
+      "v0_scd": true,
+      "v4_typedmem": true
+    },
+    "C-07/q1": {
+      "v0": false,
+      "v0_scd": false,
+      "v4_typedmem": true
+    },
+    "C-08/q1": {
+      "v0": true,
+      "v0_scd": true,
+      "v4_typedmem": true
+    },
+    "C-09/q1": {
+      "v0": true,
+      "v0_scd": false,
+      "v4_typedmem": true
+    },
+    "C-10/q_deadline": {
+      "v0": false,
+      "v0_scd": true,
+      "v4_typedmem": true
+    },
+    "C-10/q_fact": {
+      "v0": false,
+      "v0_scd": true,
+      "v4_typedmem": true
+    },
+    "C-10/q_scratch": {
+      "v0": true,
+      "v0_scd": false,
+      "v4_typedmem": true
+    },
+    "C-11/q_launch": {
+      "v0": true,
+      "v0_scd": true,
+      "v4_typedmem": true
+    },
+    "C-11/q_review": {
+      "v0": true,
+      "v0_scd": true,
+      "v4_typedmem": true
+    },
+    "G-05/q_now": {
+      "v0": false,
+      "v0_scd": false,
+      "v4_typedmem": false
     }
   },
   "corruption_rate": {
     "v0": 1.0,
-    "v0_scd": 0.6666666666666666,
+    "v0_scd": 0.625,
     "v4_typedmem": 0.0
   },
-  "corruption_note": "Corruption is state-based: an expected-ignore write that the variant applied as a replace. Six opportunities: A-01, A-02, C-02, C-03/b2, M-01, G-04/w2. v0 replaces on every second write \u2192 6/6. v0_scd: A-02 and M-01 are historical inserts (keep), the other four displace the current state \u2192 4/6. v4: the G-04 inference is inserted (keep) under keep_both, not replaced \u2192 0/6; its state failure is carried by the query metric."
+  "corruption_note": "Corruption is state-based: an expected-ignore write that the variant applied as a replace. Six opportunities: A-01, A-02, C-02, C-03/b2, M-01, G-04/w2. v0 replaces on every second write \u2192 6/6. v0_scd: A-02 and M-01 are historical inserts (keep), the other four displace the current state \u2192 4/6. v4: the G-04 inference is inserted (keep) under keep_both, not replaced \u2192 0/6; its state failure is carried by the query metric. pilot-2: 16 opportunities. v0 16/16. v0_scd 10/16 \u2014 A-02, M-01, A-08, C-05, C-10/d2, C-10/b2 are historical inserts. v4 0/16 \u2014 G-04 and G-05 are keep_both inserts, carried by the query metric."
 }

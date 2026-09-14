@@ -15,14 +15,14 @@ caused are scored against gold labels frozen with the scenario file.
 
 | | |
 |---|---|
-| scenarios | 16 — 3 authority · 3 temporal · 3 typed resolution · 3 control/mixed · **4 known-gap** |
+| scenarios | 33 — 11 authority · 3 temporal · 11 typed resolution · 3 control/mixed · **5 known-gap** |
 | variants | `v0` (timestamped records, newest observation wins) · `v0_scd` (bitemporal SCD-2 table) · `v4_typedmem` (full typed resolution) |
 | gold | `scenarios/pilot.json`, frozen 2026-09-13 |
 | predictions | `scenarios/pilot_predictions.json`, written **before** each run |
-| committed runs | `results/pilot-0.*` (12 scenarios, V0 vs V4) · `results/pilot-1.*` (16 scenarios, three variants) |
+| committed runs | `results/pilot-0.*` (12, V0 vs V4) · `results/pilot-1.*` (16, three variants) · `results/pilot-2.*` (33, A and C expanded) |
 
 The scope is deliberately narrow: the extremes of the ablation ladder plus
-one hard non-agent baseline, on sixteen cases. V1–V3 are not implemented until
+one hard non-agent baseline, on thirty-three cases. V1–V3 are not implemented until
 there is a reason to attribute a difference between V0-scd and V4 to a
 particular mechanism (plan §17–§18).
 
@@ -50,7 +50,7 @@ engineer would build — and no authority, confidence, or typed rules. It is
 Category `known_gap` holds cases where the declared semantics and the current
 TypedMem contract are expected to disagree, and the prediction file says so
 before the run. A test asserts every known-gap scenario predicts at least one
-V4 failure. Two gaps are exercised:
+V4 failure. Two gaps are exercised, one of them twice:
 
 - **`history_under_replace`** (G-01..03): under `replace`, TypedMem overwrites
   in place and keeps history only in the event log, so a historical `as_of`
@@ -60,7 +60,9 @@ V4 failure. Two gaps are exercised:
   under `replace`. Declare a type that keeps history *and* must not let a
   low-authority inference become current, and TypedMem inserts the inference
   and makes it current. No baseline gets this right either — it is a gap in
-  the contract, not a place where a simpler system wins.
+  the contract, not a place where a simpler system wins. G-05 shows the same
+  for the confidence guard (`guards_under_keep_both`): every `resolve_by`
+  guard is `replace`-only today.
 
 ## Reproduce
 
@@ -76,25 +78,29 @@ Deterministic; no seeds, no randomness.
 **TypedMem for the committed runs:** `main` @ `33d989e` (semantics through
 `ba010a1`; package version still reports 0.8.0).
 
-## Pilot-1 result
+## Pilot-2 result
 
 ```text
 variant         state  temporal  transit  corrupt │ authority  temporal     typed     mixed   control known_gap
-v0               0.58      0.64     0.74     1.00 │      0.33      0.57      0.50      0.00      1.00      0.71
-v0_scd           0.83      1.00     0.74     0.67 │      0.67      1.00      0.50      1.00      1.00      0.86
-v4_typedmem      0.83      0.73     0.97     0.00 │      1.00      1.00      1.00      1.00      1.00      0.43
+v0               0.58      0.64     0.75     1.00 │      0.50      0.57      0.60      0.00      1.00      0.62
+v0_scd           0.76      1.00     0.73     0.62 │      0.67      1.00      0.67      1.00      1.00      0.75
+v4_typedmem      0.89      0.73     0.97     0.00 │      1.00      1.00      1.00      1.00      1.00      0.38
 ```
 
-All 24 query-level predictions matched observation; the corruption-rate
-predictions (1.00 / 0.67 / 0.00) matched; every variant is correct on every
-negative control. Full table with per-mechanism breakdown and every failure
-in `results/pilot-1.txt`.
+All 45 query-level predictions matched observation (pilot-1's 24 unchanged,
+21 new); corruption-rate predictions (1.00 / 0.62 / 0.00 over 16
+opportunities) matched; every variant is correct on every negative control,
+including the in-category controls added to A and C. Full table, per-mechanism
+breakdown and every failure in `results/pilot-2.txt`; pilot-1 in
+`results/pilot-1.txt`.
 
 ### What the table says
 
-**The headline number ties.** V0-scd and TypedMem both score 0.83 overall.
-They fail on disjoint sets. That is the result worth having, because it
-locates the claim:
+**The headline gap opened as A and C grew, for the predicted reason.** At 16
+scenarios V0-scd and TypedMem tied at 0.83 on disjoint failure sets; at 33,
+with authority and typed resolution carrying more of the weight, it is 0.76
+against 0.89 — and the temporal and known-gap columns did not move. The
+pattern locates the claim:
 
 ```text
 temporal    v0  <  v0_scd  =  v4        validity windows are not the novelty
@@ -103,12 +109,16 @@ typed       v0  =  v0_scd  <  v4        per-type guards are
 known_gap   v4  <  v0  <  v0_scd        and replace-in-place costs history
 ```
 
-V0-scd's one authority "win" (A-02) is not authority at all: the incoming
+V0-scd's authority "wins" (A-02, A-08) are not authority at all: the incoming
 write describes an older state, and a bitemporal table files it as history.
-The mechanism label says `effective_from`, and that is what fired.
+The mechanism label says `effective_from`, and that is what fired. Its
+`type_specific_resolution` score (0.56, equal to V0's) comes from the cases
+where the declared rule happens to coincide with "latest valid state"; C-09
+and C-10's scratch-note slot are where an always-replace type defeats it and
+V0's newest-observation rule gets lucky.
 
 **Corruption rate is where TypedMem's contribution over a bitemporal table
-is most legible**: 0.67 → 0.00. A data warehouse has no concept of a write
+is most legible**: 0.62 → 0.00 over sixteen opportunities. A data warehouse has no concept of a write
 that is *not entitled* to displace the current row; that concept is the
 whole of Category A.
 
@@ -127,7 +137,7 @@ now measured rather than suspected:
 ### How not to read this
 
 Same hands designed scenarios and system; a prediction match is the expected
-output of a working harness. Sixteen cases support no statistics. What the
+output of a working harness. Thirty-three cases support no statistics. What the
 pilot establishes is narrower and more useful: the harness separates
 mechanisms in the predicted places, the strong baseline behaves as
 predicted, the system under test fails where it was predicted to fail, and
@@ -141,7 +151,8 @@ predicted categories only. Negative controls flat: yes. Failures explained
 mechanistically: yes — every failure in `results/pilot-1.txt` carries the
 mechanism that should have fired and did not.
 
-Next, in order: expansion of Categories A and C toward the ~15 each the plan
-calls for, since they carry the claim; more known-gap cases; then Phase 2A.
-Mode B stays out of scope. No TypedMem change is made on the strength of
-sixteen cases.
+Next: Category B toward ~15 with supersession chains (plan §24, bitemporal
+feedback), a `V0-scd` variant that also carries confidence — to see whether
+the typed column survives a baseline with a guard but no *types* — and then
+Phase 2A. Mode B stays out of scope. No TypedMem change is made on the
+strength of thirty-three cases.
