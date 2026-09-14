@@ -13,6 +13,8 @@ analysis/
     validation_reports/  Oracle gap + failure distribution + stability + decision
     comparison_reports/  cross-system leaderboard + failure heatmap + environment
     plots/               (reserved)
+    mode-a-pilot.md      state-level diagnostic (Mode A), pilots 0–3: questions,
+                         design, results, three findings, the known-gap row, decision
 ```
 
 Regenerate (writes a record keyed by version + config; new versions are kept,
