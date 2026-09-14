@@ -45,8 +45,10 @@ class TransitionOutcome:
 
     @property
     def corrupted(self) -> bool:
-        """Gold said this write must be ignored; the variant let it through."""
-        return self.expected == "ignore" and self.actual != "ignore"
+        """Gold said this write must be ignored; the variant let it displace the
+        current state. A historical insert (``keep``) pollutes history but does
+        not corrupt the current state, and is not counted here."""
+        return self.expected == "ignore" and self.actual == "replace"
 
 
 @dataclass
@@ -149,7 +151,8 @@ def _fmt(x: float | None) -> str:
 
 
 def render(report: RunReport, scenarios: list[Scenario]) -> str:
-    categories = sorted({s.category for s in scenarios}, key=["authority", "temporal", "typed", "mixed", "control"].index)
+    order = ["authority", "temporal", "typed", "mixed", "control", "known_gap"]
+    categories = sorted({s.category for s in scenarios}, key=order.index)
     mechanisms = sorted({q.mechanism for s in scenarios for q in s.queries})
     lines = []
     lines.append(f"Mode A pilot · {report.scenarios} scenarios · typedmem {report.typedmem_version}")
@@ -182,6 +185,7 @@ def main(argv: list[str] | None = None) -> int:
     import argparse
     from .typedmem_v4 import TypedMemV4
     from .v0 import V0Baseline
+    from .v0_scd import V0SCDBaseline
 
     p = argparse.ArgumentParser(prog="reliagent-bench-state-eval")
     p.add_argument("--scenarios", default=None, help="scenario JSON (default: pilot.json)")
@@ -189,7 +193,7 @@ def main(argv: list[str] | None = None) -> int:
     args = p.parse_args(argv)
 
     scenarios = load_scenarios(args.scenarios) if args.scenarios else load_scenarios()
-    report = run([V0Baseline(), TypedMemV4()], scenarios)
+    report = run([V0Baseline(), V0SCDBaseline(), TypedMemV4()], scenarios)
     print(report.to_json() if args.json else render(report, scenarios))
     return 0
 

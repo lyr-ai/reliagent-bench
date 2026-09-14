@@ -1,40 +1,106 @@
 {
-  "version": "pilot-0",
+  "version": "pilot-1",
   "frozen": "2026-09-13",
-  "note": "Gold labels frozen before the first comparative run. Type semantics are declared per scenario, independently of any implementation (plan §10). 'now' for current-state queries is 2026-09-13.",
+  "note": "Gold labels frozen before the first comparative run. Type semantics are declared per scenario, independently of any implementation (plan §10). 'now' for current-state queries is 2026-09-13. pilot-1 adds the known_gap category: scenarios where the declared semantics and the current TypedMem contract are expected to disagree, pre-registered as V4 failures.",
   "scenarios": [
     {
       "id": "A-01",
       "category": "authority",
       "description": "Explicit user statement vs. a later, more confident model inference. Authority alone must decide.",
-      "types": [{"name": "location", "conflict": "replace", "resolve_by": ["effective_from", "confidence"]}],
+      "types": [
+        {
+          "name": "location",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
       "writes": [
-        {"id": "w1", "type": "location", "subject": "user", "content": "San Jose",
-         "source_type": "explicit_user", "authority": 1.0, "confidence": 0.70,
-         "observed_at": "2024-01-10T00:00:00Z", "expected_transition": "add"},
-        {"id": "w2", "type": "location", "subject": "user", "content": "Seattle",
-         "source_type": "model_inference", "authority": 0.3, "confidence": 0.95,
-         "observed_at": "2026-09-05T00:00:00Z", "expected_transition": "ignore"}
+        {
+          "id": "w1",
+          "type": "location",
+          "subject": "user",
+          "content": "San Jose",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.7,
+          "observed_at": "2024-01-10T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "location",
+          "subject": "user",
+          "content": "Seattle",
+          "source_type": "model_inference",
+          "authority": 0.3,
+          "confidence": 0.95,
+          "observed_at": "2026-09-05T00:00:00Z",
+          "expected_transition": "ignore"
+        }
       ],
       "queries": [
-        {"id": "q1", "type": "location", "subject": "user", "as_of": null, "expected": "San Jose", "mechanism": "authority_veto"}
+        {
+          "id": "q1",
+          "type": "location",
+          "subject": "user",
+          "as_of": null,
+          "expected": "San Jose",
+          "mechanism": "authority_veto"
+        }
       ]
     },
     {
       "id": "A-02",
       "category": "authority",
       "description": "Higher authority is not a trump card: a user statement observed later but describing an older state must not overwrite the newer inferred state.",
-      "types": [{"name": "location", "conflict": "replace", "resolve_by": ["effective_from", "confidence"]}],
+      "types": [
+        {
+          "name": "location",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
       "writes": [
-        {"id": "w1", "type": "location", "subject": "user", "content": "Seattle",
-         "source_type": "model_inference", "authority": 0.3, "confidence": 0.80,
-         "observed_at": "2026-09-05T00:00:00Z", "valid_from": "2026-08-01T00:00:00Z", "expected_transition": "add"},
-        {"id": "w2", "type": "location", "subject": "user", "content": "San Jose",
-         "source_type": "explicit_user", "authority": 1.0, "confidence": 0.90,
-         "observed_at": "2026-09-10T00:00:00Z", "valid_from": "2024-01-01T00:00:00Z", "expected_transition": "ignore"}
+        {
+          "id": "w1",
+          "type": "location",
+          "subject": "user",
+          "content": "Seattle",
+          "source_type": "model_inference",
+          "authority": 0.3,
+          "confidence": 0.8,
+          "observed_at": "2026-09-05T00:00:00Z",
+          "valid_from": "2026-08-01T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "location",
+          "subject": "user",
+          "content": "San Jose",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-10T00:00:00Z",
+          "valid_from": "2024-01-01T00:00:00Z",
+          "expected_transition": "ignore"
+        }
       ],
       "queries": [
-        {"id": "q1", "type": "location", "subject": "user", "as_of": null, "expected": "Seattle", "mechanism": "effective_from"}
+        {
+          "id": "q1",
+          "type": "location",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Seattle",
+          "mechanism": "effective_from"
+        }
       ]
     },
     {
@@ -42,104 +108,310 @@
       "category": "authority",
       "negative_control": true,
       "description": "Equal authority on both sides: the benchmark must not be testing 'authority always wins'. Falls back to the temporal/confidence rule; newer and no weaker replaces.",
-      "types": [{"name": "location", "conflict": "replace", "resolve_by": ["effective_from", "confidence"]}],
+      "types": [
+        {
+          "name": "location",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
       "writes": [
-        {"id": "w1", "type": "location", "subject": "user", "content": "San Jose",
-         "source_type": "explicit_user", "authority": 1.0, "confidence": 0.90,
-         "observed_at": "2024-01-10T00:00:00Z", "expected_transition": "add"},
-        {"id": "w2", "type": "location", "subject": "user", "content": "Seattle",
-         "source_type": "explicit_user", "authority": 1.0, "confidence": 0.90,
-         "observed_at": "2026-09-10T00:00:00Z", "expected_transition": "replace"}
+        {
+          "id": "w1",
+          "type": "location",
+          "subject": "user",
+          "content": "San Jose",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2024-01-10T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "location",
+          "subject": "user",
+          "content": "Seattle",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-10T00:00:00Z",
+          "expected_transition": "replace"
+        }
       ],
       "queries": [
-        {"id": "q1", "type": "location", "subject": "user", "as_of": null, "expected": "Seattle", "mechanism": "none"}
+        {
+          "id": "q1",
+          "type": "location",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Seattle",
+          "mechanism": "none"
+        }
       ]
     },
-
     {
       "id": "B-01",
       "category": "temporal",
       "description": "Retroactive update: observed Sep 10, true since Aug 1. Historical queries must respect Aug 1, not Sep 10.",
-      "types": [{"name": "residence", "conflict": "keep_both"}],
+      "types": [
+        {
+          "name": "residence",
+          "conflict": "keep_both"
+        }
+      ],
       "writes": [
-        {"id": "w1", "type": "residence", "subject": "user", "content": "San Jose",
-         "authority": 1.0, "confidence": 0.90,
-         "observed_at": "2026-01-05T00:00:00Z", "valid_from": "2026-01-01T00:00:00Z", "expected_transition": "add"},
-        {"id": "w2", "type": "residence", "subject": "user", "content": "Seattle",
-         "authority": 1.0, "confidence": 0.90,
-         "observed_at": "2026-09-10T00:00:00Z", "valid_from": "2026-08-01T00:00:00Z", "expected_transition": "keep"}
+        {
+          "id": "w1",
+          "type": "residence",
+          "subject": "user",
+          "content": "San Jose",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-01-05T00:00:00Z",
+          "valid_from": "2026-01-01T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "residence",
+          "subject": "user",
+          "content": "Seattle",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-10T00:00:00Z",
+          "valid_from": "2026-08-01T00:00:00Z",
+          "expected_transition": "keep"
+        }
       ],
       "queries": [
-        {"id": "q_jul", "type": "residence", "subject": "user", "as_of": "2026-07-15T00:00:00Z", "expected": "San Jose", "mechanism": "effective_from"},
-        {"id": "q_aug", "type": "residence", "subject": "user", "as_of": "2026-08-15T00:00:00Z", "expected": "Seattle", "mechanism": "effective_from"},
-        {"id": "q_now", "type": "residence", "subject": "user", "as_of": "2026-09-13T00:00:00Z", "expected": "Seattle", "mechanism": "effective_from"}
+        {
+          "id": "q_jul",
+          "type": "residence",
+          "subject": "user",
+          "as_of": "2026-07-15T00:00:00Z",
+          "expected": "San Jose",
+          "mechanism": "effective_from"
+        },
+        {
+          "id": "q_aug",
+          "type": "residence",
+          "subject": "user",
+          "as_of": "2026-08-15T00:00:00Z",
+          "expected": "Seattle",
+          "mechanism": "effective_from"
+        },
+        {
+          "id": "q_now",
+          "type": "residence",
+          "subject": "user",
+          "as_of": "2026-09-13T00:00:00Z",
+          "expected": "Seattle",
+          "mechanism": "effective_from"
+        }
       ]
     },
     {
       "id": "B-02",
       "category": "temporal",
       "description": "Exact boundary: A.valid_to == B.valid_from == T. The instant before T is A; T itself is B. Pins the half-open interval.",
-      "types": [{"name": "residence", "conflict": "keep_both"}],
+      "types": [
+        {
+          "name": "residence",
+          "conflict": "keep_both"
+        }
+      ],
       "writes": [
-        {"id": "w1", "type": "residence", "subject": "user", "content": "San Jose",
-         "authority": 1.0, "confidence": 0.90,
-         "observed_at": "2026-01-05T00:00:00Z", "valid_from": "2026-01-01T00:00:00Z", "valid_to": "2026-08-01T00:00:00Z", "expected_transition": "add"},
-        {"id": "w2", "type": "residence", "subject": "user", "content": "Seattle",
-         "authority": 1.0, "confidence": 0.90,
-         "observed_at": "2026-09-10T00:00:00Z", "valid_from": "2026-08-01T00:00:00Z", "expected_transition": "keep"}
+        {
+          "id": "w1",
+          "type": "residence",
+          "subject": "user",
+          "content": "San Jose",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-01-05T00:00:00Z",
+          "valid_from": "2026-01-01T00:00:00Z",
+          "valid_to": "2026-08-01T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "residence",
+          "subject": "user",
+          "content": "Seattle",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-10T00:00:00Z",
+          "valid_from": "2026-08-01T00:00:00Z",
+          "expected_transition": "keep"
+        }
       ],
       "queries": [
-        {"id": "q_before", "type": "residence", "subject": "user", "as_of": "2026-07-31T23:59:59Z", "expected": "San Jose", "mechanism": "validity_boundary"},
-        {"id": "q_at", "type": "residence", "subject": "user", "as_of": "2026-08-01T00:00:00Z", "expected": "Seattle", "mechanism": "validity_boundary"}
+        {
+          "id": "q_before",
+          "type": "residence",
+          "subject": "user",
+          "as_of": "2026-07-31T23:59:59Z",
+          "expected": "San Jose",
+          "mechanism": "validity_boundary"
+        },
+        {
+          "id": "q_at",
+          "type": "residence",
+          "subject": "user",
+          "as_of": "2026-08-01T00:00:00Z",
+          "expected": "Seattle",
+          "mechanism": "validity_boundary"
+        }
       ]
     },
     {
       "id": "B-03",
       "category": "temporal",
       "description": "Declared future state: 'starting Oct 1, Postgres', observed Sep 10. Must not shadow the current state before Oct 1; must be the state after.",
-      "types": [{"name": "database", "conflict": "keep_both"}],
+      "types": [
+        {
+          "name": "database",
+          "conflict": "keep_both"
+        }
+      ],
       "writes": [
-        {"id": "w1", "type": "database", "subject": "project", "content": "MySQL",
-         "authority": 1.0, "confidence": 0.90,
-         "observed_at": "2026-06-01T00:00:00Z", "valid_from": "2026-06-01T00:00:00Z", "expected_transition": "add"},
-        {"id": "w2", "type": "database", "subject": "project", "content": "Postgres",
-         "authority": 1.0, "confidence": 0.90,
-         "observed_at": "2026-09-10T00:00:00Z", "valid_from": "2026-10-01T00:00:00Z", "expected_transition": "keep"}
+        {
+          "id": "w1",
+          "type": "database",
+          "subject": "project",
+          "content": "MySQL",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-06-01T00:00:00Z",
+          "valid_from": "2026-06-01T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "database",
+          "subject": "project",
+          "content": "Postgres",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-10T00:00:00Z",
+          "valid_from": "2026-10-01T00:00:00Z",
+          "expected_transition": "keep"
+        }
       ],
       "queries": [
-        {"id": "q_now", "type": "database", "subject": "project", "as_of": "2026-09-13T00:00:00Z", "expected": "MySQL", "mechanism": "validity_future"},
-        {"id": "q_oct", "type": "database", "subject": "project", "as_of": "2026-10-15T00:00:00Z", "expected": "Postgres", "mechanism": "validity_future"}
+        {
+          "id": "q_now",
+          "type": "database",
+          "subject": "project",
+          "as_of": "2026-09-13T00:00:00Z",
+          "expected": "MySQL",
+          "mechanism": "validity_future"
+        },
+        {
+          "id": "q_oct",
+          "type": "database",
+          "subject": "project",
+          "as_of": "2026-10-15T00:00:00Z",
+          "expected": "Postgres",
+          "mechanism": "validity_future"
+        }
       ]
     },
-
     {
       "id": "C-01",
       "category": "typed",
       "description": "Deadline: declared semantics are 'newest effective state wins, confidence irrelevant'. A newer but less confident update must replace.",
-      "types": [{"name": "deadline", "conflict": "replace", "resolve_by": ["effective_from"]}],
+      "types": [
+        {
+          "name": "deadline",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
       "writes": [
-        {"id": "w1", "type": "deadline", "subject": "launch", "content": "Friday Sep 18",
-         "authority": 1.0, "confidence": 0.90, "observed_at": "2026-09-01T00:00:00Z", "expected_transition": "add"},
-        {"id": "w2", "type": "deadline", "subject": "launch", "content": "Monday Sep 21",
-         "authority": 1.0, "confidence": 0.50, "observed_at": "2026-09-08T00:00:00Z", "expected_transition": "replace"}
+        {
+          "id": "w1",
+          "type": "deadline",
+          "subject": "launch",
+          "content": "Friday Sep 18",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-01T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "deadline",
+          "subject": "launch",
+          "content": "Monday Sep 21",
+          "authority": 1.0,
+          "confidence": 0.5,
+          "observed_at": "2026-09-08T00:00:00Z",
+          "expected_transition": "replace"
+        }
       ],
       "queries": [
-        {"id": "q1", "type": "deadline", "subject": "launch", "as_of": null, "expected": "Monday Sep 21", "mechanism": "type_specific_resolution"}
+        {
+          "id": "q1",
+          "type": "deadline",
+          "subject": "launch",
+          "as_of": null,
+          "expected": "Monday Sep 21",
+          "mechanism": "type_specific_resolution"
+        }
       ]
     },
     {
       "id": "C-02",
       "category": "typed",
       "description": "Biographical fact: declared semantics require the incoming write to be no weaker on recency AND confidence. Same authority both sides, so only the confidence guard is in play.",
-      "types": [{"name": "birthplace", "conflict": "replace", "resolve_by": ["effective_from", "confidence"]}],
+      "types": [
+        {
+          "name": "birthplace",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
       "writes": [
-        {"id": "w1", "type": "birthplace", "subject": "user", "content": "Austin",
-         "authority": 1.0, "confidence": 0.90, "observed_at": "2024-03-01T00:00:00Z", "expected_transition": "add"},
-        {"id": "w2", "type": "birthplace", "subject": "user", "content": "Dallas",
-         "authority": 1.0, "confidence": 0.40, "observed_at": "2026-09-08T00:00:00Z", "expected_transition": "ignore"}
+        {
+          "id": "w1",
+          "type": "birthplace",
+          "subject": "user",
+          "content": "Austin",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2024-03-01T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "birthplace",
+          "subject": "user",
+          "content": "Dallas",
+          "authority": 1.0,
+          "confidence": 0.4,
+          "observed_at": "2026-09-08T00:00:00Z",
+          "expected_transition": "ignore"
+        }
       ],
       "queries": [
-        {"id": "q1", "type": "birthplace", "subject": "user", "as_of": null, "expected": "Austin", "mechanism": "confidence_guard"}
+        {
+          "id": "q1",
+          "type": "birthplace",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Austin",
+          "mechanism": "confidence_guard"
+        }
       ]
     },
     {
@@ -147,37 +419,115 @@
       "category": "typed",
       "description": "One universal rule fails somewhere: the same numeric pattern (newer, less confident) must replace for a deadline and be ignored for a durable fact. Both slots in one scenario.",
       "types": [
-        {"name": "deadline", "conflict": "replace", "resolve_by": ["effective_from"]},
-        {"name": "birthplace", "conflict": "replace", "resolve_by": ["effective_from", "confidence"]}
+        {
+          "name": "deadline",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        },
+        {
+          "name": "birthplace",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
       ],
       "writes": [
-        {"id": "d1", "type": "deadline", "subject": "review", "content": "Sep 15",
-         "authority": 1.0, "confidence": 0.90, "observed_at": "2026-09-01T00:00:00Z", "expected_transition": "add"},
-        {"id": "d2", "type": "deadline", "subject": "review", "content": "Sep 22",
-         "authority": 1.0, "confidence": 0.50, "observed_at": "2026-09-08T00:00:00Z", "expected_transition": "replace"},
-        {"id": "b1", "type": "birthplace", "subject": "user", "content": "Austin",
-         "authority": 1.0, "confidence": 0.90, "observed_at": "2024-03-01T00:00:00Z", "expected_transition": "add"},
-        {"id": "b2", "type": "birthplace", "subject": "user", "content": "Dallas",
-         "authority": 1.0, "confidence": 0.50, "observed_at": "2026-09-08T00:00:00Z", "expected_transition": "ignore"}
+        {
+          "id": "d1",
+          "type": "deadline",
+          "subject": "review",
+          "content": "Sep 15",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-01T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "d2",
+          "type": "deadline",
+          "subject": "review",
+          "content": "Sep 22",
+          "authority": 1.0,
+          "confidence": 0.5,
+          "observed_at": "2026-09-08T00:00:00Z",
+          "expected_transition": "replace"
+        },
+        {
+          "id": "b1",
+          "type": "birthplace",
+          "subject": "user",
+          "content": "Austin",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2024-03-01T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "b2",
+          "type": "birthplace",
+          "subject": "user",
+          "content": "Dallas",
+          "authority": 1.0,
+          "confidence": 0.5,
+          "observed_at": "2026-09-08T00:00:00Z",
+          "expected_transition": "ignore"
+        }
       ],
       "queries": [
-        {"id": "q_deadline", "type": "deadline", "subject": "review", "as_of": null, "expected": "Sep 22", "mechanism": "type_specific_resolution"},
-        {"id": "q_fact", "type": "birthplace", "subject": "user", "as_of": null, "expected": "Austin", "mechanism": "type_specific_resolution"}
+        {
+          "id": "q_deadline",
+          "type": "deadline",
+          "subject": "review",
+          "as_of": null,
+          "expected": "Sep 22",
+          "mechanism": "type_specific_resolution"
+        },
+        {
+          "id": "q_fact",
+          "type": "birthplace",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Austin",
+          "mechanism": "type_specific_resolution"
+        }
       ]
     },
-
     {
       "id": "N-01",
       "category": "control",
       "negative_control": true,
       "description": "Stable fact, no conflict. Every variant must return it.",
-      "types": [{"name": "language", "conflict": "replace"}],
+      "types": [
+        {
+          "name": "language",
+          "conflict": "replace"
+        }
+      ],
       "writes": [
-        {"id": "w1", "type": "language", "subject": "project", "content": "Python",
-         "authority": 1.0, "confidence": 0.95, "observed_at": "2026-03-01T00:00:00Z", "expected_transition": "add"}
+        {
+          "id": "w1",
+          "type": "language",
+          "subject": "project",
+          "content": "Python",
+          "authority": 1.0,
+          "confidence": 0.95,
+          "observed_at": "2026-03-01T00:00:00Z",
+          "expected_transition": "add"
+        }
       ],
       "queries": [
-        {"id": "q1", "type": "language", "subject": "project", "as_of": null, "expected": "Python", "mechanism": "none"}
+        {
+          "id": "q1",
+          "type": "language",
+          "subject": "project",
+          "as_of": null,
+          "expected": "Python",
+          "mechanism": "none"
+        }
       ]
     },
     {
@@ -185,32 +535,326 @@
       "category": "control",
       "negative_control": true,
       "description": "Consistent update: same authority, newer and more confident. Every variant must take the update; no mechanism should fire.",
-      "types": [{"name": "python_version", "conflict": "replace", "resolve_by": ["effective_from", "confidence"]}],
+      "types": [
+        {
+          "name": "python_version",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
       "writes": [
-        {"id": "w1", "type": "python_version", "subject": "project", "content": "3.10",
-         "authority": 1.0, "confidence": 0.70, "observed_at": "2026-01-15T00:00:00Z", "expected_transition": "add"},
-        {"id": "w2", "type": "python_version", "subject": "project", "content": "3.12",
-         "authority": 1.0, "confidence": 0.90, "observed_at": "2026-09-01T00:00:00Z", "expected_transition": "replace"}
+        {
+          "id": "w1",
+          "type": "python_version",
+          "subject": "project",
+          "content": "3.10",
+          "authority": 1.0,
+          "confidence": 0.7,
+          "observed_at": "2026-01-15T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "python_version",
+          "subject": "project",
+          "content": "3.12",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-01T00:00:00Z",
+          "expected_transition": "replace"
+        }
       ],
       "queries": [
-        {"id": "q1", "type": "python_version", "subject": "project", "as_of": null, "expected": "3.12", "mechanism": "none"}
+        {
+          "id": "q1",
+          "type": "python_version",
+          "subject": "project",
+          "as_of": null,
+          "expected": "3.12",
+          "mechanism": "none"
+        }
       ]
     },
     {
       "id": "M-01",
       "category": "mixed",
       "description": "Low-authority inference that is newer, more confident, and temporally inconsistent (claims an older effective state). Authority is the first guard to fire; the outcome is the same under either guard.",
-      "types": [{"name": "location", "conflict": "replace", "resolve_by": ["effective_from", "confidence"]}],
+      "types": [
+        {
+          "name": "location",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
       "writes": [
-        {"id": "w1", "type": "location", "subject": "user", "content": "Seattle",
-         "source_type": "explicit_user", "authority": 1.0, "confidence": 0.80,
-         "observed_at": "2026-09-01T00:00:00Z", "valid_from": "2026-08-01T00:00:00Z", "expected_transition": "add"},
-        {"id": "w2", "type": "location", "subject": "user", "content": "San Jose",
-         "source_type": "model_inference", "authority": 0.3, "confidence": 0.95,
-         "observed_at": "2026-09-10T00:00:00Z", "valid_from": "2024-01-01T00:00:00Z", "expected_transition": "ignore"}
+        {
+          "id": "w1",
+          "type": "location",
+          "subject": "user",
+          "content": "Seattle",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.8,
+          "observed_at": "2026-09-01T00:00:00Z",
+          "valid_from": "2026-08-01T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "location",
+          "subject": "user",
+          "content": "San Jose",
+          "source_type": "model_inference",
+          "authority": 0.3,
+          "confidence": 0.95,
+          "observed_at": "2026-09-10T00:00:00Z",
+          "valid_from": "2024-01-01T00:00:00Z",
+          "expected_transition": "ignore"
+        }
       ],
       "queries": [
-        {"id": "q1", "type": "location", "subject": "user", "as_of": null, "expected": "Seattle", "mechanism": "authority_veto"}
+        {
+          "id": "q1",
+          "type": "location",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Seattle",
+          "mechanism": "authority_veto"
+        }
+      ]
+    },
+    {
+      "id": "G-01",
+      "category": "known_gap",
+      "description": "History under replace: a slot with one live state per write. The second write supersedes the first from Aug 1; the state on Jul 15 was San Jose. TypedMem's replace overwrites in place and keeps history only in the event log, so the historical as_of has nothing to resolve against.",
+      "types": [
+        {
+          "name": "location",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "location",
+          "subject": "user",
+          "content": "San Jose",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-01-05T00:00:00Z",
+          "valid_from": "2026-01-01T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "location",
+          "subject": "user",
+          "content": "Seattle",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-10T00:00:00Z",
+          "valid_from": "2026-08-01T00:00:00Z",
+          "expected_transition": "replace"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q_jul",
+          "type": "location",
+          "subject": "user",
+          "as_of": "2026-07-15T00:00:00Z",
+          "expected": "San Jose",
+          "mechanism": "history_under_replace"
+        },
+        {
+          "id": "q_now",
+          "type": "location",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Seattle",
+          "mechanism": "none"
+        }
+      ]
+    },
+    {
+      "id": "G-02",
+      "category": "known_gap",
+      "description": "Same as G-01, but both writes were observed in September. A baseline that answers historical queries from observation time has nothing before September and returns no state; a bitemporal baseline answers from valid time; TypedMem under replace has overwritten the history.",
+      "types": [
+        {
+          "name": "location",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "location",
+          "subject": "user",
+          "content": "San Jose",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-01T00:00:00Z",
+          "valid_from": "2026-01-01T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "location",
+          "subject": "user",
+          "content": "Seattle",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-10T00:00:00Z",
+          "valid_from": "2026-08-01T00:00:00Z",
+          "expected_transition": "replace"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q_jul",
+          "type": "location",
+          "subject": "user",
+          "as_of": "2026-07-15T00:00:00Z",
+          "expected": "San Jose",
+          "mechanism": "history_under_replace"
+        }
+      ]
+    },
+    {
+      "id": "G-03",
+      "category": "known_gap",
+      "description": "Three-step supersession chain under replace, queried in the middle interval. Only a system that retains superseded validity windows can answer.",
+      "types": [
+        {
+          "name": "team",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "team",
+          "subject": "user",
+          "content": "Platform",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-01-05T00:00:00Z",
+          "valid_from": "2026-01-01T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "team",
+          "subject": "user",
+          "content": "Inference",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-04-05T00:00:00Z",
+          "valid_from": "2026-04-01T00:00:00Z",
+          "expected_transition": "replace"
+        },
+        {
+          "id": "w3",
+          "type": "team",
+          "subject": "user",
+          "content": "Agents",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-09-10T00:00:00Z",
+          "valid_from": "2026-08-01T00:00:00Z",
+          "expected_transition": "replace"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q_may",
+          "type": "team",
+          "subject": "user",
+          "as_of": "2026-05-15T00:00:00Z",
+          "expected": "Inference",
+          "mechanism": "history_under_replace"
+        },
+        {
+          "id": "q_now",
+          "type": "team",
+          "subject": "user",
+          "as_of": null,
+          "expected": "Agents",
+          "mechanism": "none"
+        }
+      ]
+    },
+    {
+      "id": "G-04",
+      "category": "known_gap",
+      "description": "Provenance protection and history retention at once. The declared semantics keep history (keep_both) AND require that a low-authority inference cannot become the current state. In current TypedMem the authority guard exists only under replace, so under keep_both the inference is inserted and, being newer, becomes current. No baseline has an authority notion either.",
+      "types": [
+        {
+          "name": "residence",
+          "conflict": "keep_both"
+        }
+      ],
+      "writes": [
+        {
+          "id": "w1",
+          "type": "residence",
+          "subject": "user",
+          "content": "San Jose",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-01-05T00:00:00Z",
+          "valid_from": "2026-01-01T00:00:00Z",
+          "expected_transition": "add"
+        },
+        {
+          "id": "w2",
+          "type": "residence",
+          "subject": "user",
+          "content": "Seattle",
+          "source_type": "model_inference",
+          "authority": 0.3,
+          "confidence": 0.95,
+          "observed_at": "2026-09-05T00:00:00Z",
+          "expected_transition": "ignore"
+        }
+      ],
+      "queries": [
+        {
+          "id": "q_now",
+          "type": "residence",
+          "subject": "user",
+          "as_of": null,
+          "expected": "San Jose",
+          "mechanism": "authority_under_keep_both"
+        },
+        {
+          "id": "q_jan",
+          "type": "residence",
+          "subject": "user",
+          "as_of": "2026-03-01T00:00:00Z",
+          "expected": "San Jose",
+          "mechanism": "none"
+        }
       ]
     }
   ]
