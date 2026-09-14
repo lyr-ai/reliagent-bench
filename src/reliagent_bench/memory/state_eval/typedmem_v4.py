@@ -92,6 +92,14 @@ class TypedMemV4:
             return "replace"
         return "ignore"
 
+    def history(self, type: str, subject: str) -> list[str]:
+        """Every live memory in the slot, by effective_from. Under replace this
+        is at most one value — the contract keeps history only in the event
+        log, which is not consulted here on purpose."""
+        assert self._store is not None
+        ms = [m for m in self._store.all() if m.type == type and m.subject == subject]
+        return [m.content for m in sorted(ms, key=lambda m: m.effective_from)]
+
     def query(self, q: Query) -> str | None:
         assert self._store is not None
         as_of = q.as_of or datetime.now(timezone.utc)

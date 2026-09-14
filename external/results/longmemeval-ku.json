@@ -1,0 +1,4152 @@
+{
+  "table": {
+    "v0": {
+      "current_state": [
+        53,
+        53
+      ],
+      "historical_state": [
+        6,
+        6
+      ],
+      "both_states": [
+        2,
+        2
+      ],
+      "delta_direction": [
+        3,
+        3
+      ],
+      "accumulation": [
+        1,
+        1
+      ],
+      "abstention": [
+        6,
+        6
+      ],
+      "all_usable": [
+        65,
+        65
+      ]
+    },
+    "v0_scd": {
+      "current_state": [
+        53,
+        53
+      ],
+      "historical_state": [
+        6,
+        6
+      ],
+      "both_states": [
+        2,
+        2
+      ],
+      "delta_direction": [
+        3,
+        3
+      ],
+      "accumulation": [
+        1,
+        1
+      ],
+      "abstention": [
+        6,
+        6
+      ],
+      "all_usable": [
+        65,
+        65
+      ]
+    },
+    "v0_scd_g": {
+      "current_state": [
+        53,
+        53
+      ],
+      "historical_state": [
+        6,
+        6
+      ],
+      "both_states": [
+        2,
+        2
+      ],
+      "delta_direction": [
+        3,
+        3
+      ],
+      "accumulation": [
+        1,
+        1
+      ],
+      "abstention": [
+        6,
+        6
+      ],
+      "all_usable": [
+        65,
+        65
+      ]
+    },
+    "v4_replace": {
+      "current_state": [
+        53,
+        53
+      ],
+      "historical_state": [
+        0,
+        6
+      ],
+      "both_states": [
+        0,
+        2
+      ],
+      "delta_direction": [
+        0,
+        3
+      ],
+      "accumulation": [
+        1,
+        1
+      ],
+      "abstention": [
+        6,
+        6
+      ],
+      "all_usable": [
+        54,
+        65
+      ]
+    },
+    "v4_keep_both": {
+      "current_state": [
+        53,
+        53
+      ],
+      "historical_state": [
+        6,
+        6
+      ],
+      "both_states": [
+        2,
+        2
+      ],
+      "delta_direction": [
+        3,
+        3
+      ],
+      "accumulation": [
+        1,
+        1
+      ],
+      "abstention": [
+        6,
+        6
+      ],
+      "all_usable": [
+        65,
+        65
+      ]
+    },
+    "v4_default": {
+      "current_state": [
+        53,
+        53
+      ],
+      "historical_state": [
+        5,
+        6
+      ],
+      "both_states": [
+        2,
+        2
+      ],
+      "delta_direction": [
+        3,
+        3
+      ],
+      "accumulation": [
+        1,
+        1
+      ],
+      "abstention": [
+        6,
+        6
+      ],
+      "all_usable": [
+        64,
+        65
+      ]
+    }
+  },
+  "attribution": {
+    "v0": {},
+    "v0_scd": {},
+    "v0_scd_g": {},
+    "v4_replace": {
+      "unsupported_semantics:history_under_replace": 11
+    },
+    "v4_keep_both": {},
+    "v4_default": {
+      "unsupported_semantics:history_under_replace": 1
+    }
+  },
+  "per_query": {
+    "v0": [
+      {
+        "question_id": "01493427",
+        "group": "current_state",
+        "query": "current",
+        "expected": "25",
+        "actual": "25",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "06db6396",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "07741c45",
+        "group": "current_state",
+        "query": "current",
+        "expected": "in a shoe rack in my closet",
+        "actual": "in a shoe rack in my closet",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "08e075c7",
+        "group": "current_state",
+        "query": "current",
+        "expected": "9 months",
+        "actual": "9 months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "0e4e4c46",
+        "group": "current_state",
+        "query": "current",
+        "expected": "132",
+        "actual": "132",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "0f05491a",
+        "group": "current_state",
+        "query": "current",
+        "expected": "120",
+        "actual": "120",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "184da446",
+        "group": "current_state",
+        "query": "current",
+        "expected": "220",
+        "actual": "220",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "18bc8abd",
+        "group": "current_state",
+        "query": "current",
+        "expected": "kansas city masterpiece",
+        "actual": "kansas city masterpiece",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "1cea1afa",
+        "group": "current_state",
+        "query": "current",
+        "expected": "600",
+        "actual": "600",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2133c1b5",
+        "group": "current_state",
+        "query": "current",
+        "expected": "3 months",
+        "actual": "3 months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2698e78f",
+        "group": "current_state",
+        "query": "current",
+        "expected": "every week",
+        "actual": "every week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "26bdc477",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "3ba21379",
+        "group": "current_state",
+        "query": "current",
+        "expected": "ford f-150 pickup truck",
+        "actual": "ford f-150 pickup truck",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "41698283",
+        "group": "current_state",
+        "query": "current",
+        "expected": "70-200mm zoom lens",
+        "actual": "70-200mm zoom lens",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "42ec0761",
+        "group": "current_state",
+        "query": "current",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "45dc21b6",
+        "group": "current_state",
+        "query": "current",
+        "expected": "3",
+        "actual": "3",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "4b24c848",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "4d6b87c8",
+        "group": "current_state",
+        "query": "current",
+        "expected": "25",
+        "actual": "25",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "5831f84d",
+        "group": "current_state",
+        "query": "current",
+        "expected": "15",
+        "actual": "15",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "59524333",
+        "group": "current_state",
+        "query": "current",
+        "expected": "6:00 pm",
+        "actual": "6:00 pm",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "603deb26",
+        "group": "current_state",
+        "query": "current",
+        "expected": "10",
+        "actual": "10",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "618f13b2",
+        "group": "current_state",
+        "query": "current",
+        "expected": "6",
+        "actual": "6",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6a1eabeb",
+        "group": "current_state",
+        "query": "current",
+        "expected": "25:50",
+        "actual": "25:50",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6a27ffc2",
+        "group": "current_state",
+        "query": "current",
+        "expected": "30",
+        "actual": "30",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6aeb4375",
+        "group": "current_state",
+        "query": "current",
+        "expected": "4",
+        "actual": "4",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "71315a70",
+        "group": "current_state",
+        "query": "current",
+        "expected": "10-12 hours",
+        "actual": "10-12 hours",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "72e3ee87",
+        "group": "current_state",
+        "query": "current",
+        "expected": "50",
+        "actual": "50",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "7401057b",
+        "group": "current_state",
+        "query": "current",
+        "expected": "2",
+        "actual": "2",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "7a87bd0c",
+        "group": "current_state",
+        "query": "current",
+        "expected": "4 weeks",
+        "actual": "4 weeks",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "7e974930",
+        "group": "current_state",
+        "query": "current",
+        "expected": "$420",
+        "actual": "$420",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "830ce83f",
+        "group": "current_state",
+        "query": "current",
+        "expected": "the suburbs",
+        "actual": "the suburbs",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "852ce960",
+        "group": "current_state",
+        "query": "current",
+        "expected": "$400,000",
+        "actual": "$400,000",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "89941a93",
+        "group": "current_state",
+        "query": "current",
+        "expected": "4",
+        "actual": "4",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "8fb83627",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "945e3d21",
+        "group": "current_state",
+        "query": "current",
+        "expected": "three times a week",
+        "actual": "three times a week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "9ea5eabc",
+        "group": "current_state",
+        "query": "current",
+        "expected": "paris",
+        "actual": "paris",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "a1eacc2a",
+        "group": "current_state",
+        "query": "current",
+        "expected": "7",
+        "actual": "7",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "a2f3aa27",
+        "group": "current_state",
+        "query": "current",
+        "expected": "1300",
+        "actual": "1300",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "affe2881",
+        "group": "current_state",
+        "query": "current",
+        "expected": "32",
+        "actual": "32",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "b01defab",
+        "group": "current_state",
+        "query": "current",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "b6019101",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "ba61f0b9",
+        "group": "current_state",
+        "query": "current",
+        "expected": "6",
+        "actual": "6",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "c7dc5443",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5-2",
+        "actual": "5-2",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "cc5ded98",
+        "group": "current_state",
+        "query": "current",
+        "expected": "about two hours",
+        "actual": "about two hours",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "ce6d2d27",
+        "group": "current_state",
+        "query": "current",
+        "expected": "friday",
+        "actual": "friday",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "cf22b7bf",
+        "group": "current_state",
+        "query": "current",
+        "expected": "10 pounds",
+        "actual": "10 pounds",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "d7c942c3",
+        "group": "current_state",
+        "query": "current",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "dad224aa",
+        "group": "current_state",
+        "query": "current",
+        "expected": "7:30 am",
+        "actual": "7:30 am",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "db467c8c",
+        "group": "current_state",
+        "query": "current",
+        "expected": "nine months",
+        "actual": "nine months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "e493bb7c",
+        "group": "current_state",
+        "query": "current",
+        "expected": "in my bedroom",
+        "actual": "in my bedroom",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "e61a7584",
+        "group": "current_state",
+        "query": "current",
+        "expected": "9 months",
+        "actual": "9 months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "ed4ddc30",
+        "group": "current_state",
+        "query": "current",
+        "expected": "20",
+        "actual": "20",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f9e8c073",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "07741c44",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "under my bed",
+        "actual": "under my bed",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "50635ada",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "premier silver",
+        "actual": "premier silver",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "89941a94",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "9bbe84a2",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "level 100",
+        "actual": "level 100",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "dfde3500",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "wednesday",
+        "actual": "wednesday",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "e66b632c",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "27:45",
+        "actual": "27:45",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "031748ae",
+        "group": "both_states",
+        "query": "after0",
+        "expected": "4",
+        "actual": "4",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "031748ae",
+        "group": "both_states",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f685340e",
+        "group": "both_states",
+        "query": "after0",
+        "expected": "every week",
+        "actual": "every week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f685340e",
+        "group": "both_states",
+        "query": "current",
+        "expected": "every other week",
+        "actual": "every other week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6071bd76",
+        "group": "delta_direction",
+        "query": "direction",
+        "expected": "down",
+        "actual": "down",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "c4ea545c",
+        "group": "delta_direction",
+        "query": "direction",
+        "expected": "up",
+        "actual": "up",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "c6853660",
+        "group": "delta_direction",
+        "query": "direction",
+        "expected": "up",
+        "actual": "up",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "69fee5aa",
+        "group": "accumulation",
+        "query": "current",
+        "expected": "38",
+        "actual": "38",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "031748ae_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "0ddfec37_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2133c1b5_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2698e78f_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6aeb4375_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f685340e_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      }
+    ],
+    "v0_scd": [
+      {
+        "question_id": "01493427",
+        "group": "current_state",
+        "query": "current",
+        "expected": "25",
+        "actual": "25",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "06db6396",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "07741c45",
+        "group": "current_state",
+        "query": "current",
+        "expected": "in a shoe rack in my closet",
+        "actual": "in a shoe rack in my closet",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "08e075c7",
+        "group": "current_state",
+        "query": "current",
+        "expected": "9 months",
+        "actual": "9 months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "0e4e4c46",
+        "group": "current_state",
+        "query": "current",
+        "expected": "132",
+        "actual": "132",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "0f05491a",
+        "group": "current_state",
+        "query": "current",
+        "expected": "120",
+        "actual": "120",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "184da446",
+        "group": "current_state",
+        "query": "current",
+        "expected": "220",
+        "actual": "220",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "18bc8abd",
+        "group": "current_state",
+        "query": "current",
+        "expected": "kansas city masterpiece",
+        "actual": "kansas city masterpiece",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "1cea1afa",
+        "group": "current_state",
+        "query": "current",
+        "expected": "600",
+        "actual": "600",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2133c1b5",
+        "group": "current_state",
+        "query": "current",
+        "expected": "3 months",
+        "actual": "3 months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2698e78f",
+        "group": "current_state",
+        "query": "current",
+        "expected": "every week",
+        "actual": "every week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "26bdc477",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "3ba21379",
+        "group": "current_state",
+        "query": "current",
+        "expected": "ford f-150 pickup truck",
+        "actual": "ford f-150 pickup truck",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "41698283",
+        "group": "current_state",
+        "query": "current",
+        "expected": "70-200mm zoom lens",
+        "actual": "70-200mm zoom lens",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "42ec0761",
+        "group": "current_state",
+        "query": "current",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "45dc21b6",
+        "group": "current_state",
+        "query": "current",
+        "expected": "3",
+        "actual": "3",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "4b24c848",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "4d6b87c8",
+        "group": "current_state",
+        "query": "current",
+        "expected": "25",
+        "actual": "25",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "5831f84d",
+        "group": "current_state",
+        "query": "current",
+        "expected": "15",
+        "actual": "15",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "59524333",
+        "group": "current_state",
+        "query": "current",
+        "expected": "6:00 pm",
+        "actual": "6:00 pm",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "603deb26",
+        "group": "current_state",
+        "query": "current",
+        "expected": "10",
+        "actual": "10",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "618f13b2",
+        "group": "current_state",
+        "query": "current",
+        "expected": "6",
+        "actual": "6",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6a1eabeb",
+        "group": "current_state",
+        "query": "current",
+        "expected": "25:50",
+        "actual": "25:50",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6a27ffc2",
+        "group": "current_state",
+        "query": "current",
+        "expected": "30",
+        "actual": "30",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6aeb4375",
+        "group": "current_state",
+        "query": "current",
+        "expected": "4",
+        "actual": "4",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "71315a70",
+        "group": "current_state",
+        "query": "current",
+        "expected": "10-12 hours",
+        "actual": "10-12 hours",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "72e3ee87",
+        "group": "current_state",
+        "query": "current",
+        "expected": "50",
+        "actual": "50",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "7401057b",
+        "group": "current_state",
+        "query": "current",
+        "expected": "2",
+        "actual": "2",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "7a87bd0c",
+        "group": "current_state",
+        "query": "current",
+        "expected": "4 weeks",
+        "actual": "4 weeks",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "7e974930",
+        "group": "current_state",
+        "query": "current",
+        "expected": "$420",
+        "actual": "$420",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "830ce83f",
+        "group": "current_state",
+        "query": "current",
+        "expected": "the suburbs",
+        "actual": "the suburbs",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "852ce960",
+        "group": "current_state",
+        "query": "current",
+        "expected": "$400,000",
+        "actual": "$400,000",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "89941a93",
+        "group": "current_state",
+        "query": "current",
+        "expected": "4",
+        "actual": "4",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "8fb83627",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "945e3d21",
+        "group": "current_state",
+        "query": "current",
+        "expected": "three times a week",
+        "actual": "three times a week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "9ea5eabc",
+        "group": "current_state",
+        "query": "current",
+        "expected": "paris",
+        "actual": "paris",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "a1eacc2a",
+        "group": "current_state",
+        "query": "current",
+        "expected": "7",
+        "actual": "7",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "a2f3aa27",
+        "group": "current_state",
+        "query": "current",
+        "expected": "1300",
+        "actual": "1300",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "affe2881",
+        "group": "current_state",
+        "query": "current",
+        "expected": "32",
+        "actual": "32",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "b01defab",
+        "group": "current_state",
+        "query": "current",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "b6019101",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "ba61f0b9",
+        "group": "current_state",
+        "query": "current",
+        "expected": "6",
+        "actual": "6",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "c7dc5443",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5-2",
+        "actual": "5-2",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "cc5ded98",
+        "group": "current_state",
+        "query": "current",
+        "expected": "about two hours",
+        "actual": "about two hours",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "ce6d2d27",
+        "group": "current_state",
+        "query": "current",
+        "expected": "friday",
+        "actual": "friday",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "cf22b7bf",
+        "group": "current_state",
+        "query": "current",
+        "expected": "10 pounds",
+        "actual": "10 pounds",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "d7c942c3",
+        "group": "current_state",
+        "query": "current",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "dad224aa",
+        "group": "current_state",
+        "query": "current",
+        "expected": "7:30 am",
+        "actual": "7:30 am",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "db467c8c",
+        "group": "current_state",
+        "query": "current",
+        "expected": "nine months",
+        "actual": "nine months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "e493bb7c",
+        "group": "current_state",
+        "query": "current",
+        "expected": "in my bedroom",
+        "actual": "in my bedroom",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "e61a7584",
+        "group": "current_state",
+        "query": "current",
+        "expected": "9 months",
+        "actual": "9 months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "ed4ddc30",
+        "group": "current_state",
+        "query": "current",
+        "expected": "20",
+        "actual": "20",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f9e8c073",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "07741c44",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "under my bed",
+        "actual": "under my bed",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "50635ada",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "premier silver",
+        "actual": "premier silver",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "89941a94",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "9bbe84a2",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "level 100",
+        "actual": "level 100",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "dfde3500",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "wednesday",
+        "actual": "wednesday",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "e66b632c",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "27:45",
+        "actual": "27:45",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "031748ae",
+        "group": "both_states",
+        "query": "after0",
+        "expected": "4",
+        "actual": "4",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "031748ae",
+        "group": "both_states",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f685340e",
+        "group": "both_states",
+        "query": "after0",
+        "expected": "every week",
+        "actual": "every week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f685340e",
+        "group": "both_states",
+        "query": "current",
+        "expected": "every other week",
+        "actual": "every other week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6071bd76",
+        "group": "delta_direction",
+        "query": "direction",
+        "expected": "down",
+        "actual": "down",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "c4ea545c",
+        "group": "delta_direction",
+        "query": "direction",
+        "expected": "up",
+        "actual": "up",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "c6853660",
+        "group": "delta_direction",
+        "query": "direction",
+        "expected": "up",
+        "actual": "up",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "69fee5aa",
+        "group": "accumulation",
+        "query": "current",
+        "expected": "38",
+        "actual": "38",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "031748ae_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "0ddfec37_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2133c1b5_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2698e78f_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6aeb4375_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f685340e_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      }
+    ],
+    "v0_scd_g": [
+      {
+        "question_id": "01493427",
+        "group": "current_state",
+        "query": "current",
+        "expected": "25",
+        "actual": "25",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "06db6396",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "07741c45",
+        "group": "current_state",
+        "query": "current",
+        "expected": "in a shoe rack in my closet",
+        "actual": "in a shoe rack in my closet",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "08e075c7",
+        "group": "current_state",
+        "query": "current",
+        "expected": "9 months",
+        "actual": "9 months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "0e4e4c46",
+        "group": "current_state",
+        "query": "current",
+        "expected": "132",
+        "actual": "132",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "0f05491a",
+        "group": "current_state",
+        "query": "current",
+        "expected": "120",
+        "actual": "120",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "184da446",
+        "group": "current_state",
+        "query": "current",
+        "expected": "220",
+        "actual": "220",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "18bc8abd",
+        "group": "current_state",
+        "query": "current",
+        "expected": "kansas city masterpiece",
+        "actual": "kansas city masterpiece",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "1cea1afa",
+        "group": "current_state",
+        "query": "current",
+        "expected": "600",
+        "actual": "600",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2133c1b5",
+        "group": "current_state",
+        "query": "current",
+        "expected": "3 months",
+        "actual": "3 months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2698e78f",
+        "group": "current_state",
+        "query": "current",
+        "expected": "every week",
+        "actual": "every week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "26bdc477",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "3ba21379",
+        "group": "current_state",
+        "query": "current",
+        "expected": "ford f-150 pickup truck",
+        "actual": "ford f-150 pickup truck",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "41698283",
+        "group": "current_state",
+        "query": "current",
+        "expected": "70-200mm zoom lens",
+        "actual": "70-200mm zoom lens",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "42ec0761",
+        "group": "current_state",
+        "query": "current",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "45dc21b6",
+        "group": "current_state",
+        "query": "current",
+        "expected": "3",
+        "actual": "3",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "4b24c848",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "4d6b87c8",
+        "group": "current_state",
+        "query": "current",
+        "expected": "25",
+        "actual": "25",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "5831f84d",
+        "group": "current_state",
+        "query": "current",
+        "expected": "15",
+        "actual": "15",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "59524333",
+        "group": "current_state",
+        "query": "current",
+        "expected": "6:00 pm",
+        "actual": "6:00 pm",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "603deb26",
+        "group": "current_state",
+        "query": "current",
+        "expected": "10",
+        "actual": "10",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "618f13b2",
+        "group": "current_state",
+        "query": "current",
+        "expected": "6",
+        "actual": "6",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6a1eabeb",
+        "group": "current_state",
+        "query": "current",
+        "expected": "25:50",
+        "actual": "25:50",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6a27ffc2",
+        "group": "current_state",
+        "query": "current",
+        "expected": "30",
+        "actual": "30",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6aeb4375",
+        "group": "current_state",
+        "query": "current",
+        "expected": "4",
+        "actual": "4",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "71315a70",
+        "group": "current_state",
+        "query": "current",
+        "expected": "10-12 hours",
+        "actual": "10-12 hours",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "72e3ee87",
+        "group": "current_state",
+        "query": "current",
+        "expected": "50",
+        "actual": "50",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "7401057b",
+        "group": "current_state",
+        "query": "current",
+        "expected": "2",
+        "actual": "2",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "7a87bd0c",
+        "group": "current_state",
+        "query": "current",
+        "expected": "4 weeks",
+        "actual": "4 weeks",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "7e974930",
+        "group": "current_state",
+        "query": "current",
+        "expected": "$420",
+        "actual": "$420",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "830ce83f",
+        "group": "current_state",
+        "query": "current",
+        "expected": "the suburbs",
+        "actual": "the suburbs",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "852ce960",
+        "group": "current_state",
+        "query": "current",
+        "expected": "$400,000",
+        "actual": "$400,000",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "89941a93",
+        "group": "current_state",
+        "query": "current",
+        "expected": "4",
+        "actual": "4",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "8fb83627",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "945e3d21",
+        "group": "current_state",
+        "query": "current",
+        "expected": "three times a week",
+        "actual": "three times a week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "9ea5eabc",
+        "group": "current_state",
+        "query": "current",
+        "expected": "paris",
+        "actual": "paris",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "a1eacc2a",
+        "group": "current_state",
+        "query": "current",
+        "expected": "7",
+        "actual": "7",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "a2f3aa27",
+        "group": "current_state",
+        "query": "current",
+        "expected": "1300",
+        "actual": "1300",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "affe2881",
+        "group": "current_state",
+        "query": "current",
+        "expected": "32",
+        "actual": "32",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "b01defab",
+        "group": "current_state",
+        "query": "current",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "b6019101",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "ba61f0b9",
+        "group": "current_state",
+        "query": "current",
+        "expected": "6",
+        "actual": "6",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "c7dc5443",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5-2",
+        "actual": "5-2",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "cc5ded98",
+        "group": "current_state",
+        "query": "current",
+        "expected": "about two hours",
+        "actual": "about two hours",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "ce6d2d27",
+        "group": "current_state",
+        "query": "current",
+        "expected": "friday",
+        "actual": "friday",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "cf22b7bf",
+        "group": "current_state",
+        "query": "current",
+        "expected": "10 pounds",
+        "actual": "10 pounds",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "d7c942c3",
+        "group": "current_state",
+        "query": "current",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "dad224aa",
+        "group": "current_state",
+        "query": "current",
+        "expected": "7:30 am",
+        "actual": "7:30 am",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "db467c8c",
+        "group": "current_state",
+        "query": "current",
+        "expected": "nine months",
+        "actual": "nine months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "e493bb7c",
+        "group": "current_state",
+        "query": "current",
+        "expected": "in my bedroom",
+        "actual": "in my bedroom",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "e61a7584",
+        "group": "current_state",
+        "query": "current",
+        "expected": "9 months",
+        "actual": "9 months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "ed4ddc30",
+        "group": "current_state",
+        "query": "current",
+        "expected": "20",
+        "actual": "20",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f9e8c073",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "07741c44",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "under my bed",
+        "actual": "under my bed",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "50635ada",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "premier silver",
+        "actual": "premier silver",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "89941a94",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "9bbe84a2",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "level 100",
+        "actual": "level 100",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "dfde3500",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "wednesday",
+        "actual": "wednesday",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "e66b632c",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "27:45",
+        "actual": "27:45",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "031748ae",
+        "group": "both_states",
+        "query": "after0",
+        "expected": "4",
+        "actual": "4",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "031748ae",
+        "group": "both_states",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f685340e",
+        "group": "both_states",
+        "query": "after0",
+        "expected": "every week",
+        "actual": "every week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f685340e",
+        "group": "both_states",
+        "query": "current",
+        "expected": "every other week",
+        "actual": "every other week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6071bd76",
+        "group": "delta_direction",
+        "query": "direction",
+        "expected": "down",
+        "actual": "down",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "c4ea545c",
+        "group": "delta_direction",
+        "query": "direction",
+        "expected": "up",
+        "actual": "up",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "c6853660",
+        "group": "delta_direction",
+        "query": "direction",
+        "expected": "up",
+        "actual": "up",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "69fee5aa",
+        "group": "accumulation",
+        "query": "current",
+        "expected": "38",
+        "actual": "38",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "031748ae_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "0ddfec37_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2133c1b5_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2698e78f_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6aeb4375_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f685340e_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      }
+    ],
+    "v4_replace": [
+      {
+        "question_id": "01493427",
+        "group": "current_state",
+        "query": "current",
+        "expected": "25",
+        "actual": "25",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "06db6396",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "07741c45",
+        "group": "current_state",
+        "query": "current",
+        "expected": "in a shoe rack in my closet",
+        "actual": "in a shoe rack in my closet",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "08e075c7",
+        "group": "current_state",
+        "query": "current",
+        "expected": "9 months",
+        "actual": "9 months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "0e4e4c46",
+        "group": "current_state",
+        "query": "current",
+        "expected": "132",
+        "actual": "132",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "0f05491a",
+        "group": "current_state",
+        "query": "current",
+        "expected": "120",
+        "actual": "120",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "184da446",
+        "group": "current_state",
+        "query": "current",
+        "expected": "220",
+        "actual": "220",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "18bc8abd",
+        "group": "current_state",
+        "query": "current",
+        "expected": "kansas city masterpiece",
+        "actual": "kansas city masterpiece",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "1cea1afa",
+        "group": "current_state",
+        "query": "current",
+        "expected": "600",
+        "actual": "600",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2133c1b5",
+        "group": "current_state",
+        "query": "current",
+        "expected": "3 months",
+        "actual": "3 months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2698e78f",
+        "group": "current_state",
+        "query": "current",
+        "expected": "every week",
+        "actual": "every week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "26bdc477",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "3ba21379",
+        "group": "current_state",
+        "query": "current",
+        "expected": "ford f-150 pickup truck",
+        "actual": "ford f-150 pickup truck",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "41698283",
+        "group": "current_state",
+        "query": "current",
+        "expected": "70-200mm zoom lens",
+        "actual": "70-200mm zoom lens",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "42ec0761",
+        "group": "current_state",
+        "query": "current",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "45dc21b6",
+        "group": "current_state",
+        "query": "current",
+        "expected": "3",
+        "actual": "3",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "4b24c848",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "4d6b87c8",
+        "group": "current_state",
+        "query": "current",
+        "expected": "25",
+        "actual": "25",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "5831f84d",
+        "group": "current_state",
+        "query": "current",
+        "expected": "15",
+        "actual": "15",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "59524333",
+        "group": "current_state",
+        "query": "current",
+        "expected": "6:00 pm",
+        "actual": "6:00 pm",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "603deb26",
+        "group": "current_state",
+        "query": "current",
+        "expected": "10",
+        "actual": "10",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "618f13b2",
+        "group": "current_state",
+        "query": "current",
+        "expected": "6",
+        "actual": "6",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6a1eabeb",
+        "group": "current_state",
+        "query": "current",
+        "expected": "25:50",
+        "actual": "25:50",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6a27ffc2",
+        "group": "current_state",
+        "query": "current",
+        "expected": "30",
+        "actual": "30",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6aeb4375",
+        "group": "current_state",
+        "query": "current",
+        "expected": "4",
+        "actual": "4",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "71315a70",
+        "group": "current_state",
+        "query": "current",
+        "expected": "10-12 hours",
+        "actual": "10-12 hours",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "72e3ee87",
+        "group": "current_state",
+        "query": "current",
+        "expected": "50",
+        "actual": "50",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "7401057b",
+        "group": "current_state",
+        "query": "current",
+        "expected": "2",
+        "actual": "2",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "7a87bd0c",
+        "group": "current_state",
+        "query": "current",
+        "expected": "4 weeks",
+        "actual": "4 weeks",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "7e974930",
+        "group": "current_state",
+        "query": "current",
+        "expected": "$420",
+        "actual": "$420",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "830ce83f",
+        "group": "current_state",
+        "query": "current",
+        "expected": "the suburbs",
+        "actual": "the suburbs",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "852ce960",
+        "group": "current_state",
+        "query": "current",
+        "expected": "$400,000",
+        "actual": "$400,000",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "89941a93",
+        "group": "current_state",
+        "query": "current",
+        "expected": "4",
+        "actual": "4",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "8fb83627",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "945e3d21",
+        "group": "current_state",
+        "query": "current",
+        "expected": "three times a week",
+        "actual": "three times a week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "9ea5eabc",
+        "group": "current_state",
+        "query": "current",
+        "expected": "paris",
+        "actual": "paris",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "a1eacc2a",
+        "group": "current_state",
+        "query": "current",
+        "expected": "7",
+        "actual": "7",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "a2f3aa27",
+        "group": "current_state",
+        "query": "current",
+        "expected": "1300",
+        "actual": "1300",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "affe2881",
+        "group": "current_state",
+        "query": "current",
+        "expected": "32",
+        "actual": "32",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "b01defab",
+        "group": "current_state",
+        "query": "current",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "b6019101",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "ba61f0b9",
+        "group": "current_state",
+        "query": "current",
+        "expected": "6",
+        "actual": "6",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "c7dc5443",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5-2",
+        "actual": "5-2",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "cc5ded98",
+        "group": "current_state",
+        "query": "current",
+        "expected": "about two hours",
+        "actual": "about two hours",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "ce6d2d27",
+        "group": "current_state",
+        "query": "current",
+        "expected": "friday",
+        "actual": "friday",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "cf22b7bf",
+        "group": "current_state",
+        "query": "current",
+        "expected": "10 pounds",
+        "actual": "10 pounds",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "d7c942c3",
+        "group": "current_state",
+        "query": "current",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "dad224aa",
+        "group": "current_state",
+        "query": "current",
+        "expected": "7:30 am",
+        "actual": "7:30 am",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "db467c8c",
+        "group": "current_state",
+        "query": "current",
+        "expected": "nine months",
+        "actual": "nine months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "e493bb7c",
+        "group": "current_state",
+        "query": "current",
+        "expected": "in my bedroom",
+        "actual": "in my bedroom",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "e61a7584",
+        "group": "current_state",
+        "query": "current",
+        "expected": "9 months",
+        "actual": "9 months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "ed4ddc30",
+        "group": "current_state",
+        "query": "current",
+        "expected": "20",
+        "actual": "20",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f9e8c073",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "07741c44",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "under my bed",
+        "actual": null,
+        "correct": false,
+        "attribution": "unsupported_semantics:history_under_replace"
+      },
+      {
+        "question_id": "50635ada",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "premier silver",
+        "actual": null,
+        "correct": false,
+        "attribution": "unsupported_semantics:history_under_replace"
+      },
+      {
+        "question_id": "89941a94",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "yes",
+        "actual": null,
+        "correct": false,
+        "attribution": "unsupported_semantics:history_under_replace"
+      },
+      {
+        "question_id": "9bbe84a2",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "level 100",
+        "actual": null,
+        "correct": false,
+        "attribution": "unsupported_semantics:history_under_replace"
+      },
+      {
+        "question_id": "dfde3500",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "wednesday",
+        "actual": null,
+        "correct": false,
+        "attribution": "unsupported_semantics:history_under_replace"
+      },
+      {
+        "question_id": "e66b632c",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "27:45",
+        "actual": null,
+        "correct": false,
+        "attribution": "unsupported_semantics:history_under_replace"
+      },
+      {
+        "question_id": "031748ae",
+        "group": "both_states",
+        "query": "after0",
+        "expected": "4",
+        "actual": null,
+        "correct": false,
+        "attribution": "unsupported_semantics:history_under_replace"
+      },
+      {
+        "question_id": "031748ae",
+        "group": "both_states",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f685340e",
+        "group": "both_states",
+        "query": "after0",
+        "expected": "every week",
+        "actual": null,
+        "correct": false,
+        "attribution": "unsupported_semantics:history_under_replace"
+      },
+      {
+        "question_id": "f685340e",
+        "group": "both_states",
+        "query": "current",
+        "expected": "every other week",
+        "actual": "every other week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6071bd76",
+        "group": "delta_direction",
+        "query": "direction",
+        "expected": "down",
+        "actual": null,
+        "correct": false,
+        "attribution": "unsupported_semantics:history_under_replace"
+      },
+      {
+        "question_id": "c4ea545c",
+        "group": "delta_direction",
+        "query": "direction",
+        "expected": "up",
+        "actual": null,
+        "correct": false,
+        "attribution": "unsupported_semantics:history_under_replace"
+      },
+      {
+        "question_id": "c6853660",
+        "group": "delta_direction",
+        "query": "direction",
+        "expected": "up",
+        "actual": null,
+        "correct": false,
+        "attribution": "unsupported_semantics:history_under_replace"
+      },
+      {
+        "question_id": "69fee5aa",
+        "group": "accumulation",
+        "query": "current",
+        "expected": "38",
+        "actual": "38",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "031748ae_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "0ddfec37_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2133c1b5_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2698e78f_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6aeb4375_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f685340e_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      }
+    ],
+    "v4_keep_both": [
+      {
+        "question_id": "01493427",
+        "group": "current_state",
+        "query": "current",
+        "expected": "25",
+        "actual": "25",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "06db6396",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "07741c45",
+        "group": "current_state",
+        "query": "current",
+        "expected": "in a shoe rack in my closet",
+        "actual": "in a shoe rack in my closet",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "08e075c7",
+        "group": "current_state",
+        "query": "current",
+        "expected": "9 months",
+        "actual": "9 months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "0e4e4c46",
+        "group": "current_state",
+        "query": "current",
+        "expected": "132",
+        "actual": "132",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "0f05491a",
+        "group": "current_state",
+        "query": "current",
+        "expected": "120",
+        "actual": "120",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "184da446",
+        "group": "current_state",
+        "query": "current",
+        "expected": "220",
+        "actual": "220",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "18bc8abd",
+        "group": "current_state",
+        "query": "current",
+        "expected": "kansas city masterpiece",
+        "actual": "kansas city masterpiece",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "1cea1afa",
+        "group": "current_state",
+        "query": "current",
+        "expected": "600",
+        "actual": "600",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2133c1b5",
+        "group": "current_state",
+        "query": "current",
+        "expected": "3 months",
+        "actual": "3 months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2698e78f",
+        "group": "current_state",
+        "query": "current",
+        "expected": "every week",
+        "actual": "every week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "26bdc477",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "3ba21379",
+        "group": "current_state",
+        "query": "current",
+        "expected": "ford f-150 pickup truck",
+        "actual": "ford f-150 pickup truck",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "41698283",
+        "group": "current_state",
+        "query": "current",
+        "expected": "70-200mm zoom lens",
+        "actual": "70-200mm zoom lens",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "42ec0761",
+        "group": "current_state",
+        "query": "current",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "45dc21b6",
+        "group": "current_state",
+        "query": "current",
+        "expected": "3",
+        "actual": "3",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "4b24c848",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "4d6b87c8",
+        "group": "current_state",
+        "query": "current",
+        "expected": "25",
+        "actual": "25",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "5831f84d",
+        "group": "current_state",
+        "query": "current",
+        "expected": "15",
+        "actual": "15",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "59524333",
+        "group": "current_state",
+        "query": "current",
+        "expected": "6:00 pm",
+        "actual": "6:00 pm",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "603deb26",
+        "group": "current_state",
+        "query": "current",
+        "expected": "10",
+        "actual": "10",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "618f13b2",
+        "group": "current_state",
+        "query": "current",
+        "expected": "6",
+        "actual": "6",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6a1eabeb",
+        "group": "current_state",
+        "query": "current",
+        "expected": "25:50",
+        "actual": "25:50",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6a27ffc2",
+        "group": "current_state",
+        "query": "current",
+        "expected": "30",
+        "actual": "30",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6aeb4375",
+        "group": "current_state",
+        "query": "current",
+        "expected": "4",
+        "actual": "4",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "71315a70",
+        "group": "current_state",
+        "query": "current",
+        "expected": "10-12 hours",
+        "actual": "10-12 hours",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "72e3ee87",
+        "group": "current_state",
+        "query": "current",
+        "expected": "50",
+        "actual": "50",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "7401057b",
+        "group": "current_state",
+        "query": "current",
+        "expected": "2",
+        "actual": "2",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "7a87bd0c",
+        "group": "current_state",
+        "query": "current",
+        "expected": "4 weeks",
+        "actual": "4 weeks",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "7e974930",
+        "group": "current_state",
+        "query": "current",
+        "expected": "$420",
+        "actual": "$420",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "830ce83f",
+        "group": "current_state",
+        "query": "current",
+        "expected": "the suburbs",
+        "actual": "the suburbs",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "852ce960",
+        "group": "current_state",
+        "query": "current",
+        "expected": "$400,000",
+        "actual": "$400,000",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "89941a93",
+        "group": "current_state",
+        "query": "current",
+        "expected": "4",
+        "actual": "4",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "8fb83627",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "945e3d21",
+        "group": "current_state",
+        "query": "current",
+        "expected": "three times a week",
+        "actual": "three times a week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "9ea5eabc",
+        "group": "current_state",
+        "query": "current",
+        "expected": "paris",
+        "actual": "paris",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "a1eacc2a",
+        "group": "current_state",
+        "query": "current",
+        "expected": "7",
+        "actual": "7",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "a2f3aa27",
+        "group": "current_state",
+        "query": "current",
+        "expected": "1300",
+        "actual": "1300",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "affe2881",
+        "group": "current_state",
+        "query": "current",
+        "expected": "32",
+        "actual": "32",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "b01defab",
+        "group": "current_state",
+        "query": "current",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "b6019101",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "ba61f0b9",
+        "group": "current_state",
+        "query": "current",
+        "expected": "6",
+        "actual": "6",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "c7dc5443",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5-2",
+        "actual": "5-2",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "cc5ded98",
+        "group": "current_state",
+        "query": "current",
+        "expected": "about two hours",
+        "actual": "about two hours",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "ce6d2d27",
+        "group": "current_state",
+        "query": "current",
+        "expected": "friday",
+        "actual": "friday",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "cf22b7bf",
+        "group": "current_state",
+        "query": "current",
+        "expected": "10 pounds",
+        "actual": "10 pounds",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "d7c942c3",
+        "group": "current_state",
+        "query": "current",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "dad224aa",
+        "group": "current_state",
+        "query": "current",
+        "expected": "7:30 am",
+        "actual": "7:30 am",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "db467c8c",
+        "group": "current_state",
+        "query": "current",
+        "expected": "nine months",
+        "actual": "nine months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "e493bb7c",
+        "group": "current_state",
+        "query": "current",
+        "expected": "in my bedroom",
+        "actual": "in my bedroom",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "e61a7584",
+        "group": "current_state",
+        "query": "current",
+        "expected": "9 months",
+        "actual": "9 months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "ed4ddc30",
+        "group": "current_state",
+        "query": "current",
+        "expected": "20",
+        "actual": "20",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f9e8c073",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "07741c44",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "under my bed",
+        "actual": "under my bed",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "50635ada",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "premier silver",
+        "actual": "premier silver",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "89941a94",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "9bbe84a2",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "level 100",
+        "actual": "level 100",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "dfde3500",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "wednesday",
+        "actual": "wednesday",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "e66b632c",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "27:45",
+        "actual": "27:45",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "031748ae",
+        "group": "both_states",
+        "query": "after0",
+        "expected": "4",
+        "actual": "4",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "031748ae",
+        "group": "both_states",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f685340e",
+        "group": "both_states",
+        "query": "after0",
+        "expected": "every week",
+        "actual": "every week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f685340e",
+        "group": "both_states",
+        "query": "current",
+        "expected": "every other week",
+        "actual": "every other week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6071bd76",
+        "group": "delta_direction",
+        "query": "direction",
+        "expected": "down",
+        "actual": "down",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "c4ea545c",
+        "group": "delta_direction",
+        "query": "direction",
+        "expected": "up",
+        "actual": "up",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "c6853660",
+        "group": "delta_direction",
+        "query": "direction",
+        "expected": "up",
+        "actual": "up",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "69fee5aa",
+        "group": "accumulation",
+        "query": "current",
+        "expected": "38",
+        "actual": "38",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "031748ae_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "0ddfec37_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2133c1b5_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2698e78f_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6aeb4375_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f685340e_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      }
+    ],
+    "v4_default": [
+      {
+        "question_id": "01493427",
+        "group": "current_state",
+        "query": "current",
+        "expected": "25",
+        "actual": "25",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "06db6396",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "07741c45",
+        "group": "current_state",
+        "query": "current",
+        "expected": "in a shoe rack in my closet",
+        "actual": "in a shoe rack in my closet",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "08e075c7",
+        "group": "current_state",
+        "query": "current",
+        "expected": "9 months",
+        "actual": "9 months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "0e4e4c46",
+        "group": "current_state",
+        "query": "current",
+        "expected": "132",
+        "actual": "132",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "0f05491a",
+        "group": "current_state",
+        "query": "current",
+        "expected": "120",
+        "actual": "120",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "184da446",
+        "group": "current_state",
+        "query": "current",
+        "expected": "220",
+        "actual": "220",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "18bc8abd",
+        "group": "current_state",
+        "query": "current",
+        "expected": "kansas city masterpiece",
+        "actual": "kansas city masterpiece",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "1cea1afa",
+        "group": "current_state",
+        "query": "current",
+        "expected": "600",
+        "actual": "600",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2133c1b5",
+        "group": "current_state",
+        "query": "current",
+        "expected": "3 months",
+        "actual": "3 months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2698e78f",
+        "group": "current_state",
+        "query": "current",
+        "expected": "every week",
+        "actual": "every week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "26bdc477",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "3ba21379",
+        "group": "current_state",
+        "query": "current",
+        "expected": "ford f-150 pickup truck",
+        "actual": "ford f-150 pickup truck",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "41698283",
+        "group": "current_state",
+        "query": "current",
+        "expected": "70-200mm zoom lens",
+        "actual": "70-200mm zoom lens",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "42ec0761",
+        "group": "current_state",
+        "query": "current",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "45dc21b6",
+        "group": "current_state",
+        "query": "current",
+        "expected": "3",
+        "actual": "3",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "4b24c848",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "4d6b87c8",
+        "group": "current_state",
+        "query": "current",
+        "expected": "25",
+        "actual": "25",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "5831f84d",
+        "group": "current_state",
+        "query": "current",
+        "expected": "15",
+        "actual": "15",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "59524333",
+        "group": "current_state",
+        "query": "current",
+        "expected": "6:00 pm",
+        "actual": "6:00 pm",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "603deb26",
+        "group": "current_state",
+        "query": "current",
+        "expected": "10",
+        "actual": "10",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "618f13b2",
+        "group": "current_state",
+        "query": "current",
+        "expected": "6",
+        "actual": "6",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6a1eabeb",
+        "group": "current_state",
+        "query": "current",
+        "expected": "25:50",
+        "actual": "25:50",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6a27ffc2",
+        "group": "current_state",
+        "query": "current",
+        "expected": "30",
+        "actual": "30",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6aeb4375",
+        "group": "current_state",
+        "query": "current",
+        "expected": "4",
+        "actual": "4",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "71315a70",
+        "group": "current_state",
+        "query": "current",
+        "expected": "10-12 hours",
+        "actual": "10-12 hours",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "72e3ee87",
+        "group": "current_state",
+        "query": "current",
+        "expected": "50",
+        "actual": "50",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "7401057b",
+        "group": "current_state",
+        "query": "current",
+        "expected": "2",
+        "actual": "2",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "7a87bd0c",
+        "group": "current_state",
+        "query": "current",
+        "expected": "4 weeks",
+        "actual": "4 weeks",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "7e974930",
+        "group": "current_state",
+        "query": "current",
+        "expected": "$420",
+        "actual": "$420",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "830ce83f",
+        "group": "current_state",
+        "query": "current",
+        "expected": "the suburbs",
+        "actual": "the suburbs",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "852ce960",
+        "group": "current_state",
+        "query": "current",
+        "expected": "$400,000",
+        "actual": "$400,000",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "89941a93",
+        "group": "current_state",
+        "query": "current",
+        "expected": "4",
+        "actual": "4",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "8fb83627",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "945e3d21",
+        "group": "current_state",
+        "query": "current",
+        "expected": "three times a week",
+        "actual": "three times a week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "9ea5eabc",
+        "group": "current_state",
+        "query": "current",
+        "expected": "paris",
+        "actual": "paris",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "a1eacc2a",
+        "group": "current_state",
+        "query": "current",
+        "expected": "7",
+        "actual": "7",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "a2f3aa27",
+        "group": "current_state",
+        "query": "current",
+        "expected": "1300",
+        "actual": "1300",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "affe2881",
+        "group": "current_state",
+        "query": "current",
+        "expected": "32",
+        "actual": "32",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "b01defab",
+        "group": "current_state",
+        "query": "current",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "b6019101",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "ba61f0b9",
+        "group": "current_state",
+        "query": "current",
+        "expected": "6",
+        "actual": "6",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "c7dc5443",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5-2",
+        "actual": "5-2",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "cc5ded98",
+        "group": "current_state",
+        "query": "current",
+        "expected": "about two hours",
+        "actual": "about two hours",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "ce6d2d27",
+        "group": "current_state",
+        "query": "current",
+        "expected": "friday",
+        "actual": "friday",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "cf22b7bf",
+        "group": "current_state",
+        "query": "current",
+        "expected": "10 pounds",
+        "actual": "10 pounds",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "d7c942c3",
+        "group": "current_state",
+        "query": "current",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "dad224aa",
+        "group": "current_state",
+        "query": "current",
+        "expected": "7:30 am",
+        "actual": "7:30 am",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "db467c8c",
+        "group": "current_state",
+        "query": "current",
+        "expected": "nine months",
+        "actual": "nine months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "e493bb7c",
+        "group": "current_state",
+        "query": "current",
+        "expected": "in my bedroom",
+        "actual": "in my bedroom",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "e61a7584",
+        "group": "current_state",
+        "query": "current",
+        "expected": "9 months",
+        "actual": "9 months",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "ed4ddc30",
+        "group": "current_state",
+        "query": "current",
+        "expected": "20",
+        "actual": "20",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f9e8c073",
+        "group": "current_state",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "07741c44",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "under my bed",
+        "actual": "under my bed",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "50635ada",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "premier silver",
+        "actual": "premier silver",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "89941a94",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "yes",
+        "actual": "yes",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "9bbe84a2",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "level 100",
+        "actual": null,
+        "correct": false,
+        "attribution": "unsupported_semantics:history_under_replace"
+      },
+      {
+        "question_id": "dfde3500",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "wednesday",
+        "actual": "wednesday",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "e66b632c",
+        "group": "historical_state",
+        "query": "after0",
+        "expected": "27:45",
+        "actual": "27:45",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "031748ae",
+        "group": "both_states",
+        "query": "after0",
+        "expected": "4",
+        "actual": "4",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "031748ae",
+        "group": "both_states",
+        "query": "current",
+        "expected": "5",
+        "actual": "5",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f685340e",
+        "group": "both_states",
+        "query": "after0",
+        "expected": "every week",
+        "actual": "every week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f685340e",
+        "group": "both_states",
+        "query": "current",
+        "expected": "every other week",
+        "actual": "every other week",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6071bd76",
+        "group": "delta_direction",
+        "query": "direction",
+        "expected": "down",
+        "actual": "down",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "c4ea545c",
+        "group": "delta_direction",
+        "query": "direction",
+        "expected": "up",
+        "actual": "up",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "c6853660",
+        "group": "delta_direction",
+        "query": "direction",
+        "expected": "up",
+        "actual": "up",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "69fee5aa",
+        "group": "accumulation",
+        "query": "current",
+        "expected": "38",
+        "actual": "38",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "031748ae_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "0ddfec37_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2133c1b5_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "2698e78f_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "6aeb4375_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "question_id": "f685340e_abs",
+        "group": "abstention",
+        "query": "current",
+        "expected": null,
+        "actual": null,
+        "correct": true,
+        "attribution": null
+      }
+    ]
+  }
+}

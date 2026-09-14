@@ -85,6 +85,10 @@ class V0SCDBaseline:
             return None
         return max(open_rows, key=lambda r: (r.valid_from, r.observed_at, r.seq))
 
+    def history(self, type: str, subject: str) -> list[str]:
+        """Every value the slot has held, in valid-time order."""
+        return [r.content for r in sorted(self._slots.get((type, subject), []), key=lambda r: (r.valid_from, r.observed_at, r.seq))]
+
     def query(self, q: Query) -> str | None:
         rows = self._slots.get((q.type, q.subject), [])
         if q.as_of is None:

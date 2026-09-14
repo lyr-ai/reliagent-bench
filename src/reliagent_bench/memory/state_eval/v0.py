@@ -44,6 +44,10 @@ class V0Baseline:
         # transition metric has something to compare against.
         return "replace" if had_state else "add"
 
+    def history(self, type: str, subject: str) -> list[str]:
+        """Every value the slot has held, in observation order."""
+        return [r.content for r in sorted(self._slots.get((type, subject), []), key=lambda r: r.observed_at)]
+
     def query(self, q: Query) -> str | None:
         records = self._slots.get((q.type, q.subject), [])
         if q.as_of is not None:

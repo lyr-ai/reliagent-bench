@@ -15,6 +15,9 @@ analysis/
     plots/               (reserved)
     mode-a-pilot.md      state-level diagnostic (Mode A), pilots 0–3: questions,
                          design, results, three findings, the known-gap row, decision
+    external-validation.md  the three findings against LongMemEval KU and GoodAI:
+                         Finding 1 survived, 2 and 3 not testable, the history
+                         limitation reproduced externally
 ```
 
 Regenerate (writes a record keyed by version + config; new versions are kept,
