@@ -99,6 +99,34 @@ semantics present but never contrasted on one surface). Track E-A feasible
 for 8 of 11 tests (templated statements). Caveat: 33 instances are 11
 structures.
 
+**PerLTQA** — 30 examples (first character, 8 profile / 8 relationship / 7 events /
+7 dialogues) plus whole-set structural counts: [`perltqa.json`](perltqa.json).
+The four types are recoverable — and they are *retrieval categories*, not update
+semantics: the store is static per character, no attribute ever holds two
+values, every question cites one reference memory. The stop rule applied in its
+second form: stopped, no relabelling. **Findings 1, 2, 3 all not testable.**
+
+**LoCoMo** — 30 examples (10 temporal / 10 multi-hop / 5 single-hop / 5
+adversarial), provenance definition frozen as *two sources conflict and the
+source decides*: [`locomo.json`](locomo.json). Temporal = event dating;
+multi-hop = aggregation without supersession; **0 state changes**. The
+adversarial category (446, 22%) is speaker-swapped questions — the only
+place in any benchmark inspected where a memory's source affects gold — but as
+*attribution* ("whose memory is this"), not conflict. Recorded as a separate
+count and not folded into Finding 2. **Findings 1, 2, 3 not testable.**
+
+## Coverage matrix (after all four inspections)
+
+| benchmark | temporal state (F1) | provenance conflict (F2) | type-dependent resolution (F3) | notes |
+|---|:---:|:---:|:---:|---|
+| LongMemEval | ✓ 10/12 KU, at threshold | ✗ 0 | ✗ 0 | paired initial/current questions; E-B adapter |
+| GoodAI LTM | ✓ 15, not only newest-wins | ✗ 0 | ✗ 0 | history, as-of, accumulation; E-A adapter for 8/11 |
+| PerLTQA | ✗ 0 | ✗ 0 | ✗ 0 (types = retrieval categories) | static store |
+| LoCoMo | ✗ 0 | ✗ 0 (attribution: 5/5 adversarial) | ✗ 0 | event dating; speaker-swap probe |
+
+Search stops here (contract §18, §23). Four benchmarks inspected, 129
+examples read, rules frozen before each.
+
 ## Seen only by title — not screened
 
 Surfaced by the search and not yet read: DynamicMem (arXiv 2606.22877),
@@ -122,11 +150,24 @@ transition semantics* — and Mode B is designed around Findings 2 and 3. It
 is recorded here as the expected outcome before any example is read, so that
 it cannot later be presented as a discovery.
 
-## Next action
+## Decision gate
 
-Inspect ≥ 30 examples each from LongMemEval (`knowledge-update`,
-`temporal-reasoning`, `abstention`, a sample of `preference`) and GoodAI LTM
-(the tests that update information), classify per §6, and write
-`external/triage/longmemeval.json` and `external/triage/goodai-ltm.json`.
-Then LoCoMo's temporal subset and PerLTQA's typed subset. Select at most two.
-Freeze.
+Done: LongMemEval, GoodAI LTM, PerLTQA, LoCoMo. The provisional reading
+written before any example was read (previous section) held in every cell.
+
+**Selection (≤ 2):** LongMemEval `knowledge-update` and GoodAI LTM's update
+tests — the two that can carry Finding 1, and between them they contain the
+external stress cases for the replace-in-place known gap (paired initial /
+current questions; NameList; SallyAnne) and an accumulation semantics neither
+`replace` nor `keep_both` expresses. To be frozen with the full-category
+inspection of LongMemEval's 78 knowledge-update questions before any variant
+runs.
+
+**Findings 2 and 3:** `NOT TESTABLE` in existing benchmarks, on the evidence
+of four inspections. The observation this licenses — stated only now that the
+checks are done — is that existing long-term-memory benchmarks substantially
+test recall and temporal updating, and do not test whether heterogeneous,
+provenance-dependent observations should become state transitions under
+different resolution semantics. Mode B is designed around those two
+questions, with LoCoMo's speaker-swap as an externally motivated attribution
+probe.
