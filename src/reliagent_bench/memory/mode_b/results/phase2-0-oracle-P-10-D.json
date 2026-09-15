@@ -1,0 +1,159 @@
+{
+  "generated": "2026-09-14T16:27:41.534883+00:00",
+  "prompt_version": "mode-b-pilot-0",
+  "model": "claude-sonnet-5",
+  "runs": 5,
+  "request_config": {
+    "thinking": {
+      "type": "disabled"
+    },
+    "effort": "low",
+    "format": "json_schema(action enum, reason)"
+  },
+  "source_priority": {
+    "verified_result": 3,
+    "explicit_user": 3,
+    "document": 2,
+    "observed_behavior": 1,
+    "model_inference": 0
+  },
+  "scores": [
+    {
+      "scenario": "P-10-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 0,
+      "governing_correct": true,
+      "action": "Monday the 23rd",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-10-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 1,
+      "governing_correct": true,
+      "action": "Monday the 23rd",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-10-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 2,
+      "governing_correct": true,
+      "action": "Monday the 23rd",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-10-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 3,
+      "governing_correct": true,
+      "action": "Monday the 23rd",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    },
+    {
+      "scenario": "P-10-D",
+      "family": "typed",
+      "variant": "oracle",
+      "run": 4,
+      "governing_correct": true,
+      "action": "Monday the 23rd",
+      "action_correct": true,
+      "violation": null,
+      "repeated_failure": null,
+      "false_avoidance": null,
+      "attribution": null
+    }
+  ],
+  "transcripts": [
+    {
+      "scenario": "P-10-D",
+      "variant": "oracle",
+      "run": 0,
+      "governing": {
+        "deadline/visa_application": "m2"
+      },
+      "memory": [
+        "The application deadline is now Tuesday the 24th ('tues 24th, actually' \u2014 quick reply)."
+      ],
+      "action": "Monday the 23rd",
+      "reason": "The deadline is Tuesday the 24th, so the appointment must be before then, making Monday the 23rd the latest valid option.",
+      "raw": "{\"action\":\"Monday the 23rd\",\"reason\":\"The deadline is Tuesday the 24th, so the appointment must be before then, making Monday the 23rd the latest valid option.\"}"
+    },
+    {
+      "scenario": "P-10-D",
+      "variant": "oracle",
+      "run": 1,
+      "governing": {
+        "deadline/visa_application": "m2"
+      },
+      "memory": [
+        "The application deadline is now Tuesday the 24th ('tues 24th, actually' \u2014 quick reply)."
+      ],
+      "action": "Monday the 23rd",
+      "reason": "The deadline is Tuesday the 24th, so the appointment must be before then, making Monday the 23rd the latest available option.",
+      "raw": "{\"action\":\"Monday the 23rd\",\"reason\":\"The deadline is Tuesday the 24th, so the appointment must be before then, making Monday the 23rd the latest available option.\"}"
+    },
+    {
+      "scenario": "P-10-D",
+      "variant": "oracle",
+      "run": 2,
+      "governing": {
+        "deadline/visa_application": "m2"
+      },
+      "memory": [
+        "The application deadline is now Tuesday the 24th ('tues 24th, actually' \u2014 quick reply)."
+      ],
+      "action": "Monday the 23rd",
+      "reason": "The deadline is Tuesday the 24th, so the appointment must occur before then, making Monday the 23rd the latest available option.",
+      "raw": "{\"action\":\"Monday the 23rd\",\"reason\":\"The deadline is Tuesday the 24th, so the appointment must occur before then, making Monday the 23rd the latest available option.\"}"
+    },
+    {
+      "scenario": "P-10-D",
+      "variant": "oracle",
+      "run": 3,
+      "governing": {
+        "deadline/visa_application": "m2"
+      },
+      "memory": [
+        "The application deadline is now Tuesday the 24th ('tues 24th, actually' \u2014 quick reply)."
+      ],
+      "action": "Monday the 23rd",
+      "reason": "The deadline is Tuesday the 24th, so the appointment must be before that, making Monday the 23rd the latest available option.",
+      "raw": "{\"action\":\"Monday the 23rd\",\"reason\":\"The deadline is Tuesday the 24th, so the appointment must be before that, making Monday the 23rd the latest available option.\"}"
+    },
+    {
+      "scenario": "P-10-D",
+      "variant": "oracle",
+      "run": 4,
+      "governing": {
+        "deadline/visa_application": "m2"
+      },
+      "memory": [
+        "The application deadline is now Tuesday the 24th ('tues 24th, actually' \u2014 quick reply)."
+      ],
+      "action": "Monday the 23rd",
+      "reason": "The deadline is Tuesday the 24th, so the appointment must be before that date, making Monday the 23rd the latest valid option.",
+      "raw": "{\"action\":\"Monday the 23rd\",\"reason\":\"The deadline is Tuesday the 24th, so the appointment must be before that date, making Monday the 23rd the latest valid option.\"}"
+    }
+  ]
+}

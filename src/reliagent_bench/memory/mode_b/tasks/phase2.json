@@ -1,0 +1,2264 @@
+{
+  "version": "mode-b-phase2-0",
+  "frozen": "2026-09-14",
+  "semantics": "src/reliagent_bench/memory/mode_b/semantics/phase2-types.md (frozen before this file)",
+  "note": "12 reversal pairs (24 scenarios) + 12 controls. Every pair holds the pattern fixed — equal source class, incoming newer, incoming confidence 0.6 vs existing 0.9 (>= the 0.5 admission floor) — and varies only the state class: epistemic (fact) vs declared (deadline / commitment / explicit preference). Gold follows the table: existing governs the fact; incoming governs the declared state. The lower confidence on every incoming memory is earned by its text (a hedge from the source, or a terse context-dependent revision) and the reason is recorded per scenario in incoming_confidence_reason. Six domains, each pair type appearing in at least three. Controls: K-01..04 same source, newer and more confident (every class → incoming); K-05..08 lower-priority source (source guard → existing; BRQ1/F3 re-check); K-09/10 verified result; K-11/12 agreement. nomem_predicted is the pre-registered no-memory action ('symmetric' = no predicted default); default_aligned scenarios are reported separately (design §5). resolve_by for `preference` is [effective_from] per table §2.4 — this differs from pilot A-02, whose conflict was source-only and never exercised the confidence guard. Task wording never states the memory rule.",
+  "scenarios": [
+    {
+      "id": "P-01-F",
+      "family": "typed",
+      "pair": "P-01",
+      "domain": "infra/config",
+      "state_class": "epistemic",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Epistemic state: same source restates the fact later with lower confidence. Table §2.1: a fact is revised on evidence, not on time; existing stands.",
+      "task": {
+        "instruction": "Add the database health check for the orders service to the monitoring config.",
+        "context": "Both check templates exist: one for PostgreSQL, one for MySQL.",
+        "choices": [
+          "the MySQL check",
+          "the PostgreSQL check"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The orders service runs on MySQL.",
+          "state_type": "fact",
+          "subject": "orders_service_db",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-06-02"
+        },
+        {
+          "id": "m2",
+          "content": "The orders service might have been moved to PostgreSQL — the user wasn't sure.",
+          "state_type": "fact",
+          "subject": "orders_service_db",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2026-09-03"
+        }
+      ],
+      "types": [
+        {
+          "name": "fact",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "fact/orders_service_db": "m1"
+        },
+        "action": "the MySQL check"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the source itself hedged ('might', 'not sure'); the record carries that hedge",
+      "nomem_predicted": "the PostgreSQL check",
+      "default_aligned": false
+    },
+    {
+      "id": "P-01-D",
+      "family": "typed",
+      "pair": "P-01",
+      "domain": "infra/config",
+      "state_class": "declared",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Declared state: same source revises it later, tersely, with lower confidence. Table §2.2: the latest decision by an entitled source governs; confidence is an admission floor; incoming governs.",
+      "task": {
+        "instruction": "Schedule the final pre-cutover backup. It must run before the cutover deadline, and as late as possible.",
+        "context": "Free slots: Tuesday the 15th and Thursday the 17th.",
+        "choices": [
+          "Tuesday the 15th",
+          "Thursday the 17th"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The orders database cutover deadline is Friday the 18th.",
+          "state_type": "deadline",
+          "subject": "orders_db_cutover",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-06-02"
+        },
+        {
+          "id": "m2",
+          "content": "Cutover deadline is now Wednesday the 16th (terse reply in the migration thread: 'Wednesday, actually').",
+          "state_type": "deadline",
+          "subject": "orders_db_cutover",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2026-09-03"
+        }
+      ],
+      "types": [
+        {
+          "name": "deadline",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "deadline/orders_db_cutover": "m2"
+        },
+        "action": "Tuesday the 15th"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the revision is terse and context-dependent; the referent is resolved from thread context, so recording certainty is lower",
+      "nomem_predicted": "Thursday the 17th",
+      "default_aligned": false,
+      "note": "Deadline Wednesday the 16th → Tuesday the 15th. If Friday the 18th still governed → Thursday the 17th."
+    },
+    {
+      "id": "P-02-F",
+      "family": "typed",
+      "pair": "P-02",
+      "domain": "coding/project",
+      "state_class": "epistemic",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Epistemic state: same source restates the fact later with lower confidence. Table §2.1: a fact is revised on evidence, not on time; existing stands.",
+      "task": {
+        "instruction": "Write the dependency-install step for the web repo's CI job.",
+        "context": "Both lockfile formats are supported by the CI image.",
+        "choices": [
+          "pnpm install",
+          "yarn install"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The web repo builds with pnpm.",
+          "state_type": "fact",
+          "subject": "web_repo_package_manager",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-05-20"
+        },
+        {
+          "id": "m2",
+          "content": "The web repo might have switched to yarn — the user wasn't certain.",
+          "state_type": "fact",
+          "subject": "web_repo_package_manager",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2026-09-04"
+        }
+      ],
+      "types": [
+        {
+          "name": "fact",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "fact/web_repo_package_manager": "m1"
+        },
+        "action": "pnpm install"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the source itself hedged ('might', 'not sure'); the record carries that hedge",
+      "nomem_predicted": "symmetric",
+      "default_aligned": false
+    },
+    {
+      "id": "P-02-C",
+      "family": "typed",
+      "pair": "P-02",
+      "domain": "coding/project",
+      "state_class": "declared",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Declared state: same source revises it later, tersely, with lower confidence. Table §2.3: the actor's latest explicit position governs; a hesitant retraction is still a retraction; incoming governs.",
+      "task": {
+        "instruction": "Implement the deep-merge helper needed by the settings page.",
+        "context": "",
+        "choices": [
+          "add lodash and use its merge",
+          "write the deep-merge by hand"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The user will not add lodash to the web repo.",
+          "state_type": "commitment",
+          "subject": "lodash_in_web_repo",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-05-20"
+        },
+        {
+          "id": "m2",
+          "content": "Lodash is fine after all (one-line reply in the PR thread: 'ok, lodash is fine').",
+          "state_type": "commitment",
+          "subject": "lodash_in_web_repo",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2026-09-04"
+        }
+      ],
+      "types": [
+        {
+          "name": "commitment",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "commitment/lodash_in_web_repo": "m2"
+        },
+        "action": "add lodash and use its merge"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the revision is terse and context-dependent; the referent is resolved from thread context, so recording certainty is lower",
+      "nomem_predicted": "write the deep-merge by hand",
+      "default_aligned": false
+    },
+    {
+      "id": "P-03-F",
+      "family": "typed",
+      "pair": "P-03",
+      "domain": "travel",
+      "state_class": "epistemic",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Epistemic state: same source restates the fact later with lower confidence. Table §2.1: a fact is revised on evidence, not on time; existing stands.",
+      "task": {
+        "instruction": "Book the user's outbound flight to Denver.",
+        "context": "Fares and times are equivalent from both Bay Area airports.",
+        "choices": [
+          "depart from OAK",
+          "depart from SFO"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The user's home airport is Oakland (OAK).",
+          "state_type": "fact",
+          "subject": "home_airport",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-04-11"
+        },
+        {
+          "id": "m2",
+          "content": "The user thinks they might be flying out of SFO now, not sure.",
+          "state_type": "fact",
+          "subject": "home_airport",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2026-09-05"
+        }
+      ],
+      "types": [
+        {
+          "name": "fact",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "fact/home_airport": "m1"
+        },
+        "action": "depart from OAK"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the source itself hedged ('might', 'not sure'); the record carries that hedge",
+      "nomem_predicted": "depart from SFO",
+      "default_aligned": false
+    },
+    {
+      "id": "P-03-P",
+      "family": "typed",
+      "pair": "P-03",
+      "domain": "travel",
+      "state_class": "declared",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Declared state: same source revises it later, tersely, with lower confidence. Table §2.4: the latest explicit statement from a source no weaker governs; incoming governs.",
+      "task": {
+        "instruction": "Select the user's seat on the booked flight.",
+        "context": "An aisle seat and a window seat are available in the same row.",
+        "choices": [
+          "aisle seat",
+          "window seat"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The user prefers an aisle seat.",
+          "state_type": "preference",
+          "subject": "seat_preference",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-04-11"
+        },
+        {
+          "id": "m2",
+          "content": "Window now (short reply when asked about seating: 'window pls').",
+          "state_type": "preference",
+          "subject": "seat_preference",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2026-09-05"
+        }
+      ],
+      "types": [
+        {
+          "name": "preference",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "preference/seat_preference": "m2"
+        },
+        "action": "window seat"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the revision is terse and context-dependent; the referent is resolved from thread context, so recording certainty is lower",
+      "nomem_predicted": "aisle seat",
+      "default_aligned": false
+    },
+    {
+      "id": "P-04-F",
+      "family": "typed",
+      "pair": "P-04",
+      "domain": "scheduling",
+      "state_class": "epistemic",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Epistemic state: same source restates the fact later with lower confidence. Table §2.1: a fact is revised on evidence, not on time; existing stands.",
+      "task": {
+        "instruction": "Send the calendar invite for the 9:00 design sync in the design team's local time.",
+        "context": "",
+        "choices": [
+          "9:00 UK time",
+          "9:00 Berlin time"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "Team wiki: the design team is based in London (UK time).",
+          "state_type": "fact",
+          "subject": "design_team_timezone",
+          "source_type": "document",
+          "authority": 0.8,
+          "confidence": 0.9,
+          "observed_at": "2026-03-09"
+        },
+        {
+          "id": "m2",
+          "content": "Wiki note: design team 'possibly on Berlin time now?' — unverified.",
+          "state_type": "fact",
+          "subject": "design_team_timezone",
+          "source_type": "document",
+          "authority": 0.8,
+          "confidence": 0.6,
+          "observed_at": "2026-09-01"
+        }
+      ],
+      "types": [
+        {
+          "name": "fact",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "fact/design_team_timezone": "m1"
+        },
+        "action": "9:00 UK time"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the source itself hedged ('might', 'not sure'); the record carries that hedge",
+      "nomem_predicted": "symmetric",
+      "default_aligned": false
+    },
+    {
+      "id": "P-04-D",
+      "family": "typed",
+      "pair": "P-04",
+      "domain": "scheduling",
+      "state_class": "declared",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Declared state: same source revises it later, tersely, with lower confidence. Table §2.2: the latest decision by an entitled source governs; confidence is an admission floor; incoming governs.",
+      "task": {
+        "instruction": "Schedule the final proposal review. It must be before the submission deadline, and as late as possible.",
+        "context": "Free: Monday the 21st and Wednesday the 23rd.",
+        "choices": [
+          "Monday the 21st",
+          "Wednesday the 23rd"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "Project tracker: proposal submission deadline is Thursday the 24th.",
+          "state_type": "deadline",
+          "subject": "proposal_submission",
+          "source_type": "document",
+          "authority": 0.8,
+          "confidence": 0.9,
+          "observed_at": "2026-03-09"
+        },
+        {
+          "id": "m2",
+          "content": "Tracker field edited to read 'due Tue 22' (one-line change, no note).",
+          "state_type": "deadline",
+          "subject": "proposal_submission",
+          "source_type": "document",
+          "authority": 0.8,
+          "confidence": 0.6,
+          "observed_at": "2026-09-01"
+        }
+      ],
+      "types": [
+        {
+          "name": "deadline",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "deadline/proposal_submission": "m2"
+        },
+        "action": "Monday the 21st"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the revision is terse and context-dependent; the referent is resolved from thread context, so recording certainty is lower",
+      "nomem_predicted": "Wednesday the 23rd",
+      "default_aligned": false,
+      "note": "Deadline Tuesday the 22nd → Monday the 21st. If Thursday the 24th still governed → Wednesday the 23rd."
+    },
+    {
+      "id": "P-05-F",
+      "family": "typed",
+      "pair": "P-05",
+      "domain": "team workflow",
+      "state_class": "epistemic",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Epistemic state: same source restates the fact later with lower confidence. Table §2.1: a fact is revised on evidence, not on time; existing stands.",
+      "task": {
+        "instruction": "Assign the release-checklist ticket to the release manager.",
+        "context": "",
+        "choices": [
+          "assign to Priya",
+          "assign to Marco"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "Priya is the release manager for the platform team.",
+          "state_type": "fact",
+          "subject": "release_manager",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-05-05"
+        },
+        {
+          "id": "m2",
+          "content": "The user thought Marco might have taken over as release manager, wasn't sure.",
+          "state_type": "fact",
+          "subject": "release_manager",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2026-09-02"
+        }
+      ],
+      "types": [
+        {
+          "name": "fact",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "fact/release_manager": "m1"
+        },
+        "action": "assign to Priya"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the source itself hedged ('might', 'not sure'); the record carries that hedge",
+      "nomem_predicted": "symmetric",
+      "default_aligned": false
+    },
+    {
+      "id": "P-05-C",
+      "family": "typed",
+      "pair": "P-05",
+      "domain": "team workflow",
+      "state_class": "declared",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Declared state: same source revises it later, tersely, with lower confidence. Table §2.3: the actor's latest explicit position governs; a hesitant retraction is still a retraction; incoming governs.",
+      "task": {
+        "instruction": "A platform PR was opened yesterday morning and the user has not reviewed it. Decide whether to flag it as overdue on the team board.",
+        "context": "It is now the following afternoon.",
+        "choices": [
+          "flag as overdue",
+          "do not flag yet"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The user committed to reviewing every platform PR within two business days.",
+          "state_type": "commitment",
+          "subject": "pr_review_sla",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-05-05"
+        },
+        {
+          "id": "m2",
+          "content": "One business day from now on ('one day, actually — starting now', said in passing at standup).",
+          "state_type": "commitment",
+          "subject": "pr_review_sla",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2026-09-02"
+        }
+      ],
+      "types": [
+        {
+          "name": "commitment",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "commitment/pr_review_sla": "m2"
+        },
+        "action": "flag as overdue"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the revision is terse and context-dependent; the referent is resolved from thread context, so recording certainty is lower",
+      "nomem_predicted": "do not flag yet",
+      "default_aligned": false
+    },
+    {
+      "id": "P-06-F",
+      "family": "typed",
+      "pair": "P-06",
+      "domain": "personal profile",
+      "state_class": "epistemic",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Epistemic state: same source restates the fact later with lower confidence. Table §2.1: a fact is revised on evidence, not on time; existing stands.",
+      "task": {
+        "instruction": "Order the user's conference T-shirt.",
+        "context": "",
+        "choices": [
+          "size L",
+          "size M"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The user's T-shirt size is L.",
+          "state_type": "fact",
+          "subject": "tshirt_size",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-02-14"
+        },
+        {
+          "id": "m2",
+          "content": "The user thought they might be an M now, wasn't sure.",
+          "state_type": "fact",
+          "subject": "tshirt_size",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2026-09-06"
+        }
+      ],
+      "types": [
+        {
+          "name": "fact",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "fact/tshirt_size": "m1"
+        },
+        "action": "size L"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the source itself hedged ('might', 'not sure'); the record carries that hedge",
+      "nomem_predicted": "symmetric",
+      "default_aligned": false
+    },
+    {
+      "id": "P-06-P",
+      "family": "typed",
+      "pair": "P-06",
+      "domain": "personal profile",
+      "state_class": "declared",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Declared state: same source revises it later, tersely, with lower confidence. Table §2.4: the latest explicit statement from a source no weaker governs; incoming governs.",
+      "task": {
+        "instruction": "Set the display name on the user's new conference badge.",
+        "context": "",
+        "choices": [
+          "Katherine",
+          "Kat"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The user prefers to be addressed as Katherine.",
+          "state_type": "preference",
+          "subject": "preferred_name",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-02-14"
+        },
+        {
+          "id": "m2",
+          "content": "Kat now ('just Kat is fine', in a quick reply).",
+          "state_type": "preference",
+          "subject": "preferred_name",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2026-09-06"
+        }
+      ],
+      "types": [
+        {
+          "name": "preference",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "preference/preferred_name": "m2"
+        },
+        "action": "Kat"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the revision is terse and context-dependent; the referent is resolved from thread context, so recording certainty is lower",
+      "nomem_predicted": "Katherine",
+      "default_aligned": false
+    },
+    {
+      "id": "P-07-F",
+      "family": "typed",
+      "pair": "P-07",
+      "domain": "coding/project",
+      "state_class": "epistemic",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Epistemic state: same source restates the fact later with lower confidence. Table §2.1: a fact is revised on evidence, not on time; existing stands.",
+      "task": {
+        "instruction": "Point the new client SDK at the service's current public API.",
+        "context": "",
+        "choices": [
+          "the /v2 endpoints",
+          "the /v3 endpoints"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "README: the service's public API version is v2.",
+          "state_type": "fact",
+          "subject": "public_api_version",
+          "source_type": "document",
+          "authority": 0.8,
+          "confidence": 0.9,
+          "observed_at": "2026-04-01"
+        },
+        {
+          "id": "m2",
+          "content": "A wiki page says the API 'may now be v3' — unverified.",
+          "state_type": "fact",
+          "subject": "public_api_version",
+          "source_type": "document",
+          "authority": 0.8,
+          "confidence": 0.6,
+          "observed_at": "2026-09-07"
+        }
+      ],
+      "types": [
+        {
+          "name": "fact",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "fact/public_api_version": "m1"
+        },
+        "action": "the /v2 endpoints"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the source itself hedged ('might', 'not sure'); the record carries that hedge",
+      "nomem_predicted": "the /v3 endpoints",
+      "default_aligned": false
+    },
+    {
+      "id": "P-07-D",
+      "family": "typed",
+      "pair": "P-07",
+      "domain": "coding/project",
+      "state_class": "declared",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Declared state: same source revises it later, tersely, with lower confidence. Table §2.2: the latest decision by an entitled source governs; confidence is an admission floor; incoming governs.",
+      "task": {
+        "instruction": "Schedule the last merge window for the payments feature. It must be before feature freeze, and as late as possible.",
+        "context": "Open windows: Tuesday the 22nd and Thursday the 24th.",
+        "choices": [
+          "Tuesday the 22nd",
+          "Thursday the 24th"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "Sprint board: feature freeze is Friday the 25th.",
+          "state_type": "deadline",
+          "subject": "feature_freeze",
+          "source_type": "document",
+          "authority": 0.8,
+          "confidence": 0.9,
+          "observed_at": "2026-04-01"
+        },
+        {
+          "id": "m2",
+          "content": "Board header changed to 'freeze Wed 23' (no accompanying note).",
+          "state_type": "deadline",
+          "subject": "feature_freeze",
+          "source_type": "document",
+          "authority": 0.8,
+          "confidence": 0.6,
+          "observed_at": "2026-09-07"
+        }
+      ],
+      "types": [
+        {
+          "name": "deadline",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "deadline/feature_freeze": "m2"
+        },
+        "action": "Tuesday the 22nd"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the revision is terse and context-dependent; the referent is resolved from thread context, so recording certainty is lower",
+      "nomem_predicted": "Thursday the 24th",
+      "default_aligned": false,
+      "note": "Freeze Wednesday the 23rd → Tuesday the 22nd. If Friday the 25th still governed → Thursday the 24th."
+    },
+    {
+      "id": "P-08-F",
+      "family": "typed",
+      "pair": "P-08",
+      "domain": "personal profile",
+      "state_class": "epistemic",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Epistemic state: same source restates the fact later with lower confidence. Table §2.1: a fact is revised on evidence, not on time; existing stands.",
+      "task": {
+        "instruction": "Fill in the employer field on the user's conference registration.",
+        "context": "",
+        "choices": [
+          "Acme Analytics",
+          "Northwind"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The user works at Acme Analytics.",
+          "state_type": "fact",
+          "subject": "employer",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-01-20"
+        },
+        {
+          "id": "m2",
+          "content": "The user mentioned they might have moved to Northwind — it wasn't clear.",
+          "state_type": "fact",
+          "subject": "employer",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2026-09-08"
+        }
+      ],
+      "types": [
+        {
+          "name": "fact",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "fact/employer": "m1"
+        },
+        "action": "Acme Analytics"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the source itself hedged ('might', 'not sure'); the record carries that hedge",
+      "nomem_predicted": "symmetric",
+      "default_aligned": false
+    },
+    {
+      "id": "P-08-C",
+      "family": "typed",
+      "pair": "P-08",
+      "domain": "personal profile",
+      "state_class": "declared",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Declared state: same source revises it later, tersely, with lower confidence. Table §2.3: the actor's latest explicit position governs; a hesitant retraction is still a retraction; incoming governs.",
+      "task": {
+        "instruction": "The monthly product newsletter is going out. Decide whether to include the user.",
+        "context": "",
+        "choices": [
+          "include the user",
+          "exclude the user"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The user opted out of all marketing email.",
+          "state_type": "commitment",
+          "subject": "marketing_email_optin",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-01-20"
+        },
+        {
+          "id": "m2",
+          "content": "Opted back in to the monthly product newsletter ('ok sign me up for the monthly one', quick reply).",
+          "state_type": "commitment",
+          "subject": "marketing_email_optin",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2026-09-08"
+        }
+      ],
+      "types": [
+        {
+          "name": "commitment",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "commitment/marketing_email_optin": "m2"
+        },
+        "action": "include the user"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the revision is terse and context-dependent; the referent is resolved from thread context, so recording certainty is lower",
+      "nomem_predicted": "exclude the user",
+      "default_aligned": false
+    },
+    {
+      "id": "P-09-F",
+      "family": "typed",
+      "pair": "P-09",
+      "domain": "team workflow",
+      "state_class": "epistemic",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Epistemic state: same source restates the fact later with lower confidence. Table §2.1: a fact is revised on evidence, not on time; existing stands.",
+      "task": {
+        "instruction": "Generate the next on-call schedule.",
+        "context": "",
+        "choices": [
+          "biweekly rotation",
+          "weekly rotation"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "Team handbook: the on-call rotation is biweekly.",
+          "state_type": "fact",
+          "subject": "oncall_rotation_length",
+          "source_type": "document",
+          "authority": 0.8,
+          "confidence": 0.9,
+          "observed_at": "2026-03-16"
+        },
+        {
+          "id": "m2",
+          "content": "Comment on the handbook page: rotation 'might be weekly now?' — unconfirmed.",
+          "state_type": "fact",
+          "subject": "oncall_rotation_length",
+          "source_type": "document",
+          "authority": 0.8,
+          "confidence": 0.6,
+          "observed_at": "2026-09-01"
+        }
+      ],
+      "types": [
+        {
+          "name": "fact",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "fact/oncall_rotation_length": "m1"
+        },
+        "action": "biweekly rotation"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the source itself hedged ('might', 'not sure'); the record carries that hedge",
+      "nomem_predicted": "weekly rotation",
+      "default_aligned": false
+    },
+    {
+      "id": "P-09-P",
+      "family": "typed",
+      "pair": "P-09",
+      "domain": "team workflow",
+      "state_class": "declared",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Declared state: same source revises it later, tersely, with lower confidence. Table §2.4: the latest explicit statement from a source no weaker governs; incoming governs.",
+      "task": {
+        "instruction": "Set up the retro for yesterday's incident.",
+        "context": "",
+        "choices": [
+          "schedule a call",
+          "open an async retro doc"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "Team norms doc: incident retros are held synchronously on a call.",
+          "state_type": "preference",
+          "subject": "retro_format",
+          "source_type": "document",
+          "authority": 0.8,
+          "confidence": 0.9,
+          "observed_at": "2026-03-16"
+        },
+        {
+          "id": "m2",
+          "content": "Doc line edited to 'retros: async in the doc' (one-line change, no context).",
+          "state_type": "preference",
+          "subject": "retro_format",
+          "source_type": "document",
+          "authority": 0.8,
+          "confidence": 0.6,
+          "observed_at": "2026-09-01"
+        }
+      ],
+      "types": [
+        {
+          "name": "preference",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "preference/retro_format": "m2"
+        },
+        "action": "open an async retro doc"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the revision is terse and context-dependent; the referent is resolved from thread context, so recording certainty is lower",
+      "nomem_predicted": "schedule a call",
+      "default_aligned": false
+    },
+    {
+      "id": "P-10-F",
+      "family": "typed",
+      "pair": "P-10",
+      "domain": "travel",
+      "state_class": "epistemic",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Epistemic state: same source restates the fact later with lower confidence. Table §2.1: a fact is revised on evidence, not on time; existing stands.",
+      "task": {
+        "instruction": "Book the user's hotel in Chicago.",
+        "context": "Rates and locations are equivalent.",
+        "choices": [
+          "the Hilton",
+          "the Marriott"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The user's hotel loyalty status is with Hilton.",
+          "state_type": "fact",
+          "subject": "hotel_loyalty",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-05-30"
+        },
+        {
+          "id": "m2",
+          "content": "The user thought they might hold Marriott status now instead, not sure.",
+          "state_type": "fact",
+          "subject": "hotel_loyalty",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2026-09-09"
+        }
+      ],
+      "types": [
+        {
+          "name": "fact",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "fact/hotel_loyalty": "m1"
+        },
+        "action": "the Hilton"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the source itself hedged ('might', 'not sure'); the record carries that hedge",
+      "nomem_predicted": "symmetric",
+      "default_aligned": false
+    },
+    {
+      "id": "P-10-D",
+      "family": "typed",
+      "pair": "P-10",
+      "domain": "travel",
+      "state_class": "declared",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Declared state: same source revises it later, tersely, with lower confidence. Table §2.2: the latest decision by an entitled source governs; confidence is an admission floor; incoming governs.",
+      "task": {
+        "instruction": "Book the user's biometrics appointment. It must be before the application deadline, and as late as possible so the documents are ready.",
+        "context": "Available: Monday the 23rd and Thursday the 26th.",
+        "choices": [
+          "Monday the 23rd",
+          "Thursday the 26th"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The visa application must be submitted by Friday the 27th.",
+          "state_type": "deadline",
+          "subject": "visa_application",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-05-30"
+        },
+        {
+          "id": "m2",
+          "content": "The application deadline is now Tuesday the 24th ('tues 24th, actually' — quick reply).",
+          "state_type": "deadline",
+          "subject": "visa_application",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2026-09-09"
+        }
+      ],
+      "types": [
+        {
+          "name": "deadline",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "deadline/visa_application": "m2"
+        },
+        "action": "Monday the 23rd"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the revision is terse and context-dependent; the referent is resolved from thread context, so recording certainty is lower",
+      "nomem_predicted": "Thursday the 26th",
+      "default_aligned": false,
+      "note": "Deadline Tuesday the 24th → Monday the 23rd. If Friday the 27th still governed → Thursday the 26th. Wording corrected after the oracle gate: the record originally began 'Now Tuesday the 24th', which the oracle read as today's date in 5/5 runs (reasons in results/phase2-0-oracle.json). Gold unchanged."
+    },
+    {
+      "id": "P-11-F",
+      "family": "typed",
+      "pair": "P-11",
+      "domain": "infra/config",
+      "state_class": "epistemic",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Epistemic state: same source restates the fact later with lower confidence. Table §2.1: a fact is revised on evidence, not on time; existing stands.",
+      "task": {
+        "instruction": "Set the region for the staging deploy job.",
+        "context": "",
+        "choices": [
+          "us-west-2",
+          "us-east-1"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "Runbook: the staging cluster is in us-west-2.",
+          "state_type": "fact",
+          "subject": "staging_region",
+          "source_type": "document",
+          "authority": 0.8,
+          "confidence": 0.9,
+          "observed_at": "2026-02-03"
+        },
+        {
+          "id": "m2",
+          "content": "Runbook comment: 'staging may have been moved to us-east-1?' — unresolved.",
+          "state_type": "fact",
+          "subject": "staging_region",
+          "source_type": "document",
+          "authority": 0.8,
+          "confidence": 0.6,
+          "observed_at": "2026-09-02"
+        }
+      ],
+      "types": [
+        {
+          "name": "fact",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "fact/staging_region": "m1"
+        },
+        "action": "us-west-2"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the source itself hedged ('might', 'not sure'); the record carries that hedge",
+      "nomem_predicted": "us-east-1",
+      "default_aligned": false
+    },
+    {
+      "id": "P-11-C",
+      "family": "typed",
+      "pair": "P-11",
+      "domain": "infra/config",
+      "state_class": "declared",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Declared state: same source revises it later, tersely, with lower confidence. Table §2.3: the actor's latest explicit position governs; a hesitant retraction is still a retraction; incoming governs.",
+      "task": {
+        "instruction": "Set up state management for the new infrastructure module.",
+        "context": "",
+        "choices": [
+          "S3 backend",
+          "Terraform Cloud"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "Team decision log: the team will keep Terraform state in S3 and will not adopt Terraform Cloud.",
+          "state_type": "commitment",
+          "subject": "terraform_state_backend",
+          "source_type": "document",
+          "authority": 0.8,
+          "confidence": 0.9,
+          "observed_at": "2026-02-03"
+        },
+        {
+          "id": "m2",
+          "content": "Log appended: 'TF Cloud — ok, go' (one-line entry).",
+          "state_type": "commitment",
+          "subject": "terraform_state_backend",
+          "source_type": "document",
+          "authority": 0.8,
+          "confidence": 0.6,
+          "observed_at": "2026-09-02"
+        }
+      ],
+      "types": [
+        {
+          "name": "commitment",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "commitment/terraform_state_backend": "m2"
+        },
+        "action": "Terraform Cloud"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the revision is terse and context-dependent; the referent is resolved from thread context, so recording certainty is lower",
+      "nomem_predicted": "S3 backend",
+      "default_aligned": false
+    },
+    {
+      "id": "P-12-F",
+      "family": "typed",
+      "pair": "P-12",
+      "domain": "scheduling",
+      "state_class": "epistemic",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Epistemic state: same source restates the fact later with lower confidence. Table §2.1: a fact is revised on evidence, not on time; existing stands.",
+      "task": {
+        "instruction": "Book the in-person 1:1 with the user's manager.",
+        "context": "",
+        "choices": [
+          "Tuesday",
+          "Wednesday"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The user's manager is in the office on Tuesdays.",
+          "state_type": "fact",
+          "subject": "manager_office_day",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-06-10"
+        },
+        {
+          "id": "m2",
+          "content": "The user thought the manager may have switched to Wednesdays, not sure.",
+          "state_type": "fact",
+          "subject": "manager_office_day",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2026-09-10"
+        }
+      ],
+      "types": [
+        {
+          "name": "fact",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "fact/manager_office_day": "m1"
+        },
+        "action": "Tuesday"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the source itself hedged ('might', 'not sure'); the record carries that hedge",
+      "nomem_predicted": "symmetric",
+      "default_aligned": false
+    },
+    {
+      "id": "P-12-P",
+      "family": "typed",
+      "pair": "P-12",
+      "domain": "scheduling",
+      "state_class": "declared",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Declared state: same source revises it later, tersely, with lower confidence. Table §2.4: the latest explicit statement from a source no weaker governs; incoming governs.",
+      "task": {
+        "instruction": "Schedule the user's weekly planning meeting.",
+        "context": "Both 10:00 and 15:00 are free.",
+        "choices": [
+          "10:00",
+          "15:00"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The user prefers meetings in the morning.",
+          "state_type": "preference",
+          "subject": "meeting_time",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-06-10"
+        },
+        {
+          "id": "m2",
+          "content": "Afternoons now ('afternoons, pls', quick reply when asked about slots).",
+          "state_type": "preference",
+          "subject": "meeting_time",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2026-09-10"
+        }
+      ],
+      "types": [
+        {
+          "name": "preference",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "preference/meeting_time": "m2"
+        },
+        "action": "15:00"
+      },
+      "mechanism": "confidence_vs_recency",
+      "incoming_confidence_reason": "the revision is terse and context-dependent; the referent is resolved from thread context, so recording certainty is lower",
+      "nomem_predicted": "10:00",
+      "default_aligned": false
+    },
+    {
+      "id": "K-01",
+      "family": "control",
+      "pair": null,
+      "domain": null,
+      "state_class": "epistemic",
+      "pattern": {
+        "source": "equal",
+        "confidence": "higher",
+        "recency": "newer"
+      },
+      "description": "Control: same source, newer AND more confident. Every class → incoming.",
+      "task": {
+        "instruction": "Ship the user's replacement hardware key to their home address on file.",
+        "context": "Two addresses are on file.",
+        "choices": [
+          "the Portland address",
+          "the Denver address"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The user lives in Portland, they think.",
+          "state_type": "fact",
+          "subject": "home_city",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2026-03-01"
+        },
+        {
+          "id": "m2",
+          "content": "The user confirmed they live in Denver.",
+          "state_type": "fact",
+          "subject": "home_city",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.95,
+          "observed_at": "2026-09-01"
+        }
+      ],
+      "types": [
+        {
+          "name": "fact",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "fact/home_city": "m2"
+        },
+        "action": "the Denver address"
+      },
+      "mechanism": "none",
+      "incoming_confidence_reason": "existing was hedged; incoming is a full confirmation",
+      "nomem_predicted": "symmetric",
+      "default_aligned": false
+    },
+    {
+      "id": "K-02",
+      "family": "control",
+      "pair": null,
+      "domain": null,
+      "state_class": "declared",
+      "pattern": {
+        "source": "equal",
+        "confidence": "higher",
+        "recency": "newer"
+      },
+      "description": "Control: same source, newer AND more confident. Every class → incoming.",
+      "task": {
+        "instruction": "Schedule the audit prep session. It must be before the audit deadline, and as late as possible.",
+        "context": "Free: Tuesday the 17th and Thursday the 19th.",
+        "choices": [
+          "Tuesday the 17th",
+          "Thursday the 19th"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "Audit deadline Friday the 20th (from a terse note: 'fri 20?').",
+          "state_type": "deadline",
+          "subject": "audit",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2026-03-01"
+        },
+        {
+          "id": "m2",
+          "content": "The audit deadline is Wednesday the 18th, stated in full.",
+          "state_type": "deadline",
+          "subject": "audit",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.95,
+          "observed_at": "2026-09-01"
+        }
+      ],
+      "types": [
+        {
+          "name": "deadline",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "deadline/audit": "m2"
+        },
+        "action": "Tuesday the 17th"
+      },
+      "mechanism": "none",
+      "incoming_confidence_reason": "existing was terse; incoming is a full statement",
+      "nomem_predicted": "Thursday the 19th",
+      "default_aligned": false
+    },
+    {
+      "id": "K-03",
+      "family": "control",
+      "pair": null,
+      "domain": null,
+      "state_class": "declared",
+      "pattern": {
+        "source": "equal",
+        "confidence": "higher",
+        "recency": "newer"
+      },
+      "description": "Control: same source, newer AND more confident. Every class → incoming.",
+      "task": {
+        "instruction": "Finalise the all-hands agenda.",
+        "context": "",
+        "choices": [
+          "add the user's talk to the agenda",
+          "leave the user off the agenda"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The user probably won't present at the all-hands ('eh, probably not').",
+          "state_type": "commitment",
+          "subject": "allhands_talk",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2026-08-01"
+        },
+        {
+          "id": "m2",
+          "content": "The user confirmed they will present at the all-hands.",
+          "state_type": "commitment",
+          "subject": "allhands_talk",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.95,
+          "observed_at": "2026-09-01"
+        }
+      ],
+      "types": [
+        {
+          "name": "commitment",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "commitment/allhands_talk": "m2"
+        },
+        "action": "add the user's talk to the agenda"
+      },
+      "mechanism": "none",
+      "incoming_confidence_reason": "existing was hedged; incoming is a full confirmation",
+      "nomem_predicted": "leave the user off the agenda",
+      "default_aligned": false
+    },
+    {
+      "id": "K-04",
+      "family": "control",
+      "pair": null,
+      "domain": null,
+      "state_class": "declared",
+      "pattern": {
+        "source": "equal",
+        "confidence": "higher",
+        "recency": "newer"
+      },
+      "description": "Control: same source, newer AND more confident. Every class → incoming.",
+      "task": {
+        "instruction": "Set the default theme on the user's new workstation.",
+        "context": "",
+        "choices": [
+          "dark theme",
+          "light theme"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The user prefers dark mode, probably.",
+          "state_type": "preference",
+          "subject": "ui_theme",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2026-02-01"
+        },
+        {
+          "id": "m2",
+          "content": "The user stated clearly that they now prefer light mode.",
+          "state_type": "preference",
+          "subject": "ui_theme",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.95,
+          "observed_at": "2026-09-01"
+        }
+      ],
+      "types": [
+        {
+          "name": "preference",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "preference/ui_theme": "m2"
+        },
+        "action": "light theme"
+      },
+      "mechanism": "none",
+      "incoming_confidence_reason": "existing was hedged; incoming is a full statement",
+      "nomem_predicted": "dark theme",
+      "default_aligned": false
+    },
+    {
+      "id": "K-05",
+      "family": "control",
+      "pair": null,
+      "domain": null,
+      "state_class": "epistemic",
+      "pattern": {
+        "source": "lower priority",
+        "confidence": "higher",
+        "recency": "newer"
+      },
+      "description": "Consistency: lower-priority source, newer, more confident. Source guard → existing (BRQ1/F3 re-check).",
+      "task": {
+        "instruction": "Set the JVM heap size for the build agent.",
+        "context": "Leave headroom for the OS and other agents.",
+        "choices": [
+          "8 GB heap",
+          "24 GB heap"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The build server has 16 GB of RAM.",
+          "state_type": "fact",
+          "subject": "build_server_ram",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-04-01"
+        },
+        {
+          "id": "m2",
+          "content": "The build server probably has 32 GB of RAM now.",
+          "state_type": "fact",
+          "subject": "build_server_ram",
+          "source_type": "model_inference",
+          "authority": 0.3,
+          "confidence": 0.95,
+          "observed_at": "2026-09-01"
+        }
+      ],
+      "types": [
+        {
+          "name": "fact",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "fact/build_server_ram": "m1"
+        },
+        "action": "8 GB heap"
+      },
+      "mechanism": "source_priority",
+      "incoming_confidence_reason": "incoming is an inference, not a statement",
+      "nomem_predicted": "symmetric",
+      "default_aligned": false
+    },
+    {
+      "id": "K-06",
+      "family": "control",
+      "pair": null,
+      "domain": null,
+      "state_class": "declared",
+      "pattern": {
+        "source": "lower priority",
+        "confidence": "higher",
+        "recency": "newer"
+      },
+      "description": "Consistency: lower-priority source, newer, more confident. Source guard → existing.",
+      "task": {
+        "instruction": "Schedule the final edit of the grant report. It must be before the report deadline, and as late as possible.",
+        "context": "Free: Thursday the 26th and Friday the 27th.",
+        "choices": [
+          "Thursday the 26th",
+          "Friday the 27th"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The grant report is due Friday the 27th.",
+          "state_type": "deadline",
+          "subject": "grant_report",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-04-01"
+        },
+        {
+          "id": "m2",
+          "content": "The report deadline was probably extended to Monday the 30th.",
+          "state_type": "deadline",
+          "subject": "grant_report",
+          "source_type": "model_inference",
+          "authority": 0.3,
+          "confidence": 0.95,
+          "observed_at": "2026-09-01"
+        }
+      ],
+      "types": [
+        {
+          "name": "deadline",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "deadline/grant_report": "m1"
+        },
+        "action": "Thursday the 26th"
+      },
+      "mechanism": "source_priority",
+      "incoming_confidence_reason": "incoming is an inference about a decision, not the decision",
+      "nomem_predicted": "Friday the 27th",
+      "default_aligned": false
+    },
+    {
+      "id": "K-07",
+      "family": "control",
+      "pair": null,
+      "domain": null,
+      "state_class": "declared",
+      "pattern": {
+        "source": "lower priority",
+        "confidence": "higher",
+        "recency": "newer"
+      },
+      "description": "Consistency: lower-priority source, newer, more confident. Source guard → existing.",
+      "task": {
+        "instruction": "Launch the user's training experiment.",
+        "context": "Both targets have capacity.",
+        "choices": [
+          "on the shared GPU pool",
+          "on the user's own instance"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The user will not run experiments on the shared GPU pool.",
+          "state_type": "commitment",
+          "subject": "shared_gpu_pool",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-05-01"
+        },
+        {
+          "id": "m2",
+          "content": "The user would probably accept using the shared GPU pool now.",
+          "state_type": "commitment",
+          "subject": "shared_gpu_pool",
+          "source_type": "model_inference",
+          "authority": 0.3,
+          "confidence": 0.95,
+          "observed_at": "2026-09-01"
+        }
+      ],
+      "types": [
+        {
+          "name": "commitment",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "commitment/shared_gpu_pool": "m1"
+        },
+        "action": "on the user's own instance"
+      },
+      "mechanism": "source_priority",
+      "incoming_confidence_reason": "incoming is an inference about what the actor would commit to",
+      "nomem_predicted": "on the shared GPU pool",
+      "default_aligned": false
+    },
+    {
+      "id": "K-08",
+      "family": "control",
+      "pair": null,
+      "domain": null,
+      "state_class": "declared",
+      "pattern": {
+        "source": "lower priority",
+        "confidence": "higher",
+        "recency": "newer"
+      },
+      "description": "Consistency: lower-priority source, newer, more confident. Source guard → existing.",
+      "task": {
+        "instruction": "Send the user's weekly digest.",
+        "context": "",
+        "choices": [
+          "plain-text format",
+          "HTML format"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The user prefers plain-text email.",
+          "state_type": "preference",
+          "subject": "email_format",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-03-01"
+        },
+        {
+          "id": "m2",
+          "content": "The user seems to open HTML newsletters more often.",
+          "state_type": "preference",
+          "subject": "email_format",
+          "source_type": "observed_behavior",
+          "authority": 0.5,
+          "confidence": 0.95,
+          "observed_at": "2026-09-01"
+        }
+      ],
+      "types": [
+        {
+          "name": "preference",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "preference/email_format": "m1"
+        },
+        "action": "plain-text format"
+      },
+      "mechanism": "source_priority",
+      "incoming_confidence_reason": "incoming is observed behaviour, not a statement",
+      "nomem_predicted": "HTML format",
+      "default_aligned": false
+    },
+    {
+      "id": "K-09",
+      "family": "control",
+      "pair": null,
+      "domain": null,
+      "state_class": "epistemic",
+      "pattern": {
+        "source": "lower priority",
+        "confidence": "higher",
+        "recency": "newer"
+      },
+      "description": "Consistency: verified result vs newer, confident inference. Record beats belief → existing.",
+      "task": {
+        "instruction": "Decide what to do with PR #442.",
+        "context": "The PR is approved by two reviewers.",
+        "choices": [
+          "merge PR #442",
+          "hold PR #442"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "CI on PR #442: FAILING (integration test timeout).",
+          "state_type": "verification_status",
+          "subject": "pr_442_ci",
+          "source_type": "verified_result",
+          "authority": 1.0,
+          "confidence": 1.0,
+          "observed_at": "2026-09-01T10:00"
+        },
+        {
+          "id": "m2",
+          "content": "The CI failure on PR #442 was probably a transient flake.",
+          "state_type": "verification_status",
+          "subject": "pr_442_ci",
+          "source_type": "model_inference",
+          "authority": 0.3,
+          "confidence": 0.95,
+          "observed_at": "2026-09-01T11:00"
+        }
+      ],
+      "types": [
+        {
+          "name": "verification_status",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "verification_status/pr_442_ci": "m1"
+        },
+        "action": "hold PR #442"
+      },
+      "mechanism": "source_priority",
+      "incoming_confidence_reason": "incoming is a belief about evidence it did not produce",
+      "nomem_predicted": "hold PR #442",
+      "default_aligned": true,
+      "note": "default-aligned: the model's cautious default coincides with gold; reported separately."
+    },
+    {
+      "id": "K-10",
+      "family": "control",
+      "pair": null,
+      "domain": null,
+      "state_class": "epistemic",
+      "pattern": {
+        "source": "equal (verified)",
+        "confidence": "equal",
+        "recency": "newer"
+      },
+      "description": "Consistency: newer verified result supersedes older verified result → incoming.",
+      "task": {
+        "instruction": "Decide what to do with PR #451.",
+        "context": "The PR is approved by two reviewers.",
+        "choices": [
+          "merge PR #451",
+          "hold PR #451"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "CI on PR #451: FAILING (unit tests).",
+          "state_type": "verification_status",
+          "subject": "pr_451_ci",
+          "source_type": "verified_result",
+          "authority": 1.0,
+          "confidence": 1.0,
+          "observed_at": "2026-09-01T10:00"
+        },
+        {
+          "id": "m2",
+          "content": "CI on PR #451: PASSING (re-run after fix).",
+          "state_type": "verification_status",
+          "subject": "pr_451_ci",
+          "source_type": "verified_result",
+          "authority": 1.0,
+          "confidence": 1.0,
+          "observed_at": "2026-09-01T14:00"
+        }
+      ],
+      "types": [
+        {
+          "name": "verification_status",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "verification_status/pr_451_ci": "m2"
+        },
+        "action": "merge PR #451"
+      },
+      "mechanism": "none",
+      "incoming_confidence_reason": "both are records",
+      "nomem_predicted": "symmetric",
+      "default_aligned": false
+    },
+    {
+      "id": "K-11",
+      "family": "control",
+      "pair": null,
+      "domain": null,
+      "state_class": "epistemic",
+      "pattern": {
+        "source": "equal",
+        "confidence": "higher",
+        "recency": "newer"
+      },
+      "description": "Agreement control: newer and older agree; either governing is correct.",
+      "task": {
+        "instruction": "Ship the user's welcome pack to their home address on file.",
+        "context": "Two addresses are on file.",
+        "choices": [
+          "the Boise address",
+          "the Reno address"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The user's home city is Boise.",
+          "state_type": "fact",
+          "subject": "home_city_agree",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-01-10"
+        },
+        {
+          "id": "m2",
+          "content": "The user lives in Boise.",
+          "state_type": "fact",
+          "subject": "home_city_agree",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.95,
+          "observed_at": "2026-09-01"
+        }
+      ],
+      "types": [
+        {
+          "name": "fact",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from",
+            "confidence"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "fact/home_city_agree": "m2"
+        },
+        "action": "the Boise address"
+      },
+      "mechanism": "none",
+      "incoming_confidence_reason": "restatement",
+      "nomem_predicted": "symmetric",
+      "default_aligned": false,
+      "negative_control": true,
+      "note": "m1 and m2 agree; either governing is scored as correct governing state."
+    },
+    {
+      "id": "K-12",
+      "family": "control",
+      "pair": null,
+      "domain": null,
+      "state_class": "declared",
+      "pattern": {
+        "source": "equal",
+        "confidence": "lower (>= 0.5 floor)",
+        "recency": "newer"
+      },
+      "description": "Agreement control: newer restatement at lower confidence agrees; either governing is correct.",
+      "task": {
+        "instruction": "Schedule the launch readiness review. It must be before the launch deadline, and as late as possible.",
+        "context": "Free: Wednesday the 16th and Thursday the 17th.",
+        "choices": [
+          "Wednesday the 16th",
+          "Thursday the 17th"
+        ]
+      },
+      "memories": [
+        {
+          "id": "m1",
+          "content": "The launch deadline is Friday the 18th.",
+          "state_type": "deadline",
+          "subject": "launch_agree",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.9,
+          "observed_at": "2026-06-01"
+        },
+        {
+          "id": "m2",
+          "content": "Launch deadline unchanged per a quick 'yep, still the 18th' — Friday the 18th.",
+          "state_type": "deadline",
+          "subject": "launch_agree",
+          "source_type": "explicit_user",
+          "authority": 1.0,
+          "confidence": 0.6,
+          "observed_at": "2026-09-01"
+        }
+      ],
+      "types": [
+        {
+          "name": "deadline",
+          "conflict": "replace",
+          "resolve_by": [
+            "effective_from"
+          ]
+        }
+      ],
+      "gold": {
+        "governing": {
+          "deadline/launch_agree": "m2"
+        },
+        "action": "Thursday the 17th"
+      },
+      "mechanism": "none",
+      "incoming_confidence_reason": "terse restatement",
+      "nomem_predicted": "Thursday the 17th",
+      "default_aligned": true,
+      "negative_control": true,
+      "note": "default-aligned; m1 and m2 agree; either governing is scored as correct governing state."
+    }
+  ]
+}

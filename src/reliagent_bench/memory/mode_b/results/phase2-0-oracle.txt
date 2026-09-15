@@ -1,0 +1,75 @@
+Mode B Phase 2 · 36 scenarios · agent runs
+
+governing-state accuracy (deterministic)
+variant      epistemic    declared    controls       all
+────────────────────────────────────────────────────────
+oracle           1.00        1.00        1.00      1.00 
+
+task success (mean over runs)
+variant      epistemic    declared    controls       all
+────────────────────────────────────────────────────────
+oracle           0.98        0.92        1.00      0.97 
+
+per scenario, correct runs (variant columns in run order)
+           oracle
+P-01-F        5/5
+P-01-D        5/5
+P-02-F        5/5
+P-02-C        5/5
+P-03-F        5/5
+P-03-P        5/5
+P-04-F        5/5
+P-04-D        5/5
+P-05-F        5/5
+P-05-C        5/5
+P-06-F        5/5
+P-06-P        5/5
+P-07-F        5/5
+P-07-D        5/5
+P-08-F        5/5
+P-08-C        5/5
+P-09-F        5/5
+P-09-P        5/5
+P-10-F        4/5
+P-10-D        0/5
+P-11-F        5/5
+P-11-C        5/5
+P-12-F        5/5
+P-12-P        5/5
+K-01          5/5
+K-02          5/5
+K-03          5/5
+K-04          5/5
+K-05          5/5
+K-06          5/5
+K-07          5/5
+K-08          5/5
+K-09          5/5
+K-10          5/5
+K-11          5/5
+K-12          5/5
+
+attribution of failed runs
+oracle     {"correct_state_wrong_agent_decision": 6}
+
+— pilot-format tables follow —
+
+Mode B pilot · 36 scenarios · agent runs
+
+governing-state accuracy (deterministic; one row per variant)
+variant           provenance             typed  repeated_failure           control       all
+────────────────────────────────────────────────────────────────────────────────────────────
+oracle                   —               1.00                —               1.00      1.00 
+
+task success (agent action == gold action; mean over runs)
+variant           provenance             typed  repeated_failure           control       all
+────────────────────────────────────────────────────────────────────────────────────────────
+oracle                   —               0.95                —               1.00      0.97 
+
+family rates: violation (provenance) · repeated failure (repeated_failure) · false avoidance (controls with applies=false)
+oracle     violation    —   repeated    —   false-avoid    —  
+
+attribution of failed runs
+oracle     {"correct_state_wrong_agent_decision": 6}
+
+resolution failures (scenario, variant, slot: got → gold)
