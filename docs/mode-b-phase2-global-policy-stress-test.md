@@ -1,6 +1,6 @@
 # Mode B Phase 2 — Global Policy Stress Test
 
-**Status:** Design (draft for review; semantics table frozen; no scenarios written, nothing run)
+**Status:** Executed. Results and verdict in [`analysis/mode-b-phase2.md`](../analysis/mode-b-phase2.md). This document is the design as frozen before the run, with §1 and §3 rewritten after the semantics table narrowed the question and before any scenario was written.
 **Depends on:** [`analysis/mode-b-pilot.md`](../analysis/mode-b-pilot.md) — BRQ2 SUPPORTED on 4 typed scenarios; BRQ1 matched by a source ranking; BRQ3 inconclusive
 **System under test:** TypedMem, frozen at `main @ 33d989e`. No TypedMem change in this phase.
 

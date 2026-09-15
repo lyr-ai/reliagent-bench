@@ -109,4 +109,18 @@ E1 result (`results/phase2-e1.txt`): every ordering with C before R is
 `b_typed` 24/24. No fixed ordering is correct on both classes. S-first
 orderings pass all 12 controls; C-first lose K-05..K-08 (source conflicts);
 R-first additionally lose K-09 (inference newer than a verified result).
-Matches `predictions/phase2.json` row for row. E2 (agent stage) is not yet run.
+Matches `predictions/phase2.json` row for row.
+
+E2 (agent stage): oracle gate `results/phase2-0-oracle.txt` (0.97; one wording
+correction, P-10-D, recorded in `predictions/phase2.json` and re-run as
+`phase2-0-oracle-P-10-D`); comparison `results/phase2-0-SCR+SRC+b_typed+nomem.txt`.
+Analysis: [`analysis/mode-b-phase2.md`](../../../../analysis/mode-b-phase2.md).
+
+```text
+python -m reliagent_bench.memory.mode_b --runs 5 --model claude-sonnet-5 \
+    --tasks src/reliagent_bench/memory/mode_b/tasks/phase2.json --out phase2-0 \
+    --variant "S>C>R" --variant "S>R>C" --variant b_typed --variant nomem
+```
+
+Run long jobs under `caffeinate -i -s …`: the runner writes only at the end,
+and a laptop that sleeps mid-run leaves a stalled request and nothing on disk.
