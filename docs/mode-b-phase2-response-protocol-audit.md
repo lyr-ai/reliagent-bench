@@ -170,13 +170,37 @@ Ground every field in either a **closed enum** or a **verbatim span of the
 payload the agent was actually given**. A span cannot be invented — a substring
 check either passes or fails — so filler is mechanically impossible.
 
-1. **Did the memory drive the decision, or the task context?** Closed enum,
-   cross-checkable against the variant (a `nomem` run claiming `resolved_memory`
-   is a detectable contradiction).
-2. **Which part of the payload was used?** A verbatim substring of the payload.
-3. **Was the hedge noticed?** The one thing needed to turn §1a's interpretation
-   into a measurement: a boolean plus the span, where the span must overlap the
-   hedge text the scenario already records.
+1. **What does the agent report drove the decision — memory or task context?**
+   Closed enum, cross-checkable against the variant (a `nomem` run claiming
+   `resolved_memory` is a detectable contradiction).
+2. **Which part of the payload does it cite?** A verbatim substring of the
+   payload.
+3. **Does it report an uncertainty signal, and can it ground the claim?** An
+   enum plus a span drawn from the payload.
+
+### What this can and cannot establish
+
+These fields turn §1a's interpretation into an **explicit, partially verifiable
+self-report**. They do not make it a measurement of mechanism, and the
+distinction has to survive into whatever is written from them.
+
+**Substring validation proves only that a quotation came from the input.** It
+does not prove the quoted span supports the action, and it does not prove the
+agent used the span in reaching the action. A model may cite a hedge after the
+fact, having decided on other grounds; a grounded quote is consistent with that
+and cannot distinguish it. `decision_basis` and `uncertainty_signal` are
+self-reports about reasoning, not observations of it, and nothing here licenses
+treating them as evidence of an internal process.
+
+What they do buy is narrower and real: a claim that is *checkable against the
+input* rather than free text that can be anything, and a filler token that can
+no longer pass.
+
+If a stronger measurement is wanted later, it should come from a
+**deterministic evaluator** asking whether the cited span contains a
+pre-defined, task-specific signal recorded with the scenario — not from another
+free-text judge, which would reintroduce exactly the unconstrained-text problem
+this audit exists to close.
 
 ---
 
@@ -193,21 +217,28 @@ which is not a quantity anyone wants.
 {
   "action": "Monday the 23rd",
   "decision_basis": "resolved_memory",
-  "evidence_quote": "The application deadline is now Tuesday the 24th",
-  "hedge_noticed": true,
-  "hedge_quote": "'tues 24th, actually' — quick reply",
-  "explanation": "optional free text, never scored"
+  "evidence_quote": "Tuesday the 24th",
+  "uncertainty_signal": "explicit_hedge",
+  "uncertainty_quote": "actually",
+  "explanation": null
 }
 ```
 
-| Field | Type | How it is verified |
-|---|---|---|
-| `action` | enum of `scenario.task.choices` | unchanged; `== scenario.gold_action` |
-| `decision_basis` | enum: `resolved_memory`, `task_context`, `no_relevant_memory` | consistency against the variant and the payload; `nomem` + `resolved_memory` is a contradiction |
-| `evidence_quote` | string, **must be a verbatim substring of the payload** | mechanical substring check; `""` allowed only when `decision_basis == "no_relevant_memory"` |
-| `hedge_noticed` | boolean | paired with `hedge_quote` |
-| `hedge_quote` | string, verbatim substring, required iff `hedge_noticed` | substring check, plus overlap with the scenario's recorded hedge span |
-| `explanation` | string, optional | **never scored, never parsed, never used in any verdict** |
+| Field | Type | How it is verified | Status |
+|---|---|---|---|
+| `action` | enum of `scenario.task.choices` | unchanged; `== scenario.gold_action` | task outcome |
+| `decision_basis` | enum: `resolved_memory`, `task_context`, `no_relevant_memory` | consistency against the variant; `nomem` + `resolved_memory` is a contradiction | **self-reported** |
+| `evidence_quote` | string | **non-empty verbatim substring of the payload shown** | grounded citation |
+| `uncertainty_signal` | enum: `explicit_hedge`, `none` | — | **self-reported** |
+| `uncertainty_quote` | string or null | non-empty verbatim substring iff `explicit_hedge`; **must be `null`** when `none` | grounded citation |
+| `explanation` | string or null, optional | not parsed | **never scored, never in any verdict** |
+
+`additionalProperties: false`. No `minLength` on any field — length is not a
+proxy for semantic quality, and a rule on it would only buy longer filler while
+risking the false positives §2 showed did not occur.
+
+The two enum fields are labelled self-reported in the schema documentation
+itself, so a later reader cannot mistake them for observations of reasoning.
 
 `governing_record_id` and `supporting_record_ids` are **not adopted**, for the
 reason in §3: the agent is not shown ids and does not select the governing
@@ -217,34 +248,33 @@ therefore the experiment. That is a separate decision, recorded in §6.
 
 ### Why this kills the failure mode
 
-`"placeholder"` cannot appear in `decision_basis` (not in the enum) and cannot
-appear in `evidence_quote` (not a substring of the payload). Every field that
-carries weight is checkable against something outside the model's output. The
-one field that remains free text carries no weight at all, so its degeneracy is
-harmless by construction — the current defect is precisely that a free-text
-field was quietly loaded with weight after the fact.
+`"placeholder"` cannot appear in `decision_basis` or `uncertainty_signal` (not
+in the enums) and cannot appear in `evidence_quote` or `uncertainty_quote` (not
+a substring of the payload). Every field that carries weight is checkable
+against something outside the model's output. The one field that remains free
+text carries no weight at all, so its degeneracy is harmless by construction —
+the current defect is precisely that a free-text field was quietly loaded with
+weight after the fact.
 
-### Tests that must ship with v2
+This closes the *filler* failure mode. It does not close the gap between a
+grounded citation and a causal account of the decision; see §3.
+
+### Validation rules, and the tests that must ship with v2
 
 Ship red-green with the implementation; none of these touch Phase 2 data.
 
-1. `"placeholder"` in `decision_basis` → rejected (not in enum).
-2. `"placeholder"` in `evidence_quote` → rejected (not a payload substring).
-3. A short but genuine quote (`"Tuesday the 24th"`, 16 chars) → **accepted**;
-   nothing rejects on length, so the R1.1 false-positive risk cannot recur.
-4. `evidence_quote` with altered whitespace or casing → rejected; the check is
-   verbatim, with a single documented normalisation (leading/trailing space).
-5. `hedge_noticed: true` with absent or empty `hedge_quote` → rejected.
-6. `hedge_quote` not overlapping the scenario's recorded hedge span → recorded as
-   `hedge_misattributed`, **not** silently accepted.
-7. `decision_basis: "resolved_memory"` on a `nomem` run → recorded as
-   `basis_contradiction`.
-8. `explanation` absent, empty, or `"placeholder"` → **accepted**, scored
-   nowhere, and asserted to appear in no verdict path.
-9. A v1 response (`{"action", "reason"}`) parsed by the v2 parser → rejected with
-   a version error, never silently coerced.
-10. A v2 response parsed by the v1 parser → v1 is frozen and untouched; the test
-    asserts the v1 parser is not modified by this change.
+| # | Rule | Test |
+|---|---|---|
+| 1 | `action` uses the existing closed enum | off-list action rejected |
+| 2 | `decision_basis` is a closed enum, **marked self-reported** | `"placeholder"` rejected; the schema records the self-report label |
+| 3 | `evidence_quote` is a non-empty verbatim substring of the payload shown | `"placeholder"` rejected; a real span accepted |
+| 4 | `uncertainty_signal` is one of `explicit_hedge`, `none` | anything else rejected |
+| 5 | `explicit_hedge` requires `uncertainty_quote` non-empty and in the payload | missing, empty, or ungrounded quote rejected |
+| 6 | `none` requires `uncertainty_quote` to be `null` | a non-null quote under `none` rejected |
+| 7 | no `minLength` anywhere | a short but genuine quote (`"Tuesday the 24th"`, 16 chars) **accepted** — the R1.1 length false positive cannot recur |
+| 8 | `additionalProperties: false` | an unknown key rejected |
+| 9 | optional `explanation` empty or `"placeholder"` is legal | accepted, and asserted to appear in no verdict path |
+| 10 | v1 behaviour and the frozen artifacts are unchanged | v1 `parse_decision` round-trips its own fixtures; a v2 object is not silently coerced by v1 |
 
 ### Acceptance criteria, restated against the proposal
 
@@ -283,7 +313,8 @@ required by anything in §3's minimal set.
 
 Sequence, if it proceeds: implement v2 parser and validator with the §4 tests
 (no model calls) → freeze a v2 protocol manifest → run one small pilot on the
-frozen scenarios under the new protocol → only then decide whether the mechanism
-claim in §1a can be measured rather than interpreted.
+frozen scenarios under the new protocol → only then decide whether §1a's claim
+can be restated as a grounded self-report. It does not become a mechanism
+measurement at any point in that sequence.
 
 **None of that is started here.** This document is the audit and the proposal.
