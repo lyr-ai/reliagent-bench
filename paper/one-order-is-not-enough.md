@@ -261,7 +261,15 @@ Typed         1.00  1.00  1.00  │    0.97  1.00  0.97  0.98
 nomem         0.00  0.00  0.00  │    0.52  0.30  0.43  0.42
 ```
 
-**Figure 1** plots the policy × state-class interaction in task success.
+**Figure 1** plots the policy × state-class interaction in task success. The two
+fixed orderings cross between the epistemic and declared columns; `Typed` runs
+flat along the top, and the no-memory arm sits well below every memory-bearing
+policy on the classes those policies get right.
+
+![Figure 1](figures/figure1-interaction.png)
+
+*Figure 1. Resolution policy × state class, agent task success, effort low.
+n = 60 runs per cell (12 scenarios × 5 repetitions).*
 
 The deterministic split propagated into downstream agent task performance. Of
 217 failed runs, 207 are attributed to a wrong governing state and 9 to a correct
@@ -342,8 +350,17 @@ rule — a system may tolerate being wrong about what is true more readily than
 being wrong about what was decided — but that rule is not established here.
 §10 specifies the experiment that would establish it.
 
-**Figure 2** plots both error directions at both effort levels, with the 0.00
-floor visible.
+**Figure 2** plots both error directions per scenario at both effort levels, so
+the aggregate is not the only thing visible.
+
+![Figure 2](figures/figure2-asymmetry.png)
+
+*Figure 2. Per-scenario task success under each error direction, both effort
+conditions. n = 60 per effort condition per panel (12 scenarios × 5 runs). The
+left panel is empty: 0/60 observed recovery in both conditions. The right panel
+shows the heterogeneity behind the 0.28/0.32 aggregates — two scenarios recover
+in 5/5 runs, several in none — which is why the asymmetry is reported as an
+observation about the tested scenarios rather than as a calibrated rate.*
 
 ---
 
