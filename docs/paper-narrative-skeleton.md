@@ -83,9 +83,12 @@ S>R>C    epistemic  0/12   declared 12/12   controls 12/12
 b_typed  epistemic 12/12   declared 12/12   controls 12/12
 ```
 
-**Every one of the eleven fixed policies scores exactly 12/24 on the pairs.**
-`S>C>R` and `S>R>C` are the only two that also keep 12/12 on controls — they are
-the strongest fixed orderings available, not a convenient pair.
+**Every evaluated fixed policy scores exactly 12/24 on the pairs.**
+Among the **six complete permutations**, `S>C>R` and `S>R>C` are the only two
+that also keep 12/12 on controls — the strongest complete orderings available,
+not a convenient pair. (`S_only` keeps 12/12 too, but it is a single-dimension
+policy, not a complete ordering; the qualifier is required wherever this claim
+appears.)
 
 **Permitted.** "deterministic"; "exhaustive over the tested orderings"; "no
 fixed ordering satisfies both classes".

@@ -12,9 +12,10 @@ confidence and recency, applied uniformly to every record. We show that this
 cannot work when records carry different state semantics. On a frozen set of 12
 reversal pairs and 12 controls, we exhaustively evaluate all six permutations of
 (source, confidence, recency) plus three single-dimension policies and two
-baselines. **Every fixed ordering resolves exactly half of the reversal
-scenarios**, and the two strongest — the only ones that also keep all 12
-controls — fail on complementary halves: source-then-confidence-then-recency is
+baselines. **Every evaluated fixed policy resolves exactly half of the reversal
+scenarios.** Among the six complete permutations, `S>C>R` and `S>R>C` are the
+only two that retain all 12 controls, and they fail on complementary halves:
+source-then-confidence-then-recency is
 correct on all 12 epistemic cases and none of the 12 declared cases, and
 source-then-recency-then-confidence is correct on exactly the reverse. A typed
 policy that selects resolution semantics per state class is correct on all 24. We
@@ -23,7 +24,8 @@ resolved state to an agent on a decision task (36 scenarios × 4 policies × 5
 runs), task success reproduces the same interaction, and wrong memory is worse
 than no memory on the class each policy gets wrong. We additionally observe a
 directional asymmetry: agents sometimes recover from incorrect epistemic
-resolution, but never recover when a declared revision is suppressed. The
+resolution, but no recovery was observed in 60 runs when a declared revision was
+suppressed. The
 interaction persists when agent reasoning effort is increased from low to high.
 
 ---
@@ -81,6 +83,44 @@ classes, one model, and one task distribution.
 
 ---
 
+## 1a. Related work
+
+*Scaffold — positioning is settled, citations are not yet attached. Every claim
+below needs a reference before submission; none are invented here.*
+
+**Agent memory systems.** Retrieval-augmented and long-horizon agent memory work
+concentrates on what to store and what to retrieve. Conflict between retained
+records is usually handled by recency, by a relevance score, or by letting the
+model arbitrate in context. We take the resolution step as the object of study
+and hold retrieval fixed. `[CITE: agent memory / long-term memory systems]`
+
+**Truth maintenance and belief revision.** The distinction between a claim about
+the world and a record of a commitment has a long history in belief revision and
+in temporal databases, where valid time and transaction time are separated
+precisely because "when it became true" and "when we recorded it" are different
+questions. Our declared/epistemic split is narrower and empirical, and we do not
+propose a logic. `[CITE: AGM belief revision; bitemporal databases]`
+
+**Knowledge-base conflict resolution and truth discovery.** Source-trust and
+evidence-aggregation methods rank conflicting assertions by estimated source
+reliability. That machinery answers a different question from ours: our conflicts
+hold source authority equal by construction, so no amount of source modelling
+separates them. `[CITE: truth discovery / source trust]`
+
+**Provenance is not the contribution.** An earlier phase of this work found a
+fixed source ranking sufficient for the tested provenance conflicts, matching a
+strong global baseline. We therefore make no claim about provenance here.
+`[CITE: this project's Phase 1 report, if citable]`
+
+**Evaluating memory in agents.** Existing agent-memory benchmarks score
+end-to-end task success with retrieval and resolution entangled. We separate the
+two: resolution is scored deterministically without a model, and the agent stage
+receives an already-resolved payload, so a behavioural difference is attributable
+to the resolution policy rather than to retrieval. `[CITE: agent memory
+benchmarks]`
+
+---
+
 ## 2. Declared and epistemic state
 
 We use one distinction, and it is narrower than a general type system.
@@ -125,7 +165,7 @@ lower-priority incoming source, verified operational results, and no-conflict
 agreement.
 
 **Policies.** All six permutations of (source, confidence, recency), three
-single-dimension policies, two prior baselines, and `b_typed`, which applies
+single-dimension policies, two prior baselines, and `Typed`, which applies
 per-state-class semantics frozen before any scenario was written.
 
 **Agent stage.** The resolved governing record is rendered as bare content and
@@ -170,20 +210,24 @@ R_only          0/12      12/12     12/24       7/12
 b0              0/12      12/12     12/24       7/12
 b_scd           0/12      12/12     12/24       7/12
 ──────────────────────────────────────────────────────
-b_typed        12/12      12/12     24/24      12/12
+Typed          12/12      12/12     24/24      12/12
 ```
 
 Three things follow.
 
-**Every fixed policy scores exactly 12 of 24.** Not approximately, and not with
+**Every evaluated fixed policy scores exactly 12 of 24.** Not approximately, and not with
 one ordering edging ahead. The set partitions cleanly: each fixed ordering is
 perfect on one state class and empty on the other.
 
-**`S>C>R` and `S>R>C` are the strongest available.** They are the only two fixed
-orderings that also keep all 12 controls; every other ordering that gets a class
-right loses four or five controls as well. So the split is not a contrivance
-between two arbitrary policies — it is where the best available fixed orderings
-fail, and they fail on complementary halves.
+**Among the six complete permutations, `S>C>R` and `S>R>C` are the only two that
+retain all 12 controls.** Every other permutation loses four or five. `S_only`
+also keeps 12/12, but it is a single-dimension policy rather than a complete
+ordering over the three signals, so it does not disturb the comparison — it is
+reported here because the qualifier matters: the claim is about complete
+permutations, not about every policy evaluated.
+
+So the split is not a contrivance between two arbitrary policies. It is where the
+strongest complete orderings fail, and they fail on complementary halves.
 
 **The typed policy is correct on all 24 and all controls.** It is the only
 policy in the set that is.
@@ -213,7 +257,7 @@ unchanged, the pre-correction gate result is preserved, and the oracle re-ran
 policy       epist  decl  ctrl  │   epist  decl  ctrl   all
 S>C>R         1.00  0.00  1.00  │    0.95  0.00  0.98  0.64
 S>R>C         0.00  1.00  1.00  │    0.28  1.00  0.98  0.76
-b_typed       1.00  1.00  1.00  │    0.97  1.00  0.97  0.98
+Typed         1.00  1.00  1.00  │    0.97  1.00  0.97  0.98
 nomem         0.00  0.00  0.00  │    0.52  0.30  0.43  0.42
 ```
 
@@ -224,11 +268,29 @@ The deterministic split propagated into downstream agent task performance. Of
 state with a wrong agent decision — inside the pre-registered threshold of 0.10,
 which did not trigger. Controls stay flat across memory-bearing policies.
 
-**Wrong memory is worse than no memory, per class.** On the class each fixed
-policy gets wrong, it scores below the no-memory arm: `S>C>R` reaches 0.00 on
-declared against no-memory's 0.30, and `S>R>C` reaches 0.28 on epistemic against
-0.52. An incorrect long-term state is not merely uninformative; it is actively
-worse than having none.
+**Wrong memory produced lower observed task success than no memory on the
+affected class.** `S>C>R` reaches 0.00 on declared against no-memory's 0.30, and
+`S>R>C` reaches 0.28 on epistemic against 0.52.
+
+These aggregates pool five repetitions within each of 12 scenarios, so the 60
+calls behind each cell are not 60 independent samples. A scenario-level paired
+view is therefore reported alongside, as **descriptive and exploratory**:
+
+```text
+wrong policy vs no-memory, per scenario (12 each)      worse   tie   better
+S>C>R on declared      low effort                          4     8        0
+                       high effort                         4     8        0
+S>R>C on epistemic     low effort                          7     3        2
+                       high effort                         7     1        4
+```
+
+The direction is not uniform, and the two classes behave differently. On declared
+state no scenario favours the wrong policy in either arm, but eight of twelve are
+ties in which the no-memory arm also fails — so the aggregate difference rests on
+four scenarios. On epistemic state the majority favours no-memory, with two to
+four scenarios running the other way. The aggregate comparison is real in
+direction; it is not a uniform per-scenario effect, and we do not claim a
+calibrated effect size for it.
 
 **What this is not.** The agent did not rediscover the conflict. Resolution
 happens upstream and deterministically, and the agent receives only the winning
@@ -249,9 +311,15 @@ suppress a valid declared revision                  0.00         0.00
 override better-evidenced epistemic state           0.28         0.32
 ```
 
-Suppressing a declared revision is unrecoverable in all 60 runs, at both effort
-levels. Overriding epistemic evidence is partly survivable in roughly three runs
-in ten. The asymmetry is stable across the robustness run of §7.
+No recovery was observed in 60 runs when a declared revision was suppressed, at
+either effort level. Overriding better-evidenced epistemic state was recoverable
+in roughly three runs in ten. Suppressed declared revisions therefore appeared
+substantially less recoverable in the tested scenarios, and the pattern is stable
+across the robustness run of §7.
+
+0/60 is a strong observation, not a demonstration that the true recovery
+probability is zero: with 60 runs the upper bound on an unobserved rate remains
+appreciable, and the scenarios are 12, not 60, independent items.
 
 One consequence is that the behavioural gap *under-states* the resolution gap on
 epistemic state. At the resolver, `S>R>C` is wrong on 12 of 12 epistemic cases;
@@ -301,19 +369,23 @@ before any call, with the readout restricted in advance to two questions.
 policy    epist  decl  ctrl       epist  decl  ctrl
 S>C>R      0.95  0.00  0.98        0.98  0.00  1.00
 S>R>C      0.28  1.00  0.98        0.32  1.00  0.98
-b_typed    0.97  1.00  0.97        1.00  1.00  0.98
+Typed      0.97  1.00  0.97        1.00  1.00  0.98
 nomem      0.52  0.30  0.43        0.53  0.32  0.55
 governing-state accuracy: identical in both arms
 ```
 
-The interaction persists and sharpens. `b_typed` reaches 1.00/1.00. `S>C>R`
-holds at 0.00 on declared — **the unrecoverable error is not an artefact of
-shallow reasoning**, since raising effort does not repair it at all. `S>R>C`
+The interaction persists and sharpens. `Typed` reaches 1.00/1.00. `S>C>R`
+holds at 0.00 on declared: **no recovery was observed after increasing the
+model's effort setting from low to high.** `S>R>C`
 epistemic rescue rises slightly, 0.28 → 0.32. Controls stay flat. Failures
 attributed to a correct state with a wrong decision fall from 9 to 3.
 
-This rules out the weak-configuration explanation. It is not a replication and
-adds no statistical power: same scenarios, same model, one axis moved.
+**The interaction is robust to this single-axis increase in reasoning effort.**
+That excludes the narrow explanation that the interaction appears only at low
+effort. It does not exclude every shallow-reasoning account: `effort` is one
+configuration axis, not a direct measure of reasoning depth, and extended
+thinking was unavailable to test as a second axis. The run is not a replication
+and adds no statistical power — same scenarios, same model, one axis moved.
 
 ---
 
@@ -395,6 +467,27 @@ appended to this paper.
 
 ## Reproducibility
 
+**Naming.** The typed policy is written `Typed` throughout this paper; its
+identifier in the code and in every committed artifact is `b_typed`. The fixed
+orderings keep their code names (`S>C>R`, `S>R>C`, …), and `S_only`, `C_only`,
+`R_only`, `b0` and `b_scd` appear as they do in the results file.
+
+**Model and configuration.** `claude-sonnet-5` via the Anthropic Messages API,
+SDK `anthropic` 1.5.0. Sampling controls (temperature, top-p, top-k) are not
+request parameters on this model generation, so the lowest-variance
+configuration available was used instead: extended thinking disabled, output
+effort `low` for the main run and `high` for the robustness run, `max_tokens`
+300, structured JSON output with the action constrained by an enum to the task's
+choices. Retries and timeouts were the SDK defaults (`max_retries = 2`;
+connect 5 s, read/write/pool 600 s); transport-level retries were not
+instrumented, so the reported 720 calls are logical calls and the number of HTTP
+attempts may be higher. Prompt version `mode-b-pilot-0`; the system prompt is
+483 characters and unchanged across both runs.
+
+**TODO before submission.** An exact dated model snapshot identifier, in place of
+the alias resolved at call time.
+
+
 Every artefact is committed in order, each before the next existed: the
 semantics table; the frozen scenarios; the predictions and verdict rules; the
 exhaustive resolution results; the oracle gate; the comparative raw responses;
@@ -403,3 +496,10 @@ robustness analysis. Raw model responses for both agent-stage runs are stored
 verbatim and were not modified after commit. The one labelling correction, its
 justification, and the pre-correction gate result are recorded in the
 predictions file.
+
+---
+
+## References
+
+*To be attached. The `[CITE: …]` markers in §1a name the five slots that must be
+filled before submission; no reference is asserted in this draft.*
