@@ -78,11 +78,13 @@ class AnthropicAgent:
     schema on the response, so an off-list action cannot occur.
     """
 
-    def __init__(self, model: str = "claude-sonnet-5", max_tokens: int = 300):
+    def __init__(self, model: str = "claude-sonnet-5", max_tokens: int = 300,
+                 effort: str = "low"):
         import anthropic  # local import so the package is optional
         self.model = model
         self.max_tokens = max_tokens
-        self.request_config = {"thinking": {"type": "disabled"}, "effort": "low", "format": "json_schema(action enum, reason)"}
+        self.effort = effort
+        self.request_config = {"thinking": {"type": "disabled"}, "effort": effort, "format": "json_schema(action enum, reason)"}
         self._client = anthropic.Anthropic()
 
     def complete(self, system: str, user: str, choices: tuple[str, ...] = ()) -> str:
@@ -98,11 +100,13 @@ class AnthropicAgent:
         r = self._client.messages.create(
             model=self.model, max_tokens=self.max_tokens,
             thinking={"type": "disabled"},
-            output_config={"effort": "low", "format": {"type": "json_schema", "schema": schema}},
+            output_config={"effort": self.effort, "format": {"type": "json_schema", "schema": schema}},
             system=system, messages=[{"role": "user", "content": user}],
         )
         return "".join(getattr(b, "text", "") for b in r.content)
 
 
-def default_agent() -> AgentClient | None:
-    return AnthropicAgent() if os.environ.get("ANTHROPIC_API_KEY") else None
+def default_agent(effort: str = "low") -> AgentClient | None:
+    """`effort` defaults to the E2 configuration so an unflagged run still
+    reproduces the frozen experiment; the robustness run passes "high"."""
+    return AnthropicAgent(effort=effort) if os.environ.get("ANTHROPIC_API_KEY") else None
