@@ -21,8 +21,9 @@ source-then-recency-then-confidence is correct on exactly the reverse. A typed
 policy that selects resolution semantics per state class is correct on all 24. We
 then show the split is not confined to the resolver: handing each policy's
 resolved state to an agent on a decision task (36 scenarios × 4 policies × 5
-runs), task success reproduces the same interaction, and wrong memory is worse
-than no memory on the class each policy gets wrong. We additionally observe a
+runs), task success reproduces the same interaction, and wrong memory yields
+lower aggregate success than no memory on the affected class, although the
+scenario-level direction is heterogeneous. We additionally observe a
 directional asymmetry: agents sometimes recover from incorrect epistemic
 resolution, but no recovery was observed in 60 runs when a declared revision was
 suppressed. The
@@ -501,8 +502,14 @@ instrumented, so the reported 720 calls are logical calls and the number of HTTP
 attempts may be higher. Prompt version `mode-b-pilot-0`; the system prompt is
 483 characters and unchanged across both runs.
 
-**TODO before submission.** An exact dated model snapshot identifier, in place of
-the alias resolved at call time.
+**Model snapshot: exact identifier unavailable.** The runner recorded the model
+alias, and the transcripts retain no per-response metadata, so no dated snapshot
+can be recovered from the artifacts; the API also echoed the alias rather than a
+dated identifier when queried. We therefore report what is actually known and do
+not infer a snapshot: alias `claude-sonnet-5`, SDK `anthropic` 1.5.0, oracle gate
+run 2026-09-14, comparative run 2026-09-15, robustness run 2026-09-19, all UTC
+timestamps committed with the artifacts. Future runs should capture the `model`
+field of each response.
 
 
 Every artefact is committed in order, each before the next existed: the

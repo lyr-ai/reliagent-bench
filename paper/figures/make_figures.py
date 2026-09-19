@@ -118,6 +118,16 @@ def figure2():
                color="#5d6d7e", label="effort low", zorder=2)
         ax.bar([i + w / 2 for i in x], [hi[i] for i in ids], w,
                color="#e67e22", label="effort high", zorder=2)
+
+        # A zero-height bar is invisible, and an empty panel reads as missing
+        # data rather than as the result. Mark every observed zero explicitly.
+        for i, sid in enumerate(ids):
+            if lo[sid] == 0:
+                ax.plot([i - w / 2], [0], marker="_", markersize=9,
+                        color="#5d6d7e", markeredgewidth=2.2, zorder=4)
+            if hi[sid] == 0:
+                ax.plot([i + w / 2], [0], marker="_", markersize=9,
+                        color="#e67e22", markeredgewidth=2.2, zorder=4)
         agg_lo = sum(lo.values()) / len(ids)
         agg_hi = sum(hi.values()) / len(ids)
         ax.axhline(agg_lo, color="#5d6d7e", linestyle=":", linewidth=1.6, zorder=3)
@@ -125,6 +135,15 @@ def figure2():
         if abs(agg_hi - agg_lo) < 0.01:
             ax.annotate(f"mean {agg_lo:.2f} (both)", (-0.45, agg_lo + 0.03),
                         fontsize=8.5, color="#34495e", va="bottom", ha="left")
+            if agg_lo == 0:
+                n_runs = 5 * len(ids)
+                ax.text(0.5, 0.5,
+                        f"0 / {n_runs} observed recovery\n{len(ids)} scenarios, "
+                        f"both effort conditions\n(every bar is zero, not missing data)",
+                        transform=ax.transAxes, ha="center", va="center",
+                        fontsize=10.5, color="#7b241c",
+                        bbox=dict(boxstyle="round,pad=0.6", facecolor="#fdf2f0",
+                                  edgecolor="#c0392b", linewidth=1.1))
         else:
             ax.annotate(f"mean {agg_hi:.2f}  high", (-0.45, agg_hi + 0.02),
                         fontsize=8.5, color="#e67e22", va="bottom", ha="left")
