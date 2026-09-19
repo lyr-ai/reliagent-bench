@@ -21,6 +21,10 @@ analysis/
     mode-b-pilot.md      end-to-end agent utility, 16 scenarios × 6 variants × 5 runs:
                          resolution differences reach behaviour; BRQ1 supported
                          (source ranking suffices), BRQ2 supported, BRQ3 inconclusive
+    mode-b-phase2.md     global policy stress test, 36 scenarios: no fixed ordering
+                         over (source, confidence, recency) is correct on both
+                         epistemic and declared state (E1, exhaustive); the split
+                         propagates to agent behaviour (E2); BRQ2-narrow supported
 ```
 
 Regenerate (writes a record keyed by version + config; new versions are kept,

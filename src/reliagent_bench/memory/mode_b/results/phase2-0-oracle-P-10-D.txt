@@ -1,0 +1,40 @@
+Mode B Phase 2 · 1 scenarios · agent runs
+
+governing-state accuracy (deterministic)
+variant      epistemic    declared    controls       all
+────────────────────────────────────────────────────────
+oracle             —         1.00          —       1.00 
+
+task success (mean over runs)
+variant      epistemic    declared    controls       all
+────────────────────────────────────────────────────────
+oracle             —         1.00          —       1.00 
+
+per scenario, correct runs (variant columns in run order)
+           oracle
+P-10-D        5/5
+
+attribution of failed runs
+oracle     {}
+
+— pilot-format tables follow —
+
+Mode B pilot · 1 scenarios · agent runs
+
+governing-state accuracy (deterministic; one row per variant)
+variant           provenance             typed  repeated_failure           control       all
+────────────────────────────────────────────────────────────────────────────────────────────
+oracle                   —               1.00                —                 —       1.00 
+
+task success (agent action == gold action; mean over runs)
+variant           provenance             typed  repeated_failure           control       all
+────────────────────────────────────────────────────────────────────────────────────────────
+oracle                   —               1.00                —                 —       1.00 
+
+family rates: violation (provenance) · repeated failure (repeated_failure) · false avoidance (controls with applies=false)
+oracle     violation    —   repeated    —   false-avoid    —  
+
+attribution of failed runs
+oracle     {}
+
+resolution failures (scenario, variant, slot: got → gold)
