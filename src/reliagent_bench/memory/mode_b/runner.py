@@ -153,6 +153,8 @@ def main(argv=None) -> int:
     p.add_argument("--dry-run", action="store_true", help="resolution stage only; no model calls")
     p.add_argument("--runs", type=int, default=5)
     p.add_argument("--model", default=None)
+    p.add_argument("--effort", default="low", choices=["low", "high"],
+                   help="output_config effort; 'low' is the frozen E2 configuration")
     p.add_argument("--tasks", default=None)
     p.add_argument("--out", default="pilot-0")
     p.add_argument("--variant", action="append", default=None, help="run only these variants (repeatable); default: all")
@@ -170,7 +172,7 @@ def main(argv=None) -> int:
     scenarios = load_scenarios(args.tasks) if args.tasks else load_scenarios()
     if args.scenario:
         scenarios = [s for s in scenarios if s.id in set(args.scenario)]
-    agent = None if args.dry_run else default_agent()
+    agent = None if args.dry_run else default_agent(effort=args.effort)
     if not args.dry_run and agent is None:
         print("no agent available (set ANTHROPIC_API_KEY) — use --dry-run for the resolution stage")
         return 2
