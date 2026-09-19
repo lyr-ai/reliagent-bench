@@ -10,26 +10,44 @@ the boundary that must not be crossed, and its figure or table.
 
 ---
 
-## Proposed headline
+## Title and claim hierarchy — settled 2026-09-19
 
-> **Typed memory resolution prevents semantic precedence errors that stronger
-> agent reasoning does not reliably repair.**
+**Title:**
 
-**Flagging this before the full draft, because it is the one claim in the paper
-whose support is thinner than it sounds.** "Stronger agent reasoning" rests on a
-single axis (`effort: low → high`) on a single model. `thinking: enabled` is not
-available for this model, so no second axis was testable, and the second-model
-gate is deliberately shut. Two honest options:
+> **One Order Is Not Enough: Typed Resolution for Declared and Epistemic Memory**
 
-- **(a)** Keep the headline and scope it in the abstract — *"…that raising the
-  agent's reasoning effort does not repair."*
-- **(b)** Lead with §4's asymmetry instead, which is the more novel finding and
-  does not depend on a capability comparison.
+The earlier headline was rejected in review: scoping `reasoning` to `reasoning
+effort` fixed the accuracy problem but left R1 — a single-model, single-axis
+robustness check — sitting in the title as if it were the contribution. The
+strongest evidence is E1's structural result, and the title now says that.
 
-Recommended: **(a)**, with the narrower wording. The claim survives; only the
-word "reasoning" needs to become the thing actually varied.
+R1 appears as the abstract's closing sentence instead:
 
----
+> The interaction persists when agent reasoning effort is increased from low to
+> high.
+
+**Claim hierarchy, fixed:**
+
+| # | Status | Claim |
+|---|---|---|
+| 1 | **Primary** | No fixed global ordering resolves both declared and epistemic memory semantics. |
+| 2 | **Primary** | Typed resolution resolves both, and prevents the deterministic conflict from propagating downstream. |
+| 3 | **Robustness** | The downstream interaction persists under increased reasoning effort. |
+| 4 | **Secondary observation** | Resolution errors exhibit asymmetric downstream recoverability. |
+| 5 | **Hypothesis only** | Visible uncertainty cues may explain partial epistemic recovery. |
+
+**Venue: workshop / short paper.** The shape is complete as it stands. Reopening
+the stimulus branch to chase a full conference would introduce a new response
+protocol, a new stimulus condition, explicit hedge manipulation, probably a
+second model, a new pre-registration and an independent confirmation — and the
+new experiment would not be poolable with E2 or R1. That is future work, named
+in the paper, not an addition to this draft.
+
+**§4 is a secondary *observed* finding.** It stays in Results with Figure 2, and
+is written in three layers: result, candidate explanation, boundary. Not demoted
+to discussion — that would bury the most novel observation. Not promoted to a
+contribution — that would licence a reviewer to demand the mechanism experiment
+this paper does not have.
 
 ## 1. Problem
 
