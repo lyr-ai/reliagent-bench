@@ -67,13 +67,13 @@ We make two primary claims and report one secondary observation.
 
 1. **No fixed global ordering resolves both declared and epistemic memory
    semantics.** Established deterministically and exhaustively over the
-   dimensions enumerated (§4).
+   dimensions enumerated (§5).
 2. **Typed resolution resolves both, and prevents the deterministic conflict
    from propagating downstream.** Established at the resolver and then in agent
-   behaviour (§4, §5).
+   behaviour (§5, §6).
 
 We also observe that the two error directions are not equally harmful, and mark
-that observation's explanation as unconfirmed (§6).
+that observation's explanation as unconfirmed (§7).
 
 **What this paper does not claim.** That every memory type needs a bespoke
 policy — an earlier phase of this work found a fixed source ranking sufficient
@@ -84,45 +84,59 @@ classes, one model, and one task distribution.
 
 ---
 
-## 1a. Related work
+## 2. Related work
 
-*Scaffold — positioning is settled, citations are not yet attached. Every claim
-below needs a reference before submission; none are invented here.*
+**Agent memory systems.** Representative agent-memory systems primarily study
+memory tiering, organization, indexing, retrieval, and evolution. MemGPT
+[1] treats context as a memory hierarchy managed like an operating
+system's, paging information in and out of a bounded window. A-MEM [2]
+builds an agentic memory that indexes, links and evolves notes as the agent
+accumulates them. We instead isolate the conflict-resolution step after records
+have already been retained: retrieval is held fixed, and the question is which of
+two retained records governs.
 
-**Agent memory systems.** Retrieval-augmented and long-horizon agent memory work
-concentrates on what to store and what to retrieve. Conflict between retained
-records is usually handled by recency, by a relevance score, or by letting the
-model arbitrate in context. We take the resolution step as the object of study
-and hold retrieval fixed. `[CITE: agent memory / long-term memory systems]`
+**Belief revision and temporal databases.** Belief revision formalizes how a
+belief set should change under new information [3], while temporal
+databases distinguish when a fact is valid from when it is recorded
+[4]. These traditions motivate treating update semantics explicitly, but
+neither distinction is identical to the declared/epistemic split studied here.
+Valid time and transaction time separate two clocks; our split separates two
+*kinds of content* — a claim about the world and a record of an act — which may
+share both clocks.
 
-**Truth maintenance and belief revision.** The distinction between a claim about
-the world and a record of a commitment has a long history in belief revision and
-in temporal databases, where valid time and transaction time are separated
-precisely because "when it became true" and "when we recorded it" are different
-questions. Our declared/epistemic split is narrower and empirical, and we do not
-propose a logic. `[CITE: AGM belief revision; bitemporal databases]`
+**Truth discovery and source trust.** Truth-discovery methods infer values and
+source reliability jointly from conflicting claims [5]. Our reversal
+pairs hold source authority equal by construction, making the unresolved
+distinction semantic rather than source-dependent: no amount of source modelling
+separates a hedged observation from a terse revision when both come from the same
+source.
 
-**Knowledge-base conflict resolution and truth discovery.** Source-trust and
-evidence-aggregation methods rank conflicting assertions by estimated source
-reliability. That machinery answers a different question from ours: our conflicts
-hold source authority equal by construction, so no amount of source modelling
-separates them. `[CITE: truth discovery / source trust]`
+**Agent-memory benchmarks.** Existing benchmarks commonly report end-to-end
+memory QA, retrieval, or ranking performance. LoCoMo [6] evaluates very
+long-term conversational memory, and LongMemEval [7] benchmarks chat
+assistants on long-term interactive memory. We hold retrieval fixed and score the
+resolver deterministically before exposing only its selected payload to the
+agent, so a behavioural difference is attributable to the resolution policy
+rather than to what was retrieved.
 
-**Provenance is not the contribution.** An earlier phase of this work found a
-fixed source ranking sufficient for the tested provenance conflicts, matching a
-strong global baseline. We therefore make no claim about provenance here.
-`[CITE: this project's Phase 1 report, if citable]`
+**Closest prior work.** MemConflict [8] is the nearest study: it evaluates
+long-term memory systems under temporal, factual and contextual conflicts, with
+white-box retrieval and ranking diagnostics. Our study asks a different, narrower
+question — whether one fixed precedence order can satisfy two state semantics
+when source, confidence and recency are controlled — and then isolates how the
+resolver's choice propagates into downstream action. Where MemConflict
+characterises how systems behave across conflict types, we construct pairs that
+are identical on every ranking signal and differ only in state semantics, so that
+a fixed ordering is forced to choose between them.
 
-**Evaluating memory in agents.** Existing agent-memory benchmarks score
-end-to-end task success with retrieval and resolution entangled. We separate the
-two: resolution is scored deterministically without a model, and the agent stage
-receives an already-resolved payload, so a behavioural difference is attributable
-to the resolution policy rather than to retrieval. `[CITE: agent memory
-benchmarks]`
+**Provenance is not the contribution.** In our preceding Phase 1, a fixed source
+ranking was sufficient for the tested provenance conflicts; we therefore exclude
+provenance from the present contribution. That experiment is a frozen report in
+the accompanying artifact, not a published result.
 
 ---
 
-## 2. Declared and epistemic state
+## 3. Declared and epistemic state
 
 We use one distinction, and it is narrower than a general type system.
 
@@ -152,7 +166,7 @@ The hypothesis is correspondingly narrow:
 
 ---
 
-## 3. Setup
+## 4. Setup
 
 **Scenarios.** 12 reversal pairs (24 scenarios) and 12 controls, across six
 domains: infrastructure, scheduling, coding policy, travel, team workflow, and
@@ -188,7 +202,7 @@ seen.
 
 ---
 
-## 4. The deterministic result
+## 5. The deterministic result
 
 Eleven fixed policies, evaluated at the resolution stage with no model in the
 loop.
@@ -238,7 +252,7 @@ enumerated. No model is involved, so nothing here is about reasoning.
 
 ---
 
-## 5. Downstream propagation
+## 6. Downstream propagation
 
 A resolver result is not yet a behavioural result. We give each policy's resolved
 state to an agent on a decision task: 36 scenarios × 4 policies × 5 runs = 720
@@ -309,7 +323,7 @@ result as propagation, not replication.
 
 ---
 
-## 6. Secondary observation: asymmetric recoverability
+## 7. Secondary observation: asymmetric recoverability
 
 **Result.** The two error directions differ sharply in how often the agent still
 reaches the correct action.
@@ -324,7 +338,7 @@ No recovery was observed in 60 runs when a declared revision was suppressed, at
 either effort level. Overriding better-evidenced epistemic state was recoverable
 in roughly three runs in ten. Suppressed declared revisions therefore appeared
 substantially less recoverable in the tested scenarios, and the pattern is stable
-across the robustness run of §7.
+across the robustness run of §8.
 
 0/60 is a strong observation, not a demonstration that the true recovery
 probability is zero: with 60 runs the upper bound on an unobserved rate remains
@@ -349,7 +363,7 @@ generates, not one it confirms.
 If the asymmetry holds under a designed test, it suggests a directional design
 rule — a system may tolerate being wrong about what is true more readily than
 being wrong about what was decided — but that rule is not established here.
-§10 specifies the experiment that would establish it.
+§11 specifies the experiment that would establish it.
 
 **Figure 2** plots both error directions per scenario at both effort levels, so
 the aggregate is not the only thing visible.
@@ -365,7 +379,7 @@ observation about the tested scenarios rather than as a calibrated rate.*
 
 ---
 
-## 7. Robustness
+## 8. Robustness
 
 The agent stage used the lowest-variance configuration available: sampling
 controls are not request parameters on this model generation, so thinking was
@@ -407,7 +421,7 @@ and adds no statistical power — same scenarios, same model, one axis moved.
 
 ---
 
-## 8. What the evidence establishes
+## 9. What the evidence establishes
 
 | # | Status | Claim |
 |---|---|---|
@@ -420,7 +434,7 @@ and adds no statistical power — same scenarios, same model, one axis moved.
 
 ---
 
-## 9. Limitations
+## 10. Limitations
 
 **A second model was not run, and this is compliance rather than omission.** The
 pre-registered gate unlocking a second-model replication required both a drop in
@@ -438,7 +452,7 @@ token, at both effort levels, and in roughly four of five such runs the action
 was nonetheless correct. Because it is in no scoring path, its degeneracy cannot
 have affected any result reported here. It is a diagnostic-contract defect — the
 field was declared to carry diagnostic weight and given no contract to carry it
-with — and it is already a measurement defect for §6's explanation. A versioned
+with — and it is already a measurement defect for §7's explanation. A versioned
 replacement protocol with grounded citations has been designed and tested but not
 run; it is future measurement design, not a result of this paper.
 
@@ -457,9 +471,9 @@ schema change; no system change follows from this paper.
 
 ---
 
-## 10. Future work
+## 11. Future work
 
-The asymmetry in §6 is the natural next experiment, and it should be built to
+The asymmetry in §7 is the natural next experiment, and it should be built to
 test the explanation directly rather than to accumulate more of the same
 evidence. A design that would qualify:
 
@@ -525,5 +539,35 @@ predictions file.
 
 ## References
 
-*To be attached. The `[CITE: …]` markers in §1a name the five slots that must be
-filled before submission; no reference is asserted in this draft.*
+[1] C. Packer, S. Wooders, K. Lin, V. Fang, S. G. Patil, I. Stoica, and
+J. E. Gonzalez. *MemGPT: Towards LLMs as Operating Systems.*
+arXiv:2310.08560. https://arxiv.org/abs/2310.08560
+
+[2] W. Xu, Z. Liang, K. Mei, H. Gao, J. Tan, and Y. Zhang. *A-MEM: Agentic
+Memory for LLM Agents.* arXiv:2502.12110. https://arxiv.org/abs/2502.12110
+
+[3] C. E. Alchourrón, P. Gärdenfors, and D. Makinson. *On the Logic of Theory
+Change: Partial Meet Contraction and Revision Functions.* The Journal of
+Symbolic Logic, 50(2):510–530, 1985.
+
+[4] R. T. Snodgrass. *Temporal Databases.* In Theories and Methods of
+Spatio-Temporal Reasoning in Geographic Space, LNCS 639, Springer, 1992.
+https://rts.cs.arizona.edu/pubs/LNCS639.pdf
+
+[5] X. Yin, J. Han, and P. S. Yu. *Truth Discovery with Multiple Conflicting
+Information Providers on the Web.* IEEE Transactions on Knowledge and Data
+Engineering, 20(6):796–808, 2008. doi:10.1109/TKDE.2007.190745
+
+[6] A. Maharana, D.-H. Lee, S. Tulyakov, M. Bansal, F. Barbieri, and Y. Fang.
+*Evaluating Very Long-Term Conversational Memory of LLM Agents.* ACL 2024.
+https://aclanthology.org/2024.acl-long.747/
+
+[7] D. Wu, H. Wang, W. Yu, Y. Zhang, K.-W. Chang, and D. Yu. *LongMemEval:
+Benchmarking Chat Assistants on Long-Term Interactive Memory.*
+arXiv:2410.10813. https://arxiv.org/abs/2410.10813
+
+[8] Tao et al. *MemConflict: Evaluating Long-Term Memory Systems Under Memory
+Conflicts.* arXiv:2605.20926. https://arxiv.org/abs/2605.20926
+
+*Author lists, years and venue details to be verified against the sources at
+submission time; [8]'s full author list is not yet transcribed.*
