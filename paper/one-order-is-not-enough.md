@@ -548,7 +548,7 @@ Memory for LLM Agents.* arXiv:2502.12110. https://arxiv.org/abs/2502.12110
 
 [3] C. E. Alchourrón, P. Gärdenfors, and D. Makinson. *On the Logic of Theory
 Change: Partial Meet Contraction and Revision Functions.* The Journal of
-Symbolic Logic, 50(2):510–530, 1985.
+Symbolic Logic, 50(2):510–530, 1985. doi:10.2307/2274239
 
 [4] R. T. Snodgrass. *Temporal Databases.* In Theories and Methods of
 Spatio-Temporal Reasoning in Geographic Space, LNCS 639, Springer, 1992.
@@ -566,8 +566,6 @@ https://aclanthology.org/2024.acl-long.747/
 Benchmarking Chat Assistants on Long-Term Interactive Memory.*
 arXiv:2410.10813. https://arxiv.org/abs/2410.10813
 
-[8] Tao et al. *MemConflict: Evaluating Long-Term Memory Systems Under Memory
-Conflicts.* arXiv:2605.20926. https://arxiv.org/abs/2605.20926
-
-*Author lists, years and venue details to be verified against the sources at
-submission time; [8]'s full author list is not yet transcribed.*
+[8] Z. Tao, J. Zhao, P. Liu, D. Xi, Y. Chen, W. Xu, and Z. Li. *MemConflict:
+Evaluating Long-Term Memory Systems Under Memory Conflicts.* arXiv:2605.20926,
+2026. https://arxiv.org/abs/2605.20926
