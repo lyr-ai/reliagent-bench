@@ -274,7 +274,8 @@ Ship red-green with the implementation; none of these touch Phase 2 data.
 | 7 | no `minLength` anywhere | a short but genuine quote (`"Tuesday the 24th"`, 16 chars) **accepted** — the R1.1 length false positive cannot recur |
 | 8 | `additionalProperties: false` | an unknown key rejected |
 | 9 | optional `explanation` empty or `"placeholder"` is legal | accepted, and asserted to appear in no verdict path |
-| 10 | v1 behaviour and the frozen artifacts are unchanged | v1 `parse_decision` round-trips its own fixtures; a v2 object is not silently coerced by v1 |
+| 10 | v1 behaviour and the frozen artifacts are unchanged | v1 `parse_decision` round-trips its own fixtures; a v1 response is rejected by v2 |
+| 11 | every v2 response carries `protocol_version: 2` | a missing or wrong version is rejected; v1 has no version field, so this is what separates the two |
 
 ### Acceptance criteria, restated against the proposal
 
@@ -316,5 +317,35 @@ Sequence, if it proceeds: implement v2 parser and validator with the §4 tests
 frozen scenarios under the new protocol → only then decide whether §1a's claim
 can be restated as a grounded self-report. It does not become a mechanism
 measurement at any point in that sequence.
+
+### Migration requirement — v1 silently coerces a v2 response
+
+Recorded here because the test that exposes it deliberately does not fix it.
+
+Handed a v2 response, v1's `parse_decision` takes the `action`, ignores every
+v2 field, and substitutes an empty `reason`. Nothing raises. A v2 run misrouted
+to the v1 parser would therefore look like a successful v1 run with a
+degenerate reason — **indistinguishable from the exact failure mode this
+protocol exists to remove.**
+
+v1 is left unchanged to hold this change's isolation boundary, so the defect
+is live. The consequence is a hard prerequisite:
+
+> Before v2 is wired to anything, the entry layer must route on
+> `protocol_version`. A v2 response must never reach the v1 parser.
+
+`protocol_version: 2` is required on every v2 response and enforced by the v2
+validator. v1 responses carry no version field at all, which is what makes the
+two separable — but only if something actually looks. This is a defect to be
+fixed at wiring time, not a compatibility guarantee, and it must not be
+described as one.
+
+### If a v2 pilot is ever run
+
+**Do not add record identifiers to the payload by default.** Validate first
+that structured citation can be collected reliably against the current bare
+payload. Only if a research question explicitly requires record provenance
+should an id-bearing payload be introduced — and then as a new, separately
+registered stimulus condition, never as a quiet change to the existing one.
 
 **None of that is started here.** This document is the audit and the proposal.

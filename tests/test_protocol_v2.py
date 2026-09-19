@@ -12,8 +12,8 @@ import pytest
 
 from reliagent_bench.memory.mode_b.agent import parse_decision
 from reliagent_bench.memory.mode_b.protocol_v2 import (
-    DECISION_BASIS, SELF_REPORTED_FIELDS, UNCERTAINTY_SIGNAL, UNSCORED_FIELDS,
-    DecisionV2, ProtocolError, parse_v2, response_schema, validate,
+    DECISION_BASIS, PROTOCOL_VERSION, SELF_REPORTED_FIELDS, UNCERTAINTY_SIGNAL,
+    UNSCORED_FIELDS, DecisionV2, ProtocolError, parse_v2, response_schema, validate,
 )
 
 # The payload shape the agent is actually shown: bare content, no record ids.
@@ -23,6 +23,7 @@ CHOICES = ("Monday the 23rd", "Thursday the 26th")
 
 def good(**over):
     base = {
+        "protocol_version": PROTOCOL_VERSION,
         "action": "Monday the 23rd",
         "decision_basis": "resolved_memory",
         "evidence_quote": "Tuesday the 24th",
@@ -149,14 +150,33 @@ def test_rule10_v1_parser_still_behaves_exactly_as_it_did():
     assert d.action == "Monday the 23rd" and d.reason == "placeholder"
 
 
-def test_rule10_v2_object_is_not_silently_coerced_by_v1():
-    """v1 would read a v2 response as a decision with an empty reason. That is
-    v1's documented tolerance, not v2 behaviour — the test pins it so a future
-    change to v1 cannot pass unnoticed."""
+def test_v1_currently_coerces_v2_payload_and_documents_migration_risk():
+    """**This records a defect, not a compatibility guarantee.**
+
+    Handed a v2 response, v1 takes the action, ignores every v2 field, and
+    substitutes an empty `reason`. That is silent coercion: nothing fails, and
+    a v2 run misrouted to the v1 parser would look like a successful v1 run
+    with a degenerate reason — indistinguishable from the failure mode this
+    whole protocol exists to remove.
+
+    v1 is deliberately left unchanged here to hold the isolation boundary. The
+    consequence is a migration requirement, recorded in the audit: before v2 is
+    wired to anything, the entry layer must route on `protocol_version`, and a
+    v2 response must never reach the v1 parser."""
     raw = json.dumps(good())
     d = parse_decision(raw, CHOICES)
     assert d.action == "Monday the 23rd"
-    assert d.reason == ""          # v1 has no idea what a v2 field is
+    assert d.reason == ""          # <- the coercion, pinned so it cannot drift
+
+
+def test_v2_rejects_a_response_with_the_wrong_protocol_version():
+    assert any("protocol_version" in p for p in problems(good(protocol_version=1)))
+
+
+def test_v2_rejects_a_response_with_no_protocol_version():
+    obj = good()
+    del obj["protocol_version"]
+    assert any("missing required field 'protocol_version'" in p for p in problems(obj))
 
 
 def test_rule10_v1_response_is_rejected_by_v2():

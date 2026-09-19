@@ -43,7 +43,11 @@ import json
 from dataclasses import dataclass, field
 from typing import Any
 
-PROTOCOL_VERSION = "mode-b-v2"
+PROTOCOL_VERSION = 2
+PROTOCOL_NAME = "mode-b-v2"
+"""Responses must carry `protocol_version: 2`. v1 has no version field at all,
+so the two are only distinguishable if the entry layer routes on it — see
+`parse_v2` and the migration note in the audit."""
 
 DECISION_BASIS = ("resolved_memory", "task_context", "no_relevant_memory")
 """Closed enum. SELF-REPORTED — the model's account, not an observation."""
@@ -59,8 +63,8 @@ UNSCORED_FIELDS = frozenset({"explanation"})
 scored, and must never appear in a verdict path. Its degeneracy is harmless by
 construction — that is the whole point of demoting it."""
 
-_REQUIRED = ("action", "decision_basis", "evidence_quote", "uncertainty_signal",
-             "uncertainty_quote")
+_REQUIRED = ("protocol_version", "action", "decision_basis", "evidence_quote",
+             "uncertainty_signal", "uncertainty_quote")
 _ALLOWED = frozenset(_REQUIRED) | UNSCORED_FIELDS
 
 
@@ -75,6 +79,7 @@ def response_schema(choices: tuple[str, ...]) -> dict:
     return {
         "type": "object",
         "properties": {
+            "protocol_version": {"type": "integer", "const": PROTOCOL_VERSION},
             "action": {"type": "string", **({"enum": list(choices)} if choices else {})},
             "decision_basis": {"type": "string", "enum": list(DECISION_BASIS)},
             "evidence_quote": {"type": "string"},
@@ -129,6 +134,12 @@ def validate(obj: Any, choices: tuple[str, ...], payload: str) -> DecisionV2:
     problems: list[str] = []
     if not isinstance(obj, dict):
         raise ProtocolError([f"response is {type(obj).__name__}, not an object"])
+
+    # Checked first and reported plainly: a v1 response has no version field,
+    # so this is what tells the two protocols apart. v2 never guesses.
+    if "protocol_version" in obj and obj["protocol_version"] != PROTOCOL_VERSION:
+        problems.append(
+            f"protocol_version {obj['protocol_version']!r} != {PROTOCOL_VERSION}")
 
     for k in sorted(set(obj) - _ALLOWED):
         problems.append(f"unknown field {k!r} (additionalProperties: false)")
