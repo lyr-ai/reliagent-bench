@@ -77,7 +77,29 @@ for full public release as it stands.
 
 ## Open
 
-- [ ] **Venue and template.** Drives everything below.
+- [ ] **Venue and template.** Drives everything below. **Decided 2026-09-19: wait
+      for a CFP rather than force a fit.**
+
+      - **Preferred:** an ICLR 2027 agent-memory / memory-evaluation workshop —
+        whether MemAgents or an equivalent is held again. The 2026 edition
+        matched this topic closely and was hybrid, but the 2027 CFP, page
+        limits, archival status and **remote-presentation policy** are not
+        published, and none of them may be assumed.
+      - **Fallback:** SE4AgenticAI, deadline found as 2026-10-10. No
+        sufficiently reliable official page was located for length, publication
+        mode or remote presentation, so **no template work starts on it.**
+      - **Not submitting:** ICLR 2027 main track. The abstract deadline
+        (2026-09-18) has passed, and at one model with a deliberately narrow
+        question the evidence fits a workshop rather than a main track.
+
+      Until a CFP is confirmed against topic, page limit, archival status and
+      remote policy, `main` stays frozen, the draft stays venue-neutral, and no
+      `submission-format` PR is opened.
+
+      **If no suitable memory workshop appears**, restructure as a
+      software-engineering short paper on agent-memory correctness and
+      deterministic resolution — by re-framing, not by changing the claims to
+      suit a venue.
 - [ ] **Figure sizing.** Figure 2 is currently 10.2 × 4.3 in, double-column. A
       single-column template needs the two panels stacked; `make_figures.py`
       takes the change in one place.
