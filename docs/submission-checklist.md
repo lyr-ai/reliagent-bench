@@ -34,6 +34,47 @@ Each entry checked against the source. **Complete.**
 - Survey claims narrowed so neither is falsified by MemConflict's white-box
   retrieval and ranking analysis.
 
+## Artifact release — decided
+
+Release **all raw responses**, not a summary. The paper's credibility comes from
+the auditable chain *frozen configuration → raw results → analysis*; publishing
+only aggregates discards exactly that. ~37k lines of JSON is not large for a
+research artifact.
+
+Ship: the raw result JSON for every run, the rendered tables, the scorer, the
+tasks, the predictions, the frozen manifest, and the commit order. Provide a
+SHA-256 for each frozen artifact, and a README command that rebuilds every table
+and figure **from the frozen raw responses with no model calls**. State that the
+E2 and R1 raw responses are immutable experimental records. Mark `protocol_v2`
+as future design, wired to nothing and never used by any experiment in the paper.
+
+### Sensitive-content scan — 2026-09-19
+
+Tracked files scanned for keys, tokens, `.env`, personal paths, emails.
+
+| Finding | Location | Action |
+|---|---|---|
+| **All Phase 2 raw artifacts clean** | `results/phase2-*.json` | none — no paths, emails, or keys |
+| `.env` not tracked | — | none |
+| `ANTHROPIC_API_KEY=…` placeholder | `mode_b/README.md:25` | none — documentation, not a key |
+| Absolute personal path | `memory/results/seed_report.md:215` | scrub for the anonymous mirror |
+| Real name and email | `pyproject.toml:6` | scrub for the anonymous mirror |
+
+The scenarios are synthetic and contain no user data, so the artifact is suitable
+for full public release as it stands.
+
+### If review is double-blind
+
+- Build an **anonymous mirror**; do not link `lyr-ai`.
+- The mirror must be a fresh export, **not a clone** — commit author metadata
+  carries the identity that scrubbing files alone will not remove.
+- Scrub `pyproject.toml` authors, the absolute path in `seed_report.md`, and any
+  identity in README or file metadata.
+- Manuscript says "a preceding experiment in the accompanying artifact".
+- Do not link the public GitHub PR from the anonymous submission.
+- The original repository keeps its full history; the mirror exists only for
+  review.
+
 ## Open
 
 - [ ] **Venue and template.** Drives everything below.
