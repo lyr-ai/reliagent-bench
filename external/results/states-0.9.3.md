@@ -63,8 +63,15 @@ Against the scenario-level predictions:
 - **Issue #5** (typed-memory REPLACE loses history): every measured history
   need is met by states. Nothing here argues for giving REPLACE a history;
   keep it *not now*.
-- **A-02 is a new, real question for the owner**: when a stronger claim
-  started earlier and is still open-ended, should a weaker later claim end
-  it, or conflict with it?
-- The authority and typed rows are the cost of states' single contract.
+- **A-02 remains a disagreement**, deliberately not "fixed". The benchmark's
+  gold assumes a later start ends an earlier open-ended claim. TypedMem's
+  state contract (owner decision D2, 2026-09-27) does not: a later start time
+  doesn't show that an earlier open-ended claim has ended. When overlapping
+  claims can't be put in time order without inventing an end date, they stay
+  in conflict, and authority keeps a weaker overlapping claim from silently
+  ending a stronger one. A-08 is the contrast: there the weaker claim
+  describes an *earlier* state, time order is known, and it goes into history.
+  The benchmark measures one semantic assumption; TypedMem deliberately
+  chooses another.
+- **States don't replace the typed core; they solve a different problem.** States are strongest on current value, history and late arrival; the typed core on authority vetoes and per-type policies. The authority and typed rows are the cost of states' single contract.
   That trade-off was chosen in design 0002. It is now measured, not assumed.
