@@ -11,6 +11,7 @@ v0_scd_g                 53/53              6/6               2/2               
 v4_replace               53/53              0/6               0/2               0/3               1/1               6/6              54/65  
 v4_keep_both             53/53              6/6               2/2               3/3               1/1               6/6              65/65  
 v4_default               53/53              5/6               2/2               3/3               1/1               6/6              64/65  
+v9_states                53/53              6/6               2/2               3/3               1/1               6/6              65/65  
 
 failures (question, variant, query, expected → actual, attribution)
   07741c44       v4_replace     after0    under my bed                 → None                         unsupported_semantics:history_under_replace
@@ -26,4 +27,4 @@ failures (question, variant, query, expected → actual, attribution)
   c6853660       v4_replace     direction up                           → None                         unsupported_semantics:history_under_replace
   9bbe84a2       v4_default     after0    level 100                    → None                         unsupported_semantics:history_under_replace
 
-failure attribution by variant: {"v0": {}, "v0_scd": {}, "v0_scd_g": {}, "v4_replace": {"unsupported_semantics:history_under_replace": 11}, "v4_keep_both": {}, "v4_default": {"unsupported_semantics:history_under_replace": 1}}
+failure attribution by variant: {"v0": {}, "v0_scd": {}, "v0_scd_g": {}, "v4_replace": {"unsupported_semantics:history_under_replace": 11}, "v4_keep_both": {}, "v4_default": {"unsupported_semantics:history_under_replace": 1}, "v9_states": {}}

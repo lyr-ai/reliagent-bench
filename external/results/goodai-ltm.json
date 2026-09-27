@@ -107,6 +107,24 @@
         9,
         9
       ]
+    },
+    "v9_states": {
+      "Colours": [
+        3,
+        3
+      ],
+      "NameList": [
+        3,
+        3
+      ],
+      "SallyAnne": [
+        3,
+        3
+      ],
+      "all_run": [
+        9,
+        9
+      ]
     }
   },
   "attribution": {
@@ -117,7 +135,8 @@
       "unsupported_semantics:history_under_replace": 5
     },
     "v4_keep_both": {},
-    "v4_default": {}
+    "v4_default": {},
+    "v9_states": {}
   },
   "not_run": {
     "Shopping": "accumulation over a set-valued slot is not expressible as writes in any variant's protocol",
@@ -663,6 +682,116 @@
       }
     ],
     "v4_default": [
+      {
+        "id": "Colours/0.def.json",
+        "test": "Colours",
+        "expected": "red",
+        "actual": "red",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "id": "Colours/1.def.json",
+        "test": "Colours",
+        "expected": "cyan",
+        "actual": "cyan",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "id": "Colours/2.def.json",
+        "test": "Colours",
+        "expected": "yellow",
+        "actual": "yellow",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "id": "NameList/0.def.json",
+        "test": "NameList",
+        "expected": [
+          "terence",
+          "christopher",
+          "jane",
+          "liam",
+          "janet"
+        ],
+        "actual": [
+          "terence",
+          "christopher",
+          "jane",
+          "liam",
+          "janet"
+        ],
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "id": "NameList/1.def.json",
+        "test": "NameList",
+        "expected": [
+          "gabriel",
+          "sinead",
+          "phillip",
+          "jody",
+          "samantha"
+        ],
+        "actual": [
+          "gabriel",
+          "sinead",
+          "phillip",
+          "jody",
+          "samantha"
+        ],
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "id": "NameList/2.def.json",
+        "test": "NameList",
+        "expected": [
+          "blaine",
+          "harold",
+          "todd",
+          "timothy",
+          "kimberly"
+        ],
+        "actual": [
+          "blaine",
+          "harold",
+          "todd",
+          "timothy",
+          "kimberly"
+        ],
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "id": "SallyAnne/0.def.json",
+        "test": "SallyAnne",
+        "expected": "pantry",
+        "actual": "pantry",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "id": "SallyAnne/1.def.json",
+        "test": "SallyAnne",
+        "expected": "drawer",
+        "actual": "drawer",
+        "correct": true,
+        "attribution": null
+      },
+      {
+        "id": "SallyAnne/2.def.json",
+        "test": "SallyAnne",
+        "expected": "crate",
+        "actual": "crate",
+        "correct": true,
+        "attribution": null
+      }
+    ],
+    "v9_states": [
       {
         "id": "Colours/0.def.json",
         "test": "Colours",
