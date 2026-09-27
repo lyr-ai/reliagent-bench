@@ -70,3 +70,47 @@ GoodAI LTM (instance-level):
 The six existing variants run in the same fresh environment (TypedMem
 0.9.3). Their rows must reproduce the committed results exactly. Any
 difference is reported as a finding about TypedMem 0.9, not absorbed.
+
+---
+
+## Addendum (before running Mode A): the Mode A state-level diagnostic
+
+Added after the two external runs above came out as predicted (65/65, 9/9),
+and **before** Mode A is run with states. Those runs only feed ordered,
+single-source statements, so they can't separate states from keep-both or
+bitemporal baselines. Mode A can: its gold encodes authority vetoes and
+per-type confidence guards.
+
+States make two design choices that differ from Mode A's gold. Both were
+owner decisions in TypedMem design 0002, and they are not bugs:
+
+1. **A later but weaker value opens a conflict**, and `get` returns nothing.
+   Mode A's gold instead expects the stronger earlier value to stay current
+   (a silent veto, transition `ignore`).
+2. **Confidence is not a guard.** States order by validity time and
+   authority only. Mode A's `resolve_by: confidence` types expect a newer
+   but less-confident write to be ignored.
+
+Adapter transitions (frozen): `new→add`, `changed→replace`, `past→keep`,
+`conflict→keep`, `unchanged→ignore`, `scheduled→keep`. The primary metric is
+**state accuracy**; transition accuracy is secondary, because states never
+overwrite and so their vocabulary differs.
+
+Predictions, by scenario (a scenario "fails" if any of its state queries is
+wrong):
+
+| Category | Predicted correct | Predicted to fail | Reason |
+|---|---|---|---|
+| temporal (10) | all 10 | — | validity windows, retroactive, expired, future |
+| known_gap history G-01, G-02, G-03, G-06 | all 4 | — | the queryable past |
+| known_gap G-04, G-05, G-07 | — | current-state queries (→ None); history queries correct | a weaker later value is a conflict, not vetoed |
+| authority (11) | A-02, A-03, A-05, A-09, A-11 | A-01, A-04, A-06, A-07, A-08, A-10 | conflict instead of veto; A-07: a write without provenance gets default authority 1.0 in states, so it *is* defended |
+| typed (11) | C-01, C-04, C-05, C-06, C-08, C-11 | C-02, C-07, C-09; C-03 and C-10 partly | no confidence guard (C-02, C-07); C-09 expects an older write to replace, while states file it in history |
+| control (2), mixed (1) | control 2 | mixed: uncertain | |
+
+- **Corruption rate > 0**, from the confidence-guard cases (C-02, C-07):
+  states let a newer, less-confident write become current where gold says
+  ignore. The authority cases don't count as corruption, because a conflict
+  doesn't displace the current value.
+- If states come out much *better* than this, check the adapter before
+  believing it.
