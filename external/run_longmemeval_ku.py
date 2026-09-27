@@ -26,6 +26,7 @@ sys.path.insert(0, str(HERE / "normalized"))
 from longmemeval_ku_table import T  # noqa: E402
 from reliagent_bench.memory.state_eval.schema import MemoryWrite, Query, Scenario, TypeSemantics  # noqa: E402
 from reliagent_bench.memory.state_eval.typedmem_v4 import TypedMemV4  # noqa: E402
+from reliagent_bench.memory.state_eval.typedmem_states import TypedMemStates  # noqa: E402
 from reliagent_bench.memory.state_eval.v0 import V0Baseline  # noqa: E402
 from reliagent_bench.memory.state_eval.v0_scd import V0SCDBaseline  # noqa: E402
 from reliagent_bench.memory.state_eval.v0_scd_g import V0SCDGuardedBaseline  # noqa: E402
@@ -132,6 +133,7 @@ VARIANTS = [
     ("v4_replace",   lambda: TypedMemV4(),            "replace"),
     ("v4_keep_both", lambda: TypedMemV4(),            "keep_both"),
     ("v4_default",   lambda: TypedMemV4(),            "default"),
+    ("v9_states",    lambda: TypedMemStates(),        "replace"),   # conflict mode ignored by states
 ]
 
 
